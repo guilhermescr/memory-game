@@ -48,6 +48,8 @@ strong {
   font-size: 60px;
   text-shadow: -4px 1px 0px #000;
   text-align: center;
+
+  max-width: 300px;
   padding-block: 20px;
   margin-inline: auto;
 }
@@ -69,7 +71,7 @@ strong {
 
 .start-game #startBtn:hover {
   transform: scale(0.9);
-  transition: transform .5s ease;
+  transition: transform 0.5s ease;
   background-color: rgb(214, 0, 0);
 }
 
