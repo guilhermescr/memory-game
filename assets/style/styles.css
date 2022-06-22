@@ -10,56 +10,84 @@
   padding: 0;
   text-decoration: none;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  list-style: none;
+  list-style-position: inside;
 }
 
 body {
-  background: #efcb00ad url('../images/tournament_of_power_arena.webp') center
+  background: #efcb00ad url('../images/home-background.jpg') center
     no-repeat fixed;
   background-size: cover;
   position: relative;
   overflow: hidden;
 }
 
-strong {
-  color: #000;
-}
-
-.start-game {
-  background-color: #fff;
-  border: 1px solid black;
-  border-radius: 50px;
-
+.game-menu {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 20px;
   padding: 20px 10px;
 
+  height: 100vh;
+  width: 100%;
+
   position: absolute;
   left: 50%;
-  top: 40vh;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   user-select: none;
 }
 
-.start-game h1 {
-  font-family: 'Dragon Ball';
-  font-size: 60px;
-  text-shadow: -4px 1px 0px #000;
+.game-menu h1 {
+  font-size: 50px;
   text-align: center;
-
-  max-width: 300px;
-  padding-block: 20px;
-  margin-inline: auto;
+  text-shadow: 2px 1px 10px rgb(1, 217, 255);
+  margin: 0 auto;
 }
 
-.start-game h2 {
-  font-family: Arial, Helvetica, sans-serif;
-  color: rgb(61, 61, 61);
+.settings {
+  border-radius: 10px;
+  box-shadow: 0px 0px 8px rgba(89, 230, 255, 0.7);
+  background-image: linear-gradient(to bottom, #2F4246, #181D20);
+
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  padding-block: 10px;
+  max-height: 300px;
+  height: 100%;
+  max-width: 400px;
+  width: 100%;
 }
 
-.start-game #startBtn {
+.setting-option {
+  border: 1px solid rgba(89, 230, 255, 0.6);
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px rgba(89, 230, 255, 0.7);
+  background-image: linear-gradient(#091114e8, #060c0e);
+  color: #fff;
+
+  font-size: 20px;
+
+  width: 95%;
+  padding-block: 8px;
+  cursor: pointer;
+}
+
+.setting-option:hover {
+  background-image: linear-gradient(#14899B, #16A4A8);
+}
+
+.setting-option:active {
+  background-image: linear-gradient(#2dcadf, #04a0c7);
+}
+
+.game-menu #startBtn {
   border: 1px solid black;
   border-radius: 50px;
   background-color: #ff9922;
@@ -69,28 +97,17 @@ strong {
   cursor: pointer;
 }
 
-.start-game #startBtn:hover {
+.game-menu #startBtn:hover {
   transform: scale(0.9);
   transition: transform 0.5s ease;
   background-color: rgb(214, 0, 0);
 }
 
-.start-game #startBtn:active {
+.game-menu #startBtn:active {
   background-color: rgb(255, 208, 0);
 }
 
-.start-game #dragon,
-#memory {
-  color: rgb(255, 208, 0);
-}
-
-.start-game #ball,
-#game {
-  color: rgb(214, 0, 0);
-}
-
 .memory-deck {
-  /* turn it to flex */
   display: none;
   flex-wrap: wrap;
   justify-content: center;
@@ -104,6 +121,7 @@ strong {
   height: 640px;
   margin: 0 auto;
   padding-block: 10px;
+  position: relative;
   perspective: 1000px;
 }
 
@@ -159,3 +177,25 @@ strong {
   height: calc(100% + 50px);
   width: calc(100% - 20px);
 }
+
+/* DBZ FONT STYLE 
+
+.start-game h1 {
+  font-family: 'Dragon Ball';
+  font-size: 60px;
+  text-shadow: -4px 1px 0px #000;
+  text-align: center;
+
+  max-width: 300px;
+  padding-block: 20px;
+  margin-inline: auto;
+}
+
+.start-game #dragon {
+  color: rgb(255, 208, 0);
+}
+
+.start-game #ball {
+  color: rgb(214, 0, 0);
+}
+*/

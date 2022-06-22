@@ -1,0 +1,15 @@
+Features:
+Add swap sound effect to the options
+Music Options
+Theme Options
+Restart button
+Button to come back to home
+
+Modules:
+ - Difficulty levels:
+   - Easy = 8 cards
+   - Normal = 14 cards
+   - Hard = 20 cards
+ - Submodules for each theme:
+   - DBZ, Naruto, One Piece etc...
+ - Songs
