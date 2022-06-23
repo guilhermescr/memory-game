@@ -2,7 +2,8 @@
 
 @font-face {
   font-family: 'Dragon Ball';
-  src: url('../fonts/Saiyan-Sans_Right_Oblique.ttf') format('truetype');
+  src: url('../fonts/dragon-ball/Saiyan-Sans_Right_Oblique.ttf')
+    format('truetype');
 }
 
 * {
@@ -16,8 +17,8 @@
 }
 
 body {
-  background: #efcb00ad url('../images/home-background.jpg') center
-    no-repeat fixed;
+  background: #efcb00ad url('../images/home-background.jpg') center no-repeat
+    fixed;
   background-size: cover;
   position: relative;
   overflow: hidden;
@@ -50,7 +51,7 @@ body {
 .settings {
   border-radius: 10px;
   box-shadow: 0px 0px 8px rgba(89, 230, 255, 0.7);
-  background-image: linear-gradient(to bottom, #2F4246, #181D20);
+  background-image: linear-gradient(to bottom, #2f4246, #181d20);
 
   display: flex;
   flex-flow: column wrap;
@@ -80,31 +81,105 @@ body {
 }
 
 .setting-option:hover {
-  background-image: linear-gradient(#14899B, #16A4A8);
+  background-image: linear-gradient(#14899b, #16a4a8);
 }
 
 .setting-option:active {
   background-image: linear-gradient(#2dcadf, #04a0c7);
 }
 
-.game-menu #startBtn {
-  border: 1px solid black;
-  border-radius: 50px;
-  background-color: #ff9922;
-  font-size: 20px;
-  padding: 20px;
-  margin-bottom: 10px;
+/* Themes */
+
+.themes-container {
+  background-color: rgba(17, 17, 17, 0.9);
+  border-radius: 10px;
+
+  display: block;
+  max-width: 700px;
+  width: 100%;
+  height: 470px;
+  padding: 20px 20px;
+
+  position: absolute;
+  left: 50vw;
+  transform: translate(-50%, 20%);
+  z-index: 1000;
+  overflow-y: scroll;
+  user-select: none;
+}
+
+.themes-container h2 {
+  letter-spacing: 0.5px;
+  font-size: 30px;
+}
+
+.themes-container h2,
+.themes-container h3 {
+  color: #fff;
+  text-align: center;
+}
+
+.themes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  height: max-content;
+  position: relative;
+}
+
+.theme {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: column wrap;
+  gap: 20px;
+
+  width: 50%;
+  height: 220px;
+  padding-block: 8px;
+  position: relative;
+}
+
+.theme .theme-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 50%;
+}
+
+.theme .theme-image {
+  width: 100%;
+}
+
+.theme #ben-10 {
+  width: 50%;
+}
+
+.theme h3 {
+  width: 50%;
+  font-size: 22px;
+}
+
+.theme .play-themeBtn {
+  border: 1px solid rgba(89, 230, 255, 0.6);
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px rgba(89, 230, 255, 0.7);
+  background-image: linear-gradient(#016f97e8, #10bb9f);
+  color: #fff;
+
+  font-size: 15px;
+  padding: 8px 10px;
+
   cursor: pointer;
+  transition: .3s ease;
 }
 
-.game-menu #startBtn:hover {
-  transform: scale(0.9);
-  transition: transform 0.5s ease;
-  background-color: rgb(214, 0, 0);
-}
-
-.game-menu #startBtn:active {
-  background-color: rgb(255, 208, 0);
+.theme .play-themeBtn:hover {
+  transform: scale(1.1);
+  background-image: linear-gradient(#243469e8, #1093bb);
 }
 
 .memory-deck {
