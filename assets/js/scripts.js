@@ -19,10 +19,6 @@ settingsOptions.forEach((setting) => {
 });
 // End Switching
 
-const startDiv = document.getElementById('startDiv');
-let startButton = document.getElementById("startBtn");
-
-
 /* Play Test */
 
 function hideStartDiv() {

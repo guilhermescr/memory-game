@@ -152,7 +152,7 @@ svg path {
   position: absolute;
   top: 5%; /* 5% == 24px */
   right: 4%;
-  z-index: 1000;
+  z-index: 10000;
 }
 
 .close-themes-container .close-icon {
@@ -229,6 +229,48 @@ svg path {
 
 /* RANDOM THEMES */
 .random-themes-container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.random-themes {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.random-theme img {
+  border: 2px solid #fff;
+  border-radius: 5px;
+  width: 230px;
+}
+
+.shuffleAnimationStart {
+  animation: shuffleThemeStart .6s linear infinite;
+}
+
+@keyframes shuffleThemeStart {
+  0% {
+    transform: translateX(0%);
+  }
+  20% {
+    transform: translateX(20%);
+  }
+  30% {
+    transform: translateX(30%);
+  }
+  75% {
+    transform: translateX(75%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 /* SOUNDS */

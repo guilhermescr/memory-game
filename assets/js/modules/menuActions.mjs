@@ -1,5 +1,6 @@
 import { playClickEffect } from './effects.mjs';
-import { fillThemes } from './themes.mjs';
+import { fillThemes } from './themesCreation.mjs';
+import { shuffleThemes } from './shuffleThemes.mjs';
 
 const settingsMenus = document.querySelectorAll('.menu');
 const settingsOptions = document.querySelectorAll('.setting-option');
@@ -27,5 +28,8 @@ function closeMenu() {
 
 const playGame = document.getElementById('playBtn');
 playGame.addEventListener('click', fillThemes);
+
+const playRandomTheme = document.getElementById('playRandomThemeBtn');
+playRandomTheme.addEventListener('click', shuffleThemes);
 
 export { settingsOptions, closeMenuButtons, showMenu, closeMenu };
