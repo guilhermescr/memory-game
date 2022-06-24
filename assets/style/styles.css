@@ -252,24 +252,16 @@ svg path {
 }
 
 .shuffleAnimationStart {
-  animation: shuffleThemeStart .6s linear infinite;
+  animation: shuffleThemeStart .4s linear infinite alternate;
 }
 
 @keyframes shuffleThemeStart {
   0% {
-    transform: translateX(0%);
+    transform: translateX(-10%);
   }
-  20% {
-    transform: translateX(20%);
-  }
-  30% {
-    transform: translateX(30%);
-  }
-  75% {
-    transform: translateX(75%);
-  }
+
   100% {
-    transform: translateX(100%);
+    transform: translateX(110%);
   }
 }
 
