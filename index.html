@@ -13,137 +13,163 @@
     <title>Memory Game</title>
   </head>
   <body>
-    <div class="game-menu" id="menu">
+    <div class="game-menu">
       <h1>Memory<br />Game</h1>
       <div class="settings">
-        <button class="setting-option" id="playBtn">Play</button>
-        <button class="setting-option">Random Theme</button>
-        <button class="setting-option">Sounds</button>
-        <button class="setting-option">Credits</button>
+        <button class="setting-option" id="playBtn" data-setting="play-game">
+          Play
+        </button>
+        <button class="setting-option" data-setting="random-theme">Random Theme</button>
+        <button class="setting-option" data-setting="sounds">Sounds</button>
+        <button class="setting-option" data-setting="credits-menu">
+          Credits
+        </button>
       </div>
-
-      <!-- <h2>Please, choose the theme you would like to play:</h2>
-      <ul id="themes-list">
-        <li class="theme">Adventure Time</li>
-        <li class="theme">Ben 10</li>
-        <li class="theme">Boruto</li>
-        <li class="theme">Dragon Ball</li>
-        <li class="theme">Nanatsu No Taizai</li>
-        <li class="theme">Naruto</li>
-        <li class="theme">One Piece</li>
-        <li class="theme">One Punch Man</li>
-      </ul>
-      <button id="startBtn">Click Here to Start</button> -->
     </div>
+    <div class="settings-menu">
+      <div class="themes-container menu" data-setting="play-game">
+        <div class="close-themes-container">
+          <img
+            class="close-icon"
+            src="assets/images/close-icon.png"
+            alt="Close Window Icon"
+          />
+        </div>
+        <h2>Themes</h2>
+        <div class="themes">
+          <div class="theme">
+            <div class="theme-image-container">
+              <img
+                class="theme-image"
+                id="adventure-time"
+                src="assets/images/adventure-time-theme/adventure_time_logo.png"
+                alt="Adventure Time Logo"
+              />
+            </div>
+            <h3>Adventure Time</h3>
+            <button class="play-themeBtn">Play Theme</button>
+          </div>
 
-    <div class="themes-container">
-      <div class="close-themes-container">
-        <img class="close-icon" src="assets/images/close-icon.png" alt="Close Window Icon">
+          <div class="theme">
+            <div class="theme-image-container">
+              <img
+                class="theme-image"
+                id="ben-10"
+                src="assets/images/ben-10-theme/ben-10-logo.webp"
+                alt="Ben 10 Logo"
+              />
+            </div>
+            <h3>Ben 10</h3>
+            <button class="play-themeBtn">Play Theme</button>
+          </div>
+
+          <div class="theme">
+            <div class="theme-image-container">
+              <img
+                class="theme-image"
+                id="boruto"
+                src="assets/images/boruto-theme/boruto-logo.png"
+                alt="Boruto Logo"
+              />
+            </div>
+            <h3>Boruto</h3>
+            <button class="play-themeBtn">Play Theme</button>
+          </div>
+
+          <div class="theme">
+            <div class="theme-image-container">
+              <img
+                class="theme-image"
+                id="dragon-ball"
+                src="assets/images/db-theme/dragon-ball-logo.png"
+                alt="Dragon Ball Logo"
+              />
+            </div>
+            <h3>Dragon Ball</h3>
+            <button class="play-themeBtn">Play Theme</button>
+          </div>
+
+          <div class="theme">
+            <div class="theme-image-container">
+              <img
+                class="theme-image"
+                id="nanatsu-no-taizai"
+                src="assets/images/nanatsu-no-taizai-theme/nnt-logo.png"
+                alt="Nanatsu No Taizai Logo"
+              />
+            </div>
+            <h3>Nanatsu No Taizai</h3>
+            <button class="play-themeBtn">Play Theme</button>
+          </div>
+
+          <div class="theme">
+            <div class="theme-image-container">
+              <img
+                class="theme-image"
+                id="naruto"
+                src="assets/images/naruto-theme/naruto-logo.png"
+                alt="Naruto Logo"
+              />
+            </div>
+            <h3>Naruto</h3>
+            <button class="play-themeBtn">Play Theme</button>
+          </div>
+
+          <div class="theme">
+            <div class="theme-image-container">
+              <img
+                class="theme-image"
+                id="one-piece"
+                src="assets/images/one-piece/one-piece-logo.png"
+                alt="One Piece Logo"
+              />
+            </div>
+            <h3>One Piece</h3>
+            <button class="play-themeBtn">Play Theme</button>
+          </div>
+
+          <div class="theme">
+            <div class="theme-image-container">
+              <img
+                class="theme-image"
+                id="opm"
+                src="assets/images/one-punch-man-theme/opm-logo.png"
+                alt="One Punch Man Logo"
+              />
+            </div>
+            <h3>One Punch Man</h3>
+            <button class="play-themeBtn">Play Theme</button>
+          </div>
+        </div>
       </div>
-      <h2>Themes</h2>
-      <div class="themes">
-        <div class="theme">
-          <div class="theme-image-container">
-            <img
-              class="theme-image"
-              id="adventure-time"
-              src="assets/images/adventure-time-theme/adventure_time_logo.png"
-              alt="Adventure Time Logo"
-            />
-          </div>
-          <h3>Adventure Time</h3>
-          <button class="play-themeBtn">Play Theme</button>
-        </div>
 
-        <div class="theme">
-          <div class="theme-image-container">
-            <img
-              class="theme-image"
-              id="ben-10"
-              src="assets/images/ben-10-theme/ben-10-logo.webp"
-              alt="Ben 10 Logo"
-            />
-          </div>
-          <h3>Ben 10</h3>
-          <button class="play-themeBtn">Play Theme</button>
+      <div class="random-themes menu" data-setting="random-theme">
+        <div class="close-themes-container">
+          <img
+            class="close-icon"
+            src="assets/images/close-icon.png"
+            alt="Close Window Icon"
+          />
         </div>
+      </div>
 
-        <div class="theme">
-          <div class="theme-image-container">
-            <img
-              class="theme-image"
-              id="boruto"
-              src="assets/images/boruto-theme/boruto-logo.png"
-              alt="Boruto Logo"
-            />
-          </div>
-          <h3>Boruto</h3>
-          <button class="play-themeBtn">Play Theme</button>
+      <div class="sounds menu" data-setting="sounds">
+        <div class="close-themes-container">
+          <img
+            class="close-icon"
+            src="assets/images/close-icon.png"
+            alt="Close Window Icon"
+          />
         </div>
+      </div>
 
-        <div class="theme">
-          <div class="theme-image-container">
-            <img
-              class="theme-image"
-              id="dragon-ball"
-              src="assets/images/db-theme/dragon-ball-logo.png"
-              alt="Dragon Ball Logo"
-            />
-          </div>
-          <h3>Dragon Ball</h3>
-          <button class="play-themeBtn">Play Theme</button>
-        </div>
-
-        <div class="theme">
-          <div class="theme-image-container">
-            <img
-              class="theme-image"
-              id="nanatsu-no-taizai"
-              src="assets/images/nanatsu-no-taizai-theme/nnt-logo.png"
-              alt="Nanatsu No Taizai Logo"
-            />
-          </div>
-          <h3>Nanatsu No Taizai</h3>
-          <button class="play-themeBtn">Play Theme</button>
-        </div>
-
-        <div class="theme">
-          <div class="theme-image-container">
-            <img
-              class="theme-image"
-              id="naruto"
-              src="assets/images/naruto-theme/naruto-logo.png"
-              alt="Naruto Logo"
-            />
-          </div>
-          <h3>Naruto</h3>
-          <button class="play-themeBtn">Play Theme</button>
-        </div>
-
-        <div class="theme">
-          <div class="theme-image-container">
-            <img
-              class="theme-image"
-              id="one-piece"
-              src="assets/images/one-piece/one-piece-logo.png"
-              alt="One Piece Logo"
-            />
-          </div>
-          <h3>One Piece</h3>
-          <button class="play-themeBtn">Play Theme</button>
-        </div>
-
-        <div class="theme">
-          <div class="theme-image-container">
-            <img
-              class="theme-image"
-              id="opm"
-              src="assets/images/one-punch-man-theme/opm-logo.png"
-              alt="One Punch Man Logo"
-            />
-          </div>
-          <h3>One Punch Man</h3>
-          <button class="play-themeBtn">Play Theme</button>
+      <div class="credits menu" data-setting="credits-menu">
+        <div class="close-themes-container">
+          <img
+            class="close-icon"
+            src="assets/images/close-icon.png"
+            alt="Close Window Icon"
+          />
         </div>
       </div>
     </div>

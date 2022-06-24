@@ -1,25 +1,35 @@
-const playGameBtn = document.getElementById('playBtn');
-const themes = document.querySelector('.themes-container');
-const closeThemesBtn = document.querySelector('.close-icon');
+// Settings Menu
+const settingsOptions = document.querySelectorAll('.setting-option');
+const settingsMenus = document.querySelectorAll('.menu');
+const closeMenuButtons = document.querySelectorAll('.close-icon');
+
+function showMenu() {
+  for (let i = 0; i < settingsOptions.length; i++) {
+    if (this.dataset.setting == settingsMenus[i].dataset.setting) {
+      settingsMenus[i].classList.add('show');
+    }
+  }
+}
+
+function closeMenu() {
+  settingsMenus.forEach((menu) => {
+    if (menu.classList.contains('show')) {
+      menu.classList.remove('show');
+    }
+  });
+}
+
+settingsOptions.forEach((setting) => {
+  setting.addEventListener('click', showMenu);
+});
+closeMenuButtons.forEach((button) => {
+  button.addEventListener('click', closeMenu);
+});
+/* Settings' end */
+
 const startDiv = document.getElementById('startDiv');
 let startButton = document.getElementById("startBtn");
 
-/* Play Test */
-
-playGameBtn.addEventListener('click', showThemes);
-closeThemesBtn.addEventListener('click', closeThemes);
-
-function showThemes() {
-  themes.style.display = '';
-  setTimeout(() => {
-    themes.classList.add('show');
-  }, 10);
-}
-
-function closeThemes() {
-  themes.style.display = 'none';
-  themes.classList.remove('show');
-}
 
 /* Play Test */
 
@@ -91,5 +101,3 @@ function startGame() {
 
   cards.forEach(card => card.addEventListener('click', flipCard));
 }
-
-startButton.addEventListener('click', startGame);

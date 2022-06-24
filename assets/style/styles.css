@@ -28,7 +28,24 @@ body {
 .show {
   transform: translate(-50%, 20%) scale(1) !important;
   transition: transform 0.4s ease;
-} /*bring it back if it gets worse*/
+}
+
+.menu {
+  background-color: rgba(17, 17, 17, 0.9);
+  border-radius: 10px;
+
+  display: block;
+  max-width: 700px;
+  width: 100%;
+  height: 470px;
+  padding: 20px 20px;
+
+  position: absolute;
+  left: 50vw;
+  z-index: 1000;
+  user-select: none;
+  transform: translate(-50%, 20%) scale(0);
+}
 
 /* GAME MENU */
 .game-menu {
@@ -113,21 +130,7 @@ body {
 
 /* THEMES */
 .themes-container {
-  background-color: rgba(17, 17, 17, 0.9);
-  border-radius: 10px;
-
-  display: block;
-  max-width: 700px;
-  width: 100%;
-  height: 470px;
-  padding: 20px 20px;
-
-  position: absolute;
-  left: 50vw;
-  transform: translate(-50%, 20%) scale(0);
-  z-index: 1000;
   overflow-y: scroll;
-  user-select: none;
 }
 
 .close-themes-container {
@@ -220,7 +223,12 @@ body {
   background-image: linear-gradient(#1a7fd1e8, #048cb6);
 }
 
-/* Base Deck */
+/* CREDITS */
+.credits {
+  overflow: hidden;
+}
+
+/* BASE DECK */
 .memory-deck {
   display: none;
   flex-wrap: wrap;
