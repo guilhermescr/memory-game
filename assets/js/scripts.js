@@ -1,5 +1,27 @@
+const playGameBtn = document.getElementById('playBtn');
+const themes = document.querySelector('.themes-container');
+const closeThemesBtn = document.querySelector('.close-icon');
 const startDiv = document.getElementById('startDiv');
 let startButton = document.getElementById("startBtn");
+
+/* Play Test */
+
+playGameBtn.addEventListener('click', showThemes);
+closeThemesBtn.addEventListener('click', closeThemes);
+
+function showThemes() {
+  themes.style.display = '';
+  setTimeout(() => {
+    themes.classList.add('show');
+  }, 10);
+}
+
+function closeThemes() {
+  themes.style.display = 'none';
+  themes.classList.remove('show');
+}
+
+/* Play Test */
 
 function hideStartDiv() {
   const memoryDeck = document.getElementById('deck');

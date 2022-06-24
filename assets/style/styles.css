@@ -1,3 +1,4 @@
+/* GENERAL SETTINGS */
 @charset "UTF-8";
 
 @font-face {
@@ -24,6 +25,12 @@ body {
   overflow: hidden;
 }
 
+.show {
+  transform: translate(-50%, 20%) scale(1) !important;
+  transition: transform 0.4s ease;
+} /*bring it back if it gets worse*/
+
+/* GAME MENU */
 .game-menu {
   display: flex;
   flex-direction: column;
@@ -48,6 +55,7 @@ body {
   margin: 0 auto;
 }
 
+/* GAME SETTINGS OPTIONS */
 .settings {
   border-radius: 10px;
   box-shadow: 0px 0px 8px rgba(89, 230, 255, 0.7);
@@ -88,8 +96,22 @@ body {
   background-image: linear-gradient(#2dcadf, #04a0c7);
 }
 
-/* Themes */
+/* THEMES SCROLL */
+.themes-container::-webkit-scrollbar {
+  width: 12px;
+}
 
+.themes-container::-webkit-scrollbar-track {
+  background: #292929;
+}
+
+.themes-container::-webkit-scrollbar-thumb {
+  background-color: #10bb9f;
+  border-radius: 20px;
+  border: 2px solid #0e0e0e;
+}
+
+/* THEMES */
 .themes-container {
   background-color: rgba(17, 17, 17, 0.9);
   border-radius: 10px;
@@ -102,10 +124,22 @@ body {
 
   position: absolute;
   left: 50vw;
-  transform: translate(-50%, 20%);
+  transform: translate(-50%, 20%) scale(0);
   z-index: 1000;
   overflow-y: scroll;
   user-select: none;
+}
+
+.close-themes-container {
+  position: absolute;
+  top: 24px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.close-themes-container .close-icon {
+  width: 20px;
+  cursor: pointer;
 }
 
 .themes-container h2 {
@@ -138,7 +172,7 @@ body {
 
   width: 50%;
   height: 220px;
-  padding-block: 8px;
+  padding-block: 10px;
   position: relative;
 }
 
@@ -174,7 +208,7 @@ body {
   padding: 8px 10px;
 
   cursor: pointer;
-  transition: .3s ease;
+  transition: 0.3s ease;
 }
 
 .theme .play-themeBtn:hover {
@@ -182,6 +216,11 @@ body {
   background-image: linear-gradient(#243469e8, #1093bb);
 }
 
+.theme .play-themeBtn:active {
+  background-image: linear-gradient(#1a7fd1e8, #048cb6);
+}
+
+/* Base Deck */
 .memory-deck {
   display: none;
   flex-wrap: wrap;
