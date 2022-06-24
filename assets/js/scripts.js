@@ -1,31 +1,23 @@
-// Settings Menu
-const settingsOptions = document.querySelectorAll('.setting-option');
-const settingsMenus = document.querySelectorAll('.menu');
-const closeMenuButtons = document.querySelectorAll('.close-icon');
-
-function showMenu() {
-  for (let i = 0; i < settingsOptions.length; i++) {
-    if (this.dataset.setting == settingsMenus[i].dataset.setting) {
-      settingsMenus[i].classList.add('show');
-    }
-  }
-}
-
-function closeMenu() {
-  settingsMenus.forEach((menu) => {
-    if (menu.classList.contains('show')) {
-      menu.classList.remove('show');
-    }
-  });
-}
+import { playSwapEffect, stopSwapEffect } from "./modules/effects.mjs";
+import { closeMenuButtons } from "./modules/menuActions.mjs";
+import { showMenu, closeMenu } from "./modules/menuActions.mjs";
+import { settingsOptions } from "./modules/menuActions.mjs";
 
 settingsOptions.forEach((setting) => {
   setting.addEventListener('click', showMenu);
 });
-closeMenuButtons.forEach((button) => {
-  button.addEventListener('click', closeMenu);
+closeMenuButtons.forEach((closeButton) => {
+  closeButton.addEventListener('click', closeMenu);
 });
-/* Settings' end */
+
+settingsOptions.forEach((setting) => {
+  setting.addEventListener('mouseenter', playSwapEffect);
+});
+
+settingsOptions.forEach((setting) => {
+  setting.addEventListener('mouseleave', stopSwapEffect);
+});
+// End Switching
 
 const startDiv = document.getElementById('startDiv');
 let startButton = document.getElementById("startBtn");
