@@ -245,23 +245,30 @@ svg path {
   overflow: hidden;
 }
 
+.random-theme {
+  text-align: center;
+}
+
 .random-theme img {
-  border: 2px solid #fff;
   border-radius: 5px;
-  width: 230px;
+  width: 240px !important;
+}
+
+.random-theme img#ben-10 {
+  width: 60% !important;
 }
 
 .shuffleAnimationStart {
-  animation: shuffleThemeStart .4s linear infinite alternate;
+  animation: shuffleThemeStart .5s linear infinite alternate;
 }
 
 @keyframes shuffleThemeStart {
   0% {
-    transform: translateX(-10%);
+    transform: translateX(0%);
   }
 
   100% {
-    transform: translateX(110%);
+    transform: translateX(100%);
   }
 }
 

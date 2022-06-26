@@ -1,4 +1,4 @@
-import { playSwapEffect, stopSwapEffect } from "./modules/effects.mjs";
+import { playSwapEffect, stopSwapEffect } from "./modules/m-audio/effects.mjs";
 import { closeMenuButtons } from "./modules/menuActions.mjs";
 import { showMenu, closeMenu } from "./modules/menuActions.mjs";
 import { settingsOptions } from "./modules/menuActions.mjs";

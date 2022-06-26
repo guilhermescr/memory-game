@@ -1,6 +1,7 @@
-import { playClickEffect } from './effects.mjs';
+import { playClickEffect } from './m-audio/effects.mjs';
 import { fillThemes } from './themesCreation.mjs';
-import { shuffleThemes } from './shuffleThemes.mjs';
+import { shuffleRandomThemes } from './randomThemes/shuffleRandomThemes.mjs';
+import { fillRandomThemes } from './randomThemes/fillRandomThemes.mjs';
 
 const settingsMenus = document.querySelectorAll('.menu');
 const settingsOptions = document.querySelectorAll('.setting-option');
@@ -29,7 +30,10 @@ function closeMenu() {
 const playGame = document.getElementById('playBtn');
 playGame.addEventListener('click', fillThemes);
 
-const playRandomTheme = document.getElementById('playRandomThemeBtn');
-playRandomTheme.addEventListener('click', shuffleThemes);
+const playRandomThemesBtn = document.getElementById('playRandomThemesBtn');
+playRandomThemesBtn.addEventListener('click', fillRandomThemes);
+
+const shuffleThemesBtn = document.getElementById('playRandomThemeBtn');
+shuffleThemesBtn.addEventListener('click', shuffleRandomThemes);
 
 export { settingsOptions, closeMenuButtons, showMenu, closeMenu };

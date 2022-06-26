@@ -19,7 +19,7 @@
         <button class="setting-option" id="playBtn" data-setting="play-game">
           Play
         </button>
-        <button class="setting-option" data-setting="random-theme">
+        <button class="setting-option" id="playRandomThemesBtn" data-setting="random-theme">
           Random Theme
         </button>
         <button class="setting-option" data-setting="sounds">Sounds</button>
@@ -51,41 +51,8 @@
         </div>
 
         <h2>Random Themes</h2>
-        <div class="random-themes">
-          <div class="random-theme">
-            <img
-              src="assets/images/adventure-time-theme/adventure_time_logo.png"
-              alt="Naruto"
-            />
-          </div>
-
-          <div class="random-theme">
-            <img
-              src="assets/images/naruto-theme/naruto-logo.png"
-              alt="Naruto"
-            />
-          </div>
-
-          <div class="random-theme">
-            <img
-              src="assets/images/nanatsu-no-taizai-theme/nnt-logo.png"
-              alt="Naruto"
-            />
-          </div>
-
-          <div class="random-theme">
-            <img
-              src="assets/images/boku-no-hero-theme/boku-no-hero-logo.png"
-              alt="Naruto"
-            />
-          </div>
-
-          <div class="random-theme">
-            <img
-              src="assets/images/db-theme/dragon-ball-logo.png"
-              alt="Naruto"
-            />
-          </div>
+        <div class="random-themes" id="random-themes-images">
+          <div class="random-theme"></div>
         </div>
         <button class="play-themeBtn" id="playRandomThemeBtn">Play Theme</button>
       </div>
@@ -193,8 +160,8 @@
       Your browser doesn't support the audio element.
     </audio>
     <audio id="click-setting-effect">
-      <source src="assets/audio/effects/click-effect.mp3" type="audio/mpeg" />
-      <source src="assets/audio/effects/click-effect.ogg" type="audio/ogg" />
+      <source src="assets/audio/effects/mouse-click-effect.mp3" type="audio/mpeg" />
+      <source src="assets/audio/effects/mouse-click-effect.ogg" type="audio/ogg" />
       Your browser doesn't support the audio element.
     </audio>
 
