@@ -1,4 +1,4 @@
-import { themes } from '../m-themes/themesList.mjs';
+import { themes, themesKeys } from '../m-themes/themesList.mjs';
 
 let lockCreation = false;
 
@@ -6,9 +6,11 @@ function fillRandomThemes() {
   if (lockCreation) return;
 
   const randomThemesContainer = document.getElementById('random-themes-images');
-  let randomThemesLogo = Object.values(themes);
+  let randomThemesLogo = [];
 
-  for (let i = 0; i < randomThemesLogo.length; i++) {
+  for (let i = 0; i < themesKeys.length; i++) {
+    randomThemesLogo.push(themes[themesKeys[i]].logo);
+
     let randomTheme = document.createElement('div');
     randomTheme.classList.add('random-theme');
     randomTheme.innerHTML = `${randomThemesLogo[i]}`;

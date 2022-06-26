@@ -9,14 +9,16 @@ function fillThemes() {
   if (lockCreation) return;
 
   let themesContainer = document.getElementById('themesContainer');
-  let themesContent = Object.values(themes);
+  let randomThemesLogo = [];
 
   for (let i = 0; i < themesNames.length; i++) {
+    randomThemesLogo.push(themes[themesKeys[i]].logo);
+
     let theme = document.createElement('div');
     theme.classList.add('theme');
     theme.innerHTML = `
     <div class="theme-image-container">
-      ${themesContent[i]}
+      ${randomThemesLogo[i]}
     </div>
     <h3>${themesNames[i]}</h3>
     <button class="play-themeBtn choosable-theme" data-themeid="${themesKeys[i]}">Play Theme</button>
