@@ -1,10 +1,11 @@
 import { themes, themesNames} from './themesList.mjs';
 import { themesKeys } from './themesList.mjs';
-import { showDifficulties } from './themesDifficulty.mjs';
+import { resetStyles, loadPlayButtons } from './themesDifficulty.mjs';
 
 let lockCreation = false;
 
 function fillThemes() {
+  resetStyles();
   if (lockCreation) return;
 
   let themesContainer = document.getElementById('themesContainer');
@@ -24,7 +25,7 @@ function fillThemes() {
   }
 
   lockCreation = true;
-  showDifficulties();
+  loadPlayButtons();
 }
 
 export { fillThemes };

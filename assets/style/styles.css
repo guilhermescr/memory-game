@@ -36,10 +36,6 @@ h3 {
   text-align: center;
 }
 
-svg path {
-  fill: #fff;
-}
-
 .show {
   transform: translate(-50%, 15%) scale(1) !important;
   transition: transform 0.4s ease;
@@ -160,6 +156,19 @@ svg path {
   cursor: pointer;
 }
 
+.return-themes-container {
+  position: absolute;
+  top: 3%;
+  left: 20px;
+  z-index: 10000;
+}
+
+.return-themes-container svg {
+  display: none;
+  cursor: pointer;
+  fill: #F44336;
+}
+
 .themes {
   display: flex;
   flex-wrap: wrap;
@@ -178,7 +187,7 @@ svg path {
   gap: 20px;
 
   width: 50%;
-  height: 220px;
+  height: 230px;
   padding-block: 10px;
   position: relative;
 }
@@ -225,6 +234,43 @@ svg path {
 
 .play-themeBtn:active {
   background-image: linear-gradient(#1a7fd1e8, #048cb6);
+}
+
+/* Difficulties */
+.difficulties-container {
+  display: none;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+
+  margin-top: 80px;
+  width: 100%;
+}
+
+.difficulty-level {
+  box-shadow: 0px 0px 22px #048cb6;
+  border: none;
+  background-image: linear-gradient(#20BF55, #01BAEF);
+  color: #fff;
+  font-size: 25px;
+
+  padding-block: 5px;
+  max-width: 300px;
+  width: 100%;
+
+  cursor: pointer;
+}
+
+.difficulty-level:hover {
+  transform: scale(0.95);
+  transition: transform .3s ease-out;
+  background-image: linear-gradient(#1aa548, #048db3);
+  color: #fef;
+}
+
+.difficulty-level:active {
+  background-image: linear-gradient(#20bf55c5, #00a1ce);
 }
 
 /* RANDOM THEMES */
@@ -333,6 +379,7 @@ svg path {
 
 .credits-info .social > div > svg {
   width: 15%;
+  fill: #fff;
 }
 
 .credits-info .social .social-links {
@@ -446,6 +493,11 @@ svg path {
 
   .themes {
     flex-direction: column;
+  }
+
+  #themes-title {
+    max-width: 160px;
+    margin: 0 auto;
   }
 
   .theme .theme-image-container {
