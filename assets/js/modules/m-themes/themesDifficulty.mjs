@@ -1,6 +1,9 @@
+import { registerThemesId } from './themesCards.mjs';
+
 let themesContainer = document.getElementById('themesContainer');
 let themesTitle = document.getElementById('themes-title');
 const difficultiesContainer = document.getElementsByClassName('difficulties-container')[0];
+const difficultyButtons = document.querySelectorAll('.difficulty-level');
 const returnIcons = document.getElementsByClassName('return-icon')[0];
 
 function resetStyles() {
@@ -22,7 +25,26 @@ function loadPlayButtons() {
   const playThemesBtns = document.querySelectorAll('.choosable-theme');
   playThemesBtns.forEach(playButton => {
     playButton.addEventListener('click', showDifficulties);
+    registerThemesId(playButton.dataset.themeid);
   });
 }
+
+function checkDifficulty() {
+  if (this.innerHTML == 'Easy') {
+    console.log('Easy');
+  }
+
+  if (this.innerHTML == 'Normal') {
+    console.log('Normal');
+  }
+
+  if (this.innerHTML == 'Hard') {
+    console.log('Hard');
+  }
+}
+
+difficultyButtons.forEach((button) => {
+  button.addEventListener('click', checkDifficulty);
+});
 
 export { resetStyles, loadPlayButtons };

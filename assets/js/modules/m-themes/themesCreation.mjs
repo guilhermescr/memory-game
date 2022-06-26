@@ -19,7 +19,7 @@ function fillThemes() {
       ${themesContent[i]}
     </div>
     <h3>${themesNames[i]}</h3>
-    <button class="play-themeBtn choosable-theme" data-themeId="${themesKeys[i]}">Play Theme</button>
+    <button class="play-themeBtn choosable-theme" data-themeid="${themesKeys[i]}">Play Theme</button>
     `;
     themesContainer.appendChild(theme);
   }
