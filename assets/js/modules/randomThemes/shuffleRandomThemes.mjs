@@ -9,19 +9,18 @@ function resetThemeStyles(theme, middle_Theme) {
 }
 
 function shuffleRandomThemes() {
-  // This allows you to shuffle only once
-  // if (isShuffling) return;
-  // isShuffling = true;
+  if (isShuffling) return;
+  isShuffling = true;
   const randomThemes = document.querySelectorAll('.random-theme');
 
   let isMiddleTheme = true;
   let middleTheme = '';
+  
   middleTheme = randomThemes[Math.floor(Math.random() * (randomThemes.length - 1))];
 
-  while (middleTheme == chosenTheme || middleTheme.style.width === 0 || middleTheme.style.height === 0 || middleTheme.length === 0) {
+  while (middleTheme == chosenTheme) {
     middleTheme = randomThemes[Math.floor(Math.random() * (randomThemes.length - 1))];
   }
-  middleTheme.style.width = '240px';
   chosenTheme = middleTheme;
 
   randomThemes.forEach((theme) => {
@@ -43,6 +42,7 @@ function shuffleRandomThemes() {
       clearInterval(shufflePositions);
 
       if (isMiddleTheme) {
+        theme.style.width = '240px !important';
         middleTheme.style.order = 2;
         middleTheme.classList.add('middle-theme');
         isMiddleTheme = false;

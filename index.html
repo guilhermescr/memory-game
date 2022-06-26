@@ -19,7 +19,11 @@
         <button class="setting-option" id="playBtn" data-setting="play-game">
           Play
         </button>
-        <button class="setting-option" id="playRandomThemesBtn" data-setting="random-theme">
+        <button
+          class="setting-option"
+          id="playRandomThemesBtn"
+          data-setting="random-theme"
+        >
           Random Theme
         </button>
         <button class="setting-option" data-setting="sounds">Sounds</button>
@@ -39,6 +43,11 @@
         </div>
         <h2>Themes</h2>
         <div class="themes" id="themesContainer"></div>
+        <div class="difficulty">
+          <button class="difficulty-level">Easy</button>
+          <button class="difficulty-level">Normal</button>
+          <button class="difficulty-level">Hard</button>
+        </div>
       </div>
 
       <div class="random-themes-container menu" data-setting="random-theme">
@@ -54,7 +63,9 @@
         <div class="random-themes" id="random-themes-images">
           <div class="random-theme"></div>
         </div>
-        <button class="play-themeBtn" id="playRandomThemeBtn">Play Theme</button>
+        <button class="play-themeBtn" id="playRandomThemeBtn">
+          Play Theme
+        </button>
       </div>
 
       <div class="sounds menu" data-setting="sounds">
@@ -160,8 +171,14 @@
       Your browser doesn't support the audio element.
     </audio>
     <audio id="click-setting-effect">
-      <source src="assets/audio/effects/mouse-click-effect.mp3" type="audio/mpeg" />
-      <source src="assets/audio/effects/mouse-click-effect.ogg" type="audio/ogg" />
+      <source
+        src="assets/audio/effects/mouse-click-effect.mp3"
+        type="audio/mpeg"
+      />
+      <source
+        src="assets/audio/effects/mouse-click-effect.ogg"
+        type="audio/ogg"
+      />
       Your browser doesn't support the audio element.
     </audio>
 

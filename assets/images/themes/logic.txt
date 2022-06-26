@@ -1,0 +1,5 @@
+If the user wants to play Easy Mode, he'll play with 8 cards.
+
+If the user wants to play Normal Mode, he'll play with easy cards + 3 sets of cards from Normal Mode.
+
+If the user wants to play Hard Mode, he'll play with easy cards + normal cards + 3 sets of cards from Hard Mode.

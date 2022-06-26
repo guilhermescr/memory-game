@@ -1,4 +1,4 @@
-import { themes } from '../themesList.mjs';
+import { themes } from '../m-themes/themesList.mjs';
 
 let lockCreation = false;
 
