@@ -1,23 +1,21 @@
 let isShuffling = false;
-let isMiddleTheme = true;
 
 function resetThemeStyles(theme, middle_Theme) {
+  theme.classList.remove('middle-theme');
   theme.style.display = 'block';
-  theme.style.order = 0;
-  middle_Theme.style.order = 0;
-  middle_Theme.classList.remove('middle-theme');
-  console.log('Chamando Reset Function!');
+  theme.style.order = '';
+  middle_Theme.style.order = '';
 }
 
 function shuffleRandomThemes() {
   // This allows you to shuffle only once
   // if (isShuffling) return;
   // isShuffling = true;
+  const randomThemes = document.querySelectorAll('.random-theme');
 
-  let randomThemes = document.querySelectorAll('.random-theme');
-
-  
-  const middleTheme = randomThemes[Math.floor(Math.random() * (randomThemes.length - 1))];
+  let isMiddleTheme = true;
+  let middleTheme = '';
+  middleTheme = randomThemes[Math.floor(Math.random() * (randomThemes.length - 1))];
 
   randomThemes.forEach((theme) => {
     resetThemeStyles(theme, middleTheme);
