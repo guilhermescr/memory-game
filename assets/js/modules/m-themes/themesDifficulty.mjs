@@ -1,5 +1,3 @@
-import { registerThemesId } from './themesCards.mjs';
-
 let themesContainer = document.getElementById('themesContainer');
 let themesTitle = document.getElementById('themes-title');
 const difficultiesContainer = document.getElementsByClassName('difficulties-container')[0];
@@ -14,6 +12,9 @@ function resetStyles() {
 }
 
 function showDifficulties() {
+  // Clicked button dataset
+  console.log(this.dataset.themeid);
+
   themesContainer.style.display = 'none';
   themesTitle.innerHTML = 'Select your Difficulty';
   difficultiesContainer.style.display = 'flex';
@@ -25,7 +26,6 @@ function loadPlayButtons() {
   const playThemesBtns = document.querySelectorAll('.choosable-theme');
   playThemesBtns.forEach(playButton => {
     playButton.addEventListener('click', showDifficulties);
-    registerThemesId(playButton.dataset.themeid);
   });
 }
 
