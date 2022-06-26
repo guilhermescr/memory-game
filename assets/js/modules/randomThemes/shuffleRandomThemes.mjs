@@ -18,9 +18,10 @@ function shuffleRandomThemes() {
   let middleTheme = '';
   middleTheme = randomThemes[Math.floor(Math.random() * (randomThemes.length - 1))];
 
-  while (middleTheme == chosenTheme) {
+  while (middleTheme == chosenTheme || middleTheme.style.width === 0 || middleTheme.style.height === 0 || middleTheme.length === 0) {
     middleTheme = randomThemes[Math.floor(Math.random() * (randomThemes.length - 1))];
   }
+  middleTheme.style.width = '240px';
   chosenTheme = middleTheme;
 
   randomThemes.forEach((theme) => {
@@ -40,11 +41,6 @@ function shuffleRandomThemes() {
     setTimeout(() => {
       theme.classList.remove('shuffleAnimationStart');
       clearInterval(shufflePositions);
-
-      if (middleTheme.style.width === 0 || middleTheme.style.height === 0) {
-        alert('Oops! Please, try again. Our system broke.');
-        return;
-      }
 
       if (isMiddleTheme) {
         middleTheme.style.order = 2;
