@@ -26,10 +26,16 @@ function startGame() {
   }
   
   function checkForMatch() {
-    // You need to get the dataset from the images IN first/secondCard !!!
-    // That's why it returns undefined!
-    let isMatch = firstCard.dataset.character === secondCard.dataset.character;
-    isMatch ? disableCards() : unflipCards();
+    // These two lines take the back-face images
+    let firstCardDataset = firstCard.childNodes[3];
+    let secondCardDataset = secondCard.childNodes[3];
+
+    let isMatch = firstCardDataset.dataset.character === secondCardDataset.dataset.character;
+    if (isMatch) {
+      disableCards();
+    } else {
+      unflipCards();
+    }
   }
   
   function disableCards() {
