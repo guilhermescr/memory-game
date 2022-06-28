@@ -1,16 +1,16 @@
 const themes = {
 AdventureTime: {
   logo: `<img class="theme-image cartoon" 
-  src="assets/images/themes/adventure-time-theme/adventure_time_logo.png" alt="Adventure Time Logo"  >`,
+  src="assets/images/themes/adventure-time-theme/adventure_time_logo.png" alt="Adventure Time Logo">`,
 
   easy: {
-    Finn: `<img class="back-face" src="assets/images/themes/adventure-time-theme/easy/finn.png" alt="Finn Character">`,
+    Finn: `<img class="back-face" src="assets/images/themes/adventure-time-theme/easy/finn.png" alt="Finn Character" data-character="Finn">`,
 
-    Jake: `<img class="back-face" src="assets/images/themes/adventure-time-theme/easy/jake.png" alt="Jake Character">`,
+    Jake: `<img class="back-face" src="assets/images/themes/adventure-time-theme/easy/jake.png" alt="Jake Character" data-character="Jake">`,
 
-    PrincessBubblegum: `<img class="back-face" src="assets/images/themes/adventure-time-theme/easy/princess-bubblegum.png" alt="Princess Bubblegum Character">`,
+    PrincessBubblegum: `<img class="back-face" src="assets/images/themes/adventure-time-theme/easy/princess-bubblegum.png" alt="Princess Bubblegum Character" data-character="PrincessBubblegum">`,
 
-    BMO: `<img class="back-face" src="assets/images/themes/adventure-time-theme/easy/bmo.png" alt="BMO Character">`,
+    BMO: `<img class="back-face" src="assets/images/themes/adventure-time-theme/easy/bmo.png" alt="BMO Character" data-character="BMO">`,
   },
 
   normal: {
@@ -34,7 +34,7 @@ AdventureTime: {
 
 Ben10: {
   logo: `<img class="theme-image" id="ben-10" 
-  src="assets/images/themes/ben-10-theme/ben-10-logo.webp" alt="Ben 10 Logo"  >`,
+  src="assets/images/themes/ben-10-theme/ben-10-logo.webp" alt="Ben 10 Logo">`,
 
   easy: ``,
 
@@ -47,7 +47,7 @@ Ben10: {
 
 BokuNoHero: {
   logo: `<img class="theme-image anime" 
-  src="assets/images/themes/boku-no-hero-theme/boku-no-hero-logo.png" alt="Boku No Hero Logo"  >`,
+  src="assets/images/themes/boku-no-hero-theme/boku-no-hero-logo.png" alt="Boku No Hero Logo">`,
 
   easy: ``,
 
@@ -60,7 +60,7 @@ BokuNoHero: {
 
 Boruto: {
   logo: `<img class="theme-image anime" 
-  src="assets/images/themes/boruto-theme/boruto-logo.png" alt="Boruto Logo"  >`,
+  src="assets/images/themes/boruto-theme/boruto-logo.png" alt="Boruto Logo">`,
 
   easy: ``,
 
@@ -73,7 +73,7 @@ Boruto: {
 
 DragonBall: {
   logo: `<img class="theme-image anime" 
-  src="assets/images/themes/db-theme/dragon-ball-logo.png" alt="Dragon Ball Logo"  >`,
+  src="assets/images/themes/db-theme/dragon-ball-logo.png" alt="Dragon Ball Logo">`,
 
   easy: ``,
 
@@ -86,7 +86,7 @@ DragonBall: {
 
 GilmoreGirls: {
   logo: `<img class="theme-image tv-show" 
-  src="assets/images/themes/gilmore-girls-theme/gilmore-girls-logo.webp" alt="Gilmore Girls Logo"  >`,
+  src="assets/images/themes/gilmore-girls-theme/gilmore-girls-logo.webp" alt="Gilmore Girls Logo">`,
 
   easy: ``,
 
@@ -99,7 +99,7 @@ GilmoreGirls: {
 
 NanatsuNoTaizai: {
   logo: `<img class="theme-image anime" 
-  src="assets/images/themes/nanatsu-no-taizai-theme/nnt-logo.png" alt="Nanatsu No Taizai Logo"  >`,
+  src="assets/images/themes/nanatsu-no-taizai-theme/nnt-logo.png" alt="Nanatsu No Taizai Logo">`,
 
   easy: ``,
 
@@ -112,7 +112,7 @@ NanatsuNoTaizai: {
 
 Naruto: {
   logo: `<img class="theme-image anime" 
-  src="assets/images/themes/naruto-theme/naruto-logo.png" alt="Naruto Logo"  >`,
+  src="assets/images/themes/naruto-theme/naruto-logo.png" alt="Naruto Logo">`,
 
   easy: ``,
 
@@ -125,7 +125,7 @@ Naruto: {
 
 OnePiece: {
   logo: `<img class="theme-image anime" 
-  src="assets/images/themes/one-piece/one-piece-logo.png" alt="One Piece Logo"  >`,
+  src="assets/images/themes/one-piece/one-piece-logo.png" alt="One Piece Logo">`,
 
   easy: ``,
 
@@ -138,7 +138,7 @@ OnePiece: {
 
 OnePunchMan: {
   logo: `<img class="theme-image anime" 
-  src="assets/images/themes/one-punch-man-theme/opm-logo.png" alt="One Punch Man Logo"  >`,
+  src="assets/images/themes/one-punch-man-theme/opm-logo.png" alt="One Punch Man Logo">`,
 
   easy: ``,
 

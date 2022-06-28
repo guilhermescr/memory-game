@@ -393,8 +393,23 @@ h3 {
 }
 
 /* BASE DECK */
-.memory-deck {
+.deck-container {
+  background-color: #00a1ce;
   display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+}
+
+.memory-deck {
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   justify-items: center;
@@ -402,7 +417,7 @@ h3 {
   align-content: center;
   gap: 10px;
 
-  max-width: 640px;
+  max-width: 650px;
   width: 100%;
   height: 640px;
   margin: 0 auto;
@@ -416,7 +431,8 @@ h3 {
   border-radius: 5px;
   background-color: #efcc00;
 
-  width: 150px;
+  max-width: 150px;
+  width: 100%;
   height: calc(33.333% - 10px);
 
   display: flex;

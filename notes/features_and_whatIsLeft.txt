@@ -5,9 +5,9 @@ Achievements
 Levels
 Winning System, with hearts to measure your losses.
 Win Streak
-Theme Options
+Theme Options - Done.
 Restart button
-Button to come back to home
+Button to come back to home - Half Done.
 
 Modules:
  - Difficulty levels:
@@ -17,4 +17,4 @@ Modules:
  - Submodules for each theme:
    - Adventure Time, Ben 10, Boruto, DB, Nanatsu No Taizai, Naruto, One Piece, One    Punch Man...
  - Songs
- - Effects
+ - Effects - Half Done.

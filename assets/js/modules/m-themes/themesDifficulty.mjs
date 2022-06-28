@@ -1,3 +1,5 @@
+import { addEasyCards, addNormalCards, addHardCards, saveClickedBtnThemeId } from './themesCards.mjs';
+
 let themesContainer = document.getElementById('themesContainer');
 let themesTitle = document.getElementById('themes-title');
 const difficultiesContainer = document.getElementsByClassName('difficulties-container')[0];
@@ -13,7 +15,8 @@ function resetStyles() {
 
 function showDifficulties() {
   // Clicked button dataset
-  console.log(this.dataset.themeid);
+  let btnThemeId = this.dataset.themeid;
+  saveClickedBtnThemeId(btnThemeId);
 
   themesContainer.style.display = 'none';
   themesTitle.innerHTML = 'Select your Difficulty';
@@ -30,16 +33,14 @@ function loadPlayButtons() {
 }
 
 function checkDifficulty() {
-  if (this.innerHTML == 'Easy') {
-    console.log('Easy');
-  }
+  const difficultyChoice = {
+    Easy: addEasyCards,
+    Normal: addNormalCards,
+    Hard: addHardCards
+  };
 
-  if (this.innerHTML == 'Normal') {
-    console.log('Normal');
-  }
-
-  if (this.innerHTML == 'Hard') {
-    console.log('Hard');
+  if (difficultyChoice[this.innerHTML]) {
+    difficultyChoice[this.innerHTML]();
   }
 }
 
