@@ -1,5 +1,6 @@
 import { startGame } from './gameAlgorithm.mjs';
 import { themes } from './themesList.mjs';
+import { playSoundTrack } from '../m-audio/music.mjs';
 
 let createCardsTwice;
 let btnThemeId;
@@ -21,6 +22,8 @@ function addEasyCards() {
       let memoryCard = document.createElement('div');
       
       memoryCard.classList.add('memory-card');
+      memoryCard.style.backgroundColor = `${themes[btnThemeId].cardBackgroundColor}`;
+
       memoryCard.innerHTML = `
       ${themes[btnThemeId].frontFace}
       ${easyCards[i]}
@@ -30,7 +33,10 @@ function addEasyCards() {
     createCardsTwice++
   }
   startGame();
+  
+  deckContainer.style.backgroundImage = `url('${themes[btnThemeId].bodyBackgroundImage}')`;
   deckContainer.style.display = 'flex';
+  playSoundTrack();
 }
 
 function addNormalCards() {
@@ -42,6 +48,8 @@ function addNormalCards() {
       let memoryCard = document.createElement('div');
       
       memoryCard.classList.add('memory-card');
+      memoryCard.style.backgroundColor = `${themes[btnThemeId].cardBackgroundColor}`;
+
       memoryCard.innerHTML = `
       ${themes[btnThemeId].frontFace}
       ${normalCards[i]}
@@ -62,6 +70,8 @@ function addHardCards() {
       let memoryCard = document.createElement('div');
       
       memoryCard.classList.add('memory-card');
+      memoryCard.style.backgroundColor = `${themes[btnThemeId].cardBackgroundColor}`;
+
       memoryCard.innerHTML = `
       ${themes[btnThemeId].frontFace}
       ${hardCards[i]}
@@ -75,4 +85,4 @@ function addHardCards() {
 
 
 
-export { addEasyCards, addNormalCards, addHardCards, saveClickedBtnThemeId };
+export { addEasyCards, addNormalCards, addHardCards, saveClickedBtnThemeId, btnThemeId };

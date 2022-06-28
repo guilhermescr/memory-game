@@ -32,6 +32,7 @@
         </button>
       </div>
     </div>
+
     <div class="settings-menu">
       <div class="themes-container menu" data-setting="play-game">
         <div class="close-themes-container">
@@ -183,30 +184,32 @@
       </div>
     </div>
 
+    <div class="deck-container">
+      <div class="memory-deck" id="deck">
+        <h3>Score: <span id="scorePoints">0</span></h3>
+      </div>
+    </div>
+
+    <audio id="themeMusic" loop>
+      <source id="themeSoundTrack" src="" type="audio/mpeg" />
+      Your browser doesn't support the audio element.
+    </audio>
     <audio id="swap-effect">
-      <source src="assets/audio/effects/switch-effect.wav" type="audio/wav" />
-      <source src="assets/audio/effects/switch-effect.mp3" type="audio/mpeg" />
+      <source src="assets/effects/switch-effect.wav" type="audio/wav" />
+      <source src="assets/effects/switch-effect.mp3" type="audio/mpeg" />
       Your browser doesn't support the audio element.
     </audio>
     <audio id="click-setting-effect">
       <source
-        src="assets/audio/effects/mouse-click-effect.mp3"
+        src="assets/effects/mouse-click-effect.mp3"
         type="audio/mpeg"
       />
       <source
-        src="assets/audio/effects/mouse-click-effect.ogg"
+        src="assets/effects/mouse-click-effect.ogg"
         type="audio/ogg"
       />
       Your browser doesn't support the audio element.
     </audio>
-
-    <div class="deck-container">
-      <div class="memory-deck" id="deck"></div>
-    </div>
-
-    <!-- Easy, Normal, Hard Sample -->
-    <!-- <img class="front-face" src="assets/images/themes/adventure-time-theme/front-face.webp" alt="Card's Front Face"> -->
-    <!-- <img class="back-face" src="assets/images/themes/adventure-time-theme/hard/gunter.webp" alt="Gunter Character"> -->
 
     <script type="module" src="assets/js/main.js"></script>
   </body>

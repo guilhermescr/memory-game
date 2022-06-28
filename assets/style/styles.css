@@ -394,7 +394,8 @@ h3 {
 
 /* BASE DECK */
 .deck-container {
-  background-color: #00a1ce;
+  background: #00a1ce url('') no-repeat center fixed;
+  background-size: cover;
   display: none;
   flex-wrap: wrap;
   justify-content: center;
@@ -430,10 +431,21 @@ h3 {
   perspective: 1000px;
 }
 
+.memory-deck h3 {
+  border-radius: 5px;
+  background-image: linear-gradient(#FBAB7E, #F7CE68);
+  color: #000;
+
+  padding: 5px 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
 .memory-card {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  background-color: #efcc00;
 
   /* Old style:
     max-width: 150px;

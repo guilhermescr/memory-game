@@ -8,6 +8,7 @@ function startGame() {
   let hasFlippedCard = false;
   let lockBoard = false;
   let firstCard, secondCard;
+  let scorePoints = document.getElementById('scorePoints');
 
   function flipCard() {
     if (lockBoard) return;
@@ -41,6 +42,7 @@ function startGame() {
   function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
+    scorePoints.innerHTML++
   
     resetBoard();
   }
