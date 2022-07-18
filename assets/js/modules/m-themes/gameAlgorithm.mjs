@@ -3,7 +3,6 @@
 /* Play Test */
 
 function startGame() {
-  alert('GO!');
   const cards = document.querySelectorAll('.memory-card');
 
   let hasFlippedCard = false;

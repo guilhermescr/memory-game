@@ -36,7 +36,7 @@ function addEasyCards() {
   
   deckContainer.style.backgroundImage = `url('${themes[btnThemeId].bodyBackgroundImage}')`;
   deckContainer.style.display = 'flex';
-  playSoundTrack();
+  playSoundTrack(btnThemeId);
 }
 
 function addNormalCards() {

@@ -186,7 +186,9 @@ GilmoreGirls: {
   cardBackgroundColor: '#4C1415',
 
   soundTracks: {
-    gilmoreGirlsTheme: 'assets/soundtracks/gilmore-girls/gilmore_girls_theme.mp3',
+    Default: 'assets/soundtracks/gilmore-girls/gilmore_girls_theme.mp3',
+    Music2: '',
+    Music3: '',
   },
 },
 
@@ -215,9 +217,9 @@ NanatsuNoTaizai: {
 
   frontFace: `<img class="front-face" src="assets/images/themes/nanatsu-no-taizai-theme/front-face.webp" alt="Card's Front Face">`,
 
-  bodyBackgroundImage: '',
+  bodyBackgroundImage: 'assets/images/themes/nanatsu-no-taizai-theme/nanatsu-no-taizai_Background.webp',
 
-  cardBackgroundColor: '',
+  cardBackgroundColor: '#0EC74F',
 },
 
 Naruto: {
@@ -250,9 +252,9 @@ Naruto: {
   cardBackgroundColor: '#0b0b0b',
 
   soundTracks: {
-    narutoTheme: 'assets/soundtracks/naruto/NarutoMainTheme.mp3',
-    DepartureToTheFrontLines: '',
-    Akatsuki: 'assets/soundtracks/naruto/naruto-akatsuki-soundtrack.mp3',
+    Default: 'assets/soundtracks/naruto/NarutoMainTheme.mp3',
+    Music2: '',
+    Music3: 'assets/soundtracks/naruto/naruto-akatsuki-soundtrack.mp3',
   },
 },
 
@@ -281,9 +283,9 @@ OnePiece: {
 
   frontFace: `<img class="front-face" src="assets/images/themes/one-piece/front-face.webp" alt="Card's Front Face">`,
 
-  bodyBackgroundImage: '',
+  bodyBackgroundImage: 'assets/images/themes/one-piece/one-piece_Background.png',
 
-  cardBackgroundColor: '',
+  cardBackgroundColor: '#105EDD',
 },
 
 OnePunchMan: {
@@ -311,9 +313,9 @@ OnePunchMan: {
 
   frontFace: `<img class="front-face" src="assets/images/themes/one-punch-man-theme/front-face.webp" alt="Card's Front Face">`,
 
-  bodyBackgroundImage: '',
+  bodyBackgroundImage: 'assets/images/themes/one-punch-man-theme/one-punch-man_Background.png',
 
-  cardBackgroundColor: '',
+  cardBackgroundColor: '#BF0000',
 },
 };
 
