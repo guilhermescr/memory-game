@@ -31,9 +31,9 @@ AdventureTime: {
 
   frontFace: `<img class="front-face" src="assets/images/themes/adventure-time-theme/front-face.webp" alt="Card's Front Face">`,
 
-  bodyBackgroundImage: '',
+  bodyBackgroundImage: 'assets/images/themes/adventure-time-theme/adventure_time_Background.jfif',
 
-  cardBackgroundColor: '',
+  cardBackgroundColor: '#C83700',
 },
 
 Ben10: {
@@ -61,9 +61,9 @@ Ben10: {
 
   frontFace: `<img class="front-face" src="assets/images/themes/ben-10-theme/front-face.png" alt="Card's Front Face">`,
 
-  bodyBackgroundImage: '',
+  bodyBackgroundImage: 'assets/images/themes/ben-10-theme/ben-10_Background.jpg',
 
-  cardBackgroundColor: '',
+  cardBackgroundColor: '#16AE58',
 },
 
 BokuNoHero: {
@@ -91,9 +91,9 @@ BokuNoHero: {
 
   frontFace: `<img class="front-face" src="assets/images/themes/boku-no-hero-theme/front-face.png" alt="Card's Front Face">`,
 
-  bodyBackgroundImage: '',
+  bodyBackgroundImage: 'assets/images/themes/boku-no-hero-theme/boku-no-hero_Background.webp',
 
-  cardBackgroundColor: '',
+  cardBackgroundColor: '#FF7E00',
 },
 
 Boruto: {
@@ -121,9 +121,9 @@ Boruto: {
 
   frontFace: `<img class="front-face" src="assets/images/themes/boruto-theme/front-face.png" alt="Card's Front Face">`,
 
-  bodyBackgroundImage: '',
+  bodyBackgroundImage: 'assets/images/themes/boruto-theme/boruto_Background.webp',
 
-  cardBackgroundColor: '',
+  cardBackgroundColor: '#FCBA21',
 },
 
 DragonBall: {
@@ -153,7 +153,7 @@ DragonBall: {
 
   bodyBackgroundImage: 'assets/images/themes/db-theme/tournamentOfPowerArenaBackground.webp',
 
-  cardBackgroundColor: '#efcc00',
+  cardBackgroundColor: '#EFCC00',
 },
 
 GilmoreGirls: {
@@ -181,9 +181,13 @@ GilmoreGirls: {
 
   frontFace: `<img class="front-face" src="assets/images/themes/gilmore-girls-theme/front-face.png" alt="Card's Front Face">`,
 
-  bodyBackgroundImage: '',
+  bodyBackgroundImage: 'assets/images/themes/gilmore-girls-theme/gilmore-girls_Background.webp',
 
-  cardBackgroundColor: '',
+  cardBackgroundColor: '#4C1415',
+
+  soundTracks: {
+    gilmoreGirlsTheme: 'assets/soundtracks/gilmore-girls/gilmore_girls_theme.mp3',
+  },
 },
 
 NanatsuNoTaizai: {
