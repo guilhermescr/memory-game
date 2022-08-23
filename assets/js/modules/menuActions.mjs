@@ -1,5 +1,5 @@
 import { playClickEffect } from './m-audio/effects.mjs';
-import { fillThemes } from './m-themes/themesCreation.mjs';
+import { fillThemes } from './m-themes/fillThemesInMenu.mjs';
 import { shuffleRandomThemes } from './randomThemes/shuffleRandomThemes.mjs';
 import { fillRandomThemes } from './randomThemes/fillRandomThemes.mjs';
 

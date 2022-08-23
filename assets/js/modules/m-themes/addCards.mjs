@@ -1,6 +1,6 @@
 import { startGame } from './gameAlgorithm.mjs';
-import { themes } from './themesList.mjs';
-import { playSoundTrack } from '../m-audio/music.mjs';
+import { themes } from './themesData.mjs';
+import { playDefaultSoundTrack } from '../m-audio/music.mjs';
 
 let createCardsTwice;
 let btnThemeId;
@@ -36,7 +36,7 @@ function addEasyCards() {
   
   deckContainer.style.backgroundImage = `url('${themes[btnThemeId].bodyBackgroundImage}')`;
   deckContainer.style.display = 'flex';
-  playSoundTrack(btnThemeId);
+  playDefaultSoundTrack();
 }
 
 function addNormalCards() {

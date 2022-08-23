@@ -1,5 +1,5 @@
-import { themes, themesNames} from './themesList.mjs';
-import { themesKeys } from './themesList.mjs';
+import { themes, themesNames} from './themesData.mjs';
+import { themesKeys } from './themesData.mjs';
 import { resetStyles, loadPlayButtons } from './themesDifficulty.mjs';
 
 let lockCreation = false;

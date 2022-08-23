@@ -1,4 +1,4 @@
-import { addEasyCards, addNormalCards, addHardCards, saveClickedBtnThemeId } from './themesCards.mjs';
+import { addEasyCards, addNormalCards, addHardCards, saveClickedBtnThemeId } from './addCards.mjs';
 
 let themesContainer = document.getElementById('themesContainer');
 let themesTitle = document.getElementById('themes-title');

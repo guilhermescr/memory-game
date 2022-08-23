@@ -1,8 +1,8 @@
-
-
-/* Play Test */
+import { renderPlayMusicButtons } from "../m-audio/music.mjs";
 
 function startGame() {
+  renderPlayMusicButtons();
+
   const cards = document.querySelectorAll('.memory-card');
 
   let hasFlippedCard = false;

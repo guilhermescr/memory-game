@@ -6,7 +6,7 @@ import { settingsOptions } from "./modules/menuActions.mjs";
 const loaderContainer = document.getElementById('loader-container');
 setTimeout(() => {
   loaderContainer.style.display = 'none';
-}, 4000);
+}, 3000);
 
 settingsOptions.forEach((setting) => {
   setting.addEventListener('click', showMenu);
