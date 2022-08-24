@@ -3,8 +3,8 @@ import { btnThemeId } from "../m-themes/addCards.mjs";
 
 const activateMusic = document.querySelectorAll('.playMusicIcon');
 const muteMusic = document.querySelectorAll('.stopMusicIcon');
-let audioElement = document.getElementById('themeMusic');
-let audioSource = document.getElementById('themeSoundTrack');
+const AUDIO_TAG = document.getElementById('themeMusic');
+const AUDIO_SOURCE_TAG = document.getElementById('themeSoundTrack');
 
 function getPlayMusicButtons() {
   const playMusicButtons = document.querySelectorAll('.playMusic');
@@ -45,20 +45,20 @@ function renderPlayMusicButtons() {
 
 function playSoundTrack(playMusicButton) {
   let chosenMusic = playMusicButton.dataset.music;
-  audioSource.src = themes[btnThemeId].soundTracks[chosenMusic];
-  audioElement.load();
-  audioElement.play();
+  AUDIO_SOURCE_TAG.src = themes[btnThemeId].soundTracks[chosenMusic];
+  AUDIO_TAG.load();
+  AUDIO_TAG.play();
 }
 
 function playDefaultSoundTrack() {
-  audioSource.src = themes[btnThemeId].soundTracks.Music1;
-  audioElement.load();
-  audioElement.play();
+  AUDIO_SOURCE_TAG.src = themes[btnThemeId].soundTracks.Music1;
+  AUDIO_TAG.load();
+  AUDIO_TAG.play();
 }
 
 function stopSoundTrack() {
-  audioSource.src = '';
-  audioElement.pause();
+  AUDIO_SOURCE_TAG.src = '';
+  AUDIO_TAG.pause();
 }
 
 function showPlayMusicIcon() {

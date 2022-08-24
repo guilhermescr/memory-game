@@ -1,39 +1,37 @@
-import { playClickEffect } from './m-audio/effects.mjs';
 import { fillThemes } from './m-themes/fillThemesInMenu.mjs';
 import { shuffleRandomThemes } from './randomThemes/shuffleRandomThemes.mjs';
 import { fillRandomThemes } from './randomThemes/fillRandomThemes.mjs';
+import { playClickSoundEffect } from './m-audio/sounds.mjs';
 
-const settingsMenus = document.querySelectorAll('.menu');
-const settingsOptions = document.querySelectorAll('.setting-option');
-const closeMenuButtons = document.querySelectorAll('.close-icon');
+const SETTINGS_MENUS = document.querySelectorAll('.menu');
+const SETTINGS_OPTIONS = document.querySelectorAll('.setting-option');
+const CLOSE_MENU_BUTTONS = document.querySelectorAll('.close-icon');
 
-function showMenu() {
-  playClickEffect();
+function openMenu() {
+  playClickSoundEffect();
 
-  for (let i = 0; i < settingsOptions.length; i++) {
-    if (this.dataset.setting == settingsMenus[i].dataset.setting) {
-      settingsMenus[i].classList.add('show');
+  for (let index = 0; index < SETTINGS_OPTIONS.length; index++) {
+    if (this.dataset.setting == SETTINGS_MENUS[index].dataset.setting) {
+      SETTINGS_MENUS[index].classList.add('show');
     }
-    settingsOptions[i].style.cursor = 'default';
   }
 }
 
 function closeMenu() {
-  settingsMenus.forEach((menu, index) => {
-    if (menu.classList.contains('show')) {
-      menu.classList.remove('show');
+  SETTINGS_MENUS.forEach((SETTINGS_MENU) => {
+    if (SETTINGS_MENU.classList.contains('show')) {
+      SETTINGS_MENU.classList.remove('show');
     }
-    settingsOptions[index].style.cursor = 'pointer';
   });
 }
 
-const playGame = document.getElementById('playBtn');
-playGame.addEventListener('click', fillThemes);
+const PLAY_GAME_BUTTON = document.getElementById('playBtn');
+PLAY_GAME_BUTTON.addEventListener('click', fillThemes);
 
-const playRandomThemesBtn = document.getElementById('playRandomThemesBtn');
-playRandomThemesBtn.addEventListener('click', fillRandomThemes);
+const PLAY_RANDOM_THEMES_BUTTON = document.getElementById('playRandomThemesBtn');
+PLAY_RANDOM_THEMES_BUTTON.addEventListener('click', fillRandomThemes);
 
-const shuffleThemesBtn = document.getElementById('playRandomThemeBtn');
-shuffleThemesBtn.addEventListener('click', shuffleRandomThemes);
+const SHUFFLE_THEMES_BUTTON = document.getElementById('playRandomThemeBtn');
+SHUFFLE_THEMES_BUTTON.addEventListener('click', shuffleRandomThemes);
 
-export { settingsOptions, closeMenuButtons, showMenu, closeMenu };
+export { SETTINGS_OPTIONS, CLOSE_MENU_BUTTONS, openMenu, closeMenu };

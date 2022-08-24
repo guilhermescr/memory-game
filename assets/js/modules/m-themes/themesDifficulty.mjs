@@ -25,7 +25,7 @@ function showDifficulties() {
   returnIcons.addEventListener('click', resetStyles);
 }
 
-function loadPlayButtons() {
+function renderPlayThemeButtons() {
   const playThemesBtns = document.querySelectorAll('.choosable-theme');
   playThemesBtns.forEach(playButton => {
     playButton.addEventListener('click', showDifficulties);
@@ -33,14 +33,16 @@ function loadPlayButtons() {
 }
 
 function checkDifficulty() {
-  const difficultyChoice = {
+  let difficulty = this.innerHTML;
+
+  const DIFFICULTY_OPTIONS = {
     Easy: addEasyCards,
     Normal: addNormalCards,
     Hard: addHardCards
   };
 
-  if (difficultyChoice[this.innerHTML]) {
-    difficultyChoice[this.innerHTML]();
+  if (DIFFICULTY_OPTIONS[difficulty]) {
+    DIFFICULTY_OPTIONS[difficulty]();
   }
 }
 
@@ -48,4 +50,4 @@ difficultyButtons.forEach((button) => {
   button.addEventListener('click', checkDifficulty);
 });
 
-export { resetStyles, loadPlayButtons };
+export { resetStyles, renderPlayThemeButtons };

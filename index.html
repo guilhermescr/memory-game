@@ -17,8 +17,11 @@
       <div id="loader"></div>
     </div>
 
-    <div class="game-menu">
-      <h1>Memory<br />Game</h1>
+    <main class="game-menu">
+      <header id="game-menu-title-content">
+        <h1 id="game-menu-title">Memory<br />Game</h1>
+      </header>
+
       <div class="settings">
         <button class="setting-option" id="playBtn" data-setting="play-game">
           Play
@@ -35,7 +38,7 @@
           Credits
         </button>
       </div>
-    </div>
+    </main>
 
     <div class="settings-menu">
       <div class="themes-container menu" data-setting="play-game">
@@ -282,11 +285,7 @@
     </div>
 
     <audio id="themeMusic" loop>
-      <source
-        id="themeSoundTrack"
-        src=""
-        type="audio/mpeg"
-      />
+      <source id="themeSoundTrack" src="" type="audio/mpeg" />
       Your browser doesn't support the audio element.
     </audio>
     <audio id="swap-effect">

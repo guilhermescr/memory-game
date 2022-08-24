@@ -1,25 +1,26 @@
-import { playSwapEffect, stopSwapEffect } from "./modules/m-audio/effects.mjs";
-import { closeMenuButtons } from "./modules/menuActions.mjs";
-import { showMenu, closeMenu } from "./modules/menuActions.mjs";
-import { settingsOptions } from "./modules/menuActions.mjs";
+import { playSwapSoundEffect, stopSwapSoundEffect } from "./modules/m-audio/sounds.mjs";
+import { CLOSE_MENU_BUTTONS } from "./modules/menuActions.mjs";
+import { openMenu, closeMenu } from "./modules/menuActions.mjs";
+import { SETTINGS_OPTIONS } from "./modules/menuActions.mjs";
 
-const loaderContainer = document.getElementById('loader-container');
+const LOADER_CONTAINER = document.getElementById('loader-container');
 setTimeout(() => {
-  loaderContainer.style.display = 'none';
+  LOADER_CONTAINER.style.display = 'none';
 }, 3000);
 
-settingsOptions.forEach((setting) => {
-  setting.addEventListener('click', showMenu);
+SETTINGS_OPTIONS.forEach((setting) => {
+  setting.addEventListener('click', openMenu);
 });
-closeMenuButtons.forEach((closeButton) => {
+
+CLOSE_MENU_BUTTONS.forEach((closeButton) => {
   closeButton.addEventListener('click', closeMenu);
 });
 
-settingsOptions.forEach((setting) => {
-  setting.addEventListener('mouseenter', playSwapEffect);
+// Hover Sounds
+SETTINGS_OPTIONS.forEach((setting) => {
+  setting.addEventListener('mouseenter', playSwapSoundEffect);
 });
 
-settingsOptions.forEach((setting) => {
-  setting.addEventListener('mouseleave', stopSwapEffect);
+SETTINGS_OPTIONS.forEach((setting) => {
+  setting.addEventListener('mouseleave', stopSwapSoundEffect);
 });
-// End Switching

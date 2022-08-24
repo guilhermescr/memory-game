@@ -367,8 +367,8 @@ OnePunchMan: {
 },
 };
 
-let themesNames = ['Adventure Time', 'Ben 10', 'Boku No Hero', 'Boruto', 'Dragon Ball', 'Gilmore Girls', 'Nanatsu No Taizai', 'Naruto', 'One Piece', 'One Punch Man'];
+const THEMES_NAMES = ['Adventure Time', 'Ben 10', 'Boku No Hero', 'Boruto', 'Dragon Ball', 'Gilmore Girls', 'Nanatsu No Taizai', 'Naruto', 'One Piece', 'One Punch Man'];
 
-const themesKeys = Object.keys(themes);
+const THEMES_LIST = Object.keys(themes);
 
-export { themes, themesNames, themesKeys };
+export { themes, THEMES_NAMES, THEMES_LIST };
