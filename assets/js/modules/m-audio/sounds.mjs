@@ -1,13 +1,13 @@
 const SWAP_SOUND_EFFECT = document.getElementById('swap-effect');
 const CLICK_SOUND_EFFECT = document.getElementById('click-setting-effect');
 
-function playSwapSoundEffect() {
+function playHoverSoundEffect() {
   SWAP_SOUND_EFFECT.load();
   SWAP_SOUND_EFFECT.play();
   console.clear();
 }
 
-function stopSwapSoundEffect() {
+function stopHoverSoundEffect() {
   SWAP_SOUND_EFFECT.pause();
 }
 
@@ -17,4 +17,4 @@ function playClickSoundEffect() {
   CLICK_SOUND_EFFECT.play();
 }
 
-export { playSwapSoundEffect, stopSwapSoundEffect, playClickSoundEffect };
+export { playHoverSoundEffect, stopHoverSoundEffect, playClickSoundEffect };

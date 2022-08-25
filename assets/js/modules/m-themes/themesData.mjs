@@ -14,19 +14,19 @@ AdventureTime: {
   },
 
   normal: {
-    IceKing: `<img class="back-face" src="assets/images/themes/adventure-time-theme/normal/ice-king.png" alt="Ice King Character">`,
+    IceKing: `<img class="back-face" src="assets/images/themes/adventure-time-theme/normal/ice-king.png" alt="Ice King Character" data-character="IceKing">`,
 
-    FlamePrincess: `<img class="back-face" src="assets/images/themes/adventure-time-theme/normal/flame-princess.png" alt="Flame Princess Character">`,
+    FlamePrincess: `<img class="back-face" src="assets/images/themes/adventure-time-theme/normal/flame-princess.png" alt="Flame Princess Character" data-character="FlamePrincess">`,
 
-    Marceline: `<img class="back-face" src="assets/images/themes/adventure-time-theme/normal/marceline.png" alt="Marceline Character">`,
+    Marceline: `<img class="back-face" src="assets/images/themes/adventure-time-theme/normal/marceline.png" alt="Marceline Character" data-character="Marceline">`,
   },
 
   hard: {
-    LadyRainicorn: `<img class="back-face" src="assets/images/themes/adventure-time-theme/hard/lady-rainicorn.png" alt="Lady Rainicorn Character">`,
+    LadyRainicorn: `<img class="back-face" src="assets/images/themes/adventure-time-theme/hard/lady-rainicorn.png" alt="Lady Rainicorn Character" data-character="LadyRainicorn">`,
 
-    EarlOfLemonGrab: `<img class="back-face" src="assets/images/themes/adventure-time-theme/hard/the-earl-of-lemongrab.png" alt="The Earl Of Lemongrab Character">`,
+    EarlOfLemonGrab: `<img class="back-face" src="assets/images/themes/adventure-time-theme/hard/the-earl-of-lemongrab.png" alt="The Earl Of Lemongrab Character" data-character="EarlOfLemonGrab">`,
     
-    Gunter: `<img class="back-face" src="assets/images/themes/adventure-time-theme/hard/gunter.webp" alt="Gunter Character">`,
+    Gunter: `<img class="back-face" src="assets/images/themes/adventure-time-theme/hard/gunter.webp" alt="Gunter Character" data-character="Gunter">`,
   },
 
   frontFace: `<img class="front-face" src="assets/images/themes/adventure-time-theme/front-face.webp" alt="Card's Front Face">`,
@@ -47,22 +47,22 @@ Ben10: {
   src="assets/images/themes/ben-10-theme/ben-10-logo.webp" alt="Ben 10 Logo">`,
 
   easy: {
-    Ben: `<img class="back-face" src="assets/images/themes/ben-10-theme/easy/ben-tennyson.webp" alt="Ben Character" data-character="BenTennyson">`,
-    Gwen: `<img class="back-face" src="assets/images/themes/ben-10-theme/easy/gwen-tennyson.png" alt="Gwen Character" data-character="GwenTennyson">`,
+    Ben: `<img class="back-face" src="assets/images/themes/ben-10-theme/easy/ben-tennyson.webp" alt="Ben Tennyson Character" data-character="Ben">`,
+    Gwen: `<img class="back-face" src="assets/images/themes/ben-10-theme/easy/gwen-tennyson.png" alt="Gwen Tennyson Character" data-character="Gwen">`,
     KevinLevin: `<img class="back-face" src="assets/images/themes/ben-10-theme/easy/kevin-levin.webp" alt="Kevin Levin Character" data-character="KevinLevin">`,
     MaxTennyson: `<img class="back-face" src="assets/images/themes/ben-10-theme/easy/max-tennyson.webp" alt="Max Tennyson Character" data-character="MaxTennyson">`,
   },
 
   normal: {
     Azmuth: `<img class="back-face" src="assets/images/themes/ben-10-theme/normal/azmuth.webp" alt="Azmuth Character" data-character="Azmuth">`,
-    Julie: `<img class="back-face" src="assets/images/themes/ben-10-theme/normal/julie.webp" alt="Julie Character" data-character="Azmuth">`,
+    Julie: `<img class="back-face" src="assets/images/themes/ben-10-theme/normal/julie.webp" alt="Julie Character" data-character="Julie">`,
     Vilgax: `<img class="back-face" src="assets/images/themes/ben-10-theme/normal/vilgax.webp" alt="Vilgax Character" data-character="Vilgax">`,
   },
 
   hard: {
-    FourArms: `<img class="back-face" src="assets/images/themes/ben-10-theme/hard/four-arms.png" alt="Four Arms Alien Character" data-character="FourArmsAlien">`,
+    FourArms: `<img class="back-face" src="assets/images/themes/ben-10-theme/hard/four-arms.png" alt="Four Arms Alien Character" data-character="FourArms">`,
     Jimmy: `<img class="back-face" src="assets/images/themes/ben-10-theme/hard/jimmy.webp" alt="Jimmy Character" data-character="Jimmy">`,
-    Rath: `<img class="back-face" src="assets/images/themes/ben-10-theme/hard/rath.webp" alt="Rath Alien Character" data-character="RathAlien">`,
+    Rath: `<img class="back-face" src="assets/images/themes/ben-10-theme/hard/rath.webp" alt="Rath Alien Character" data-character="Rath">`,
   },
 
   frontFace: `<img class="front-face" src="assets/images/themes/ben-10-theme/front-face.png" alt="Card's Front Face">`,
