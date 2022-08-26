@@ -1,6 +1,6 @@
 import { startGame } from '../gameAlgorithm.mjs';
 import { themes } from './themesData.mjs';
-import { playDefaultSoundTrack } from '../m-audio/music.mjs';
+import { playDefaultSoundTrack } from '../m-audio/audio.mjs';
 
 const deckContainer = document.getElementsByClassName('deck-container')[0];
 const MEMORY_DECK = document.getElementById('deck');

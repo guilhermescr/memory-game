@@ -19,7 +19,7 @@ function showDifficulties() {
   saveClickedBtnThemeId(btnThemeId);
 
   themesContainer.style.display = 'none';
-  themesTitle.innerHTML = 'Select your Difficulty';
+  themesTitle.innerHTML = 'Select Your Difficulty';
   difficultiesContainer.style.display = 'flex';
   returnIcons.style.display = 'block';
   returnIcons.addEventListener('click', resetStyles);

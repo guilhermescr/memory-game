@@ -1,7 +1,7 @@
 import { fillThemes } from './m-themes/fillThemesInMenu.mjs';
 import { fillRandomThemes } from './randomThemes/fillRandomThemes.mjs';
 import { shuffleRandomThemes } from './randomThemes/shuffleRandomThemes.mjs';
-import { playClickSoundEffect, playHoverSoundEffect, stopHoverSoundEffect } from './m-audio/sounds.mjs';
+import { playClickSoundEffect, playHoverSoundEffect, stopHoverSoundEffect } from './m-audio/audio.mjs';
 
 const SETTINGS_MENUS = document.querySelectorAll('.menu');
 const SETTINGS_OPTIONS = document.querySelectorAll('.setting-option');

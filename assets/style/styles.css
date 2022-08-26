@@ -18,7 +18,7 @@
 }
 
 body {
-  background: #CDFFFE url('../images/home-background.jpg') center no-repeat
+  background: #cdfffe url('../images/home-background.jpg') center no-repeat
     fixed;
   background-size: cover;
   position: relative;
@@ -198,7 +198,7 @@ h3 {
 .return-themes-container svg {
   display: none;
   cursor: pointer;
-  fill: #F44336;
+  fill: #f44336;
 }
 
 .themes {
@@ -245,7 +245,8 @@ h3 {
   font-size: 22px;
 }
 
-.play-themeBtn {
+.play-themeBtn,
+.switchButton {
   border: 1px solid rgba(89, 230, 255, 0.6);
   border-radius: 10px;
   box-shadow: 0px 0px 4px rgba(89, 230, 255, 0.7);
@@ -283,7 +284,7 @@ h3 {
 .difficulty-level {
   box-shadow: 0px 0px 22px #048cb6;
   border: none;
-  background-image: linear-gradient(#20BF55, #01BAEF);
+  background-image: linear-gradient(#20bf55, #01baef);
   color: #fff;
   font-size: 25px;
 
@@ -292,11 +293,11 @@ h3 {
   width: 100%;
 
   cursor: pointer;
+  transition: 0.3s ease;
 }
 
 .difficulty-level:hover {
   transform: scale(0.95);
-  transition: transform .3s ease-out;
   background-image: linear-gradient(#1aa548, #048db3);
   color: #fef;
 }
@@ -337,7 +338,7 @@ h3 {
 }
 
 .shuffleAnimationStart {
-  animation: shuffleThemeStart .5s linear infinite alternate;
+  animation: shuffleThemeStart 0.5s linear infinite alternate;
 }
 
 @keyframes shuffleThemeStart {
@@ -350,24 +351,100 @@ h3 {
   }
 }
 
-/* MUSIC */
-.ingame-settings {
+/* SETTINGS */
+/* Audio */
+.audio-container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  width: 100%;
+}
+
+.audio-content {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  width: 50%;
+}
+
+.audio-content h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.audio-content h3 svg {
+  fill: #fff;
+  stroke: #000;
+}
+
+.audio-content .switch-audio-container {
+  background-color: #10bb9f;
+  border-radius: 15px;
+  box-shadow: 0 0 2px 3px rgba(0, 0, 0, 0.7);
+  height: 35px;
+  width: 70px;
   position: relative;
 }
 
-.playMusicIcon, .stopMusicIcon {
-  display: none;
-  cursor: pointer;
-  fill: #ddd;
-  width: 50px;
+.audio-content .switch-audio-container .switchButton {
+  background-image: linear-gradient(#01baef 5%, #10bb9f);
+  border-radius: 15px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 40px;
+  width: 40px;
+
+  position: absolute;
+  top: -7%;
+  right: -5%;
 }
 
-.playMusicIcon:hover, .stopMusicIcon:hover {
-  fill: #fff;
+.audio-content .switch-audio-container .switchButton:hover {
+  transform: scale(1.05);
 }
 
-.activeMusicIcon {
-  display: block !important;
+.audio-content .switch-audio-container .switchButton:active {
+  background-image: linear-gradient(#048cb6 5%, #10bb9f);
+  transform: scale(0.98);
+}
+
+.activeAudioAnimation {
+  animation: ActiveAudioAnimation 500ms;
+}
+
+.inactiveAudioAnimation {
+  animation: InactiveAudioAnimation 500ms;
+}
+
+@keyframes ActiveAudioAnimation {
+  0% {
+    right: 45%;
+  }
+  100% {
+    right: -5%;
+  }
+}
+
+@keyframes InactiveAudioAnimation {
+  0% {
+    right: -5%;
+  }
+  100% {
+    right: 45%;
+  }
+}
+
+.ingame-settings {
+  position: relative;
 }
 
 /* CREDITS */
@@ -550,7 +627,7 @@ h3 {
 
 #score h3 {
   border-radius: 5px;
-  background-image: linear-gradient(#FBAB7E, #F7CE68);
+  background-image: linear-gradient(#fbab7e, #f7ce68);
   color: #000;
 
   padding: 5px 10px;
@@ -669,9 +746,23 @@ h3 {
   .credits-info .credits-image-creator img {
     width: 42%;
   }
+  
+  .music-options .music .playMusic {
+    width: 75%;
+  }
+
+  .ingame-settings {
+    gap: 50px;
+  }
+
+  .audio-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
 
   .deck-container {
-    
   }
 
   .memory-deck {
@@ -685,7 +776,7 @@ h3 {
     top: 2%;
     left: 2%;
   }
-  
+
   .memory-card {
     max-width: 80px;
     width: 100%;

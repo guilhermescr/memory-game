@@ -1,4 +1,4 @@
-import { renderPlayMusicButtons } from "./m-audio/music.mjs";
+import { renderPlayMusicButtons } from "./m-audio/audio.mjs";
 
 function startGame() {
   renderPlayMusicButtons();
