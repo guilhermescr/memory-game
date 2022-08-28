@@ -92,7 +92,8 @@ function switchAudio(clickedSwitchAudioButton) {
 
   // turn off
   if (clickedSwitchAudioButton.classList.contains("active")) {
-    stopSoundTrack();
+    clickedSwitchAudioButton.classList.contains("switchMusicButton") ? stopSoundTrack() : null;
+
     clickedSwitchAudioButton.innerHTML = "Off";
 
     clickedSwitchAudioButton.parentElement.style.backgroundColor = INACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR;
@@ -100,7 +101,8 @@ function switchAudio(clickedSwitchAudioButton) {
     clickedSwitchAudioButton.style.backgroundImage = INACTIVE_SWITCH_AUDIO_BUTTON_BACKGROUND_GRADIENT;
 
   } else { // turn on
-    playDefaultSoundTrack();
+    clickedSwitchAudioButton.classList.contains("switchMusicButton") ? playDefaultSoundTrack() : null;
+    
     clickedSwitchAudioButton.innerHTML = "On";
 
     clickedSwitchAudioButton.parentElement.style.backgroundColor = ACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR;

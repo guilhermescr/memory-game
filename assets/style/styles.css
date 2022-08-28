@@ -45,8 +45,17 @@ h3 {
   position: absolute;
   z-index: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 50px;
+}
+
+#loader-container h2 {
+  color: rgb(1, 228, 228);
+  text-shadow: 0 0 15px #16a4a8;
+  font-size: 50px;
+  animation: moveLoadingTitle .8s alternate infinite;
 }
 
 #loader {
@@ -55,10 +64,20 @@ h3 {
 
   width: 150px;
   height: 150px;
-  animation: spin 2s linear infinite;
+  animation: SpinLoaderAnimation 2s linear infinite;
 }
 
-@keyframes spin {
+@keyframes moveLoadingTitle {
+  0% {
+    transform: translateX(2%);
+  }
+
+  100% {
+    transform: translateX(4%);
+  }
+}
+
+@keyframes SpinLoaderAnimation {
   0% {
     transform: rotate(0deg);
   }
@@ -84,7 +103,7 @@ h3 {
   padding: 20px 20px;
 
   position: absolute;
-  left: 50vw;
+  left: 50%;
   z-index: 1000;
   user-select: none;
   transform: translate(-50%, 20%) scale(0);
@@ -423,10 +442,6 @@ h3 {
   right: -5%;
 }
 
-.ingame-settings {
-  position: relative;
-}
-
 /* CREDITS */
 .credits {
   display: flex;
@@ -448,17 +463,22 @@ h3 {
 .credits-info .credits-image-creator {
   width: 50%;
   text-align: center;
+  position: relative;
 }
 
 .credits-info .credits-image-creator img {
-  background: #04a0c7 url('../images/social/background.jpg') center no-repeat
-    fixed;
   background-size: cover;
   box-shadow: 0px 0px 20px #f7ccac;
   border-radius: 50%;
 
   width: 80%;
   margin-bottom: 15px;
+}
+
+.credits-info .credits-image-creator img#creator-background-image {
+  position: absolute;
+  height: 86.4%;
+  z-index: -1;
 }
 
 .credits-info .social {
@@ -497,7 +517,7 @@ h3 {
   text-decoration: underline;
 }
 
-/* BASE DECK */
+/* DECK */
 .deck-container {
   background: #00a1ce url('') no-repeat center fixed;
   background-size: cover;
@@ -514,15 +534,24 @@ h3 {
   z-index: 1000;
 }
 
-.deck-container .show {
-  transform: translate(-50%, 0%) scale(1) !important;
-}
-
 .ingame-settings {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
   gap: 100px;
+  position: relative;
+}
+
+.ingame-settings.menu {
+  max-width: 70%;
+  width: 100%;
+  max-height: 90%;
+  height: 100%;
+  left: 0;
+}
+
+.ingame-settings.show {
+  transform: none !important;
 }
 
 .ingame-settings .music-container {
@@ -595,7 +624,6 @@ h3 {
   padding-block: 10px;
   perspective: 1000px;
   position: absolute;
-  top: 10%;
 }
 
 #score {
@@ -693,7 +721,13 @@ h3 {
 }
 */
 
+
+
 @media (max-width: 580px) {
+  #loader-container h2 {
+    font-size: 40px;
+  }
+
   .show {
     transform: translate(-50%, 10%) scale(1) !important;
   }
@@ -726,7 +760,11 @@ h3 {
   .credits-info .credits-image-creator img {
     width: 42%;
   }
-  
+
+  .credits-info .credits-image-creator img#creator-background-image {
+    height: 85%;
+  }
+
   .music-options .music .playMusic {
     width: 75%;
   }
@@ -743,13 +781,22 @@ h3 {
   }
 
   .deck-container {
+    overflow-y: auto;
+  }
+
+  .ingame-settings.menu {
+    max-width: 100%;
+    width: 100%;
+    max-height: 80%;
+    height: 100%;
   }
 
   .memory-deck {
-    min-height: fit-content !important;
+    height: fit-content !important;
     margin: 0 auto;
     padding-block: 10px;
     overflow-y: auto;
+    top: 10%;
   }
 
   #score {
@@ -761,5 +808,23 @@ h3 {
     max-width: 80px;
     width: 100%;
     height: 120px;
+  }
+}
+
+@media (max-width: 540px) {
+  .credits-info .credits-image-creator img#creator-background-image {
+    height: 83%;
+  }
+}
+
+@media (max-width: 480px) {
+  .credits-info .credits-image-creator img#creator-background-image {
+    height: 80%;
+  }
+}
+
+@media (max-width: 380px) {
+  .credits-info .credits-image-creator img#creator-background-image {
+    height: 75%;
   }
 }

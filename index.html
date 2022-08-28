@@ -14,6 +14,7 @@
   </head>
   <body>
     <div id="loader-container">
+      <h2>Loading...</h2>
       <div id="loader"></div>
     </div>
 
@@ -40,7 +41,7 @@
       </section>
     </main>
 
-    <div class="settings-menu">
+    <section class="settings-menu">
       <div class="themes-container menu" data-setting="play-game">
         <div class="close-themes-container">
           <img
@@ -115,15 +116,20 @@
         <h2>Credits</h2>
         <div class="credits-info">
           <div class="credits-image-creator">
+            <img id="creator-background-image"
+              src="assets/images/social/background.jpg"
+              alt="Background Image for the creator picture"
+            />
+
             <img
               src="assets/images/guilherme-with-nobg.png"
-              alt="Photo showing the creator of the game"
+              alt="A picture of the game's creator"
             />
             <h3>Creator: Guilherme Rocha</h3>
           </div>
 
           <div class="social">
-            <h3>Social Medias:</h3>
+            <h3>Social:</h3>
             <div class="instagram">
               <svg
                 fill="#000000"
@@ -189,9 +195,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="deck-container">
+    <section class="deck-container">
       <div class="ingame-settings menu show">
         <div class="close-themes-container">
           <img
@@ -223,7 +229,12 @@
                 Music:
               </h3>
               <div class="switch-audio-container">
-                <button type="button" class="switchButton switchMusicButton active">On</button>
+                <button
+                  type="button"
+                  class="switchButton switchMusicButton active"
+                >
+                  On
+                </button>
               </div>
             </div>
 
@@ -243,7 +254,12 @@
                 Sound:
               </h3>
               <div class="switch-audio-container">
-                <button type="button" class="switchButton switchSoundButton active">On</button>
+                <button
+                  type="button"
+                  class="switchButton switchSoundButton active"
+                >
+                  On
+                </button>
               </div>
             </div>
           </section>
@@ -255,7 +271,7 @@
       </div>
 
       <div class="memory-deck" id="deck"></div>
-    </div>
+    </section>
 
     <audio id="themeMusic" loop>
       <source id="themeSoundTrack" src="" type="audio/mpeg" />
