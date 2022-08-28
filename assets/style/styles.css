@@ -390,6 +390,7 @@ h3 {
   height: 35px;
   width: 70px;
   position: relative;
+  transition: 0.3s;
 }
 
 .audio-content .switch-audio-container .switchButton {
@@ -405,7 +406,8 @@ h3 {
 
   position: absolute;
   top: -7%;
-  right: -5%;
+  right: 45%;
+  transition: 0.3s;
 }
 
 .audio-content .switch-audio-container .switchButton:hover {
@@ -417,30 +419,8 @@ h3 {
   transform: scale(0.98);
 }
 
-.activeAudioAnimation {
-  animation: ActiveAudioAnimation 500ms;
-}
-
-.inactiveAudioAnimation {
-  animation: InactiveAudioAnimation 500ms;
-}
-
-@keyframes ActiveAudioAnimation {
-  0% {
-    right: 45%;
-  }
-  100% {
-    right: -5%;
-  }
-}
-
-@keyframes InactiveAudioAnimation {
-  0% {
-    right: -5%;
-  }
-  100% {
-    right: 45%;
-  }
+.audio-content div.switch-audio-container button.switchButton.active {
+  right: -5%;
 }
 
 .ingame-settings {

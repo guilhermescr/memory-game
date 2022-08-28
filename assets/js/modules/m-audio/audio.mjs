@@ -80,35 +80,40 @@ function playClickSoundEffect() {
   CLICK_SOUND_EFFECT.play();
 }
 
-// LISTENERS
-const SWITCH_MUSIC_BUTTON = document.querySelector('.switchMusicButton');
+// Switch Audio Settings
+const SWITCH_AUDIO_BUTTONS = document.querySelectorAll('.switchButton');
 
-function switchMusicButton() {
-  let currenctMusicButtonState = SWITCH_MUSIC_BUTTON.innerHTML;
-  const ON_BACKGROUND_IMAGE = "linear-gradient(#01baef 5%, #10bb9f)";
-  const OFF_BACKGROUND_IMAGE = "linear-gradient(#2f4246 5%, #10bb9f)";
+function switchAudio(clickedSwitchAudioButton) {
+  const ACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR = "#10bb9f";
+  const INACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR = "#444";
 
-  if (currenctMusicButtonState == "On") {
+  const ACTIVE_SWITCH_AUDIO_BUTTON_BACKGROUND_GRADIENT = "linear-gradient(#01baef 5%, #10bb9f)";
+  const INACTIVE_SWITCH_AUDIO_BUTTON_BACKGROUND_GRADIENT = "linear-gradient(#2f4246 5%, #10bb9f)";
+
+  // turn off
+  if (clickedSwitchAudioButton.classList.contains("active")) {
     stopSoundTrack();
-    SWITCH_MUSIC_BUTTON.innerHTML = "Off";
+    clickedSwitchAudioButton.innerHTML = "Off";
 
-    SWITCH_MUSIC_BUTTON.style.backgroundImage = OFF_BACKGROUND_IMAGE;
-    SWITCH_MUSIC_BUTTON.classList.add("inactiveAudioAnimation");
-    SWITCH_MUSIC_BUTTON.classList.remove("activeAudioAnimation");
+    clickedSwitchAudioButton.parentElement.style.backgroundColor = INACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR;
 
-    SWITCH_MUSIC_BUTTON.style.right = "45%";
-  } else {
+    clickedSwitchAudioButton.style.backgroundImage = INACTIVE_SWITCH_AUDIO_BUTTON_BACKGROUND_GRADIENT;
+
+  } else { // turn on
     playDefaultSoundTrack();
-    SWITCH_MUSIC_BUTTON.innerHTML = "On";
+    clickedSwitchAudioButton.innerHTML = "On";
 
-    SWITCH_MUSIC_BUTTON.style.backgroundImage = ON_BACKGROUND_IMAGE;
-    SWITCH_MUSIC_BUTTON.classList.add("activeAudioAnimation");
-    SWITCH_MUSIC_BUTTON.classList.remove("inactiveAudioAnimation");
+    clickedSwitchAudioButton.parentElement.style.backgroundColor = ACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR;
 
-    SWITCH_MUSIC_BUTTON.style.right = "-5%";
+    clickedSwitchAudioButton.style.backgroundImage = ACTIVE_SWITCH_AUDIO_BUTTON_BACKGROUND_GRADIENT;
   }
+  clickedSwitchAudioButton.classList.toggle("active");
 }
 
-SWITCH_MUSIC_BUTTON.addEventListener("click", switchMusicButton);
+SWITCH_AUDIO_BUTTONS.forEach((SWITCH_AUDIO_BUTTON) => {
+  SWITCH_AUDIO_BUTTON.addEventListener("click", function() {
+    switchAudio(this);
+  });
+});
 
 export { renderPlayMusicButtons, playSoundTrack, playDefaultSoundTrack, playHoverSoundEffect, stopHoverSoundEffect, playClickSoundEffect };
