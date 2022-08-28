@@ -1,14 +1,14 @@
-import { renderPlayMusicButtons } from "../m-audio/music.mjs";
+import { renderPlayMusicButtons } from "./m-audio/audio.mjs";
 
 function startGame() {
   renderPlayMusicButtons();
 
-  const cards = document.querySelectorAll('.memory-card');
+  const CARDS = document.querySelectorAll('.memory-card');
 
   let hasFlippedCard = false;
   let lockBoard = false;
   let firstCard, secondCard;
-  let scorePoints = document.getElementById('scorePoints');
+  const SCORE_POINTS = document.getElementById('scorePoints');
 
   function flipCard() {
     if (lockBoard) return;
@@ -27,11 +27,11 @@ function startGame() {
   }
   
   function checkForMatch() {
-    // These two lines take the back-face images
-    let firstCardDataset = firstCard.childNodes[3];
-    let secondCardDataset = secondCard.childNodes[3];
+    // get back-face images' datasets
+    let firstCardDataset = firstCard.children[1].dataset.character;
+    let secondCardDataset = secondCard.children[1].dataset.character;
 
-    let isMatch = firstCardDataset.dataset.character === secondCardDataset.dataset.character;
+    let isMatch = firstCardDataset === secondCardDataset;
     if (isMatch) {
       disableCards();
     } else {
@@ -42,7 +42,7 @@ function startGame() {
   function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
-    scorePoints.innerHTML++
+    SCORE_POINTS.innerHTML++
   
     resetBoard();
   }
@@ -63,13 +63,13 @@ function startGame() {
   }
   
   (function shuffle() {
-    cards.forEach(card => {
-      let randomPos = Math.floor(Math.random() * cards.length);
-      card.style.order = randomPos;
+    CARDS.forEach(card => {
+      let randomPosition = Math.floor(Math.random() * CARDS.length);
+      card.style.order = randomPosition;
     });
   })();
 
-  cards.forEach(card => card.addEventListener('click', flipCard));
+  CARDS.forEach(card => card.addEventListener('click', flipCard));
 }
 
 export { startGame };

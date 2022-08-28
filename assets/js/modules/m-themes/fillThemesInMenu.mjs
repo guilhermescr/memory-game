@@ -1,6 +1,5 @@
-import { themes, themesNames} from './themesData.mjs';
-import { themesKeys } from './themesData.mjs';
-import { resetStyles, loadPlayButtons } from './themesDifficulty.mjs';
+import { themes, THEMES_NAMES, THEMES_LIST } from './themesData.mjs';
+import { resetStyles, renderPlayThemeButtons } from './themesDifficulty.mjs';
 
 let lockCreation = false;
 
@@ -9,25 +8,25 @@ function fillThemes() {
   if (lockCreation) return;
 
   let themesContainer = document.getElementById('themesContainer');
-  let randomThemesLogo = [];
+  let randomThemesLogos = [];
 
-  for (let i = 0; i < themesNames.length; i++) {
-    randomThemesLogo.push(themes[themesKeys[i]].logo);
+  for (let i = 0; i < THEMES_LIST.length; i++) {
+    randomThemesLogos.push(themes[THEMES_LIST[i]].logo);
 
     let theme = document.createElement('div');
     theme.classList.add('theme');
     theme.innerHTML = `
     <div class="theme-image-container">
-      ${randomThemesLogo[i]}
+      ${randomThemesLogos[i]}
     </div>
-    <h3>${themesNames[i]}</h3>
-    <button class="play-themeBtn choosable-theme" data-themeid="${themesKeys[i]}">Play Theme</button>
+    <h3>${THEMES_NAMES[i]}</h3>
+    <button class="play-themeBtn choosable-theme" data-themeid="${THEMES_LIST[i]}">Play Theme</button>
     `;
     themesContainer.appendChild(theme);
   }
 
   lockCreation = true;
-  loadPlayButtons();
+  renderPlayThemeButtons();
 }
 
 export { fillThemes };

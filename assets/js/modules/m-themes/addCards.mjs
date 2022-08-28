@@ -1,11 +1,10 @@
-import { startGame } from './gameAlgorithm.mjs';
+import { startGame } from '../gameAlgorithm.mjs';
 import { themes } from './themesData.mjs';
-import { playDefaultSoundTrack } from '../m-audio/music.mjs';
+import { playDefaultSoundTrack } from '../m-audio/audio.mjs';
 
-let createCardsTwice;
-let btnThemeId;
 const deckContainer = document.getElementsByClassName('deck-container')[0];
-let memoryDeck = document.getElementById('deck');
+const MEMORY_DECK = document.getElementById('deck');
+let createCardsTwice, btnThemeId;
 
 function saveClickedBtnThemeId(clickedBtnThemeId) {
   btnThemeId = clickedBtnThemeId;
@@ -15,8 +14,6 @@ function addEasyCards() {
   let easyCards = Object.values(themes[btnThemeId].easy);
   createCardsTwice = 0;
 
-  // Don't forget to add data-character to the images!! for instance:
-  // <img data-character="Vegeta">
   while (createCardsTwice < 2) {
     for (let i = 0; i < easyCards.length; i++) {
       let memoryCard = document.createElement('div');
@@ -28,7 +25,7 @@ function addEasyCards() {
       ${themes[btnThemeId].frontFace}
       ${easyCards[i]}
       `;
-      memoryDeck.appendChild(memoryCard);
+      MEMORY_DECK.appendChild(memoryCard);
     }
     createCardsTwice++
   }
@@ -54,7 +51,7 @@ function addNormalCards() {
       ${themes[btnThemeId].frontFace}
       ${normalCards[i]}
       `;
-      memoryDeck.appendChild(memoryCard);
+      MEMORY_DECK.appendChild(memoryCard);
     }
     createCardsTwice++
   }
@@ -76,7 +73,7 @@ function addHardCards() {
       ${themes[btnThemeId].frontFace}
       ${hardCards[i]}
       `;
-      memoryDeck.appendChild(memoryCard);
+      MEMORY_DECK.appendChild(memoryCard);
     }
     createCardsTwice++
   }
