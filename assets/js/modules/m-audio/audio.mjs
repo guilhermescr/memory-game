@@ -6,7 +6,7 @@ const AUDIO_TAG = document.getElementById('themeMusic');
 const AUDIO_SOURCE_TAG = document.getElementById('themeSoundTrack');
 
 function getPlayMusicButtons() {
-  const PLAY_MUSIC_BUTTONS = document.querySelectorAll('.playMusic');
+  const PLAY_MUSIC_BUTTONS = document.querySelectorAll('.hasMusic');
 
   PLAY_MUSIC_BUTTONS.forEach((PLAY_MUSIC_BUTTON) => {
     PLAY_MUSIC_BUTTON.addEventListener('click', function() {
@@ -16,28 +16,23 @@ function getPlayMusicButtons() {
 }
 
 function renderPlayMusicButtons() {
-  const musicButtonsContainer = document.querySelector(".music-options");
+  const MUSIC_BUTTONS_CONTAINER = document.querySelector(".music-options");
+  const soundTracksAmount = Object.keys(themes[btnThemeId].soundTracks).length;
 
-  if (themes[btnThemeId].soundTracks.Music1) {
-    musicButtonsContainer.innerHTML += `
+  for (let index = 1; index <= soundTracksAmount; index++) {
+    const MUSIC = `
     <div class="music">
-      <button data-music="Music1" class="playMusic">Music 1</button>
+      <button data-music="Music${index}" class="playMusic hasMusic">Music ${index}</button>
     </div>
     `;
-  }
-  if (themes[btnThemeId].soundTracks.Music2) {
-    musicButtonsContainer.innerHTML += `
+
+    const MUSIC_COMING_SOON = `
     <div class="music">
-      <button data-music="Music2" class="playMusic">Music 2</button>
+      <button data-music="ComingSoon" class="playMusic">Coming Soon...</button>
     </div>
     `;
-  }
-  if (themes[btnThemeId].soundTracks.Music3) {
-    musicButtonsContainer.innerHTML += `
-    <div class="music">
-      <button data-music="Music3" class="playMusic">Music 3</button>
-    </div>
-    `;
+
+    MUSIC_BUTTONS_CONTAINER.innerHTML += themes[btnThemeId].soundTracks[`Music${index}`] ? MUSIC : MUSIC_COMING_SOON;
   }
   getPlayMusicButtons();
 }

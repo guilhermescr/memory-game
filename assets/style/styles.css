@@ -41,12 +41,12 @@ h3 {
 
   width: 100vw;
   height: 100vh;
+  padding-top: 10%;
 
   position: absolute;
   z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 50px;
 }
@@ -589,7 +589,7 @@ h3 {
 
   font-size: 20px;
   padding: 8px 10px;
-  width: 30%;
+  width: 35%;
 
   cursor: pointer;
   transition: 0.3s ease;
