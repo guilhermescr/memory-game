@@ -129,6 +129,23 @@ h3 {
   margin: 0 auto;
 }
 
+.toggle-fullscreen-container {
+  display: flex;
+
+  width: 30px;
+  position: absolute;
+  right: 2%;
+}
+
+.toggle-fullscreen-container .toggleFullscreenIcon {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.toggle-fullscreen-container .toggleFullscreenIcon:hover {
+  opacity: 1;
+}
+
 /* GAME SETTINGS OPTIONS */
 .settings {
   border-radius: 10px;
@@ -170,7 +187,7 @@ h3 {
   background-image: linear-gradient(#2dcadf, #04a0c7);
 }
 
-/* THEMES SCROLL */
+/* THEMES CONTAINER SCROLL BAR */
 .themes-container::-webkit-scrollbar {
   width: 12px;
 }
@@ -701,6 +718,16 @@ h3 {
 
   .show {
     transform: translate(-50%, 10%) scale(1) !important;
+  }
+
+  .toggle-fullscreen-container {
+    width: 25px;
+    top: 4%;
+    right: 5%;
+  }
+
+  .themes-container.menu {
+    height: 90vh;
   }
 
   .themes {
