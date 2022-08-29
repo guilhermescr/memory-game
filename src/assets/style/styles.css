@@ -1,12 +1,6 @@
 /* GENERAL SETTINGS */
 @charset "UTF-8";
 
-@font-face {
-  font-family: 'Dragon Ball';
-  src: url('../fonts/dragon-ball/Saiyan-Sans_Right_Oblique.ttf')
-    format('truetype');
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -69,11 +63,11 @@ h3 {
 
 @keyframes moveLoadingTitle {
   0% {
-    transform: translateX(2%);
+    transform: translateX(0%);
   }
 
   100% {
-    transform: translateX(4%);
+    transform: translateX(5%);
   }
 }
 
@@ -125,6 +119,7 @@ h3 {
   left: 50%;
   transform: translateX(-50%);
   user-select: none;
+  overflow-y: auto;
 }
 
 .game-menu h1 {
@@ -527,10 +522,11 @@ h3 {
   justify-items: center;
   align-items: center;
   align-content: center;
-
-  position: absolute;
+  
   width: 100%;
   height: 100vh;
+  position: absolute;
+  overflow-y: auto;
   z-index: 1000;
 }
 
@@ -612,12 +608,6 @@ h3 {
   align-items: center;
   align-content: center;
   gap: 10px;
-
-  /* Old style:
-    max-width: 650px;
-    width: 100%;
-    height: 640px;
-  */
   width: 100%;
   height: 640px;
   margin-inline: auto;
@@ -699,31 +689,12 @@ h3 {
   width: calc(100% - 20px);
 }
 
-/* DBZ FONT STYLE 
-
-.start-game h1 {
-  font-family: 'Dragon Ball';
-  font-size: 60px;
-  text-shadow: -4px 1px 0px #000;
-  text-align: center;
-
-  max-width: 300px;
-  padding-block: 20px;
-  margin-inline: auto;
-}
-
-.start-game #dragon {
-  color: rgb(255, 208, 0);
-}
-
-.start-game #ball {
-  color: rgb(214, 0, 0);
-}
-*/
-
-
-
 @media (max-width: 580px) {
+  #loader-container {
+    padding-top: 0;
+    justify-content: center;
+  }
+
   #loader-container h2 {
     font-size: 40px;
   }
