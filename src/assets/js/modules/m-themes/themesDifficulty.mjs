@@ -1,28 +1,28 @@
 import { addEasyCards, addNormalCards, addHardCards, saveClickedBtnThemeId } from './addCards.mjs';
 
-let themesContainer = document.getElementById('themesContainer');
-let themesTitle = document.getElementById('themes-title');
-const difficultiesContainer = document.getElementsByClassName('difficulties-container')[0];
-const difficultyButtons = document.querySelectorAll('.difficulty-level');
-const returnIcons = document.getElementsByClassName('return-icon')[0];
+const THEMES_CONTAINER = document.getElementById('themesContainer');
+const THEMES_TITLE = document.getElementById('themes-title');
+const DIFFICULTIES_CONTAINER = document.querySelector('.difficulties-container');
+const DIFFICULTY_BUTTONS = document.querySelectorAll('.difficulty-level');
+const RETURN_ICONS = document.querySelector('.return-icon');
 
 function resetStyles() {
-  themesContainer.style.display = 'flex';
-  themesTitle.innerHTML = 'Themes';
-  difficultiesContainer.style.display = 'none';
-  returnIcons.style.display = 'none';
+  THEMES_CONTAINER.style.display = 'flex';
+  THEMES_TITLE.innerHTML = 'Themes';
+  DIFFICULTIES_CONTAINER.style.display = 'none';
+  RETURN_ICONS.style.display = 'none';
 }
 
 function showDifficulties() {
-  // Clicked button dataset
+  // get clicked button dataset
   let btnThemeId = this.dataset.themeid;
   saveClickedBtnThemeId(btnThemeId);
 
-  themesContainer.style.display = 'none';
-  themesTitle.innerHTML = 'Select Your Difficulty';
-  difficultiesContainer.style.display = 'flex';
-  returnIcons.style.display = 'block';
-  returnIcons.addEventListener('click', resetStyles);
+  THEMES_CONTAINER.style.display = 'none';
+  THEMES_TITLE.innerHTML = 'Select Your Difficulty';
+  DIFFICULTIES_CONTAINER.style.display = 'flex';
+  RETURN_ICONS.style.display = 'block';
+  RETURN_ICONS.addEventListener('click', resetStyles);
 }
 
 function renderPlayThemeButtons() {
@@ -46,7 +46,7 @@ function checkDifficulty() {
   }
 }
 
-difficultyButtons.forEach((button) => {
+DIFFICULTY_BUTTONS.forEach((button) => {
   button.addEventListener('click', checkDifficulty);
 });
 
