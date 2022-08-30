@@ -16,10 +16,15 @@ function getPlayMusicButtons() {
 }
 
 function renderPlayMusicButtons() {
-  const MUSIC_BUTTONS_CONTAINER = document.querySelector(".music-options");
-  const soundTracksAmount = Object.keys(themes[btnThemeId].soundTracks).length;
+  // deletar essa parte de mostrar contâiner ao iniciar o jogo, pois o usuário vai ter que clicar em um ícone de configurações para abrir esse contâiner.
+  const INGAME_SETTINGS_MENU = document.querySelector('.ingame-settings');
+  INGAME_SETTINGS_MENU.classList.add("show");
 
-  for (let index = 1; index <= soundTracksAmount; index++) {
+
+  const MUSIC_BUTTONS_CONTAINER = document.querySelector(".music-options");
+  const SOUNDTRACKS_AMOUNT = Object.keys(themes[btnThemeId].soundTracks).length;
+
+  for (let index = 1; index <= SOUNDTRACKS_AMOUNT; index++) {
     const MUSIC = `
     <div class="music">
       <button data-music="Music${index}" class="playMusic hasMusic">Music ${index}</button>
