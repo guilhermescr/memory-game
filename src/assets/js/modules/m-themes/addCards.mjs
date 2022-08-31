@@ -1,4 +1,4 @@
-import { renderLoadingContainer } from '../../main.js';
+import { renderLoadingContainer, revealElements, hideElements } from '../../main.js';
 import { closeMenu } from '../menuActions.mjs';
 import { startGame } from '../gameAlgorithm.mjs';
 import { themes } from './themesData.mjs';
@@ -38,11 +38,18 @@ function addEasyCards() {
   }
   LOADER_TITLE.innerHTML = "Downloading cards...";
   renderLoadingContainer();
+  DECK_CONTAINER.style.backgroundImage = `url('${themes[btnThemeId].bodyBackgroundImage}')`;
+  DECK_CONTAINER.style.display = 'flex';
 
   setTimeout(() => {
     startGame();
-    DECK_CONTAINER.style.backgroundImage = `url('${themes[btnThemeId].bodyBackgroundImage}')`;
-    DECK_CONTAINER.style.display = 'flex';
+
+    let elementsToReveal = document.querySelectorAll('#score, #settingsIcon');
+    let elementsToHide = document.querySelectorAll('.game-menu');
+
+    revealElements(elementsToReveal);
+    hideElements(elementsToHide);
+
     playDefaultSoundTrack();
   }, 3000);
 }

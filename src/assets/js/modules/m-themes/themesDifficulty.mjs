@@ -46,8 +46,8 @@ function checkDifficulty() {
   }
 }
 
-DIFFICULTY_BUTTONS.forEach((button) => {
-  button.addEventListener('click', checkDifficulty);
+DIFFICULTY_BUTTONS.forEach((DIFFICULTY_BUTTON) => {
+  DIFFICULTY_BUTTON.addEventListener('click', checkDifficulty);
 });
 
 export { resetStyles, renderPlayThemeButtons };

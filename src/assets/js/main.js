@@ -1,4 +1,4 @@
-import { SETTINGS_OPTIONS } from "./modules/menuActions.mjs";
+import { SETTINGS_BUTTONS } from "./modules/menuActions.mjs";
 
 const LOADER_CONTAINER = document.getElementById('loader-container');
 
@@ -45,6 +45,19 @@ window.addEventListener('keydown', function (event) {
   }
 });
 
+function revealElements(elements) {
+  elements.forEach((element) => {
+    element.classList.remove('hide');
+  });
+}
+
+function hideElements(elements) {
+  elements.forEach((element) => {
+    element.classList.add('hide');
+    element.style.zIndex = -1;
+  });
+}
+
 renderLoadingContainer();
 
-export { renderLoadingContainer };
+export { renderLoadingContainer, revealElements, hideElements };

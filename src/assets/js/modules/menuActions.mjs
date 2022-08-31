@@ -4,14 +4,15 @@ import { shuffleRandomThemes } from './randomThemes/shuffleRandomThemes.mjs';
 import { playClickSoundEffect, playHoverSoundEffect, stopHoverSoundEffect } from './m-audio/audio.mjs';
 
 const SETTINGS_MENUS = document.querySelectorAll('.menu');
-const SETTINGS_OPTIONS = document.querySelectorAll('.setting-option');
+const MENU_SETTINGS_OPTIONS = document.querySelectorAll('.setting-option');
+const SETTINGS_BUTTONS = document.querySelectorAll('.settingButton');
 const CLOSE_MENU_BUTTONS = document.querySelectorAll('.close-icon');
 
 function openMenu() {
   playClickSoundEffect();
-
-  for (let index = 0; index < SETTINGS_OPTIONS.length; index++) {
-    if (this.dataset.setting == SETTINGS_MENUS[index].dataset.setting) {
+  
+  for (let index = 0; index < SETTINGS_MENUS.length; index++) {
+    if (this.dataset.setting === SETTINGS_MENUS[index].dataset.setting) {
       SETTINGS_MENUS[index].classList.add('show');
     }
   }
@@ -36,8 +37,8 @@ SHUFFLE_THEMES_BUTTON.addEventListener('click', shuffleRandomThemes);
 
 // Open / Close Menu
 
-SETTINGS_OPTIONS.forEach((SETTING_OPTION) => {
-  SETTING_OPTION.addEventListener('click', openMenu);
+SETTINGS_BUTTONS.forEach((SETTING_BUTTON) => {
+  SETTING_BUTTON.addEventListener('click', openMenu);
 });
 
 CLOSE_MENU_BUTTONS.forEach((CLOSE_MENU_BUTTON) => {
@@ -46,12 +47,12 @@ CLOSE_MENU_BUTTONS.forEach((CLOSE_MENU_BUTTON) => {
 
 // Hover Sound Effects
 
-SETTINGS_OPTIONS.forEach((SETTING_OPTION) => {
-  SETTING_OPTION.addEventListener('mouseenter', playHoverSoundEffect);
+MENU_SETTINGS_OPTIONS.forEach((SETTING_BUTTON) => {
+  SETTING_BUTTON.addEventListener('mouseenter', playHoverSoundEffect);
 });
 
-SETTINGS_OPTIONS.forEach((SETTING_OPTION) => {
-  SETTING_OPTION.addEventListener('mouseleave', stopHoverSoundEffect);
+MENU_SETTINGS_OPTIONS.forEach((SETTING_BUTTON) => {
+  SETTING_BUTTON.addEventListener('mouseleave', stopHoverSoundEffect);
 });
 
-export { SETTINGS_OPTIONS, CLOSE_MENU_BUTTONS, openMenu, closeMenu };
+export { SETTINGS_BUTTONS, CLOSE_MENU_BUTTONS, openMenu, closeMenu };

@@ -4,11 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="favicon.ico"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../src/assets/style/styles.css" />
     <title>Memory Game</title>
   </head>
@@ -18,28 +14,46 @@
       <div id="loader"></div>
     </div>
 
+    <section class="top_bar_container">
+      <div class="top_bar_left_content">
+        <h3 id="score" class="hide">Score: <span id="scorePoints">0</span></h3>
+      </div>
+
+      <div class="top_bar_right_content">
+        <img
+          id="settingsIcon"
+          class="hide settingButton"
+          data-setting="ingame-settings"
+          src="../src/assets/images/icons/settings_icon.svg"
+          alt="Settings Icon"
+        />
+
+        <img
+          class="toggleFullscreenIcon"
+          src="../src/assets/images/icons/maximize_fullscreen.svg"
+          alt="Fullscreen Icon"
+        />
+      </div>
+    </section>
+
     <main class="game-menu">
       <header id="game-menu-title-content">
         <h1 id="game-menu-title">Memory<br />Game</h1>
       </header>
 
-      <div class="toggle-fullscreen-container">
-        <img class="toggleFullscreenIcon" src="../src/assets/images/icons/maximize_fullscreen.svg" alt="Fullscreen Icon">
-      </div>
-
       <section class="settings">
-        <button class="setting-option" id="playBtn" data-setting="play-game">
+        <button class="setting-option settingButton" id="playBtn" data-setting="play-game">
           Play
         </button>
         <button
-          class="setting-option"
+          class="setting-option settingButton"
           id="playRandomThemesBtn"
           data-setting="random-theme"
         >
           Random Theme
         </button>
-        <button class="setting-option" data-setting="sounds">Sounds</button>
-        <button class="setting-option" data-setting="credits-menu">
+        <button class="setting-option settingButton" data-setting="sounds">Sounds</button>
+        <button class="setting-option settingButton" data-setting="credits-menu">
           Credits
         </button>
       </section>
@@ -120,7 +134,8 @@
         <h2>Credits</h2>
         <div class="credits-info">
           <div class="credits-image-creator">
-            <img id="creator-background-image"
+            <img
+              id="creator-background-image"
               src="../src/assets/images/social/background.jpg"
               alt="Background Image for the creator picture"
             />
@@ -202,7 +217,7 @@
     </section>
 
     <section class="deck-container">
-      <div class="ingame-settings menu">
+      <div class="ingame-settings menu" data-setting="ingame-settings">
         <div class="close-themes-container">
           <img
             class="close-icon"
@@ -270,10 +285,6 @@
         </div>
       </div>
 
-      <div id="score">
-        <h3>Score: <span id="scorePoints">0</span></h3>
-      </div>
-
       <div class="memory-deck" id="deck"></div>
     </section>
 
@@ -287,8 +298,14 @@
       Your browser doesn't support the audio element.
     </audio>
     <audio id="click-setting-effect">
-      <source src="../src/assets/effects/mouse-click-effect.mp3" type="audio/mpeg" />
-      <source src="../src/assets/effects/mouse-click-effect.ogg" type="audio/ogg" />
+      <source
+        src="../src/assets/effects/mouse-click-effect.mp3"
+        type="audio/mpeg"
+      />
+      <source
+        src="../src/assets/effects/mouse-click-effect.ogg"
+        type="audio/ogg"
+      />
       Your browser doesn't support the audio element.
     </audio>
 

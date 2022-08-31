@@ -49,7 +49,7 @@ h3 {
   color: rgb(1, 228, 228);
   text-shadow: 0 0 15px #16a4a8;
   font-size: 50px;
-  animation: moveLoadingTitle .8s alternate infinite;
+  animation: moveLoadingTitle 0.8s alternate infinite;
 }
 
 #loader {
@@ -63,11 +63,11 @@ h3 {
 
 @keyframes moveLoadingTitle {
   0% {
-    transform: translateX(0%);
+    transform: translateX(-2%);
   }
 
   100% {
-    transform: translateX(5%);
+    transform: translateX(3%);
   }
 }
 
@@ -86,6 +86,10 @@ h3 {
   transition: transform 0.4s ease;
 }
 
+.hide {
+  display: none;
+}
+
 .menu {
   background-color: rgba(17, 17, 17, 0.9);
   border-radius: 10px;
@@ -98,7 +102,7 @@ h3 {
 
   position: absolute;
   left: 50%;
-  z-index: 1000;
+  z-index: 1;
   user-select: none;
   transform: translate(-50%, 20%) scale(0);
 }
@@ -129,20 +133,40 @@ h3 {
   margin: 0 auto;
 }
 
-.toggle-fullscreen-container {
+.top_bar_container {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  width: 30px;
+  min-height: max-content;
+  width: 100%;
+  padding: 10px 15px;
+
+  z-index: 100;
   position: absolute;
-  right: 2%;
+  top: 0;
 }
 
-.toggle-fullscreen-container .toggleFullscreenIcon {
-  cursor: pointer;
+.top_bar_container .top_bar_left_content h3 {
+  background-color: seagreen;
+  border-radius: 20px;
+  color: #fff;
+  padding: 5px 10px;
+}
+
+.top_bar_container .top_bar_right_content {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.top_bar_container img {
   opacity: 0.6;
+  cursor: pointer;
+  height: 30px;
 }
 
-.toggle-fullscreen-container .toggleFullscreenIcon:hover {
+.top_bar_container img:hover {
   opacity: 1;
 }
 
@@ -211,7 +235,7 @@ h3 {
   position: absolute;
   top: 5%; /* 5% == 24px */
   right: 4%;
-  z-index: 10000;
+  z-index: 1;
 }
 
 .close-themes-container .close-icon {
@@ -223,7 +247,7 @@ h3 {
   position: absolute;
   top: 3%;
   left: 20px;
-  z-index: 10000;
+  z-index: 1;
 }
 
 .return-themes-container svg {
@@ -539,12 +563,12 @@ h3 {
   justify-items: center;
   align-items: center;
   align-content: center;
-  
+
   width: 100%;
   height: 100vh;
   position: absolute;
   overflow-y: auto;
-  z-index: 1000;
+  z-index: -1;
 }
 
 .ingame-settings {
@@ -625,27 +649,14 @@ h3 {
   align-items: center;
   align-content: center;
   gap: 10px;
+
   width: 100%;
   height: 640px;
   margin-inline: auto;
   padding-block: 10px;
+
   perspective: 1000px;
   position: absolute;
-}
-
-#score {
-  position: absolute;
-  z-index: 1;
-  top: 1%;
-  left: 1%;
-}
-
-#score h3 {
-  border-radius: 5px;
-  background-image: linear-gradient(#fbab7e, #f7ce68);
-  color: #000;
-
-  padding: 5px 10px;
 }
 
 .memory-card {
@@ -714,16 +725,11 @@ h3 {
 
   #loader-container h2 {
     font-size: 40px;
+    max-width: 240px;
   }
 
   .show {
     transform: translate(-50%, 10%) scale(1) !important;
-  }
-
-  .toggle-fullscreen-container {
-    width: 25px;
-    top: 4%;
-    right: 5%;
   }
 
   .themes-container.menu {

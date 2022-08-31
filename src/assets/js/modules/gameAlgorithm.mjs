@@ -42,7 +42,7 @@ function startGame() {
   function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
-    SCORE_POINTS.innerHTML++
+    SCORE_POINTS.innerHTML++;
   
     resetBoard();
   }

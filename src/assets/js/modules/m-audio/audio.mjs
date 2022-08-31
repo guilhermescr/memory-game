@@ -1,7 +1,6 @@
 import { themes } from "../m-themes/themesData.mjs";
 import { btnThemeId } from "../m-themes/addCards.mjs";
 
-// PLAY MUSIC
 const AUDIO_TAG = document.getElementById('themeMusic');
 const AUDIO_SOURCE_TAG = document.getElementById('themeSoundTrack');
 
@@ -16,11 +15,6 @@ function getPlayMusicButtons() {
 }
 
 function renderPlayMusicButtons() {
-  // deletar essa parte de mostrar contâiner ao iniciar o jogo, pois o usuário vai ter que clicar em um ícone de configurações para abrir esse contâiner.
-  const INGAME_SETTINGS_MENU = document.querySelector('.ingame-settings');
-  INGAME_SETTINGS_MENU.classList.add("show");
-
-
   const MUSIC_BUTTONS_CONTAINER = document.querySelector(".music-options");
   const SOUNDTRACKS_AMOUNT = Object.keys(themes[btnThemeId].soundTracks).length;
 
