@@ -8,7 +8,7 @@ function renderLoadingContainer() {
 
   setTimeout(() => {
     LOADER_CONTAINER.style.display = 'none';
-  }, 3000);
+  }, 2000);
 }
 
 const ROOT_ELEMENT = document.documentElement; // <html> tag

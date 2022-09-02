@@ -41,6 +41,15 @@ function addEasyCards() {
   DECK_CONTAINER.style.backgroundImage = `url('${themes[btnThemeId].bodyBackgroundImage}')`;
   DECK_CONTAINER.style.display = 'flex';
 
+  let cardsAmountInMemoryDeck = MEMORY_DECK.childElementCount;
+
+  if (cardsAmountInMemoryDeck === 8) {
+    MEMORY_DECK.style.gridTemplateColumns = 'repeat(4, auto)';
+  }
+  if (cardsAmountInMemoryDeck === 14 || cardsAmountInMemoryDeck === 20) {
+    MEMORY_DECK.style.gridTemplateColumns = 'repeat(5, auto)';
+  }
+
   setTimeout(() => {
     startGame();
 
@@ -51,7 +60,7 @@ function addEasyCards() {
     hideElements(elementsToHide);
 
     playDefaultSoundTrack();
-  }, 3000);
+  }, 2000);
 }
 
 function addNormalCards() {

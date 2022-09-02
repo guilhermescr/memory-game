@@ -102,7 +102,7 @@ h3 {
 
   position: absolute;
   left: 50%;
-  z-index: 1;
+  z-index: 100;
   user-select: none;
   transform: translate(-50%, 20%) scale(0);
 }
@@ -170,6 +170,10 @@ h3 {
   opacity: 1;
 }
 
+.top_bar_container .toggleFullscreenIcon {
+  pointer-events: all !important;
+}
+
 /* GAME SETTINGS OPTIONS */
 .settings {
   border-radius: 10px;
@@ -231,9 +235,18 @@ h3 {
   overflow-y: scroll;
 }
 
+.themes-container.menu {
+  height: 90vh;
+  max-width: 800px;
+}
+
+.themes-container.show {
+  transform: translate(-50%, 5vh) scale(1) !important;
+}
+
 .close-themes-container {
   position: absolute;
-  top: 5%; /* 5% == 24px */
+  top: 5%;
   right: 4%;
   z-index: 1;
 }
@@ -274,7 +287,7 @@ h3 {
   gap: 20px;
 
   width: 50%;
-  height: 230px;
+  height: 250px;
   padding-block: 10px;
   position: relative;
 }
@@ -558,17 +571,27 @@ h3 {
   background: #00a1ce url('') no-repeat center fixed;
   background-size: cover;
   display: none;
-  flex-wrap: wrap;
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
-  align-content: center;
+  flex-direction: column;
+
 
   width: 100%;
   height: 100vh;
   position: absolute;
-  overflow-y: auto;
   z-index: -1;
+}
+
+.deck-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.deck-container::-webkit-scrollbar-track {
+  background: #292929;
+}
+
+.deck-container::-webkit-scrollbar-thumb {
+  background-color: #10bb9f;
+  border-radius: 20px;
+  border: 2px solid #0e0e0e;
 }
 
 .ingame-settings {
@@ -576,19 +599,16 @@ h3 {
   flex-flow: column wrap;
   align-items: center;
   gap: 100px;
-  position: relative;
+  position: fixed;
 }
 
 .ingame-settings.menu {
-  max-width: 70%;
   width: 100%;
-  max-height: 90%;
-  height: 100%;
-  left: 0;
+  height: 85%;
 }
 
 .ingame-settings.show {
-  transform: none !important;
+  transform: translate(-50%, 10%) !important;
 }
 
 .ingame-settings .music-container {
@@ -642,35 +662,25 @@ h3 {
 }
 
 .memory-deck {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   justify-content: center;
-  justify-items: center;
-  align-items: center;
-  align-content: center;
   gap: 10px;
 
   width: 100%;
-  height: 640px;
   margin-inline: auto;
-  padding-block: 10px;
 
   perspective: 1000px;
   position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .memory-card {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 
-  /* Old style:
-    max-width: 150px;
-    width: 100%;
-    height: calc(33.333% - 10px);
-  */
-  max-width: 120px;
-  width: 100%;
-  height: calc(27% - 10px);
+  width: 90px;
+  height: 115px;
 
   display: flex;
   justify-content: center;
@@ -724,16 +734,21 @@ h3 {
   }
 
   #loader-container h2 {
-    font-size: 40px;
+    font-size: 200%;
     max-width: 240px;
+  }
+
+  #loader {
+    width: 120px;
+    height: 120px;
   }
 
   .show {
     transform: translate(-50%, 10%) scale(1) !important;
   }
 
-  .themes-container.menu {
-    height: 90vh;
+  .themes-container.show {
+    transform: translate(-50%, 5%) scale(1) !important;
   }
 
   .themes {
@@ -750,7 +765,7 @@ h3 {
   }
 
   .theme {
-    height: 240px;
+    height: 270px;
   }
 
   .theme h3 {
@@ -769,6 +784,10 @@ h3 {
     height: 85%;
   }
 
+  .deck-container {
+    overflow-y: hidden;
+  }
+
   .music-options .music .playMusic {
     width: 75%;
   }
@@ -784,23 +803,12 @@ h3 {
     width: 100%;
   }
 
-  .deck-container {
-    overflow-y: auto;
-  }
-
   .ingame-settings.menu {
-    max-width: 100%;
-    width: 100%;
-    max-height: 80%;
-    height: 100%;
+    height: 85%;
   }
-
-  .memory-deck {
-    height: fit-content !important;
-    margin: 0 auto;
-    padding-block: 10px;
-    overflow-y: auto;
-    top: 10%;
+  
+  .ingame-settings.show {
+    transform: translate(-50%, 12%) !important;
   }
 
   #score {
@@ -808,10 +816,31 @@ h3 {
     left: 2%;
   }
 
-  .memory-card {
-    max-width: 80px;
-    width: 100%;
-    height: 120px;
+  .memory-deck {
+    grid-template-columns: repeat(3, auto) !important;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 80vh !important;
+    width: max-content;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+
+  .memory-deck::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .memory-deck::-webkit-scrollbar-track {
+    background: #292929;
+  }
+  
+  .memory-deck::-webkit-scrollbar-thumb {
+    background-color: #10bb9f;
+    border-radius: 20px;
+    border: 2px solid #0e0e0e;
   }
 }
 
@@ -822,6 +851,10 @@ h3 {
 }
 
 @media (max-width: 480px) {
+  .theme {
+    height: 240px;
+  }
+
   .credits-info .credits-image-creator img#creator-background-image {
     height: 80%;
   }
@@ -830,5 +863,12 @@ h3 {
 @media (max-width: 380px) {
   .credits-info .credits-image-creator img#creator-background-image {
     height: 75%;
+  }
+}
+
+@media (max-width: 305px) {
+  .memory-card {
+    width: 80px;
+    height: 110px;
   }
 }

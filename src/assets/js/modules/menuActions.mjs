@@ -14,6 +14,8 @@ function openMenu() {
   for (let index = 0; index < SETTINGS_MENUS.length; index++) {
     if (this.dataset.setting === SETTINGS_MENUS[index].dataset.setting) {
       SETTINGS_MENUS[index].classList.add('show');
+      SETTINGS_MENUS[index].style.pointerEvents = 'all';
+      document.body.style.pointerEvents = 'none';
     }
   }
 }
@@ -22,6 +24,8 @@ function closeMenu() {
   SETTINGS_MENUS.forEach((SETTINGS_MENU) => {
     if (SETTINGS_MENU.classList.contains('show')) {
       SETTINGS_MENU.classList.remove('show');
+      SETTINGS_MENU.style.pointerEvents = '';
+      document.body.style.pointerEvents = '';
     }
   });
 }
