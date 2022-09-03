@@ -9,6 +9,7 @@ const SETTINGS_MENUS = document.querySelectorAll('.menu');
 const MENU_SETTINGS_OPTIONS = document.querySelectorAll('.setting-option');
 const SETTINGS_BUTTONS = document.querySelectorAll('.settingButton');
 const CLOSE_MENU_BUTTONS = document.querySelectorAll('.close-icon');
+const TOP_BAR_CONTAINER = document.querySelector('.top_bar_container');
 
 function toggleElementsDisplayState() {
   setTimeout(() => {
@@ -24,13 +25,17 @@ function toggleElementsDisplayState() {
 
 function openMenu() {
   playClickSoundEffect();
+  let buttonDataset = this.dataset.setting;
   
   for (let index = 0; index < SETTINGS_MENUS.length; index++) {
-    if (this.dataset.setting === SETTINGS_MENUS[index].dataset.setting) {
+    if (buttonDataset === SETTINGS_MENUS[index].dataset.setting) {
       SETTINGS_MENUS[index].classList.add('show');
       SETTINGS_MENUS[index].style.pointerEvents = 'all';
       document.body.style.pointerEvents = 'none';
     }
+  }
+  if (buttonDataset === "ingame-settings") {
+    TOP_BAR_CONTAINER.style.display = 'none';
   }
 }
 
@@ -40,6 +45,10 @@ function closeMenu() {
       SETTINGS_MENU.classList.remove('show');
       SETTINGS_MENU.style.pointerEvents = '';
       document.body.style.pointerEvents = '';
+    }
+
+    if (SETTINGS_MENU.dataset.setting === "ingame-settings") {
+      TOP_BAR_CONTAINER.style.display = 'flex';
     }
   });
 }
