@@ -2,7 +2,7 @@ import { SETTINGS_BUTTONS } from "./modules/menuActions.mjs";
 
 const LOADER_CONTAINER = document.getElementById('loader-container');
 
-function renderLoadingContainer() {
+function renderLoaderContainer() {
   LOADER_CONTAINER.style.display = '';
   LOADER_CONTAINER.style.display = 'flex';
 
@@ -11,7 +11,7 @@ function renderLoadingContainer() {
   }, 2000);
 }
 
-const ROOT_ELEMENT = document.documentElement; // <html> tag
+const ROOT_ELEMENT = document.documentElement; // <- <html> tag
 const FULLSCREEN_BUTTON = document.querySelector('.toggleFullscreenIcon');
 const MAXIMIZE_FULLSCREEN_ICON = '../src/assets/images/icons/maximize_fullscreen.svg';
 const MINIMIZE_FULLSCREEN_ICON = '../src/assets/images/icons/minimize_fullscreen.svg';
@@ -58,6 +58,6 @@ function hideElements(elements) {
   });
 }
 
-renderLoadingContainer();
+renderLoaderContainer();
 
-export { renderLoadingContainer, revealElements, hideElements };
+export { renderLoaderContainer, revealElements, hideElements };

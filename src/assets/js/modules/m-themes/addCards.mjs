@@ -1,12 +1,10 @@
-import { renderLoadingContainer, revealElements, hideElements } from '../../main.js';
-import { closeMenu } from '../menuActions.mjs';
-import { startGame } from '../gameAlgorithm.mjs';
+import { renderLoaderContainer } from '../../main.js';
+import { closeMenu, toggleElementsDisplayState } from '../menuActions.mjs';
 import { themes } from './themesData.mjs';
-import { playDefaultSoundTrack } from '../m-audio/audio.mjs';
-import { resetStyles } from './themesDifficulty.mjs';
+import { resetThemesContainerStyles } from './themesDifficulty.mjs';
+import { renderDeck } from './deckStyles.mjs';
 
 const LOADER_TITLE = document.getElementById('loader-title');
-const DECK_CONTAINER = document.querySelector('.deck-container');
 const MEMORY_DECK = document.getElementById('deck');
 let createCardsTwice, btnThemeId;
 
@@ -14,99 +12,53 @@ function saveClickedBtnThemeId(clickedBtnThemeId) {
   btnThemeId = clickedBtnThemeId;
 }
 
-function addEasyCards() {
+function createCards(difficulty) {
+  createCardsTwice = 0;
+
+  const CARDS_LIST = {
+    easy: Object.values(themes[btnThemeId].easy),
+    normal: Object.values(themes[btnThemeId].normal),
+    hard: Object.values(themes[btnThemeId].hard),
+  };
+  let cards = CARDS_LIST[difficulty];
+
+  while (createCardsTwice < 2) {
+    for (let index = 0; index < cards.length; index++) {
+      let memoryCard = document.createElement('div');
+      
+      memoryCard.classList.add('memory-card');
+      memoryCard.style.backgroundColor = `${themes[btnThemeId].cardBackgroundColor}`;
+
+      memoryCard.innerHTML = `
+      ${themes[btnThemeId].frontFace}
+      ${cards[index]}
+      `;
+      MEMORY_DECK.appendChild(memoryCard);
+    }
+    createCardsTwice++
+  }
+}
+
+function addEasyModeCards() {
   closeMenu();
-  resetStyles();
+  resetThemesContainerStyles();
+  createCards("easy");
 
-  let easyCards = Object.values(themes[btnThemeId].easy);
-  createCardsTwice = 0;
-
-  while (createCardsTwice < 2) {
-    for (let i = 0; i < easyCards.length; i++) {
-      let memoryCard = document.createElement('div');
-      
-      memoryCard.classList.add('memory-card');
-      memoryCard.style.backgroundColor = `${themes[btnThemeId].cardBackgroundColor}`;
-
-      memoryCard.innerHTML = `
-      ${themes[btnThemeId].frontFace}
-      ${easyCards[i]}
-      `;
-      MEMORY_DECK.appendChild(memoryCard);
-    }
-    createCardsTwice++
-  }
   LOADER_TITLE.innerHTML = "Downloading cards...";
-  renderLoadingContainer();
-  DECK_CONTAINER.style.backgroundImage = `url('${themes[btnThemeId].bodyBackgroundImage}')`;
-  DECK_CONTAINER.style.display = 'flex';
+  renderLoaderContainer();
+  renderDeck();
 
-  let cardsAmountInMemoryDeck = MEMORY_DECK.childElementCount;
-
-  if (cardsAmountInMemoryDeck === 8) {
-    MEMORY_DECK.style.gridTemplateColumns = 'repeat(4, auto)';
-  }
-  if (cardsAmountInMemoryDeck === 14 || cardsAmountInMemoryDeck === 20) {
-    MEMORY_DECK.style.gridTemplateColumns = 'repeat(5, auto)';
-  }
-
-  setTimeout(() => {
-    startGame();
-
-    let elementsToReveal = document.querySelectorAll('#score, #settingsIcon');
-    let elementsToHide = document.querySelectorAll('.game-menu');
-
-    revealElements(elementsToReveal);
-    hideElements(elementsToHide);
-
-    playDefaultSoundTrack();
-  }, 2000);
+  toggleElementsDisplayState();
 }
 
-function addNormalCards() {
-  let normalCards = Object.values(themes[btnThemeId].normal);
-  createCardsTwice = 0;
-
-  while (createCardsTwice < 2) {
-    for (let i = 0; i < normalCards.length; i++) {
-      let memoryCard = document.createElement('div');
-      
-      memoryCard.classList.add('memory-card');
-      memoryCard.style.backgroundColor = `${themes[btnThemeId].cardBackgroundColor}`;
-
-      memoryCard.innerHTML = `
-      ${themes[btnThemeId].frontFace}
-      ${normalCards[i]}
-      `;
-      MEMORY_DECK.appendChild(memoryCard);
-    }
-    createCardsTwice++
-  }
-  addEasyCards();
+function addNormalModeCards() {
+  addEasyModeCards();
+  createCards("normal");
 }
 
-function addHardCards() {
-  let hardCards = Object.values(themes[btnThemeId].hard);
-  createCardsTwice = 0;
-
-  while (createCardsTwice < 2) {
-    for (let i = 0; i < hardCards.length; i++) {
-      let memoryCard = document.createElement('div');
-      
-      memoryCard.classList.add('memory-card');
-      memoryCard.style.backgroundColor = `${themes[btnThemeId].cardBackgroundColor}`;
-
-      memoryCard.innerHTML = `
-      ${themes[btnThemeId].frontFace}
-      ${hardCards[i]}
-      `;
-      MEMORY_DECK.appendChild(memoryCard);
-    }
-    createCardsTwice++
-  }
-  addNormalCards();
+function addHardModeCards() {
+  addNormalModeCards();
+  createCards("hard");
 }
 
-
-
-export { addEasyCards, addNormalCards, addHardCards, saveClickedBtnThemeId, btnThemeId };
+export { addEasyModeCards, addNormalModeCards, addHardModeCards, saveClickedBtnThemeId, btnThemeId };

@@ -1,12 +1,26 @@
+import { revealElements, hideElements } from '../main.js';
 import { fillThemes } from './m-themes/fillThemesInMenu.mjs';
 import { fillRandomThemes } from './randomThemes/fillRandomThemes.mjs';
 import { shuffleRandomThemes } from './randomThemes/shuffleRandomThemes.mjs';
 import { playClickSoundEffect, playHoverSoundEffect, stopHoverSoundEffect } from './m-audio/audio.mjs';
+import { startGame } from './gameAlgorithm.mjs'
 
 const SETTINGS_MENUS = document.querySelectorAll('.menu');
 const MENU_SETTINGS_OPTIONS = document.querySelectorAll('.setting-option');
 const SETTINGS_BUTTONS = document.querySelectorAll('.settingButton');
 const CLOSE_MENU_BUTTONS = document.querySelectorAll('.close-icon');
+
+function toggleElementsDisplayState() {
+  setTimeout(() => {
+    startGame();
+
+    let elementsToReveal = document.querySelectorAll('#score, #settingsIcon');
+    let elementsToHide = document.querySelectorAll('.game-menu');
+
+    revealElements(elementsToReveal);
+    hideElements(elementsToHide);
+  }, 2000);
+}
 
 function openMenu() {
   playClickSoundEffect();
@@ -59,4 +73,4 @@ MENU_SETTINGS_OPTIONS.forEach((SETTING_BUTTON) => {
   SETTING_BUTTON.addEventListener('mouseleave', stopHoverSoundEffect);
 });
 
-export { SETTINGS_BUTTONS, CLOSE_MENU_BUTTONS, openMenu, closeMenu };
+export { SETTINGS_BUTTONS, CLOSE_MENU_BUTTONS, openMenu, closeMenu, toggleElementsDisplayState };

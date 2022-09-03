@@ -1,6 +1,7 @@
-import { renderPlayMusicButtons } from "./m-audio/audio.mjs";
+import { playDefaultSoundTrack, renderPlayMusicButtons } from "./m-audio/audio.mjs";
 
 function startGame() {
+  playDefaultSoundTrack();
   renderPlayMusicButtons();
 
   const CARDS = document.querySelectorAll('.memory-card');

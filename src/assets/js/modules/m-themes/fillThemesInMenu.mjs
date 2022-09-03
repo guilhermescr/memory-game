@@ -1,10 +1,10 @@
 import { themes, THEMES_NAMES, THEMES_LIST } from './themesData.mjs';
-import { resetStyles, renderPlayThemeButtons } from './themesDifficulty.mjs';
+import { resetThemesContainerStyles, renderPlayThemeButtons } from './themesDifficulty.mjs';
 
 let lockCreation = false;
 
 function fillThemes() {
-  resetStyles();
+  resetThemesContainerStyles();
   if (lockCreation) return;
 
   let themesContainer = document.getElementById('themesContainer');
