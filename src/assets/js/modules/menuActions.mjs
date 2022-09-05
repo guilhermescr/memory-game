@@ -1,25 +1,13 @@
-import { revealElements, hideElements } from '../main.js';
 import { fillThemes } from './m-themes/fillThemesInMenu.mjs';
 import { fillRandomThemes } from './randomThemes/fillRandomThemes.mjs';
 import { shuffleRandomThemes } from './randomThemes/shuffleRandomThemes.mjs';
 import { playClickSoundEffect, playHoverSoundEffect, stopHoverSoundEffect } from './m-audio/audio.mjs';
-import { startGame } from './gameAlgorithm.mjs'
 
 const SETTINGS_MENUS = document.querySelectorAll('.menu');
 const MENU_SETTINGS_OPTIONS = document.querySelectorAll('.setting-option');
 const SETTINGS_BUTTONS = document.querySelectorAll('.settingButton');
 const CLOSE_MENU_BUTTONS = document.querySelectorAll('.close-icon');
 const TOP_BAR_CONTAINER = document.querySelector('.top_bar_container');
-
-// call this function inside the function addEasyModeCards
-function toggleElementsDisplayState(revealElementsArray, hideElementsArray) {
-  setTimeout(() => {
-    startGame();
-
-    revealElements(revealElementsArray);
-    hideElements(hideElementsArray);
-  }, 2000);
-}
 
 function openMenu() {
   playClickSoundEffect();
@@ -51,8 +39,6 @@ function closeMenu() {
   });
 }
 
-function backToHomePage() {}
-
 const PLAY_GAME_BUTTON = document.getElementById('playBtn');
 PLAY_GAME_BUTTON.addEventListener('click', fillThemes);
 
@@ -82,4 +68,4 @@ MENU_SETTINGS_OPTIONS.forEach((SETTING_BUTTON) => {
   SETTING_BUTTON.addEventListener('mouseleave', stopHoverSoundEffect);
 });
 
-export { SETTINGS_BUTTONS, CLOSE_MENU_BUTTONS, openMenu, closeMenu, toggleElementsDisplayState };
+export { SETTINGS_BUTTONS, CLOSE_MENU_BUTTONS, openMenu, closeMenu };

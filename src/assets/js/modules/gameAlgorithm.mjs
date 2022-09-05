@@ -1,4 +1,7 @@
-import { playDefaultSoundTrack, renderPlayMusicButtons } from "./m-audio/audio.mjs";
+import { hideElements, renderLoaderContainer, revealElements } from "../main.js";
+import { playDefaultSoundTrack, renderPlayMusicButtons, stopSoundTrack } from "./m-audio/audio.mjs";
+import { memoryDeck } from "./m-themes/addCards.mjs";
+import { DECK_CONTAINER } from "./m-themes/deckStyles.mjs";
 
 let cards;
 const SCOREBOARD = document.getElementById('scorePoints');
@@ -7,11 +10,13 @@ function startGame() {
   playDefaultSoundTrack();
   renderPlayMusicButtons();
 
-  cards = document.querySelectorAll('.memory-card');
   let hasFlippedCard = false;
   let lockBoard = false;
   let firstCard, secondCard;
   let scorePoints = Number(SCOREBOARD.innerHTML);
+
+  [SCOREBOARD.innerHTML, scorePoints] = [0, 0];
+  cards = document.querySelectorAll('.memory-card');
 
   function flipCard() {
     if (lockBoard) return;
@@ -48,9 +53,10 @@ function startGame() {
 
     scorePoints++;
     SCOREBOARD.innerHTML = scorePoints;
-    if (scorePoints === 4 || scorePoints === 7 || scorePoints === 10) {
-      alert("YOU WON!");
-      endGame(addCardsListeners);
+    if (scorePoints === cards.length / 2) {
+      console.log("YOU WON!");
+      renderLoaderContainer("Bringing you to home...");
+      endGame();
     }
   
     resetBoard();
@@ -84,8 +90,16 @@ function startGame() {
   addCardsListeners();
 }
 
-function endGame(addCardsListeners) {
-  addCardsListeners();
+function endGame() {
+  stopSoundTrack();
+  memoryDeck.innerHTML = "";
+
+  const GAME_MENU = document.querySelector('.game-menu');
+  let topBarContainerIngameElements = document.querySelectorAll('#score, #settingsIcon');
+  
+  hideElements(DECK_CONTAINER);
+  hideElements(topBarContainerIngameElements);
+  revealElements(GAME_MENU);
 }
 
 export { startGame };

@@ -1,12 +1,10 @@
-import { renderLoaderContainer } from '../../main.js';
-import { closeMenu, toggleElementsDisplayState } from '../menuActions.mjs';
+import { hideElements, renderLoaderContainer, revealElements } from '../../main.js';
+import { closeMenu } from '../menuActions.mjs';
 import { themes } from './themesData.mjs';
 import { resetThemesContainerStyles } from './themesDifficulty.mjs';
 import { renderDeck } from './deckStyles.mjs';
 
-const LOADER_TITLE = document.getElementById('loader-title');
-const MEMORY_DECK = document.getElementById('deck');
-let createCardsTwice, btnThemeId;
+let createCardsTwice, btnThemeId, memoryDeck = document.getElementById('deck');
 
 function saveClickedBtnThemeId(clickedBtnThemeId) {
   btnThemeId = clickedBtnThemeId;
@@ -33,26 +31,26 @@ function createCards(difficulty) {
       ${themes[btnThemeId].frontFace}
       ${cards[index]}
       `;
-      MEMORY_DECK.appendChild(memoryCard);
+      memoryDeck.appendChild(memoryCard);
     }
     createCardsTwice++
   }
 }
 
 function addEasyModeCards() {
-  let elementsToReveal = document.querySelectorAll('#score, #settingsIcon');
-  let elementsToHide = document.querySelectorAll('.game-menu');
+  const GAME_MENU = document.querySelector('.game-menu');
+  let topBarContainerIngameElements = document.querySelectorAll('#score, #settingsIcon');
 
   closeMenu();
-  resetThemesContainerStyles();
+  resetThemesContainerStyles();~
+
   createCards("easy");
 
-  LOADER_TITLE.innerHTML = "Downloading cards...";
-  renderLoaderContainer();
+  renderLoaderContainer("Downloading cards...");
   renderDeck();
 
-  // elementsToReveal, elementsToHide
-  toggleElementsDisplayState(elementsToReveal, elementsToHide);
+  revealElements(topBarContainerIngameElements);
+  hideElements(GAME_MENU);
 }
 
 function addNormalModeCards() {
@@ -65,4 +63,4 @@ function addHardModeCards() {
   createCards("hard");
 }
 
-export { addEasyModeCards, addNormalModeCards, addHardModeCards, saveClickedBtnThemeId, btnThemeId };
+export { addEasyModeCards, addNormalModeCards, addHardModeCards, saveClickedBtnThemeId, btnThemeId, memoryDeck };

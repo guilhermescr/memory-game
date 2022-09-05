@@ -87,7 +87,7 @@ h3 {
 }
 
 .hide {
-  display: none;
+  display: none !important;
   z-index: -1 !important;
 }
 
@@ -571,7 +571,7 @@ h3 {
 .deck-container {
   background: #00a1ce url('') no-repeat center fixed;
   background-size: cover;
-  display: none;
+  display: flex;
   flex-direction: column;
 
   width: 100%;

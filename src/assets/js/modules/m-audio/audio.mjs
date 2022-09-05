@@ -3,6 +3,7 @@ import { btnThemeId } from "../m-themes/addCards.mjs";
 
 const AUDIO_TAG = document.getElementById('themeMusic');
 const AUDIO_SOURCE_TAG = document.getElementById('themeSoundTrack');
+let MusicIsActive = true;
 
 function getPlayMusicButtons() {
   const PLAY_MUSIC_BUTTONS = document.querySelectorAll('.hasMusic');
@@ -15,8 +16,9 @@ function getPlayMusicButtons() {
 }
 
 function renderPlayMusicButtons() {
-  const MUSIC_BUTTONS_CONTAINER = document.querySelector(".music-options");
   const SOUNDTRACKS_AMOUNT = Object.keys(themes[btnThemeId].soundTracks).length;
+  let musicButtonsContainer = document.querySelector(".music-options");
+  musicButtonsContainer.innerHTML = "";
 
   for (let index = 1; index <= SOUNDTRACKS_AMOUNT; index++) {
     const MUSIC = `
@@ -31,9 +33,15 @@ function renderPlayMusicButtons() {
     </div>
     `;
 
-    MUSIC_BUTTONS_CONTAINER.innerHTML += themes[btnThemeId].soundTracks[`Music${index}`] ? MUSIC : MUSIC_COMING_SOON;
+    musicButtonsContainer.innerHTML += themes[btnThemeId].soundTracks[`Music${index}`] ? MUSIC : MUSIC_COMING_SOON;
   }
   getPlayMusicButtons();
+}
+
+function playDefaultSoundTrack() {
+  AUDIO_SOURCE_TAG.src = themes[btnThemeId].soundTracks.Music1;
+  AUDIO_TAG.load();
+  AUDIO_TAG.play();
 }
 
 function playSoundTrack(playMusicButton) {
@@ -43,10 +51,12 @@ function playSoundTrack(playMusicButton) {
   AUDIO_TAG.play();
 }
 
-function playDefaultSoundTrack() {
-  AUDIO_SOURCE_TAG.src = themes[btnThemeId].soundTracks.Music1;
-  AUDIO_TAG.load();
+function unpauseSoundTrack() {
   AUDIO_TAG.play();
+}
+
+function pauseSoundTrack() {
+  AUDIO_TAG.pause();
 }
 
 function stopSoundTrack() {
@@ -77,7 +87,7 @@ function playClickSoundEffect() {
 // Switch Audio Settings
 const SWITCH_AUDIO_BUTTONS = document.querySelectorAll('.switchButton');
 
-function switchAudio(clickedSwitchAudioButton) {
+function switchAudioStyles(SwitchAudioButton) {
   const ACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR = "#10bb9f";
   const INACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR = "#444";
 
@@ -85,31 +95,29 @@ function switchAudio(clickedSwitchAudioButton) {
   const INACTIVE_SWITCH_AUDIO_BUTTON_BACKGROUND_GRADIENT = "linear-gradient(#2f4246 5%, #10bb9f)";
 
   // turn off
-  if (clickedSwitchAudioButton.classList.contains("active")) {
-    clickedSwitchAudioButton.classList.contains("switchMusicButton") ? stopSoundTrack() : null;
-
-    clickedSwitchAudioButton.innerHTML = "Off";
-
-    clickedSwitchAudioButton.parentElement.style.backgroundColor = INACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR;
-
-    clickedSwitchAudioButton.style.backgroundImage = INACTIVE_SWITCH_AUDIO_BUTTON_BACKGROUND_GRADIENT;
+  if (SwitchAudioButton.classList.contains("active")) {
+    SwitchAudioButton.innerHTML = "Off";
+    SwitchAudioButton.parentElement.style.backgroundColor = INACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR;
+    SwitchAudioButton.style.backgroundImage = INACTIVE_SWITCH_AUDIO_BUTTON_BACKGROUND_GRADIENT;
 
   } else { // turn on
-    clickedSwitchAudioButton.classList.contains("switchMusicButton") ? playDefaultSoundTrack() : null;
-    
-    clickedSwitchAudioButton.innerHTML = "On";
-
-    clickedSwitchAudioButton.parentElement.style.backgroundColor = ACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR;
-
-    clickedSwitchAudioButton.style.backgroundImage = ACTIVE_SWITCH_AUDIO_BUTTON_BACKGROUND_GRADIENT;
+    SwitchAudioButton.innerHTML = "On";
+    SwitchAudioButton.parentElement.style.backgroundColor = ACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR;
+    SwitchAudioButton.style.backgroundImage = ACTIVE_SWITCH_AUDIO_BUTTON_BACKGROUND_GRADIENT;
   }
-  clickedSwitchAudioButton.classList.toggle("active");
+  SwitchAudioButton.classList.toggle("active");
+  SwitchAudioButton.classList.contains("switchMusicButton") ? switchMusic() : null;
+}
+
+function switchMusic() {
+  MusicIsActive = !MusicIsActive;
+  MusicIsActive ? unpauseSoundTrack() : pauseSoundTrack();
 }
 
 SWITCH_AUDIO_BUTTONS.forEach((SWITCH_AUDIO_BUTTON) => {
   SWITCH_AUDIO_BUTTON.addEventListener("click", function() {
-    switchAudio(this);
+    switchAudioStyles(this);
   });
 });
 
-export { renderPlayMusicButtons, playSoundTrack, playDefaultSoundTrack, playHoverSoundEffect, stopHoverSoundEffect, playClickSoundEffect };
+export { renderPlayMusicButtons, playDefaultSoundTrack, playSoundTrack, stopSoundTrack, playHoverSoundEffect, stopHoverSoundEffect, playClickSoundEffect };

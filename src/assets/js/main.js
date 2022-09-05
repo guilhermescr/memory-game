@@ -1,10 +1,15 @@
 import { SETTINGS_BUTTONS } from "./modules/menuActions.mjs";
 
 const LOADER_CONTAINER = document.getElementById('loader-container');
+const LOADER_TITLE = document.getElementById('loader-title');
 
-function renderLoaderContainer() {
+function renderLoaderContainer(loaderMessage) {
   LOADER_CONTAINER.style.display = '';
   LOADER_CONTAINER.style.display = 'flex';
+
+  if (loaderMessage) {
+    LOADER_TITLE.innerHTML = loaderMessage;
+  }
 
   setTimeout(() => {
     LOADER_CONTAINER.style.display = 'none';
@@ -46,15 +51,23 @@ window.addEventListener('keydown', function (event) {
 });
 
 function revealElements(elements) {
-  elements.forEach((element) => {
-    element.classList.remove('hide');
-  });
+  if (elements.length !== undefined) {
+    elements.forEach((element) => {
+      element.classList.remove('hide');
+    });
+    return;
+  }
+  elements.classList.remove('hide');
 }
 
 function hideElements(elements) {
-  elements.forEach((element) => {
-    element.classList.add('hide');
-  });
+  if (elements.length !== undefined) {
+    elements.forEach((element) => {
+      element.classList.add('hide');
+    });
+    return;
+  }
+  elements.classList.add('hide');
 }
 
 renderLoaderContainer();
