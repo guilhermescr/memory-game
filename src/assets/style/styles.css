@@ -88,6 +88,7 @@ h3 {
 
 .hide {
   display: none;
+  z-index: -1 !important;
 }
 
 .menu {

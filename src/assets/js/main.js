@@ -54,7 +54,6 @@ function revealElements(elements) {
 function hideElements(elements) {
   elements.forEach((element) => {
     element.classList.add('hide');
-    element.style.zIndex = -1;
   });
 }
 

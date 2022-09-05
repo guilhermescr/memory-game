@@ -1,15 +1,17 @@
 import { playDefaultSoundTrack, renderPlayMusicButtons } from "./m-audio/audio.mjs";
 
+let cards;
+const SCOREBOARD = document.getElementById('scorePoints');
+
 function startGame() {
   playDefaultSoundTrack();
   renderPlayMusicButtons();
 
-  const CARDS = document.querySelectorAll('.memory-card');
-
+  cards = document.querySelectorAll('.memory-card');
   let hasFlippedCard = false;
   let lockBoard = false;
   let firstCard, secondCard;
-  const SCORE_POINTS = document.getElementById('scorePoints');
+  let scorePoints = Number(SCOREBOARD.innerHTML);
 
   function flipCard() {
     if (lockBoard) return;
@@ -43,7 +45,13 @@ function startGame() {
   function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
-    SCORE_POINTS.innerHTML++;
+
+    scorePoints++;
+    SCOREBOARD.innerHTML = scorePoints;
+    if (scorePoints === 4 || scorePoints === 7 || scorePoints === 10) {
+      alert("YOU WON!");
+      endGame(addCardsListeners);
+    }
   
     resetBoard();
   }
@@ -64,13 +72,20 @@ function startGame() {
   }
   
   (function shuffle() {
-    CARDS.forEach(card => {
-      let randomPosition = Math.floor(Math.random() * CARDS.length);
+    cards.forEach(card => {
+      let randomPosition = Math.floor(Math.random() * cards.length);
       card.style.order = randomPosition;
     });
   })();
+  
+  function addCardsListeners() {
+    cards.forEach(card => card.addEventListener('click', flipCard));
+  }
+  addCardsListeners();
+}
 
-  CARDS.forEach(card => card.addEventListener('click', flipCard));
+function endGame(addCardsListeners) {
+  addCardsListeners();
 }
 
 export { startGame };

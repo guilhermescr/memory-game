@@ -11,15 +11,13 @@ const SETTINGS_BUTTONS = document.querySelectorAll('.settingButton');
 const CLOSE_MENU_BUTTONS = document.querySelectorAll('.close-icon');
 const TOP_BAR_CONTAINER = document.querySelector('.top_bar_container');
 
-function toggleElementsDisplayState() {
+// call this function inside the function addEasyModeCards
+function toggleElementsDisplayState(revealElementsArray, hideElementsArray) {
   setTimeout(() => {
     startGame();
 
-    let elementsToReveal = document.querySelectorAll('#score, #settingsIcon');
-    let elementsToHide = document.querySelectorAll('.game-menu');
-
-    revealElements(elementsToReveal);
-    hideElements(elementsToHide);
+    revealElements(revealElementsArray);
+    hideElements(hideElementsArray);
   }, 2000);
 }
 
@@ -52,6 +50,8 @@ function closeMenu() {
     }
   });
 }
+
+function backToHomePage() {}
 
 const PLAY_GAME_BUTTON = document.getElementById('playBtn');
 PLAY_GAME_BUTTON.addEventListener('click', fillThemes);

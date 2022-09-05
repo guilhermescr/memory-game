@@ -40,6 +40,9 @@ function createCards(difficulty) {
 }
 
 function addEasyModeCards() {
+  let elementsToReveal = document.querySelectorAll('#score, #settingsIcon');
+  let elementsToHide = document.querySelectorAll('.game-menu');
+
   closeMenu();
   resetThemesContainerStyles();
   createCards("easy");
@@ -48,7 +51,8 @@ function addEasyModeCards() {
   renderLoaderContainer();
   renderDeck();
 
-  toggleElementsDisplayState();
+  // elementsToReveal, elementsToHide
+  toggleElementsDisplayState(elementsToReveal, elementsToHide);
 }
 
 function addNormalModeCards() {
