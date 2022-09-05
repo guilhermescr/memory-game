@@ -36,8 +36,8 @@ AdventureTime: {
   cardBackgroundColor: '#C83700',
 
   soundTracks: {
-    Music1: '../src/assets/soundtracks/adventure-time/adventure_time_island_song_music1.mp3',
-    Music2: '../src/assets/soundtracks/adventure-time/adventure_time_my_best_friends_in_the_world_music2.mp3',
+    Music1: '../src/soundtracks/adventure-time/adventure_time_island_song_music1.mp3',
+    Music2: '../src/soundtracks/adventure-time/adventure_time_my_best_friends_in_the_world_music2.mp3',
     Music3: '',
   },
 },
@@ -72,8 +72,8 @@ Ben10: {
   cardBackgroundColor: '#16AE58',
 
   soundTracks: {
-    Music1: '../src/assets/soundtracks/ben-10/ben_10_omniverse_music1.mp3',
-    Music2: '../src/assets/soundtracks/ben-10/ben_10_alien_force_music2.mp3',
+    Music1: '../src/soundtracks/ben-10/ben_10_omniverse_music1.mp3',
+    Music2: '../src/soundtracks/ben-10/ben_10_alien_force_music2.mp3',
     Music3: '',
   },
 },
@@ -108,7 +108,7 @@ BokuNoHero: {
   cardBackgroundColor: '#FF7E00',
 
   soundTracks: {
-    Music1: '../src/assets/soundtracks/boku-no-hero/boku_no_hero_opening_music1.mp3',
+    Music1: '../src/soundtracks/boku-no-hero/boku_no_hero_opening_music1.mp3',
     Music2: '',
     Music3: '',
   },
@@ -144,7 +144,7 @@ Boruto: {
   cardBackgroundColor: '#FCBA21',
 
   soundTracks: {
-    Music1: '../src/assets/soundtracks/boruto/boruto_opening_music1.mp3',
+    Music1: '../src/soundtracks/boruto/boruto_opening_music1.mp3',
     Music2: '',
     Music3: '',
   },
@@ -180,8 +180,8 @@ DragonBall: {
   cardBackgroundColor: '#EFCC00',
 
   soundTracks: {
-    Music1: '../src/assets/soundtracks/dragon-ball/dragon_ball_opening_music1.mp3',
-    Music2: '../src/assets/soundtracks/dragon-ball/dragon_ball_super_opening_music2.mp3',
+    Music1: '../src/soundtracks/dragon-ball/dragon_ball_opening_music1.mp3',
+    Music2: '../src/soundtracks/dragon-ball/dragon_ball_super_opening_music2.mp3',
     Music3: '',
   },
 },
@@ -216,7 +216,7 @@ GilmoreGirls: {
   cardBackgroundColor: '#4C1415',
 
   soundTracks: {
-    Music1: '../src/assets/soundtracks/gilmore-girls/gilmore_girls_opening_music1.mp3',
+    Music1: '../src/soundtracks/gilmore-girls/gilmore_girls_opening_music1.mp3',
     Music2: '',
     Music3: '',
   },
@@ -252,7 +252,7 @@ NanatsuNoTaizai: {
   cardBackgroundColor: '#0EC74F',
 
   soundTracks: {
-    Music1: '../src/assets/soundtracks/nanatsu-no-taizai/the_seven_deadly_sins_opening _music1.mp3',
+    Music1: '../src/soundtracks/nanatsu-no-taizai/the_seven_deadly_sins_opening _music1.mp3',
     Music2: '',
     Music3: '',
   },
@@ -288,8 +288,8 @@ Naruto: {
   cardBackgroundColor: '#0b0b0b',
 
   soundTracks: {
-    Music1: '../src/assets/soundtracks/naruto/naruto_music1.mp3',
-    Music2: '../src/assets/soundtracks/naruto/naruto_akatsuki_music2.mp3',
+    Music1: '../src/soundtracks/naruto/naruto_music1.mp3',
+    Music2: '../src/soundtracks/naruto/naruto_akatsuki_music2.mp3',
     Music3: '',
   },
 },
@@ -324,7 +324,7 @@ OnePiece: {
   cardBackgroundColor: '#105EDD',
 
   soundTracks: {
-    Music1: '../src/assets/soundtracks/one-piece/one_piece_opening_music1.mp3',
+    Music1: '../src/soundtracks/one-piece/one_piece_opening_music1.mp3',
     Music2: '',
     Music3: '',
   },
@@ -360,7 +360,7 @@ OnePunchMan: {
   cardBackgroundColor: '#BF0000',
 
   soundTracks: {
-    Music1: '../src/assets/soundtracks/one-punch-man/one_punch_man_music1.mp3',
+    Music1: '../src/soundtracks/one-punch-man/one_punch_man_music1.mp3',
     Music2: '',
     Music3: '',
   },

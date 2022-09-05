@@ -45,6 +45,8 @@ function playDefaultSoundTrack() {
 }
 
 function playSoundTrack(playMusicButton) {
+  if (!MusicIsActive) return;
+
   let chosenMusic = playMusicButton.dataset.music;
   AUDIO_SOURCE_TAG.src = themes[btnThemeId].soundTracks[chosenMusic];
   AUDIO_TAG.load();
