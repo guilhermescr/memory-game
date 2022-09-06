@@ -9,6 +9,8 @@ function renderLoaderContainer(loaderMessage) {
 
   if (loaderMessage) {
     LOADER_TITLE.innerHTML = loaderMessage;
+  } else {
+    LOADER_TITLE.innerHTML = "Loading...";
   }
 
   setTimeout(() => {

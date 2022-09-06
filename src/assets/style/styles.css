@@ -492,6 +492,20 @@ h3 {
   right: -5%;
 }
 
+.audio-container input[type='range'] {
+  width: 150px;
+  cursor: pointer;
+}
+
+.audio-container input[type='range']::-webkit-slider-runnable-track {
+  border: none;
+  border-radius: 20px;
+  height: 16px;
+  width: 16px;
+  -webkit-appearance: none;
+  background: #2dcadf;
+}
+
 /* CREDITS */
 .credits {
   display: flex;

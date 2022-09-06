@@ -3,6 +3,7 @@ import { btnThemeId } from "../m-themes/addCards.mjs";
 
 const AUDIO_TAG = document.getElementById('themeMusic');
 const AUDIO_SOURCE_TAG = document.getElementById('themeSoundTrack');
+const VOLUME_INPUT = document.getElementById('rangeInput');
 let MusicIsActive = true;
 
 function getPlayMusicButtons() {
@@ -65,6 +66,12 @@ function stopSoundTrack() {
   AUDIO_TAG.pause();
   AUDIO_SOURCE_TAG.src = '';
 }
+
+function setVolume() {
+  AUDIO_TAG.volume = VOLUME_INPUT.value;
+}
+
+VOLUME_INPUT.addEventListener('input', setVolume);
 
 // SOUND EFFECTS
 const HOVER_SOUND_EFFECT = document.getElementById('hover-soundEffect');
