@@ -7,6 +7,11 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../src/assets/style/styles.css" />
     <title>Memory Game</title>
+    <script
+      src="https://kit.fontawesome.com/402b466f9c.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
   </head>
   <body>
     <div id="loader-container">
@@ -16,13 +21,28 @@
 
     <section class="top_bar_container">
       <div class="top_bar_left_content">
-        <h3 id="score" class="hide">Score: <span id="scorePoints">0</span></h3>
+        <h3 id="score" class="top_bar_item hide">
+          Score: <span id="scorePoints">0</span>
+        </h3>
+        <h3 id="moves" class="top_bar_item hide">
+          Moves: <span id="moveCount">0</span>
+        </h3>
+        <h3 class="top_bar_item hide">
+          Lives:
+          <span id="hearts">
+            <i class="fa-sharp fa-solid fa-heart heart alive_heart"></i>
+            <i class="fa-sharp fa-solid fa-heart heart alive_heart"></i>
+            <i class="fa-sharp fa-solid fa-heart heart alive_heart"></i>
+            <i class="fa-sharp fa-solid fa-heart heart alive_heart"></i>
+            <i class="fa-sharp fa-solid fa-heart heart alive_heart"></i>
+          </span>
+        </h3>
       </div>
 
       <div class="top_bar_right_content">
         <img
           id="settingsIcon"
-          class="hide settingButton"
+          class="top_bar_item hide settingButton"
           data-setting="ingame-settings"
           src="../src/assets/images/icons/settings_icon.svg"
           alt="Settings Icon"
@@ -42,7 +62,11 @@
       </header>
 
       <section class="settings">
-        <button class="setting-option settingButton" id="playBtn" data-setting="play-game">
+        <button
+          class="setting-option settingButton"
+          id="playBtn"
+          data-setting="play-game"
+        >
           Play
         </button>
         <button
@@ -52,8 +76,13 @@
         >
           Random Theme
         </button>
-        <button class="setting-option settingButton" data-setting="sounds">Sounds</button>
-        <button class="setting-option settingButton" data-setting="credits-menu">
+        <button class="setting-option settingButton" data-setting="sounds">
+          Sounds
+        </button>
+        <button
+          class="setting-option settingButton"
+          data-setting="credits-menu"
+        >
           Credits
         </button>
       </section>
@@ -281,7 +310,14 @@
                 </button>
               </div>
             </div>
-            <input type="range" min="0" max="1" step="0.1" value="10" id="rangeInput" />
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.1"
+              value="10"
+              id="rangeInput"
+            />
           </section>
         </div>
       </div>
@@ -299,14 +335,8 @@
       Your browser doesn't support the audio element.
     </audio>
     <audio id="click-setting-effect">
-      <source
-        src="../src/effects/mouse-click-effect.mp3"
-        type="audio/mpeg"
-      />
-      <source
-        src="../src/effects/mouse-click-effect.ogg"
-        type="audio/ogg"
-      />
+      <source src="../src/effects/mouse-click-effect.mp3" type="audio/mpeg" />
+      <source src="../src/effects/mouse-click-effect.ogg" type="audio/ogg" />
       Your browser doesn't support the audio element.
     </audio>
 

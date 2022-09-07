@@ -1,27 +1,33 @@
 import { hideElements, renderLoaderContainer, revealElements } from "../main.js";
-import { playDefaultSoundTrack, renderPlayMusicButtons, stopSoundTrack } from "./m-audio/audio.mjs";
-import { memoryDeck } from "./m-themes/addCards.mjs";
+import { MusicIsActive, playDefaultSoundTrack, renderPlayMusicButtons, stopSoundTrack } from "./m-audio/audio.mjs";
+import { TOP_BAR_CONTAINER, memoryDeck } from "./m-themes/addCards.mjs";
 import { DECK_CONTAINER } from "./m-themes/deckStyles.mjs";
 
-let cards;
 const SCOREBOARD = document.getElementById('scorePoints');
+const MOVE_COUNT = document.getElementById('moveCount');
+let cards;
 
 function startGame() {
-  playDefaultSoundTrack();
+  if (MusicIsActive) {
+    playDefaultSoundTrack();
+  }
   renderPlayMusicButtons();
 
   let hasFlippedCard = false;
   let lockBoard = false;
   let firstCard, secondCard;
-  let scorePoints = Number(SCOREBOARD.innerHTML);
+  let [scorePoints, moves] = [Number(SCOREBOARD.innerHTML), Number(MOVE_COUNT.innerHTML)];
 
-  [SCOREBOARD.innerHTML, scorePoints] = [0, 0];
+  [SCOREBOARD.innerHTML, MOVE_COUNT.innerHTML, scorePoints] = [0, 0, 0];
   cards = document.querySelectorAll('.memory-card');
 
   function flipCard() {
     if (lockBoard) return;
     this.classList.add('flip');
     if (this === firstCard) return;
+    
+    moves++;
+    MOVE_COUNT.innerHTML = moves;
   
     if (!hasFlippedCard) {
       hasFlippedCard = true;
@@ -93,6 +99,7 @@ function startGame() {
 function endGame() {
   stopSoundTrack();
   memoryDeck.innerHTML = "";
+  TOP_BAR_CONTAINER.classList.remove('top_bar_container__background');
 
   const GAME_MENU = document.querySelector('.game-menu');
   let topBarContainerIngameElements = document.querySelectorAll('#score, #settingsIcon');

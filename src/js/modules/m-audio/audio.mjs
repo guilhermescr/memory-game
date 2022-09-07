@@ -129,4 +129,4 @@ SWITCH_AUDIO_BUTTONS.forEach((SWITCH_AUDIO_BUTTON) => {
   });
 });
 
-export { renderPlayMusicButtons, playDefaultSoundTrack, playSoundTrack, stopSoundTrack, playHoverSoundEffect, stopHoverSoundEffect, playClickSoundEffect };
+export { MusicIsActive, renderPlayMusicButtons, playDefaultSoundTrack, playSoundTrack, stopSoundTrack, playHoverSoundEffect, stopHoverSoundEffect, playClickSoundEffect };
