@@ -1,10 +1,11 @@
-import { hideElements, renderLoaderContainer, revealElements } from "../main.js";
-import { MusicIsActive, playDefaultSoundTrack, renderPlayMusicButtons, stopSoundTrack } from "./m-audio/audio.mjs";
-import { TOP_BAR_CONTAINER, memoryDeck } from "./m-themes/addCards.mjs";
-import { DECK_CONTAINER } from "./m-themes/deckStyles.mjs";
+import { hideElements, renderLoaderContainer, revealElements } from '../main.js';
+import { MusicIsActive, playDefaultSoundTrack, renderPlayMusicButtons, stopSoundTrack } from './m-audio/audio.mjs';
+import { TOP_BAR_CONTAINER, memoryDeck } from './m-themes/addCards.mjs';
+import { DECK_CONTAINER } from './m-themes/deckStyles.mjs';
 
 const SCOREBOARD = document.getElementById('scorePoints');
 const MOVE_COUNT = document.getElementById('moveCount');
+const HEARTS = document.querySelectorAll('.heart');
 let cards;
 
 function startGame() {
@@ -13,13 +14,39 @@ function startGame() {
   }
   renderPlayMusicButtons();
 
-  let hasFlippedCard = false;
-  let lockBoard = false;
   let firstCard, secondCard;
-  let [scorePoints, moves] = [Number(SCOREBOARD.innerHTML), Number(MOVE_COUNT.innerHTML)];
+  let [hasFlippedCard, lockBoard] = [false, false];
+  let [scorePoints, moves] = [0, 0];
+  let lives = 5;
+  let withLives = false;
+  
+  if (!(document.querySelector('.hearts_container').classList.contains('hide'))) {
+    resetHeartsColor();
+    withLives = true;
+  }
 
-  [SCOREBOARD.innerHTML, MOVE_COUNT.innerHTML, scorePoints] = [0, 0, 0];
+  [SCOREBOARD.innerHTML, scorePoints, MOVE_COUNT.innerHTML] = [0, 0, 0];
   cards = document.querySelectorAll('.memory-card');
+
+  function resetHeartsColor() {
+    for (let heart of HEARTS) {
+      heart.classList.add('alive_heart');
+      heart.classList.remove('dead_heart');
+    }
+  }
+
+  function loseHeart() {
+    lives--;
+    HEARTS[lives].classList.remove('alive_heart');
+    HEARTS[lives].classList.add('dead_heart');
+    if (lives === 0) {
+      setTimeout(() => {
+        alert("You lost.");
+        renderLoaderContainer("Try to do better next time...");
+        endGame();
+      }, 800);
+    }
+  }
 
   function flipCard() {
     if (lockBoard) return;
@@ -50,6 +77,7 @@ function startGame() {
       disableCards();
     } else {
       unflipCards();
+      withLives ? loseHeart() : null;
     }
   }
   
@@ -60,9 +88,11 @@ function startGame() {
     scorePoints++;
     SCOREBOARD.innerHTML = scorePoints;
     if (scorePoints === cards.length / 2) {
-      console.log("YOU WON!");
-      renderLoaderContainer("Bringing you to home...");
-      endGame();
+      setTimeout(() => {
+        alert("YOU WON!");
+        renderLoaderContainer("Bringing you to home...");
+        endGame();
+      }, 1000);
     }
   
     resetBoard();
@@ -102,7 +132,7 @@ function endGame() {
   TOP_BAR_CONTAINER.classList.remove('top_bar_container__background');
 
   const GAME_MENU = document.querySelector('.game-menu');
-  let topBarContainerIngameElements = document.querySelectorAll('#score, #settingsIcon');
+  let topBarContainerIngameElements = document.querySelectorAll('.top_bar_item');
   
   hideElements(DECK_CONTAINER);
   hideElements(topBarContainerIngameElements);

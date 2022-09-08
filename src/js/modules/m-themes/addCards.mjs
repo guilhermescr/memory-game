@@ -40,7 +40,7 @@ function createCards(difficulty) {
 
 function addEasyModeCards() {
   const GAME_MENU = document.querySelector('.game-menu');
-  let topBarContainerIngameElements = document.querySelectorAll('.top_bar_item');
+  let topBarContainerIngameElements = document.querySelectorAll('.top_bar_item:not(.top_bar_item.hearts_container)');
   TOP_BAR_CONTAINER.classList.add('top_bar_container__background');
 
   closeMenu();
@@ -61,6 +61,7 @@ function addNormalModeCards() {
 }
 
 function addHardModeCards() {
+  revealElements(document.querySelector('.hearts_container'));
   createCards("hard");
   addNormalModeCards();
 }
