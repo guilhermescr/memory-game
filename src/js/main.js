@@ -1,4 +1,4 @@
-import { SETTINGS_BUTTONS } from "./modules/menuActions.mjs";
+import { SETTINGS_BUTTONS } from './modules/menuActions.mjs';
 
 const LOADER_CONTAINER = document.getElementById('loader-container');
 const LOADER_TITLE = document.getElementById('loader-title');
@@ -10,7 +10,7 @@ function renderLoaderContainer(loaderMessage) {
   if (loaderMessage) {
     LOADER_TITLE.innerHTML = loaderMessage;
   } else {
-    LOADER_TITLE.innerHTML = "Loading...";
+    LOADER_TITLE.innerHTML = 'Loading...';
   }
 
   setTimeout(() => {

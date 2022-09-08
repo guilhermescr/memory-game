@@ -4,6 +4,7 @@ import { themes } from './themesData.mjs';
 import { resetThemesContainerStyles } from './themesDifficulty.mjs';
 import { renderDeck } from './deckStyles.mjs';
 
+const TOP_BAR_CONTAINER = document.querySelector('.top_bar_container');
 let createCardsTwice, btnThemeId, memoryDeck = document.getElementById('deck');
 
 function saveClickedBtnThemeId(clickedBtnThemeId) {
@@ -39,14 +40,15 @@ function createCards(difficulty) {
 
 function addEasyModeCards() {
   const GAME_MENU = document.querySelector('.game-menu');
-  let topBarContainerIngameElements = document.querySelectorAll('#score, #settingsIcon');
+  let topBarContainerIngameElements = document.querySelectorAll('.top_bar_item:not(.top_bar_item.hearts_container)');
+  TOP_BAR_CONTAINER.classList.add('top_bar_container__background');
 
   closeMenu();
   resetThemesContainerStyles();~
 
-  createCards("easy");
+  createCards('easy');
 
-  renderLoaderContainer("Downloading cards...");
+  renderLoaderContainer('Downloading cards...');
   renderDeck();
 
   revealElements(topBarContainerIngameElements);
@@ -54,13 +56,14 @@ function addEasyModeCards() {
 }
 
 function addNormalModeCards() {
-  addEasyModeCards();
   createCards("normal");
+  addEasyModeCards();
 }
 
 function addHardModeCards() {
-  addNormalModeCards();
+  revealElements(document.querySelector('.hearts_container'));
   createCards("hard");
+  addNormalModeCards();
 }
 
-export { addEasyModeCards, addNormalModeCards, addHardModeCards, saveClickedBtnThemeId, btnThemeId, memoryDeck };
+export { TOP_BAR_CONTAINER, addEasyModeCards, addNormalModeCards, addHardModeCards, saveClickedBtnThemeId, btnThemeId, memoryDeck };

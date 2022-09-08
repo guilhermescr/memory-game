@@ -148,11 +148,42 @@ h3 {
   top: 0;
 }
 
+.top_bar_container__background {
+  background-image: linear-gradient(#10bb9f, #16a4a8);
+  border-radius: 0 0 25px 25px;
+}
+
+.top_bar_container .top_bar_left_content {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+}
+
 .top_bar_container .top_bar_left_content h3 {
-  background-color: seagreen;
-  border-radius: 20px;
   color: #fff;
   padding: 5px 10px;
+}
+
+.top_bar_container .top_bar_left_content h3:last-child {
+  cursor: default;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.top_bar_container .top_bar_left_content h3 .heart {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.alive_heart {
+  color: red;
+}
+
+.dead_heart {
+  transition: 0.3s ease-out;
+  color: #202020;
 }
 
 .top_bar_container .top_bar_right_content {
@@ -162,7 +193,7 @@ h3 {
 }
 
 .top_bar_container img {
-  opacity: 0.6;
+  opacity: 0.8;
   cursor: pointer;
   height: 30px;
 }
@@ -761,6 +792,14 @@ h3 {
     transform: translate(-50%, 10%) scale(1) !important;
   }
 
+  .top_bar_container .top_bar_left_content {
+    flex-wrap: wrap;
+  }
+
+  .top_bar_container .top_bar_left_content h3 {
+    padding-block: 0;
+  }
+
   .themes-container.show {
     transform: translate(-50%, 5%) scale(1) !important;
   }
@@ -825,11 +864,6 @@ h3 {
     transform: translate(-50%, 12%) !important;
   }
 
-  #score {
-    top: 2%;
-    left: 2%;
-  }
-
   .memory-deck {
     grid-template-columns: repeat(3, auto) !important;
     height: 80vh !important;
@@ -840,7 +874,7 @@ h3 {
     overflow-x: hidden;
     overflow-y: auto;
 
-    top: 10%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%, 0%);
   }
@@ -935,9 +969,29 @@ h3 {
     overflow-x: hidden;
     overflow-y: auto;
 
-    top: 10%;
+    top: 23% !important;
     left: 50%;
     transform: translate(-50%, 0%);
+  }
+}
+
+@media (orientation: landscape) and (min-width: 420px) {
+  .memory-deck {
+    grid-template-columns: repeat(4, auto) !important;
+    top: 15% !important;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 650px) {
+  .memory-deck {
+    grid-template-columns: repeat(6, auto) !important;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 300px) {
+  .memory-deck {
+    top: 25% !important;
+    padding-bottom: 20px;
   }
 }
 
@@ -946,5 +1000,15 @@ h3 {
     width: 60px;
     position: fixed;
     right: 13%;
+  }
+}
+
+@media (max-width: 300px) {
+  .top_bar_container .top_bar_left_content * {
+    font-size: 15px;
+  }
+
+  .top_bar_container .top_bar_left_content .heart {
+    font-size: 15px !important;
   }
 }
