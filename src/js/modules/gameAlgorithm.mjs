@@ -2,6 +2,7 @@ import { hideElements, renderLoaderContainer, revealElements } from '../main.js'
 import { MusicIsActive, playDefaultSoundTrack, renderPlayMusicButtons, stopSoundTrack } from './m-audio/audio.mjs';
 import { TOP_BAR_CONTAINER, memoryDeck } from './m-themes/addCards.mjs';
 import { DECK_CONTAINER } from './m-themes/deckStyles.mjs';
+import { difficulty } from './m-themes/themesDifficulty.mjs';
 
 const SCOREBOARD = document.getElementById('scorePoints');
 const MOVE_COUNT = document.getElementById('moveCount');
@@ -46,6 +47,15 @@ function startGame() {
         endGame();
       }, 800);
     }
+  }
+
+  function showCards() {
+    cards.forEach((card) => {
+      card.classList.add('flip');
+      setTimeout(() => {
+        card.classList.remove('flip');
+      }, 3000);
+    });
   }
 
   function flipCard() {
@@ -124,6 +134,9 @@ function startGame() {
     cards.forEach(card => card.addEventListener('click', flipCard));
   }
   addCardsListeners();
+  if (difficulty === "Hard") {
+    showCards();
+  }
 }
 
 function endGame() {

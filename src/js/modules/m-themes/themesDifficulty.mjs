@@ -5,6 +5,7 @@ const THEMES_TITLE = document.getElementById('themes-title');
 const DIFFICULTIES_CONTAINER = document.querySelector('.difficulties-container');
 const DIFFICULTY_BUTTONS = document.querySelectorAll('.difficulty-level');
 const RETURN_ICONS = document.querySelector('.return-icon');
+let difficulty;
 
 function resetThemesContainerStyles() {
   THEMES_CONTAINER.style.display = 'flex';
@@ -33,7 +34,7 @@ function renderPlayThemeButtons() {
 }
 
 function checkDifficulty() {
-  let difficulty = this.innerHTML;
+  difficulty = this.innerHTML;
 
   const DIFFICULTY_OPTIONS = {
     Easy: addEasyModeCards,
@@ -50,4 +51,4 @@ DIFFICULTY_BUTTONS.forEach((DIFFICULTY_BUTTON) => {
   DIFFICULTY_BUTTON.addEventListener('click', checkDifficulty);
 });
 
-export { resetThemesContainerStyles, renderPlayThemeButtons };
+export { resetThemesContainerStyles, renderPlayThemeButtons, difficulty };
