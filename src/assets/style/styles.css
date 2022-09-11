@@ -998,7 +998,7 @@ section.deck-container div.memory-deck {
   }
 }
 
-@media (min-width: 550px) and (max-width: 1000px) {
+@media (min-width: 550px) and (max-width: 1000px) and (max-height: 400px) {
   .ingame-settings .audio-content .switch-audio-container {
     width: 60px;
     position: fixed;
