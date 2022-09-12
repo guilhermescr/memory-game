@@ -277,9 +277,11 @@ h3 {
 }
 
 .close-themes-container {
-  position: absolute;
-  top: 5%;
-  right: 4%;
+  margin-left: 95%;
+  max-width: fit-content;
+
+  position: sticky;
+  top: 2%;
   z-index: 1;
 }
 

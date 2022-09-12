@@ -44,7 +44,7 @@ function addEasyModeCards() {
   TOP_BAR_CONTAINER.classList.add('top_bar_container__background');
 
   closeMenu();
-  resetThemesContainerStyles();~
+  resetThemesContainerStyles();
 
   createCards('easy');
 
