@@ -30,7 +30,7 @@ h3 {
   text-align: center;
 }
 
-#loader-container {
+#click_on_window_message, #loader-container {
   background-color: #181d20fb;
 
   width: 100vw;
@@ -45,10 +45,27 @@ h3 {
   gap: 50px;
 }
 
-#loader-container h2 {
+#loader-container {
+  display: none;
+}
+
+#click_on_window_message {
+  background-color: #000;
+}
+
+#click_on_window_message h2, #loader-container h2 {
   color: rgb(1, 228, 228);
   text-shadow: 0 0 15px #16a4a8;
   font-size: 50px;
+  animation: moveLoadingTitle 0.8s alternate infinite;
+}
+
+.click_gif_container {
+  width: 50%;
+}
+
+.clickGif {
+  width: 100%;
   animation: moveLoadingTitle 0.8s alternate infinite;
 }
 
@@ -453,7 +470,13 @@ h3 {
   }
 }
 
-/* SETTINGS */
+/* HOME SETTINGS */
+.home_settings_container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 /* Audio */
 .audio-container {
   display: flex;
@@ -483,6 +506,7 @@ h3 {
 .audio-content h3 svg {
   fill: #fff;
   stroke: #000;
+  width: 32px;
 }
 
 .audio-content .switch-audio-container {
@@ -645,7 +669,7 @@ h3 {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  gap: 100px;
+  gap: 3vw;
   position: fixed;
 }
 
@@ -847,10 +871,6 @@ section.deck-container div.memory-deck {
     width: 75%;
   }
 
-  .ingame-settings {
-    gap: 50px;
-  }
-
   .audio-content {
     display: flex;
     justify-content: center;
@@ -925,8 +945,7 @@ section.deck-container div.memory-deck {
 
 @media (orientation: landscape) and (max-height: 600px) and (max-width: 800px) {
   .ingame-settings {
-    flex-flow: row wrap;
-    gap: 0;
+    gap: 10vw;
   }
 
   .ingame-settings.show {
@@ -949,14 +968,14 @@ section.deck-container div.memory-deck {
     width: 70%;
   }
 
-  .ingame-settings .audio-content {
+  .audio-content {
     position: relative;
+    width: 100%;
+    justify-content: flex-start;
   }
 
-  .ingame-settings .audio-content .switch-audio-container {
-    width: 60px;
-    position: fixed;
-    right: 8%;
+  .audio-container h3 {
+    gap: 10px;
   }
 
   .memory-deck {
@@ -1000,11 +1019,16 @@ section.deck-container div.memory-deck {
   }
 }
 
-@media (min-width: 550px) and (max-width: 1000px) and (max-height: 400px) {
-  .ingame-settings .audio-content .switch-audio-container {
+@media (min-width: 550px) and (max-width: 1000px) and (max-height: 500px) {
+  .ingame-settings {
+    gap: 0;
+    justify-content: center;
+  }
+  
+  .audio-content .switch-audio-container {
     width: 60px;
     position: fixed;
-    right: 13%;
+    right: 20%;
   }
 }
 
