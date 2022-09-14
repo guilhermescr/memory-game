@@ -148,9 +148,10 @@ function startGame() {
 
 function endGame() {
   changeHomePageState(true);
-
   stopSoundTrack();
-  timeoutFunctionForTwoSeconds(playHomeMusic);
+  if (MusicIsActive) {
+    timeoutFunctionForTwoSeconds(playHomeMusic);
+  }
 
   memoryDeck.innerHTML = "";
   TOP_BAR_CONTAINER.classList.remove('top_bar_container__background');

@@ -675,8 +675,8 @@ h3 {
 .ingame-settings {
   display: flex;
   flex-flow: column wrap;
+  justify-content: space-evenly;
   align-items: center;
-  gap: 3vw;
   position: fixed;
 }
 
