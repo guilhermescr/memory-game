@@ -1,5 +1,6 @@
 import { themes } from "../m-themes/themesData.mjs";
 import { btnThemeId } from "../m-themes/addCards.mjs";
+import { Is_Home_Page, playHomeMusic, stopHomeMusic } from "../Home.mjs";
 
 const THEME_AUDIO_TAG = document.getElementById('themeMusic');
 const THEME_AUDIO_SOURCE_TAG = document.getElementById('themeSoundTrack');
@@ -133,7 +134,12 @@ function switchAudioStyles(SwitchButton) {
 
 function switchMusic() {
   MusicIsActive = !MusicIsActive;
-  MusicIsActive ? unpauseSoundTrack() : pauseSoundTrack();
+
+  if (Is_Home_Page) {
+    MusicIsActive ? playHomeMusic() : stopHomeMusic();
+  } else {
+    MusicIsActive ? unpauseSoundTrack() : pauseSoundTrack();
+  }
 }
 
 function switchSound() {

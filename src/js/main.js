@@ -4,10 +4,14 @@ import { playHomeMusic } from './modules/Home.mjs';
 const LOADER_CONTAINER = document.getElementById('loader-container');
 const LOADER_TITLE = document.getElementById('loader-title');
 
+function timeoutFunctionForTwoSeconds(item) {
+  setTimeout(item, 2000);
+}
+
 function allowGameToStart() {
   document.querySelector('#click_on_window_message').style.display = 'none';
   renderLoaderContainer();
-  playHomeMusic();
+  timeoutFunctionForTwoSeconds(playHomeMusic);
 }
 
 function renderLoaderContainer(loaderMessage) {
@@ -81,4 +85,4 @@ function hideElements(elements) {
 
 document.querySelector('#click_on_window_message').onclick = allowGameToStart;
 
-export { renderLoaderContainer, revealElements, hideElements };
+export { timeoutFunctionForTwoSeconds, renderLoaderContainer, revealElements, hideElements };

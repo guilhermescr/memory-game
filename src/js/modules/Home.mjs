@@ -1,5 +1,6 @@
 const HOME_AUDIO_TAG = document.querySelector('#homeMusic');
 const HOME_AUDIO_SOURCE_TAG = document.querySelector('#homeMusicFile');
+let Is_Home_Page = true;
 
 const HOME_DATA = {
   Templates: {
@@ -7,12 +8,14 @@ const HOME_DATA = {
   },
 };
 
+function changeHomePageState(state) {
+  state ? Is_Home_Page = state : Is_Home_Page = state;
+}
+
 function playHomeMusic() {
-  setTimeout(() => {
-    HOME_AUDIO_SOURCE_TAG.src = HOME_DATA.Templates.ForestTheme;
-    HOME_AUDIO_TAG.load();
-    HOME_AUDIO_TAG.play();
-  }, 2000);
+  HOME_AUDIO_SOURCE_TAG.src = HOME_DATA.Templates.ForestTheme;
+  HOME_AUDIO_TAG.load();
+  HOME_AUDIO_TAG.play();
 }
 
 function stopHomeMusic() {
@@ -20,4 +23,4 @@ function stopHomeMusic() {
   HOME_AUDIO_SOURCE_TAG.src = '';
 }
 
-export { HOME_AUDIO_TAG, HOME_AUDIO_SOURCE_TAG, playHomeMusic, stopHomeMusic };
+export { HOME_AUDIO_TAG, HOME_AUDIO_SOURCE_TAG, Is_Home_Page, changeHomePageState, playHomeMusic, stopHomeMusic };

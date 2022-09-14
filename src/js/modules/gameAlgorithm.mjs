@@ -1,5 +1,5 @@
-import { hideElements, renderLoaderContainer, revealElements } from '../main.js';
-import { playHomeMusic, stopHomeMusic } from './Home.mjs';
+import { hideElements, renderLoaderContainer, revealElements, timeoutFunctionForTwoSeconds } from '../main.js';
+import { changeHomePageState, playHomeMusic, stopHomeMusic } from './Home.mjs';
 import { MusicIsActive, playDefaultSoundTrack, renderPlayMusicButtons, setDefaultSoundTrack, stopSoundTrack } from './m-audio/audio.mjs';
 import { TOP_BAR_CONTAINER, memoryDeck } from './m-themes/addCards.mjs';
 import { DECK_CONTAINER } from './m-themes/deckStyles.mjs';
@@ -20,10 +20,10 @@ function startGame() {
   renderPlayMusicButtons();
 
   let firstCard, secondCard;
-  let [hasFlippedCard, lockBoard] = [false, false];
+  let [withLives, hasFlippedCard, lockBoard] = [false, false, false];
   let [scorePoints, moves] = [0, 0];
   let lives = 5;
-  let withLives = false;
+  changeHomePageState(false);
   
   if (!(document.querySelector('.hearts_container').classList.contains('hide'))) {
     resetHeartsColor();
@@ -147,8 +147,10 @@ function startGame() {
 }
 
 function endGame() {
+  changeHomePageState(true);
+
   stopSoundTrack();
-  playHomeMusic();
+  timeoutFunctionForTwoSeconds(playHomeMusic);
 
   memoryDeck.innerHTML = "";
   TOP_BAR_CONTAINER.classList.remove('top_bar_container__background');
