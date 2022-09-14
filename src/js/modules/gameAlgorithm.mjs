@@ -1,5 +1,6 @@
 import { hideElements, renderLoaderContainer, revealElements } from '../main.js';
-import { MusicIsActive, playDefaultSoundTrack, renderPlayMusicButtons, stopSoundTrack } from './m-audio/audio.mjs';
+import { playHomeMusic, stopHomeMusic } from './Home.mjs';
+import { MusicIsActive, playDefaultSoundTrack, renderPlayMusicButtons, setDefaultSoundTrack, stopSoundTrack } from './m-audio/audio.mjs';
 import { TOP_BAR_CONTAINER, memoryDeck } from './m-themes/addCards.mjs';
 import { DECK_CONTAINER } from './m-themes/deckStyles.mjs';
 import { difficulty } from './m-themes/themesDifficulty.mjs';
@@ -10,6 +11,9 @@ const HEARTS = document.querySelectorAll('.heart');
 let cards;
 
 function startGame() {
+  stopHomeMusic();
+  setDefaultSoundTrack();
+  
   if (MusicIsActive) {
     playDefaultSoundTrack();
   }
@@ -50,10 +54,13 @@ function startGame() {
   }
 
   function showCards() {
+    lockBoard = true;
+
     cards.forEach((card) => {
       card.classList.add('flip');
       setTimeout(() => {
         card.classList.remove('flip');
+        lockBoard = false;
       }, 3000);
     });
   }
@@ -141,6 +148,8 @@ function startGame() {
 
 function endGame() {
   stopSoundTrack();
+  playHomeMusic();
+
   memoryDeck.innerHTML = "";
   TOP_BAR_CONTAINER.classList.remove('top_bar_container__background');
 

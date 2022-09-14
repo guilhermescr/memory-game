@@ -51,6 +51,7 @@ h3 {
 
 #click_on_window_message {
   background-color: #000;
+  cursor: pointer;
 }
 
 #click_on_window_message h2, #loader-container h2 {
@@ -60,12 +61,17 @@ h3 {
   animation: moveLoadingTitle 0.8s alternate infinite;
 }
 
+#click_on_window_message h2 {
+  max-width: 70%;
+}
+
 .click_gif_container {
-  width: 50%;
+  text-align: center;
+  width: 100%;
 }
 
 .clickGif {
-  width: 100%;
+  width: 30%;
   animation: moveLoadingTitle 0.8s alternate infinite;
 }
 
@@ -297,8 +303,9 @@ h3 {
   margin-left: 95%;
   max-width: fit-content;
 
-  position: sticky;
-  top: 2%;
+  position: fixed;
+  top: 5%;
+  right: 5%;
   z-index: 1;
 }
 
@@ -799,6 +806,14 @@ section.deck-container div.memory-deck {
 }
 
 @media (max-width: 580px) {
+  #click_on_window_message h2 {
+    font-size: 8vw;
+  }
+
+  .clickGif {
+    width: 60%;
+  }
+
   #loader-container {
     padding-top: 0;
     justify-content: center;
@@ -1007,8 +1022,8 @@ section.deck-container div.memory-deck {
 }
 
 @media (orientation: landscape) and (max-height: 300px) {
-  .memory-deck {
-    top: 25% !important;
+  section.deck-container div.memory-deck {
+    top: 65% !important;
     padding-bottom: 20px;
   }
 }
