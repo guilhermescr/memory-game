@@ -17,7 +17,11 @@
     <div id="click_on_window_message">
       <h2>Click on the page to start!</h2>
       <div class="click_gif_container">
-        <img class="clickGif" src="../src/assets/gifs/click.gif" alt="Click Gif" />
+        <img
+          class="clickGif"
+          src="../src/assets/gifs/click.gif"
+          alt="Click Gif"
+        />
       </div>
     </div>
 
@@ -144,9 +148,7 @@
         </div>
 
         <h2>Random Themes</h2>
-        <div class="random-themes" id="random-themes-images">
-          <div class="random-theme"></div>
-        </div>
+        <div class="random-themes" id="random-themes-images"></div>
         <button class="play-themeBtn" id="playRandomThemeBtn">
           Play Theme
         </button>
@@ -221,6 +223,7 @@
               max="1"
               step="0.1"
               value="10"
+              class="volumeInput"
               id="homeRangeInput"
             />
           </div>
@@ -393,6 +396,7 @@
                 max="1"
                 step="0.1"
                 value="10"
+                class="volumeInput"
                 id="rangeInput"
               />
             </div>
@@ -403,12 +407,11 @@
       <div class="memory-deck" id="deck"></div>
     </section>
 
-    <audio id="homeMusic" loop>
+    <audio class="musicAudioTag" id="homeMusic" loop>
       <source id="homeMusicFile" src="" type="audio/mpeg" />
       Your browser doesn't support the audio element.
     </audio>
-
-    <audio id="themeMusic" loop>
+    <audio class="musicAudioTag" id="themeMusic" loop>
       <source id="themeSoundTrack" src="" type="audio/mpeg" />
       Your browser doesn't support the audio element.
     </audio>

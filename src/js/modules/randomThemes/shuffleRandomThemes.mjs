@@ -1,55 +1,55 @@
 let isShuffling = false;
-let chosenTheme = '';
+let chosenTheme = null;
 
-function resetThemeStyles(theme, middle_Theme) {
-  theme.classList.remove('middle-theme');
-  theme.style.display = 'block';
-  theme.style.order = '';
+function resetThemeStyles(RANDOM_THEME, middle_Theme) {
+  RANDOM_THEME.classList.remove('middle-theme');
+  RANDOM_THEME.style.display = 'block';
+  RANDOM_THEME.style.order = '';
   middle_Theme.style.order = '';
 }
 
 function shuffleRandomThemes() {
   if (isShuffling) return;
+  let middleTheme = null;
   isShuffling = true;
-  const randomThemes = document.querySelectorAll('.random-theme');
+  const RANDOM_THEMES = document.querySelectorAll('.random-theme');
 
   let isMiddleTheme = true;
-  let middleTheme = '';
   
-  middleTheme = randomThemes[Math.floor(Math.random() * (randomThemes.length - 1))];
+  middleTheme = RANDOM_THEMES[Math.floor(Math.random() * RANDOM_THEMES.length)];
 
-  while (middleTheme == chosenTheme) {
-    middleTheme = randomThemes[Math.floor(Math.random() * (randomThemes.length - 1))];
+  while (middleTheme === chosenTheme) {
+    middleTheme = RANDOM_THEMES[Math.floor(Math.random() * RANDOM_THEMES.length)];
   }
   chosenTheme = middleTheme;
 
-  randomThemes.forEach((theme) => {
-    resetThemeStyles(theme, middleTheme);
+  RANDOM_THEMES.forEach((RANDOM_THEME) => {
+    resetThemeStyles(RANDOM_THEME, middleTheme);
 
-    theme.classList.add('shuffleAnimationStart');
+    RANDOM_THEME.classList.add('shuffleAnimationStart');
 
     const shufflePositions = setInterval(() => {
-      let randomPos = Math.floor(Math.random() * randomThemes.length);
+      let randomPos = Math.floor(Math.random() * RANDOM_THEMES.length);
 
+      // I just want one theme in the middle, so one theme gets order: 2;
       while (randomPos === 2) {
-        randomPos = Math.floor(Math.random() * randomThemes.length);
+        randomPos = Math.floor(Math.random() * RANDOM_THEMES.length);
       }
-      theme.style.order = randomPos;
+      RANDOM_THEME.style.order = randomPos;
     }, 1000);
 
     setTimeout(() => {
-      theme.classList.remove('shuffleAnimationStart');
+      RANDOM_THEME.classList.remove('shuffleAnimationStart');
       clearInterval(shufflePositions);
 
       if (isMiddleTheme) {
-        theme.style.width = '240px !important';
         middleTheme.style.order = 2;
         middleTheme.classList.add('middle-theme');
         isMiddleTheme = false;
       }
 
-      if (!(theme.classList.contains('middle-theme'))) {
-        theme.style.display = 'none';
+      if (!(RANDOM_THEME.classList.contains('middle-theme'))) {
+        RANDOM_THEME.style.display = 'none';
       }
     }, 6000);
   });
