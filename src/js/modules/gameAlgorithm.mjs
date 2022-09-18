@@ -41,6 +41,14 @@ function startGame() {
     }
   }
 
+  function recoverHeart() {
+    if (HEARTS[lives]) {
+      HEARTS[lives].classList.remove('dead_heart');
+      HEARTS[lives].classList.add('alive_heart');
+      lives < 5 ? lives++ : null;
+    }
+  }
+
   function loseHeart() {
     lives--;
     HEARTS[lives].classList.remove('alive_heart');
@@ -93,6 +101,7 @@ function startGame() {
     let isMatch = firstCardDataset === secondCardDataset;
     if (isMatch) {
       disableCards();
+      withLives ? recoverHeart() : null;
     } else {
       unflipCards();
       withLives ? loseHeart() : null;
