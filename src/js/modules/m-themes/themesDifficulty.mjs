@@ -1,10 +1,17 @@
 import { addEasyModeCards, addNormalModeCards, addHardModeCards, saveClickedBtnThemeId } from './addCards.mjs';
 
+const RETURN_ICONS = document.querySelector('.return-icon');
 const THEMES_CONTAINER = document.getElementById('themesContainer');
 const THEMES_TITLE = document.getElementById('themes-title');
+
 const DIFFICULTIES_CONTAINER = document.querySelector('.difficulties-container');
 const DIFFICULTY_BUTTONS = document.querySelectorAll('.difficulty-level');
-const RETURN_ICONS = document.querySelector('.return-icon');
+const DIFFICULTY_OPTIONS = {
+  Easy: addEasyModeCards,
+  Normal: addNormalModeCards,
+  Hard: addHardModeCards,
+};
+
 let difficulty;
 
 function resetThemesContainerStyles() {
@@ -36,19 +43,20 @@ function renderPlayThemeButtons() {
 function checkDifficulty() {
   difficulty = this.innerHTML;
 
-  const DIFFICULTY_OPTIONS = {
-    Easy: addEasyModeCards,
-    Normal: addNormalModeCards,
-    Hard: addHardModeCards,
-  };
-
   if (DIFFICULTY_OPTIONS[difficulty]) {
     DIFFICULTY_OPTIONS[difficulty]();
   }
+}
+
+function shuffleDifficulties() {
+  let DIFFICULTY_NAMES = Object.keys(DIFFICULTY_OPTIONS);
+  let drawnDifficultyName = DIFFICULTY_NAMES[(Math.floor(Math.random() * DIFFICULTY_NAMES.length))];
+  difficulty = drawnDifficultyName;
+  DIFFICULTY_OPTIONS[drawnDifficultyName]();
 }
 
 DIFFICULTY_BUTTONS.forEach((DIFFICULTY_BUTTON) => {
   DIFFICULTY_BUTTON.addEventListener('click', checkDifficulty);
 });
 
-export { resetThemesContainerStyles, renderPlayThemeButtons, difficulty };
+export { resetThemesContainerStyles, renderPlayThemeButtons, difficulty, shuffleDifficulties };

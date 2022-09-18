@@ -1,34 +1,36 @@
-let isShuffling = false;
-let chosenTheme = null;
+import { saveClickedBtnThemeId } from "../m-themes/addCards.mjs";
+import { shuffleDifficulties } from "../m-themes/themesDifficulty.mjs";
 
-function resetThemeStyles(RANDOM_THEME, middle_Theme) {
+const RANDOM_THEMES_TITLE = document.getElementById('randomThemesTitle');
+let [chosenTheme, isShuffling] = [null, false];
+
+function resetStyles(RANDOM_THEME, drawnTheme) {
   RANDOM_THEME.classList.remove('middle-theme');
   RANDOM_THEME.style.display = 'block';
   RANDOM_THEME.style.order = '';
-  middle_Theme.style.order = '';
+  RANDOM_THEMES_TITLE.innerHTML = 'Random Themes';
+  drawnTheme.style.order = '';
 }
 
 function shuffleRandomThemes() {
   if (isShuffling) return;
-  let middleTheme = null;
-  isShuffling = true;
   const RANDOM_THEMES = document.querySelectorAll('.random-theme');
+  let drawnTheme = RANDOM_THEMES[Math.floor(Math.random() * RANDOM_THEMES.length)];
 
-  let isMiddleTheme = true;
-  
-  middleTheme = RANDOM_THEMES[Math.floor(Math.random() * RANDOM_THEMES.length)];
+  isShuffling = true;
 
-  while (middleTheme === chosenTheme) {
-    middleTheme = RANDOM_THEMES[Math.floor(Math.random() * RANDOM_THEMES.length)];
+  // This "while" prevents the algorithm from choosing the same theme twice.
+  while (drawnTheme === chosenTheme) {
+    drawnTheme = RANDOM_THEMES[Math.floor(Math.random() * RANDOM_THEMES.length)];
   }
-  chosenTheme = middleTheme;
+  chosenTheme = drawnTheme;
 
   RANDOM_THEMES.forEach((RANDOM_THEME) => {
-    resetThemeStyles(RANDOM_THEME, middleTheme);
+    resetStyles(RANDOM_THEME, drawnTheme);
 
     RANDOM_THEME.classList.add('shuffleAnimationStart');
 
-    const shufflePositions = setInterval(() => {
+    const SHUFFLE_POSITIONS = setInterval(() => {
       let randomPos = Math.floor(Math.random() * RANDOM_THEMES.length);
 
       // I just want one theme in the middle, so one theme gets order: 2;
@@ -38,21 +40,26 @@ function shuffleRandomThemes() {
       RANDOM_THEME.style.order = randomPos;
     }, 1000);
 
+    // stop shuffle animation
     setTimeout(() => {
       RANDOM_THEME.classList.remove('shuffleAnimationStart');
-      clearInterval(shufflePositions);
+      clearInterval(SHUFFLE_POSITIONS);
 
-      if (isMiddleTheme) {
-        middleTheme.style.order = 2;
-        middleTheme.classList.add('middle-theme');
-        isMiddleTheme = false;
-      }
-
-      if (!(RANDOM_THEME.classList.contains('middle-theme'))) {
+      if (RANDOM_THEME === drawnTheme) {
+        drawnTheme.style.order = 2;
+        drawnTheme.classList.add('middle-theme');
+        RANDOM_THEMES_TITLE.innerHTML = drawnTheme.dataset.themename;
+      } else {
         RANDOM_THEME.style.display = 'none';
       }
     }, 6000);
   });
+
+  setTimeout(() => {
+    saveClickedBtnThemeId(drawnTheme.dataset.themeid);
+    shuffleDifficulties();
+    isShuffling = false;
+  }, 7100);
 }
 
-export { shuffleRandomThemes };
+export { shuffleRandomThemes, RANDOM_THEMES_TITLE };

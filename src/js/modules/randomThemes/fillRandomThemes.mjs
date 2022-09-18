@@ -1,23 +1,20 @@
-import { themes, THEMES_LIST } from '../m-themes/themesData.mjs';
+import { THEMES_LIST, THEMES_NAMES, THEMES_LOGOS } from '../m-themes/themesData.mjs';
+import { RANDOM_THEMES_TITLE } from './shuffleRandomThemes.mjs';
 
-let lockCreation = false;
+const RANDOM_THEMES_CONTAINER = document.getElementById('random-themes-images');
 
 function fillRandomThemes() {
-  if (lockCreation) return;
+  RANDOM_THEMES_CONTAINER.innerHTML = '';
+  RANDOM_THEMES_TITLE.innerHTML = 'Random Themes';
 
-  const randomThemesContainer = document.getElementById('random-themes-images');
-  let randomThemesLogos = [];
-
-  for (let i = 0; i < THEMES_LIST.length; i++) {
-    randomThemesLogos.push(themes[THEMES_LIST[i]].logo);
-
+  for (let index = 0; index < THEMES_LIST.length; index++) {
     let randomTheme = document.createElement('div');
     randomTheme.classList.add('random-theme');
-    randomTheme.innerHTML = `${randomThemesLogos[i]}`;
-    randomThemesContainer.appendChild(randomTheme);
+    randomTheme.dataset.themeid = THEMES_LIST[index];
+    randomTheme.dataset.themename = THEMES_NAMES[index];
+    randomTheme.innerHTML = `${THEMES_LOGOS[index]}`;
+    RANDOM_THEMES_CONTAINER.appendChild(randomTheme);
   }
-
-  lockCreation = true;
 }
 
 export { fillRandomThemes };

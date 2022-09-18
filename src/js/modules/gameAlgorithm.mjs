@@ -4,6 +4,7 @@ import { MusicIsActive, playDefaultSoundTrack, renderPlayMusicButtons, setDefaul
 import { TOP_BAR_CONTAINER, memoryDeck } from './m-themes/addCards.mjs';
 import { DECK_CONTAINER } from './m-themes/deckStyles.mjs';
 import { difficulty } from './m-themes/themesDifficulty.mjs';
+import { fillRandomThemes } from './randomThemes/fillRandomThemes.mjs';
 
 const SCOREBOARD = document.getElementById('scorePoints');
 const MOVE_COUNT = document.getElementById('moveCount');
@@ -140,10 +141,12 @@ function startGame() {
   function addCardsListeners() {
     cards.forEach(card => card.addEventListener('click', flipCard));
   }
-  addCardsListeners();
+
   if (difficulty === "Hard") {
     showCards();
   }
+
+  addCardsListeners();
 }
 
 function endGame() {
@@ -161,6 +164,7 @@ function endGame() {
   
   hideElements(DECK_CONTAINER);
   hideElements(topBarContainerIngameElements);
+  fillRandomThemes();
   revealElements(GAME_MENU);
 }
 
