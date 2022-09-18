@@ -1,10 +1,12 @@
 import { themes } from "../m-themes/themesData.mjs";
 import { btnThemeId } from "../m-themes/addCards.mjs";
+import { Is_Home_Page, playHomeMusic, stopHomeMusic } from "../Home.mjs";
 
-const AUDIO_TAG = document.getElementById('themeMusic');
-const AUDIO_SOURCE_TAG = document.getElementById('themeSoundTrack');
-const VOLUME_INPUT = document.getElementById('rangeInput');
-let MusicIsActive = true;
+const MUSIC_AUDIO_TAGS = document.querySelectorAll('.musicAudioTag');
+const THEME_AUDIO_TAG = document.getElementById('themeMusic');
+const THEME_AUDIO_SOURCE_TAG = document.getElementById('themeSoundTrack');
+const VOLUME_INPUTS = document.querySelectorAll('.volumeInput');
+let [MusicIsActive, AudioIsActive] = [true, true];
 
 function getPlayMusicButtons() {
   const PLAY_MUSIC_BUTTONS = document.querySelectorAll('.hasMusic');
@@ -39,45 +41,59 @@ function renderPlayMusicButtons() {
   getPlayMusicButtons();
 }
 
+function setDefaultSoundTrack() {
+  THEME_AUDIO_SOURCE_TAG.src = themes[btnThemeId].soundTracks.Music1;
+  THEME_AUDIO_TAG.load();
+}
+
 function playDefaultSoundTrack() {
-  AUDIO_SOURCE_TAG.src = themes[btnThemeId].soundTracks.Music1;
-  AUDIO_TAG.load();
-  AUDIO_TAG.play();
+  setDefaultSoundTrack();
+  THEME_AUDIO_TAG.load();
+  THEME_AUDIO_TAG.play();
 }
 
 function playSoundTrack(playMusicButton) {
   if (!MusicIsActive) return;
 
   let chosenMusic = playMusicButton.dataset.music;
-  AUDIO_SOURCE_TAG.src = themes[btnThemeId].soundTracks[chosenMusic];
-  AUDIO_TAG.load();
-  AUDIO_TAG.play();
+  THEME_AUDIO_SOURCE_TAG.src = themes[btnThemeId].soundTracks[chosenMusic];
+  THEME_AUDIO_TAG.load();
+  THEME_AUDIO_TAG.play();
 }
 
 function unpauseSoundTrack() {
-  AUDIO_TAG.play();
+  THEME_AUDIO_SOURCE_TAG.src === '' ? playDefaultSoundTrack() : THEME_AUDIO_TAG.play();
 }
 
 function pauseSoundTrack() {
-  AUDIO_TAG.pause();
+  THEME_AUDIO_TAG.pause();
 }
 
 function stopSoundTrack() {
-  AUDIO_TAG.pause();
-  AUDIO_SOURCE_TAG.src = '';
+  THEME_AUDIO_TAG.pause();
+  THEME_AUDIO_SOURCE_TAG.src = '';
 }
 
-function setVolume() {
-  AUDIO_TAG.volume = VOLUME_INPUT.value;
+// parameter gets the clicked range input
+function setVolume(VOLUME_INPUT) {
+  for (let index = 0; index < MUSIC_AUDIO_TAGS.length; index++) {
+    // all audio tags used for music and all range inputs receive the current volume.
+    MUSIC_AUDIO_TAGS[index].volume = VOLUME_INPUT.value;
+    if (VOLUME_INPUTS[index]) {
+      VOLUME_INPUTS[index].value = VOLUME_INPUT.value;
+    }
+  }
 }
-
-VOLUME_INPUT.addEventListener('input', setVolume);
 
 // SOUND EFFECTS
 const HOVER_SOUND_EFFECT = document.getElementById('hover-soundEffect');
 const CLICK_SOUND_EFFECT = document.getElementById('click-setting-effect');
 
+/* console.clear() has been used to hide the following error:
+Uncaught (in promise) DOMException: The play() request was interrupted by a call to pause().
+*/
 function playHoverSoundEffect() {
+  if (!AudioIsActive) return;
   HOVER_SOUND_EFFECT.load();
   HOVER_SOUND_EFFECT.play();
   console.clear();
@@ -88,45 +104,70 @@ function stopHoverSoundEffect() {
 }
 
 function playClickSoundEffect() {
+  if (!AudioIsActive) return;
   HOVER_SOUND_EFFECT.pause();
   CLICK_SOUND_EFFECT.load();
   CLICK_SOUND_EFFECT.play();
+  console.clear();
 }
 
 // Switch Audio Settings
-const SWITCH_AUDIO_BUTTONS = document.querySelectorAll('.switchButton');
+const ACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR = "#10bb9f";
+const INACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR = "#444";
+const ACTIVE_SWITCH_BUTTON_BACKGROUND_GRADIENT = "linear-gradient(#01baef 5%, #10bb9f)";
+const INACTIVE_SWITCH_BUTTON_BACKGROUND_GRADIENT = "linear-gradient(#2f4246 5%, #10bb9f)";
 
-function switchAudioStyles(SwitchAudioButton) {
-  const ACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR = "#10bb9f";
-  const INACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR = "#444";
+const SWITCH_BUTTONS = document.querySelectorAll('.switchButton');
+let audioButtons;
 
-  const ACTIVE_SWITCH_AUDIO_BUTTON_BACKGROUND_GRADIENT = "linear-gradient(#01baef 5%, #10bb9f)";
-  const INACTIVE_SWITCH_AUDIO_BUTTON_BACKGROUND_GRADIENT = "linear-gradient(#2f4246 5%, #10bb9f)";
-
-  // turn off
-  if (SwitchAudioButton.classList.contains("active")) {
-    SwitchAudioButton.innerHTML = "Off";
-    SwitchAudioButton.parentElement.style.backgroundColor = INACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR;
-    SwitchAudioButton.style.backgroundImage = INACTIVE_SWITCH_AUDIO_BUTTON_BACKGROUND_GRADIENT;
-
-  } else { // turn on
-    SwitchAudioButton.innerHTML = "On";
-    SwitchAudioButton.parentElement.style.backgroundColor = ACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR;
-    SwitchAudioButton.style.backgroundImage = ACTIVE_SWITCH_AUDIO_BUTTON_BACKGROUND_GRADIENT;
+function switchAudioStyles(SwitchButton) {
+  if (SwitchButton.classList.contains("switchMusicButton")) {
+    audioButtons = document.querySelectorAll('.switchMusicButton');
+    switchMusic();
+  } else {
+    audioButtons = document.querySelectorAll('.switchSoundButton');
+    switchSound();
   }
-  SwitchAudioButton.classList.toggle("active");
-  SwitchAudioButton.classList.contains("switchMusicButton") ? switchMusic() : null;
+
+  audioButtons.forEach((audioButton) => {
+    // turn off
+    if (audioButton.classList.contains("active")) {
+      audioButton.innerHTML = "Off";
+      audioButton.parentElement.style.backgroundColor = INACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR;
+      audioButton.style.backgroundImage = INACTIVE_SWITCH_BUTTON_BACKGROUND_GRADIENT;
+    } else { // turn on
+      audioButton.innerHTML = "On";
+      audioButton.parentElement.style.backgroundColor = ACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR;
+      audioButton.style.backgroundImage = ACTIVE_SWITCH_BUTTON_BACKGROUND_GRADIENT;
+    }
+    audioButton.classList.toggle("active");
+  });
 }
 
 function switchMusic() {
   MusicIsActive = !MusicIsActive;
-  MusicIsActive ? unpauseSoundTrack() : pauseSoundTrack();
+
+  if (Is_Home_Page) {
+    MusicIsActive ? playHomeMusic() : stopHomeMusic();
+  } else {
+    MusicIsActive ? unpauseSoundTrack() : pauseSoundTrack();
+  }
 }
 
-SWITCH_AUDIO_BUTTONS.forEach((SWITCH_AUDIO_BUTTON) => {
-  SWITCH_AUDIO_BUTTON.addEventListener("click", function() {
+function switchSound() {
+  AudioIsActive = !AudioIsActive;
+}
+
+SWITCH_BUTTONS.forEach((SWITCH_BUTTON) => {
+  SWITCH_BUTTON.addEventListener("click", function() {
     switchAudioStyles(this);
   });
 });
 
-export { MusicIsActive, renderPlayMusicButtons, playDefaultSoundTrack, playSoundTrack, stopSoundTrack, playHoverSoundEffect, stopHoverSoundEffect, playClickSoundEffect };
+VOLUME_INPUTS.forEach((VOLUME_INPUT) => {
+  VOLUME_INPUT.addEventListener('input', function() {
+    setVolume(this);
+  });
+})
+
+export { MusicIsActive, renderPlayMusicButtons, setDefaultSoundTrack, playDefaultSoundTrack, playSoundTrack, stopSoundTrack, playHoverSoundEffect, stopHoverSoundEffect, playClickSoundEffect };

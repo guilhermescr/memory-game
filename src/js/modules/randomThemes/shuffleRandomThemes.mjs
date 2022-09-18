@@ -1,58 +1,65 @@
-let isShuffling = false;
-let chosenTheme = '';
+import { saveClickedBtnThemeId } from "../m-themes/addCards.mjs";
+import { shuffleDifficulties } from "../m-themes/themesDifficulty.mjs";
 
-function resetThemeStyles(theme, middle_Theme) {
-  theme.classList.remove('middle-theme');
-  theme.style.display = 'block';
-  theme.style.order = '';
-  middle_Theme.style.order = '';
+const RANDOM_THEMES_TITLE = document.getElementById('randomThemesTitle');
+let [chosenTheme, isShuffling] = [null, false];
+
+function resetStyles(RANDOM_THEME, drawnTheme) {
+  RANDOM_THEME.classList.remove('middle-theme');
+  RANDOM_THEME.style.display = 'block';
+  RANDOM_THEME.style.order = '';
+  RANDOM_THEMES_TITLE.innerHTML = 'Random Themes';
+  drawnTheme.style.order = '';
 }
 
 function shuffleRandomThemes() {
   if (isShuffling) return;
+  const RANDOM_THEMES = document.querySelectorAll('.random-theme');
+  let drawnTheme = RANDOM_THEMES[Math.floor(Math.random() * RANDOM_THEMES.length)];
+
   isShuffling = true;
-  const randomThemes = document.querySelectorAll('.random-theme');
 
-  let isMiddleTheme = true;
-  let middleTheme = '';
-  
-  middleTheme = randomThemes[Math.floor(Math.random() * (randomThemes.length - 1))];
-
-  while (middleTheme == chosenTheme) {
-    middleTheme = randomThemes[Math.floor(Math.random() * (randomThemes.length - 1))];
+  // This "while" prevents the algorithm from choosing the same theme twice.
+  while (drawnTheme === chosenTheme) {
+    drawnTheme = RANDOM_THEMES[Math.floor(Math.random() * RANDOM_THEMES.length)];
   }
-  chosenTheme = middleTheme;
+  chosenTheme = drawnTheme;
 
-  randomThemes.forEach((theme) => {
-    resetThemeStyles(theme, middleTheme);
+  RANDOM_THEMES.forEach((RANDOM_THEME) => {
+    resetStyles(RANDOM_THEME, drawnTheme);
 
-    theme.classList.add('shuffleAnimationStart');
+    RANDOM_THEME.classList.add('shuffleAnimationStart');
 
-    const shufflePositions = setInterval(() => {
-      let randomPos = Math.floor(Math.random() * randomThemes.length);
+    const SHUFFLE_POSITIONS = setInterval(() => {
+      let randomPos = Math.floor(Math.random() * RANDOM_THEMES.length);
 
+      // I just want one theme in the middle, so one theme gets order: 2;
       while (randomPos === 2) {
-        randomPos = Math.floor(Math.random() * randomThemes.length);
+        randomPos = Math.floor(Math.random() * RANDOM_THEMES.length);
       }
-      theme.style.order = randomPos;
+      RANDOM_THEME.style.order = randomPos;
     }, 1000);
 
+    // stop shuffle animation
     setTimeout(() => {
-      theme.classList.remove('shuffleAnimationStart');
-      clearInterval(shufflePositions);
+      RANDOM_THEME.classList.remove('shuffleAnimationStart');
+      clearInterval(SHUFFLE_POSITIONS);
 
-      if (isMiddleTheme) {
-        theme.style.width = '240px !important';
-        middleTheme.style.order = 2;
-        middleTheme.classList.add('middle-theme');
-        isMiddleTheme = false;
-      }
-
-      if (!(theme.classList.contains('middle-theme'))) {
-        theme.style.display = 'none';
+      if (RANDOM_THEME === drawnTheme) {
+        drawnTheme.style.order = 2;
+        drawnTheme.classList.add('middle-theme');
+        RANDOM_THEMES_TITLE.innerHTML = drawnTheme.dataset.themename;
+      } else {
+        RANDOM_THEME.style.display = 'none';
       }
     }, 6000);
   });
+
+  setTimeout(() => {
+    saveClickedBtnThemeId(drawnTheme.dataset.themeid);
+    shuffleDifficulties();
+    isShuffling = false;
+  }, 7100);
 }
 
-export { shuffleRandomThemes };
+export { shuffleRandomThemes, RANDOM_THEMES_TITLE };

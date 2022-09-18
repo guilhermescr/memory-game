@@ -1,7 +1,18 @@
 import { SETTINGS_BUTTONS } from './modules/menuActions.mjs';
+import { playHomeMusic } from './modules/Home.mjs';
 
 const LOADER_CONTAINER = document.getElementById('loader-container');
 const LOADER_TITLE = document.getElementById('loader-title');
+
+function timeoutFunctionForTwoSeconds(item) {
+  setTimeout(item, 2000);
+}
+
+function allowGameToStart() {
+  document.querySelector('#click_on_window_message').style.display = 'none';
+  renderLoaderContainer();
+  timeoutFunctionForTwoSeconds(playHomeMusic);
+}
 
 function renderLoaderContainer(loaderMessage) {
   LOADER_CONTAINER.style.display = '';
@@ -72,6 +83,6 @@ function hideElements(elements) {
   elements.classList.add('hide');
 }
 
-renderLoaderContainer();
+document.querySelector('#click_on_window_message').onclick = allowGameToStart;
 
-export { renderLoaderContainer, revealElements, hideElements };
+export { timeoutFunctionForTwoSeconds, renderLoaderContainer, revealElements, hideElements };

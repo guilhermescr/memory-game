@@ -1,8 +1,10 @@
-import { hideElements, renderLoaderContainer, revealElements } from '../main.js';
-import { MusicIsActive, playDefaultSoundTrack, renderPlayMusicButtons, stopSoundTrack } from './m-audio/audio.mjs';
+import { hideElements, renderLoaderContainer, revealElements, timeoutFunctionForTwoSeconds } from '../main.js';
+import { changeHomePageState, playHomeMusic, stopHomeMusic } from './Home.mjs';
+import { MusicIsActive, playDefaultSoundTrack, renderPlayMusicButtons, setDefaultSoundTrack, stopSoundTrack } from './m-audio/audio.mjs';
 import { TOP_BAR_CONTAINER, memoryDeck } from './m-themes/addCards.mjs';
 import { DECK_CONTAINER } from './m-themes/deckStyles.mjs';
 import { difficulty } from './m-themes/themesDifficulty.mjs';
+import { fillRandomThemes } from './randomThemes/fillRandomThemes.mjs';
 
 const SCOREBOARD = document.getElementById('scorePoints');
 const MOVE_COUNT = document.getElementById('moveCount');
@@ -10,16 +12,19 @@ const HEARTS = document.querySelectorAll('.heart');
 let cards;
 
 function startGame() {
+  stopHomeMusic();
+  setDefaultSoundTrack();
+  
   if (MusicIsActive) {
     playDefaultSoundTrack();
   }
   renderPlayMusicButtons();
 
   let firstCard, secondCard;
-  let [hasFlippedCard, lockBoard] = [false, false];
+  let [withLives, hasFlippedCard, lockBoard] = [false, false, false];
   let [scorePoints, moves] = [0, 0];
   let lives = 5;
-  let withLives = false;
+  changeHomePageState(false);
   
   if (!(document.querySelector('.hearts_container').classList.contains('hide'))) {
     resetHeartsColor();
@@ -33,6 +38,14 @@ function startGame() {
     for (let heart of HEARTS) {
       heart.classList.add('alive_heart');
       heart.classList.remove('dead_heart');
+    }
+  }
+
+  function recoverHeart() {
+    if (HEARTS[lives]) {
+      HEARTS[lives].classList.remove('dead_heart');
+      HEARTS[lives].classList.add('alive_heart');
+      lives < 5 ? lives++ : null;
     }
   }
 
@@ -50,10 +63,13 @@ function startGame() {
   }
 
   function showCards() {
+    lockBoard = true;
+
     cards.forEach((card) => {
       card.classList.add('flip');
       setTimeout(() => {
         card.classList.remove('flip');
+        lockBoard = false;
       }, 3000);
     });
   }
@@ -85,6 +101,7 @@ function startGame() {
     let isMatch = firstCardDataset === secondCardDataset;
     if (isMatch) {
       disableCards();
+      withLives ? recoverHeart() : null;
     } else {
       unflipCards();
       withLives ? loseHeart() : null;
@@ -133,14 +150,21 @@ function startGame() {
   function addCardsListeners() {
     cards.forEach(card => card.addEventListener('click', flipCard));
   }
-  addCardsListeners();
+
   if (difficulty === "Hard") {
     showCards();
   }
+
+  addCardsListeners();
 }
 
 function endGame() {
+  changeHomePageState(true);
   stopSoundTrack();
+  if (MusicIsActive) {
+    timeoutFunctionForTwoSeconds(playHomeMusic);
+  }
+
   memoryDeck.innerHTML = "";
   TOP_BAR_CONTAINER.classList.remove('top_bar_container__background');
 
@@ -149,6 +173,7 @@ function endGame() {
   
   hideElements(DECK_CONTAINER);
   hideElements(topBarContainerIngameElements);
+  fillRandomThemes();
   revealElements(GAME_MENU);
 }
 
