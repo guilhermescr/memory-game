@@ -5,10 +5,15 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
-  box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
   list-style: none;
   list-style-position: inside;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
@@ -30,7 +35,8 @@ h3 {
   text-align: center;
 }
 
-#click_on_window_message, #loader-container {
+#click_on_window_message,
+#loader-container {
   background-color: #181d20fb;
 
   width: 100vw;
@@ -54,7 +60,8 @@ h3 {
   cursor: pointer;
 }
 
-#click_on_window_message h2, #loader-container h2 {
+#click_on_window_message h2,
+#loader-container h2 {
   color: rgb(1, 228, 228);
   text-shadow: 0 0 15px #16a4a8;
   font-size: 50px;
@@ -498,6 +505,7 @@ h3 {
 .audio-content {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 20px;
 
   width: 50%;
@@ -557,8 +565,34 @@ h3 {
 }
 
 .audio-container input[type='range'] {
-  width: 150px;
+  border-radius: 20px;
   cursor: pointer;
+  width: 150px;
+  position: relative;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+.audio-container input[type='range']::before,
+.audio-container input[type='range']::after {
+  color: #fff;
+  display: inline-block;
+  position: absolute;
+}
+
+.audio-container input[type='range']::before {
+  content: attr(min);
+  left: 0;
+  transform: translateX(calc(-100% - 5px));
+}
+
+.audio-container input[type='range']::after {
+  content: '10';
+  right: 0;
+  transform: translateX(calc(100% + 5px));
 }
 
 .audio-container input[type='range']::-webkit-slider-runnable-track {
@@ -566,8 +600,25 @@ h3 {
   border-radius: 20px;
   height: 16px;
   width: 16px;
+  -moz-appearance: none;
+  -ms-appearance: none;
   -webkit-appearance: none;
-  background: #2dcadf;
+  appearance: none;
+  background-color: #02141a;
+  border: 1px solid #505050;
+}
+
+.audio-container input[type='range']::-webkit-slider-thumb {
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #10bb9f;
+  border: 0.1px solid #16a4a8;
+  border-radius: 12px;
+  height: calc(100% + 8px);
+  width: 3px;
+  margin-top: -4px;
 }
 
 /* CREDITS */
@@ -1039,7 +1090,7 @@ section.deck-container div.memory-deck {
     gap: 0;
     justify-content: center;
   }
-  
+
   .audio-content .switch-audio-container {
     width: 60px;
     position: fixed;
