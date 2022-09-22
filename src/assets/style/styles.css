@@ -17,6 +17,7 @@
 }
 
 :root {
+  --bird_top_position_animation: 2.5%;
   --bird_left_position_animation: 55%;
 }
 
@@ -177,13 +178,13 @@ h3 {
     top: 0;
   }
   44% {
-    top: 2.5%;
+    top: var(--bird_top_position_animation);
   }
   49% {
     left: var(--bird_left_position_animation);
   }
   70% {
-    top: 2.5%;
+    top: var(--bird_top_position_animation);
     left: var(--bird_left_position_animation);
     transform: rotateY(0deg);
   }

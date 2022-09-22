@@ -1,9 +1,9 @@
+import { SETTINGS_BUTTONS } from './modules/menuActions.mjs';
+import { playHomeMusic } from './modules/Home.mjs';
 import {
   setBirdPosition,
-  SETTINGS_BUTTONS,
   startBirdAnimation
-} from './modules/menuActions.mjs';
-import { playHomeMusic } from './modules/Home.mjs';
+} from './modules/animations/forest_theme/BirdAnimation.mjs';
 
 const LOADER_CONTAINER = document.getElementById('loader-container');
 const LOADER_TITLE = document.getElementById('loader-title');
