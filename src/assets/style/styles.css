@@ -164,6 +164,56 @@ h3 {
   margin: 0 auto;
 }
 
+@keyframes FlyingAnimation {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  35% {
+    top: 0;
+  }
+  44% {
+    top: 2.5%;
+  }
+  50% {
+    left: 60%;
+  }
+  70% {
+    top: 2.5%;
+    left: 60%;
+    transform: rotateY(0deg);
+  }
+  75% {
+    top: 0;
+    left: 60%;
+    transform: rotateY(180deg);
+  }
+  98% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+    left: 0;
+  }
+}
+
+.flying_animation {
+  animation: FlyingAnimation 20s infinite;
+}
+
+.game-menu .bird_animated_gif_container {
+  height: max-content;
+  width: 50px;
+  perspective: 1000px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.game-menu .bird_animated_gif_container img {
+  width: 100%;
+}
+
 .top_bar_container {
   display: flex;
   justify-content: space-between;

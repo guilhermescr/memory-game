@@ -1,7 +1,11 @@
 import { fillThemes } from './m-themes/fillThemesInMenu.mjs';
 import { fillRandomThemes } from './randomThemes/fillRandomThemes.mjs';
 import { shuffleRandomThemes } from './randomThemes/shuffleRandomThemes.mjs';
-import { playClickSoundEffect, playHoverSoundEffect, stopHoverSoundEffect } from './m-audio/audio.mjs';
+import {
+  playClickSoundEffect,
+  playHoverSoundEffect,
+  stopHoverSoundEffect
+} from './m-audio/audio.mjs';
 
 const SETTINGS_MENUS = document.querySelectorAll('.menu');
 const MENU_SETTINGS_OPTIONS = document.querySelectorAll('.setting-option');
@@ -12,7 +16,7 @@ const TOP_BAR_CONTAINER = document.querySelector('.top_bar_container');
 function openMenu() {
   playClickSoundEffect();
   let buttonDataset = this.dataset.setting;
-  
+
   for (let index = 0; index < SETTINGS_MENUS.length; index++) {
     if (buttonDataset === SETTINGS_MENUS[index].dataset.setting) {
       SETTINGS_MENUS[index].classList.add('show');
@@ -20,20 +24,20 @@ function openMenu() {
       document.body.style.pointerEvents = 'none';
     }
   }
-  if (buttonDataset === "ingame-settings") {
+  if (buttonDataset === 'ingame-settings') {
     TOP_BAR_CONTAINER.style.display = 'none';
   }
 }
 
 function closeMenu() {
-  SETTINGS_MENUS.forEach((SETTINGS_MENU) => {
+  SETTINGS_MENUS.forEach(SETTINGS_MENU => {
     if (SETTINGS_MENU.classList.contains('show')) {
       SETTINGS_MENU.classList.remove('show');
       SETTINGS_MENU.style.pointerEvents = '';
       document.body.style.pointerEvents = '';
     }
 
-    if (SETTINGS_MENU.dataset.setting === "ingame-settings") {
+    if (SETTINGS_MENU.dataset.setting === 'ingame-settings') {
       TOP_BAR_CONTAINER.style.display = 'flex';
     }
   });
@@ -42,7 +46,9 @@ function closeMenu() {
 const PLAY_GAME_BUTTON = document.getElementById('playBtn');
 PLAY_GAME_BUTTON.addEventListener('click', fillThemes);
 
-const PLAY_RANDOM_THEMES_BUTTON = document.getElementById('playRandomThemesBtn');
+const PLAY_RANDOM_THEMES_BUTTON = document.getElementById(
+  'playRandomThemesBtn'
+);
 PLAY_RANDOM_THEMES_BUTTON.addEventListener('click', fillRandomThemes);
 
 const SHUFFLE_THEMES_BUTTON = document.getElementById('playRandomThemeBtn');
@@ -50,22 +56,51 @@ SHUFFLE_THEMES_BUTTON.addEventListener('click', shuffleRandomThemes);
 
 // Open / Close Menu
 
-SETTINGS_BUTTONS.forEach((SETTING_BUTTON) => {
+SETTINGS_BUTTONS.forEach(SETTING_BUTTON => {
   SETTING_BUTTON.addEventListener('click', openMenu);
 });
 
-CLOSE_MENU_BUTTONS.forEach((CLOSE_MENU_BUTTON) => {
+CLOSE_MENU_BUTTONS.forEach(CLOSE_MENU_BUTTON => {
   CLOSE_MENU_BUTTON.addEventListener('click', closeMenu);
 });
 
 // Hover Sound Effects
 
-MENU_SETTINGS_OPTIONS.forEach((SETTING_BUTTON) => {
+MENU_SETTINGS_OPTIONS.forEach(SETTING_BUTTON => {
   SETTING_BUTTON.addEventListener('mouseenter', playHoverSoundEffect);
 });
 
-MENU_SETTINGS_OPTIONS.forEach((SETTING_BUTTON) => {
+MENU_SETTINGS_OPTIONS.forEach(SETTING_BUTTON => {
   SETTING_BUTTON.addEventListener('mouseleave', stopHoverSoundEffect);
 });
 
-export { SETTINGS_BUTTONS, CLOSE_MENU_BUTTONS, openMenu, closeMenu };
+// Bird Animation
+const BIRD_CONTAINER = document.querySelector('.bird_animated_gif_container');
+
+function startBirdAnimation() {
+  BIRD_CONTAINER.classList.add('flying_animation');
+  switchBirdState();
+  setInterval(switchBirdState, 20000);
+}
+
+function switchBirdState() {
+  console.log(BIRD_CONTAINER.firstElementChild);
+
+  setTimeout(() => {
+    BIRD_CONTAINER.firstElementChild.src =
+      '../src/assets/images/templates/forest_theme/perched_bird.png';
+  }, 8000);
+
+  setTimeout(() => {
+    BIRD_CONTAINER.firstElementChild.src =
+      '../src/assets/gifs/single-bird-flying.gif';
+  }, 14000);
+}
+
+export {
+  SETTINGS_BUTTONS,
+  CLOSE_MENU_BUTTONS,
+  openMenu,
+  closeMenu,
+  startBirdAnimation
+};
