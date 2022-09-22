@@ -166,47 +166,47 @@ h3 {
 
 @keyframes FlyingAnimation {
   0% {
-    transform: rotate(-15deg);
-    top: 10%;
-    left: 0%;
+    top: 0;
+    left: 0;
   }
-  15% {
-    top: 0%;
-    left: 10%;
+  35% {
+    top: 0;
   }
-  25% {
-    transform: rotate(30deg);
-    top: 22%;
-    left: 20%;
+  44% {
+    top: 2.5%;
   }
   50% {
-    transform: rotate(0deg);
-    left: 70%;
-  }
-  60% {
-    transform: rotate(-120deg);
-    top: 17%;
-    left: 80%;
+    left: 60%;
   }
   70% {
-    transform: rotate(0deg);
-    top: 0%;
-    left: 65%;
+    top: 2.5%;
+    left: 60%;
+    transform: rotateY(0deg);
   }
-  80% {
-    left: 50%;
+  75% {
+    top: 0;
+    left: 60%;
+    transform: rotateY(180deg);
+  }
+  98% {
+    transform: rotateY(180deg);
   }
   100% {
-    left: 0%;
+    transform: rotateY(0deg);
+    left: 0;
   }
 }
 
+.flying_animation {
+  animation: FlyingAnimation 20s infinite;
+}
+
 .game-menu .bird_animated_gif_container {
-  animation: FlyingAnimation 15s linear alternate infinite;
   height: max-content;
   width: 50px;
+  perspective: 1000px;
   position: absolute;
-  top: 0%;
+  top: 0;
   left: 0;
 }
 

@@ -1,4 +1,7 @@
-import { SETTINGS_BUTTONS } from './modules/menuActions.mjs';
+import {
+  SETTINGS_BUTTONS,
+  startBirdAnimation
+} from './modules/menuActions.mjs';
 import { playHomeMusic } from './modules/Home.mjs';
 
 const LOADER_CONTAINER = document.getElementById('loader-container');
@@ -12,6 +15,7 @@ function allowGameToStart() {
   document.querySelector('#click_on_window_message').style.display = 'none';
   renderLoaderContainer();
   timeoutFunctionForTwoSeconds(playHomeMusic);
+  timeoutFunctionForTwoSeconds(startBirdAnimation);
 }
 
 function renderLoaderContainer(loaderMessage) {
@@ -31,11 +35,15 @@ function renderLoaderContainer(loaderMessage) {
 
 const ROOT_ELEMENT = document.documentElement; // <- <html> tag
 const FULLSCREEN_BUTTON = document.querySelector('.toggleFullscreenIcon');
-const MAXIMIZE_FULLSCREEN_ICON = '../src/assets/images/icons/maximize_fullscreen.svg';
-const MINIMIZE_FULLSCREEN_ICON = '../src/assets/images/icons/minimize_fullscreen.svg';
+const MAXIMIZE_FULLSCREEN_ICON =
+  '../src/assets/images/icons/maximize_fullscreen.svg';
+const MINIMIZE_FULLSCREEN_ICON =
+  '../src/assets/images/icons/minimize_fullscreen.svg';
 
 function toggleFullscreenMode() {
-  let isMaximizeFullscreen = FULLSCREEN_BUTTON.classList.contains('fullscreenActivated');
+  let isMaximizeFullscreen = FULLSCREEN_BUTTON.classList.contains(
+    'fullscreenActivated'
+  );
 
   // turn on fullscreen mode
   if (!isMaximizeFullscreen) {
@@ -56,16 +64,16 @@ FULLSCREEN_BUTTON.addEventListener('click', toggleFullscreenMode);
 window.addEventListener('keydown', function (event) {
   let { key } = event;
 
-  (key === "F11") ? event.preventDefault() : null;
+  key === 'F11' ? event.preventDefault() : null;
 
-  if (key === "f") {
+  if (key === 'f') {
     toggleFullscreenMode();
   }
 });
 
 function revealElements(elements) {
   if (elements.length !== undefined) {
-    elements.forEach((element) => {
+    elements.forEach(element => {
       element.classList.remove('hide');
     });
     return;
@@ -75,7 +83,7 @@ function revealElements(elements) {
 
 function hideElements(elements) {
   if (elements.length !== undefined) {
-    elements.forEach((element) => {
+    elements.forEach(element => {
       element.classList.add('hide');
     });
     return;
@@ -85,4 +93,9 @@ function hideElements(elements) {
 
 document.querySelector('#click_on_window_message').onclick = allowGameToStart;
 
-export { timeoutFunctionForTwoSeconds, renderLoaderContainer, revealElements, hideElements };
+export {
+  timeoutFunctionForTwoSeconds,
+  renderLoaderContainer,
+  revealElements,
+  hideElements
+};
