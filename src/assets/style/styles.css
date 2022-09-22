@@ -16,6 +16,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bird_left_position_animation: 55%;
+}
+
 body {
   background: #cdfffe url('../images/home-background.jpg') center no-repeat
     fixed;
@@ -175,17 +179,17 @@ h3 {
   44% {
     top: 2.5%;
   }
-  50% {
-    left: 60%;
+  49% {
+    left: var(--bird_left_position_animation);
   }
   70% {
     top: 2.5%;
-    left: 60%;
+    left: var(--bird_left_position_animation);
     transform: rotateY(0deg);
   }
   75% {
     top: 0;
-    left: 60%;
+    left: var(--bird_left_position_animation);
     transform: rotateY(180deg);
   }
   98% {

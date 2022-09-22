@@ -1,4 +1,5 @@
 import {
+  setBirdPosition,
   SETTINGS_BUTTONS,
   startBirdAnimation
 } from './modules/menuActions.mjs';
@@ -7,15 +8,25 @@ import { playHomeMusic } from './modules/Home.mjs';
 const LOADER_CONTAINER = document.getElementById('loader-container');
 const LOADER_TITLE = document.getElementById('loader-title');
 
-function timeoutFunctionForTwoSeconds(item) {
-  setTimeout(item, 2000);
+function timeoutFunctionForTwoSeconds(functionInputs) {
+  if (typeof functionInputs === 'function') {
+    setTimeout(functionInputs, 2000);
+  }
+  if (typeof functionInputs === 'object') {
+    functionInputs.forEach(func => {
+      setTimeout(func, 2000);
+    });
+  }
 }
 
 function allowGameToStart() {
   document.querySelector('#click_on_window_message').style.display = 'none';
   renderLoaderContainer();
-  timeoutFunctionForTwoSeconds(playHomeMusic);
-  timeoutFunctionForTwoSeconds(startBirdAnimation);
+  timeoutFunctionForTwoSeconds([
+    playHomeMusic,
+    startBirdAnimation,
+    setBirdPosition
+  ]);
 }
 
 function renderLoaderContainer(loaderMessage) {
@@ -28,9 +39,9 @@ function renderLoaderContainer(loaderMessage) {
     LOADER_TITLE.innerHTML = 'Loading...';
   }
 
-  setTimeout(() => {
+  timeoutFunctionForTwoSeconds(() => {
     LOADER_CONTAINER.style.display = 'none';
-  }, 2000);
+  });
 }
 
 const ROOT_ELEMENT = document.documentElement; // <- <html> tag
@@ -92,6 +103,7 @@ function hideElements(elements) {
 }
 
 document.querySelector('#click_on_window_message').onclick = allowGameToStart;
+window.onresize = setBirdPosition;
 
 export {
   timeoutFunctionForTwoSeconds,

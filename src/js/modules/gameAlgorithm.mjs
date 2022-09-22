@@ -4,6 +4,7 @@ import { MusicIsActive, playDefaultSoundTrack, renderPlayMusicButtons, setDefaul
 import { TOP_BAR_CONTAINER, memoryDeck } from './m-themes/addCards.mjs';
 import { DECK_CONTAINER } from './m-themes/deckStyles.mjs';
 import { difficulty } from './m-themes/themesDifficulty.mjs';
+import { resetBirdAnimation, startBirdAnimation } from './menuActions.mjs';
 import { fillRandomThemes } from './randomThemes/fillRandomThemes.mjs';
 
 const SCOREBOARD = document.getElementById('scorePoints');
@@ -14,6 +15,7 @@ let cards;
 function startGame() {
   stopHomeMusic();
   setDefaultSoundTrack();
+  resetBirdAnimation();
   
   if (MusicIsActive) {
     playDefaultSoundTrack();
@@ -174,6 +176,7 @@ function endGame() {
   hideElements(DECK_CONTAINER);
   hideElements(topBarContainerIngameElements);
   fillRandomThemes();
+  startBirdAnimation();
   revealElements(GAME_MENU);
 }
 
