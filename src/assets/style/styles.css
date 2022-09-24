@@ -1,13 +1,19 @@
 /* GENERAL SETTINGS */
 @charset "UTF-8";
 
+@font-face {
+  font-family: 'Trebuchet';
+  src: url('../fonts/forest_template/trebuc.ttf');
+}
+
 * {
+  font-family: 'Trebuchet';
+  font-weight: normal;
+  list-style: none;
+  list-style-position: inside;
   margin: 0;
   padding: 0;
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
-  list-style: none;
-  list-style-position: inside;
 }
 
 *,
@@ -16,13 +22,17 @@
   box-sizing: border-box;
 }
 
+/* VARIABLES - TEMPLATES */
+
 :root {
   --bird_top_position_animation: 2.5%;
   --bird_left_position_animation: 55%;
 }
 
+.forest_template {}
+
 body {
-  background: #cdfffe url('../images/home-background.jpg') center no-repeat
+  background: #cdfffe url('../images/templates/forest_template/forest_background.jpg') center no-repeat
     fixed;
   background-size: cover;
   position: relative;
@@ -163,6 +173,7 @@ h3 {
 }
 
 .game-menu h1 {
+  font-weight: bold;
   font-size: 50px;
   text-align: center;
   text-shadow: 2px 1px 10px rgb(1, 217, 255);

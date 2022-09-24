@@ -4,7 +4,7 @@ let Is_Home_Page = true;
 
 const HOME_DATA = {
   Templates: {
-    ForestTheme: "../src/soundtracks/home_sounds/home_music_forest_theme.mp3",
+    ForestTheme: "../src/soundtracks/home_sounds/templates/forest_template/forest_theme.mp3",
   },
 };
 

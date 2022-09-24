@@ -49,7 +49,7 @@ function resetBirdAnimation() {
 function switchBirdState() {
   setTimeout(() => {
     BIRD_CONTAINER.firstElementChild.src =
-      '../src/assets/images/templates/forest_theme/perched_bird.png';
+      '../src/assets/images/templates/forest_template/perched_bird.png';
   }, 8000);
 
   setTimeout(() => {
