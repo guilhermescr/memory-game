@@ -15,7 +15,7 @@
       defer
     ></script>
   </head>
-  <body class="forest_template">
+  <body class="rainbow_template">
     <div id="click_on_window_message">
       <h2>Click on the page to start!</h2>
       <div class="click_gif_container">
@@ -53,19 +53,56 @@
       </div>
 
       <div class="top_bar_right_content">
-        <img
+        <svg
           id="settingsIcon"
           class="top_bar_item hide settingButton"
           data-setting="ingame-settings"
-          src="../src/assets/images/icons/settings_icon.svg"
-          alt="Settings Icon"
-        />
+          version="1.1"
+          id="Layer_1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          viewBox="0 0 512 512"
+          style="enable-background: new 0 0 512 512"
+          xml:space="preserve"
+        >
+          <path
+            style="fill: #aeadb3"
+            d="M511.958,308.445L512,206.866l-65.964-7.24c-3.594-12.098-8.326-23.82-14.167-35.04l42.197-52.529
+	l-71.815-71.846L350.485,81.76c-11.116-6.039-22.754-10.98-34.789-14.783l-7.313-66.957H206.793l-7.209,65.975
+	c-11.983,3.552-23.611,8.243-34.727,14.02l-52.477-42.27l-71.94,71.721l41.486,51.829c-6.059,11.105-11.022,22.744-14.825,34.758
+	l-66.967,7.24L0,304.872l65.964,7.292c3.573,12.108,8.295,23.83,14.135,35.051L37.85,399.713l71.752,71.909l51.808-41.507
+	c11.116,6.049,22.744,11.001,34.769,14.814l7.261,66.967l52.581,0.042l49.008,0.042l7.261-65.964
+	c12.098-3.583,23.83-8.316,35.04-14.156l52.518,42.228l71.877-71.783l-41.528-51.787c6.039-11.116,10.991-22.754,14.793-34.779
+	L511.958,308.445z M256.021,347.706c-50.659,0-91.727-41.068-91.727-91.727s41.068-91.727,91.727-91.727
+	s91.727,41.068,91.727,91.727S306.68,347.706,256.021,347.706z"
+          />
+          <path
+            style="fill: #8b8892"
+            d="M444.991,315.738c-3.803,12.025-8.755,23.663-14.793,34.779l41.528,51.787l-71.877,71.783
+	l-52.518-42.228c-11.21,5.84-22.942,10.573-35.04,14.156l-7.261,65.964l-49.008-0.042V347.706c50.659,0,91.727-41.068,91.727-91.727
+	s-41.068-91.727-91.727-91.727V0.021h52.362l7.313,66.957c12.035,3.803,23.674,8.744,34.789,14.783l51.766-41.549l71.815,71.846
+	l-42.197,52.529c5.84,11.22,10.573,22.942,14.167,35.04l65.964,7.24l-0.042,101.579L444.991,315.738z"
+          />
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+        </svg>
 
-        <img
-          class="toggleFullscreenIcon"
-          src="../src/assets/images/icons/maximize_fullscreen.svg"
-          alt="Fullscreen Icon"
-        />
+        <span class="toggleFullscreenIcon_container"></span>
       </div>
     </section>
 
@@ -220,7 +257,7 @@
               </svg>
               Music:
             </h3>
-            <div class="switch-audio-container">
+            <div class="switch-audio-container switch-audio-container--active">
               <button
                 type="button"
                 class="switchButton switchMusicButton active"
@@ -244,7 +281,7 @@
               </svg>
               Sound:
             </h3>
-            <div class="switch-audio-container">
+            <div class="switch-audio-container switch-audio-container--active">
               <button
                 type="button"
                 class="switchButton switchSoundButton active"
@@ -392,7 +429,9 @@
                 </svg>
                 Music:
               </h3>
-              <div class="switch-audio-container">
+              <div
+                class="switch-audio-container switch-audio-container--active"
+              >
                 <button
                   type="button"
                   class="switchButton switchMusicButton active"
@@ -417,7 +456,9 @@
                 </svg>
                 Sound:
               </h3>
-              <div class="switch-audio-container">
+              <div
+                class="switch-audio-container switch-audio-container--active"
+              >
                 <button
                   type="button"
                   class="switchButton switchSoundButton active"
