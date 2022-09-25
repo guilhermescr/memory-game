@@ -4,6 +4,7 @@ import {
   setBirdPosition,
   startBirdAnimation
 } from './modules/animations/forest_theme/BirdAnimation.mjs';
+import { showCurrentTemplateImage } from './modules/templates/TemplatesAlgorithm.mjs';
 
 const LOADER_CONTAINER = document.getElementById('loader-container');
 const LOADER_TITLE = document.getElementById('loader-title');
@@ -25,7 +26,8 @@ function allowGameToStart() {
   timeoutFunctionForTwoSeconds([
     playHomeMusic,
     startBirdAnimation,
-    setBirdPosition
+    setBirdPosition,
+    showCurrentTemplateImage
   ]);
 }
 

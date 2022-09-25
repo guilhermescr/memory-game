@@ -1,4 +1,4 @@
-import { themes, THEMES_NAMES, THEMES_LIST, THEMES_LOGOS } from './themesData.mjs';
+import { THEMES_NAMES, THEMES_LIST, THEMES_LOGOS } from './themesData.mjs';
 import { resetThemesContainerStyles, renderPlayThemeButtons } from './themesDifficulty.mjs';
 
 let lockCreation = false;

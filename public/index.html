@@ -7,13 +7,15 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../src/assets/style/styles.css" />
     <title>Memory Game</title>
+
+    <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/402b466f9c.js"
       crossorigin="anonymous"
       defer
     ></script>
   </head>
-  <body>
+  <body class="forest_template">
     <div id="click_on_window_message">
       <h2>Click on the page to start!</h2>
       <div class="click_gif_container">
@@ -69,7 +71,10 @@
 
     <main class="game-menu">
       <header id="game-menu-title-content">
-        <h1 id="game-menu-title">Memory<br />Game</h1>
+        <h1 id="game-menu-title">
+          <span id="memory_txt">Memory</span>
+          <span id="game_txt">Game</span>
+        </h1>
       </header>
 
       <div class="bird_animated_gif_container">
@@ -119,7 +124,7 @@
           />
         </div>
 
-        <div class="return-themes-container">
+        <div class="return-icon-container">
           <svg
             class="return-icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -170,19 +175,33 @@
           />
         </div>
 
+        <div class="return-icon-container">
+          <svg
+            class="return-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            fill="currentColor"
+            class="bi bi-arrow-left"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+            />
+          </svg>
+        </div>
+
         <h2>Settings</h2>
 
         <section class="templates_container">
-          <h3>Templates:</h3>
-          <div id="current_template_container">
-            <h4>Current Template</h4>
-            <img
-              id="currentTemplateImage"
-              src="../src/assets/"
-              alt="GET TEMPLATE NAME AND BRING IT HERE"
-            />
-            <button id="changeTemplateButton" type="button">Change</button>
-          </div>
+          <h3>Current Template</h3>
+          <img
+            id="currentTemplateImage"
+            src=""
+            alt="GET TEMPLATE NAME AND BRING IT HERE"
+          />
+          <button id="changeTemplateButton" type="button">Change</button>
         </section>
 
         <section class="audio-container">
@@ -210,7 +229,6 @@
               </button>
             </div>
           </div>
-
           <div class="audio-content">
             <h3>
               <svg
