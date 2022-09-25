@@ -15,7 +15,7 @@
       defer
     ></script>
   </head>
-  <body class="rainbow_template">
+  <body class="forest_template">
     <div id="click_on_window_message">
       <h2>Click on the page to start!</h2>
       <div class="click_gif_container">
@@ -229,17 +229,68 @@
           </svg>
         </div>
 
-        <h2>Settings</h2>
+        <h2 id="home_settings_title">Settings</h2>
 
         <section class="templates_container">
           <h3>Current Template</h3>
-          <img
-            id="currentTemplateImage"
-            src=""
-            alt="GET TEMPLATE NAME AND BRING IT HERE"
-          />
-          <button id="changeTemplateButton" type="button">Change</button>
+          <img id="currentTemplateImage" src="" alt="Current Template Image" />
+          <button
+            id="changeCurrentTemplateButton"
+            class="changeTemplateButton"
+            type="button"
+          >
+            Change
+          </button>
         </section>
+
+        <div class="templates hide">
+          <!-- Make it appear dynamically with JS -->
+          <div class="template">
+            <h3>Forest Template</h3>
+            <img
+              class="templateImage"
+              src="../src/assets/images/templates/forest_template/forest_template_menu.png"
+              alt="Menu Template Image"
+            />
+            <button class="changeTemplateButton" type="button">Change</button>
+          </div>
+          <div class="template">
+            <h3>Rainbow Template</h3>
+            <img
+              class="templateImage"
+              src="../src/assets/images/templates/rainbow_template/rainbow_template_menu.png"
+              alt="Menu Template Image"
+            />
+            <button class="changeTemplateButton" type="button">Change</button>
+          </div>
+          <div class="template">
+            <h3>Forest Template</h3>
+            <img
+              class="templateImage"
+              src="../src/assets/images/templates/forest_template/forest_template_menu.png"
+              alt="Menu Template Image"
+            />
+            <button class="changeTemplateButton" type="button">Change</button>
+          </div>
+          <div class="template">
+            <h3>Rainbow Template</h3>
+            <img
+              class="templateImage"
+              src="../src/assets/images/templates/rainbow_template/rainbow_template_menu.png"
+              alt="Menu Template Image"
+            />
+            <button class="changeTemplateButton" type="button">Change</button>
+          </div>
+          <div class="template">
+            <h3>Rainbow Template</h3>
+            <img
+              class="templateImage"
+              src="../src/assets/images/templates/rainbow_template/rainbow_template_menu.png"
+              alt="Menu Template Image"
+            />
+            <button class="changeTemplateButton" type="button">Change</button>
+          </div>
+        </div>
 
         <section class="audio-container">
           <div class="audio-content">
