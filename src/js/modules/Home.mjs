@@ -1,4 +1,4 @@
-import TEMPLATES_DATA from './templates/TemplatesData.mjs';
+import { TEMPLATES_DATA } from './templates/TemplatesData.mjs';
 
 const HOME_AUDIO_TAG = document.querySelector('#homeMusic');
 const HOME_AUDIO_SOURCE_TAG = document.querySelector('#homeMusicFile');

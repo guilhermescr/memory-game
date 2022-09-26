@@ -770,7 +770,7 @@ h2 {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  padding-block: 10px;
+  height: 280px;
   width: 45%;
 }
 
