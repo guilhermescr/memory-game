@@ -1,11 +1,15 @@
 import { SETTINGS_BUTTONS } from './modules/menuActions.mjs';
 import { playHomeMusic } from './modules/Home.mjs';
 import {
+  resetBirdAnimation,
   setBirdPosition,
   startBirdAnimation
 } from './modules/animations/forest_theme/BirdAnimation.mjs';
 import { showCurrentTemplateImage } from './modules/templates/TemplatesAlgorithm.mjs';
 
+const CLICK_ON_WINDOW_CONTAINER = document.querySelector(
+  '#click_on_window_message'
+);
 const LOADER_CONTAINER = document.getElementById('loader-container');
 const LOADER_TITLE = document.getElementById('loader-title');
 
@@ -21,14 +25,28 @@ function timeoutFunctionForTwoSeconds(functionInputs) {
 }
 
 function allowGameToStart() {
-  document.querySelector('#click_on_window_message').style.display = 'none';
+  hideElements(CLICK_ON_WINDOW_CONTAINER);
   renderLoaderContainer();
-  timeoutFunctionForTwoSeconds([
-    playHomeMusic,
-    startBirdAnimation,
-    setBirdPosition,
-    showCurrentTemplateImage
-  ]);
+  timeoutFunctionForTwoSeconds(playHomeMusic);
+
+  if (document.body.classList.contains('forest_template')) {
+    timeoutFunctionForTwoSeconds([
+      startBirdAnimation,
+      setBirdPosition,
+      showCurrentTemplateImage
+    ]);
+    revealElements(document.querySelector('.bird_animated_gif_container'));
+    window.onresize = setBirdPosition;
+  } else {
+    hideElements(document.querySelector('.bird_animated_gif_container'));
+    resetBirdAnimation();
+    // add rainbow template animation
+    // add military template animation
+  }
+}
+
+function renderClickOnWindowMessage() {
+  revealElements(CLICK_ON_WINDOW_CONTAINER);
 }
 
 function renderLoaderContainer(loaderMessage) {
@@ -225,11 +243,11 @@ function hideElements(elements) {
   elements.classList.add('hide');
 }
 
-document.querySelector('#click_on_window_message').onclick = allowGameToStart;
-window.onresize = setBirdPosition;
+CLICK_ON_WINDOW_CONTAINER.onclick = allowGameToStart;
 
 export {
   timeoutFunctionForTwoSeconds,
+  renderClickOnWindowMessage,
   renderLoaderContainer,
   revealElements,
   hideElements

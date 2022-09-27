@@ -7,8 +7,6 @@ const TEMPLATES_DATA = {
       alt: 'Forest Template'
     },
     TemplateStyles: 'forest_template',
-    FontFamily: 'Trebuchet',
-    FontSource: '../fonts/forest_template/trebuc.ttf',
     SoundTrack:
       '../src/soundtracks/home_sounds/templates/forest_template/forest_theme.mp3'
   },
@@ -20,8 +18,6 @@ const TEMPLATES_DATA = {
       alt: 'Rainbow Template'
     },
     TemplateStyles: 'rainbow_template',
-    FontFamily: 'Morning Rainbow',
-    FontSource: '../fonts/rainbow_template/MorningRainbow.ttf',
     SoundTrack: ''
   },
   MilitaryTemplate: {
@@ -31,8 +27,6 @@ const TEMPLATES_DATA = {
       alt: 'Military Template'
     },
     TemplateStyles: 'military_template',
-    FontFamily: 'Grind Demolished',
-    FontSource: '../fonts/forest_template/Grind_Demolished.ttf',
     SoundTrack: ''
   }
 };

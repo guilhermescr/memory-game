@@ -1,13 +1,26 @@
-/* GENERAL SETTINGS */
 @charset "UTF-8";
 
+/* ------------------------------ FONTS ------------------------------ */
+/* Forest Template*/
 @font-face {
   font-family: 'Trebuchet';
-  src: url('../fonts/forest_template/trebuc.ttf');
+  src: url(../fonts/forest_template/trebuc.ttf);
 }
 
+/* Rainbow Template */
+@font-face {
+  font-family: 'Morning Rainbow';
+  src: url(../fonts/rainbow_template/MorningRainbow.ttf);
+}
+
+/* Military Template */
+@font-face {
+  font-family: 'Grind Demolished';
+  src: url(../fonts/military_template/Grind_Demolished.ttf);
+}
+
+/* GENERAL SETTINGS */
 * {
-  font-family: 'Trebuchet';
   list-style: none;
   list-style-position: inside;
   margin: 0;
@@ -32,7 +45,14 @@
   --bird_left_position_animation: 55%;
 }
 
+body.forest_template {
+  font-family: 'Trebuchet';
+}
+
 .forest_template {
+  --template_font_family: 'Trebuchet';
+  --template_font_source: url(../fonts/forest_template/trebuc.ttf);
+
   --window_message_text_color: #01e4e4;
   --window_message_text_shadow: 0 0 15px #16a4a8;
   --loader_box_shadow: 0px 5px 5px #01d9ff;
@@ -94,6 +114,10 @@
     #20bf55c5,
     #00a1ce
   );
+}
+
+body.rainbow_template {
+  font-family: 'Morning Rainbow';
 }
 
 .rainbow_template {
@@ -158,6 +182,14 @@
   --difficulty_level_button_box_shadow_color: #fa0075;
   --difficulty_level_button_hover_gradient: linear-gradient(#f7438e, #b4507f);
   --difficulty_level_button_active_gradient: linear-gradient(#ff6ec3, #e72abe);
+}
+
+body.military_template {
+  font-family: 'Grind Demolished';
+}
+
+.military_template {
+  color: green;
 }
 
 body {
@@ -745,12 +777,14 @@ h2 {
   max-width: max-content;
 }
 
-.home_settings_container .templates_container h3, .home_settings_container .templates h3 {
+.home_settings_container .templates_container h3,
+.home_settings_container .templates h3 {
   color: var(--home_settings_color);
   font-size: 20px;
 }
 
-.home_settings_container .templates_container img, .home_settings_container .templates img {
+.home_settings_container .templates_container img,
+.home_settings_container .templates img {
   border: 1px solid var(--home_settings_color);
   width: 200px;
 }
