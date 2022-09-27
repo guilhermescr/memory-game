@@ -1,6 +1,6 @@
 import { addEasyModeCards, addNormalModeCards, addHardModeCards, saveClickedBtnThemeId } from './addCards.mjs';
 
-const RETURN_ICONS = document.querySelector('.return-icon');
+const RETURN_ICON = document.querySelector('div.themes-container .return-icon');
 const THEMES_CONTAINER = document.getElementById('themesContainer');
 const THEMES_TITLE = document.getElementById('themes-title');
 
@@ -18,7 +18,7 @@ function resetThemesContainerStyles() {
   THEMES_CONTAINER.style.display = 'flex';
   THEMES_TITLE.innerHTML = 'Themes';
   DIFFICULTIES_CONTAINER.style.display = 'none';
-  RETURN_ICONS.style.display = 'none';
+  RETURN_ICON.style.display = 'none';
 }
 
 function showDifficulties() {
@@ -29,8 +29,8 @@ function showDifficulties() {
   THEMES_CONTAINER.style.display = 'none';
   THEMES_TITLE.innerHTML = 'Select Your Difficulty';
   DIFFICULTIES_CONTAINER.style.display = 'flex';
-  RETURN_ICONS.style.display = 'block';
-  RETURN_ICONS.addEventListener('click', resetThemesContainerStyles);
+  RETURN_ICON.style.display = 'block';
+  RETURN_ICON.addEventListener('click', resetThemesContainerStyles);
 }
 
 function renderPlayThemeButtons() {

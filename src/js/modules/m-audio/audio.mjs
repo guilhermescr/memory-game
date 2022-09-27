@@ -112,11 +112,6 @@ function playClickSoundEffect() {
 }
 
 // Switch Audio Settings
-const ACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR = "#10bb9f";
-const INACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR = "#444";
-const ACTIVE_SWITCH_BUTTON_BACKGROUND_GRADIENT = "linear-gradient(#01baef 5%, #10bb9f)";
-const INACTIVE_SWITCH_BUTTON_BACKGROUND_GRADIENT = "linear-gradient(#2f4246 5%, #10bb9f)";
-
 const SWITCH_BUTTONS = document.querySelectorAll('.switchButton');
 let audioButtons;
 
@@ -133,12 +128,10 @@ function switchAudioStyles(SwitchButton) {
     // turn off
     if (audioButton.classList.contains("active")) {
       audioButton.innerHTML = "Off";
-      audioButton.parentElement.style.backgroundColor = INACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR;
-      audioButton.style.backgroundImage = INACTIVE_SWITCH_BUTTON_BACKGROUND_GRADIENT;
+      audioButton.parentElement.classList.remove('switch-audio-container--active');
     } else { // turn on
       audioButton.innerHTML = "On";
-      audioButton.parentElement.style.backgroundColor = ACTIVE_SWITCH_AUDIO_CONTAINER_BACKGROUND_COLOR;
-      audioButton.style.backgroundImage = ACTIVE_SWITCH_BUTTON_BACKGROUND_GRADIENT;
+      audioButton.parentElement.classList.add('switch-audio-container--active');
     }
     audioButton.classList.toggle("active");
   });
