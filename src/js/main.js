@@ -1,11 +1,12 @@
 import { SETTINGS_BUTTONS } from './modules/menuActions.mjs';
 import { playHomeMusic } from './modules/Home.mjs';
-import {
-  resetBirdAnimation,
-  setBirdPosition,
-  startBirdAnimation
-} from './modules/animations/forest_theme/BirdAnimation.mjs';
 import { showCurrentTemplateImage } from './modules/templates/TemplatesAlgorithm.mjs';
+import { MusicIsActive } from './modules/m-audio/audio.mjs';
+import {
+  BODY_CLASSLIST_TEMPLATE_OPTIONS,
+  TEMPLATES_DATA,
+  TEMPLATES_KEYS
+} from './modules/templates/TemplatesData.mjs';
 
 const CLICK_ON_WINDOW_CONTAINER = document.querySelector(
   '#click_on_window_message'
@@ -13,45 +14,52 @@ const CLICK_ON_WINDOW_CONTAINER = document.querySelector(
 const LOADER_CONTAINER = document.getElementById('loader-container');
 const LOADER_TITLE = document.getElementById('loader-title');
 
-function timeoutFunctionForTwoSeconds(functionInputs) {
+function timeoutItems(functionInputs) {
   if (typeof functionInputs === 'function') {
-    setTimeout(functionInputs, 2000);
+    setTimeout(functionInputs, 1200);
   }
   if (typeof functionInputs === 'object') {
     functionInputs.forEach(func => {
-      setTimeout(func, 2000);
+      setTimeout(func, 1200);
     });
   }
 }
 
 function allowGameToStart() {
-  hideElements(CLICK_ON_WINDOW_CONTAINER);
   renderLoaderContainer();
-  timeoutFunctionForTwoSeconds(playHomeMusic);
+  setCurrentTemplateImage();
 
-  if (document.body.classList.contains('forest_template')) {
-    timeoutFunctionForTwoSeconds([
-      startBirdAnimation,
-      setBirdPosition,
-      showCurrentTemplateImage
-    ]);
-    revealElements(document.querySelector('.bird_animated_gif_container'));
-    window.onresize = setBirdPosition;
-  } else {
+  if (MusicIsActive) {
+    timeoutItems(playHomeMusic);
+  }
+
+  if (document.body.classList) {
+    BODY_CLASSLIST_TEMPLATE_OPTIONS[document.body.classList[0]]();
+  }
+
+  if (!document.body.classList.contains('forest_template')) {
     hideElements(document.querySelector('.bird_animated_gif_container'));
-    resetBirdAnimation();
-    // add rainbow template animation
-    // add military template animation
   }
 }
 
+function setCurrentTemplateImage() {
+  TEMPLATES_KEYS.forEach((_, TEMPLATE_KEY) => {
+    const { TemplateStyles } = TEMPLATES_DATA[TEMPLATES_KEYS[TEMPLATE_KEY]];
+    const { src, alt } = TEMPLATES_DATA[TEMPLATES_KEYS[TEMPLATE_KEY]].MenuTemplate;
+
+    if (TemplateStyles === document.body.classList[0]) {
+      showCurrentTemplateImage(src, alt);
+    }
+  });
+}
+
 function renderClickOnWindowMessage() {
-  revealElements(CLICK_ON_WINDOW_CONTAINER);
+  document.body.appendChild(CLICK_ON_WINDOW_CONTAINER);
 }
 
 function renderLoaderContainer(loaderMessage) {
-  LOADER_CONTAINER.style.display = '';
-  LOADER_CONTAINER.style.display = 'flex';
+  document.body.appendChild(LOADER_CONTAINER);
+  revealElements(LOADER_CONTAINER);
 
   if (loaderMessage) {
     LOADER_TITLE.innerHTML = loaderMessage;
@@ -59,10 +67,18 @@ function renderLoaderContainer(loaderMessage) {
     LOADER_TITLE.innerHTML = 'Loading...';
   }
 
-  timeoutFunctionForTwoSeconds(() => {
-    LOADER_CONTAINER.style.display = 'none';
+  timeoutItems(() => {
+    hideElements(LOADER_CONTAINER);
+    document.body.removeChild(LOADER_CONTAINER);
   });
 }
+
+function handleClickOnWindowEvent() {
+  document.body.removeChild(CLICK_ON_WINDOW_CONTAINER);
+  allowGameToStart();
+}
+
+CLICK_ON_WINDOW_CONTAINER.onclick = handleClickOnWindowEvent;
 
 const ROOT_ELEMENT = document.documentElement; // <- <html> tag
 const FULLSCREEN_BUTTON = document.querySelector(
@@ -243,10 +259,8 @@ function hideElements(elements) {
   elements.classList.add('hide');
 }
 
-CLICK_ON_WINDOW_CONTAINER.onclick = allowGameToStart;
-
 export {
-  timeoutFunctionForTwoSeconds,
+  timeoutItems,
   renderClickOnWindowMessage,
   renderLoaderContainer,
   revealElements,

@@ -12,12 +12,11 @@ const CHANGE_TEMPLATE_BUTTON = document.querySelector(
   '#changeCurrentTemplateButton'
 );
 const TEMPLATES_CONTAINER = document.querySelector('.templates');
-const DEFAULT_TEMPLATE_IMAGE = TEMPLATES_DATA.ForestTemplate.MenuTemplate.src;
-CURRENT_TEMPLATE_IMAGE.src = DEFAULT_TEMPLATE_IMAGE;
 
-function showCurrentTemplateImage(templateImage) {
+function showCurrentTemplateImage(templateImage, altTxt) {
   if (templateImage) {
     CURRENT_TEMPLATE_IMAGE.src = templateImage;
+    CURRENT_TEMPLATE_IMAGE.alt = altTxt;
     return;
   }
 }
@@ -51,7 +50,7 @@ function createTemplates() {
     document.querySelector(`#${TEMPLATES_KEYS[templateIndex]}`).addEventListener('click', (event) => {
       event.preventDefault();
       changeCurrentTemplate(TemplateStyles);
-      showCurrentTemplateImage(src);
+      showCurrentTemplateImage(src, alt);
       showSettingsMenu();
       closeMenu();
       stopHomeMusic();

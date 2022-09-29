@@ -1,6 +1,6 @@
 // Bird Animation
 const BIRD_CONTAINER = document.querySelector('.bird_animated_gif_container');
-let birdAnimationInterval;
+let birdAnimationInterval, perchedBirdTimeout, flyingBirdTimeout;
 
 function startBirdAnimation() {
   BIRD_CONTAINER.classList.add('flying_animation');
@@ -43,16 +43,20 @@ function setBirdPosition() {
 
 function resetBirdAnimation() {
   clearInterval(birdAnimationInterval);
+  clearTimeout(perchedBirdTimeout);
+  clearTimeout(flyingBirdTimeout);
   BIRD_CONTAINER.classList.remove('flying_animation');
+  BIRD_CONTAINER.firstElementChild.src =
+    '../src/assets/gifs/single-bird-flying.gif';
 }
 
 function switchBirdState() {
-  setTimeout(() => {
+  perchedBirdTimeout = setTimeout(() => {
     BIRD_CONTAINER.firstElementChild.src =
       '../src/assets/images/templates/forest_template/perched_bird.png';
   }, 8000);
 
-  setTimeout(() => {
+  flyingBirdTimeout = setTimeout(() => {
     BIRD_CONTAINER.firstElementChild.src =
       '../src/assets/gifs/single-bird-flying.gif';
   }, 14000);
