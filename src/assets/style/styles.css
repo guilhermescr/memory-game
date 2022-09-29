@@ -231,10 +231,6 @@ h2 {
   gap: 50px;
 }
 
-#loader-container {
-  display: none;
-}
-
 #click_on_window_message {
   background-color: #000;
   cursor: pointer;
