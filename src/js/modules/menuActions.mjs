@@ -12,6 +12,7 @@ const MENU_SETTINGS_OPTIONS = document.querySelectorAll('.setting-option');
 const SETTINGS_BUTTONS = document.querySelectorAll('.settingButton');
 const CLOSE_MENU_BUTTONS = document.querySelectorAll('.close-icon');
 const TOP_BAR_CONTAINER = document.querySelector('.top_bar_container');
+let menuIsOpen = false;
 
 function openMenu() {
   playClickSoundEffect();
@@ -22,6 +23,7 @@ function openMenu() {
       SETTINGS_MENUS[index].classList.add('show');
       SETTINGS_MENUS[index].style.pointerEvents = 'all';
       document.body.style.pointerEvents = 'none';
+      menuIsOpen = true;
     }
   }
   if (buttonDataset === 'ingame-settings') {
@@ -35,6 +37,7 @@ function closeMenu() {
       SETTINGS_MENU.classList.remove('show');
       SETTINGS_MENU.style.pointerEvents = '';
       document.body.style.pointerEvents = '';
+      menuIsOpen = false;
     }
 
     if (SETTINGS_MENU.dataset.setting === 'ingame-settings') {
@@ -74,4 +77,4 @@ MENU_SETTINGS_OPTIONS.forEach(SETTING_BUTTON => {
   SETTING_BUTTON.addEventListener('mouseleave', stopHoverSoundEffect);
 });
 
-export { SETTINGS_BUTTONS, CLOSE_MENU_BUTTONS, openMenu, closeMenu };
+export { SETTINGS_BUTTONS, CLOSE_MENU_BUTTONS, openMenu, closeMenu, menuIsOpen };

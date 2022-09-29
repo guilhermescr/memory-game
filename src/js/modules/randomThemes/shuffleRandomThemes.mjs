@@ -52,14 +52,14 @@ function shuffleRandomThemes() {
       } else {
         RANDOM_THEME.style.display = 'none';
       }
-    }, 6000);
+    }, 4000);
   });
 
   setTimeout(() => {
     saveClickedBtnThemeId(drawnTheme.dataset.themeid);
     shuffleDifficulties();
     isShuffling = false;
-  }, 7100);
+  }, 5100);
 }
 
 export { shuffleRandomThemes, RANDOM_THEMES_TITLE };
