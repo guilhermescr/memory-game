@@ -26,7 +26,7 @@ const TEMPLATES_DATA = {
   },
   MilitaryTemplate: {
     MenuTemplate: {
-      src: '',
+      src: '../src/assets/images/templates/military_template/military_template_menu.png',
       alt: 'Image shows menu in Military Template'
     },
     TemplateStyles: 'military_template',
