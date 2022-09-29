@@ -4,18 +4,21 @@
 /* Forest Template*/
 @font-face {
   font-family: 'Trebuchet';
+  font-display: swap;
   src: url(../fonts/forest_template/trebuc.ttf);
 }
 
 /* Rainbow Template */
 @font-face {
   font-family: 'Morning Rainbow';
+  font-display: swap;
   src: url(../fonts/rainbow_template/MorningRainbow.ttf);
 }
 
 /* Military Template */
 @font-face {
   font-family: 'Grind Demolished';
+  font-display: swap;
   src: url(../fonts/military_template/Grind_Demolished.ttf);
 }
 
@@ -192,7 +195,7 @@ body.military_template {
 
   --body_background_image: url('../images/templates/military_template/military_background.jpg');
 
-  --main_title_gradient: linear-gradient(to bottom, #bff76d, #38502d);
+  --main_title_gradient: linear-gradient(to bottom, #bff76d, #a09c5f);
 
   --top_bar_container_background_image_gradient: linear-gradient(
     #22990a,
@@ -202,21 +205,21 @@ body.military_template {
 
   --settings_background_image_gradient: linear-gradient(
     to bottom,
-    #c4d188,
-    #3b8101e5
+    #8ead46ee,
+    #7c7735
   );
   --settings_box_shadow_color: #009933b3;
 
   --setting_option_background_image_gradient: linear-gradient(
     to right,
-    #36531f 30%,
-    #054214
+    #aec257 30%,
+    #375e13
   );
   --setting_option_border_color: #009933;
   --setting_option_box_shadow_color: #009933b3;
   --setting_option_text_color: #ddffe9;
-  --setting_option_hover_gradient: linear-gradient(#009933, #0ada4f);
-  --setting_option_active_gradient: linear-gradient(#54f088, #49dd04);
+  --setting_option_hover_gradient: linear-gradient(#5f7403, #aec257);
+  --setting_option_active_gradient: linear-gradient(#99b908, #8a9c39);
 
   --scrollbar_thumb_background_color: #009933;
 
@@ -344,7 +347,7 @@ h2 {
 }
 
 .show {
-  transform: translate(-50%, 15%) scale(1) !important;
+  transform: translate(-50%, 5%) scale(1) !important;
   transition: transform 0.2s ease;
 }
 
@@ -358,9 +361,9 @@ h2 {
   border-radius: 10px;
 
   display: block;
-  max-width: 700px;
+  height: 90vh;
   width: 100%;
-  height: 470px;
+  max-width: 800px;
   padding: 20px 20px;
 
   position: absolute;
@@ -603,15 +606,6 @@ h2 {
   overflow-y: scroll;
 }
 
-.themes-container.menu {
-  height: 90vh;
-  max-width: 800px;
-}
-
-.themes-container.show {
-  transform: translate(-50%, 5vh) scale(1) !important;
-}
-
 .close-themes-container {
   margin-left: 95%;
   max-width: fit-content;
@@ -660,7 +654,7 @@ h2 {
   gap: 20px;
 
   width: 50%;
-  height: 250px;
+  min-height: 250px;
   padding-block: 10px;
   position: relative;
 }
@@ -805,10 +799,6 @@ h2 {
   height: 90vh;
 }
 
-.home_settings_container.show {
-  transform: translate(-50%, 5%) scale(1) !important;
-}
-
 .home_settings_container .templates_container,
 .home_settings_container .audio-container {
   max-height: 250px;
@@ -846,8 +836,7 @@ h2 {
   flex-wrap: wrap;
   justify-content: space-evenly;
   width: 100%;
-  height: 100%;
-  padding-block: 10px;
+  padding-top: 20px;
 }
 
 .templates .template {
@@ -1001,7 +990,6 @@ h2 {
   justify-content: space-evenly;
   align-items: center;
   gap: 10px;
-  height: 500px;
   overflow: hidden;
 }
 
@@ -1105,7 +1093,6 @@ h2 {
 }
 
 .ingame-settings.menu {
-  width: 100%;
   height: 85%;
 }
 
@@ -1173,8 +1160,24 @@ section.deck-container div.memory-deck {
 
   perspective: 1000px;
   position: absolute;
-  top: 50% !important;
+  top: 50%;
   transform: translateY(-50%);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.memory-deck::-webkit-scrollbar {
+  width: 12px;
+}
+
+.memory-deck::-webkit-scrollbar-track {
+  background: #292929;
+}
+
+.memory-deck::-webkit-scrollbar-thumb {
+  background-color: var(--home_settings_color);
+  border-radius: 20px;
+  border: 2px solid #0e0e0e;
 }
 
 .memory-card {
@@ -1253,20 +1256,12 @@ section.deck-container div.memory-deck {
     height: 120px;
   }
 
-  .show {
-    transform: translate(-50%, 10%) scale(1) !important;
-  }
-
   .top_bar_container .top_bar_left_content {
     flex-wrap: wrap;
   }
 
   .top_bar_container .top_bar_left_content h3 {
     padding-block: 0;
-  }
-
-  .themes-container.show {
-    transform: translate(-50%, 5%) scale(1) !important;
   }
 
   .themes {
@@ -1288,6 +1283,10 @@ section.deck-container div.memory-deck {
 
   .theme h3 {
     width: 100%;
+  }
+
+  .templates {
+    gap: 25px;
   }
 
   .credits-info .credits-image-creator {
@@ -1336,10 +1335,6 @@ section.deck-container div.memory-deck {
     height: 85%;
   }
 
-  .ingame-settings.show {
-    transform: translate(-50%, 12%) !important;
-  }
-
   .memory-deck {
     grid-template-columns: repeat(3, auto) !important;
     height: 80vh !important;
@@ -1347,24 +1342,8 @@ section.deck-container div.memory-deck {
 
     margin: 0 auto;
     padding-bottom: 10px;
-    overflow-x: hidden;
-    overflow-y: auto;
 
     transform: translate(-50%, 0%);
-  }
-
-  .memory-deck::-webkit-scrollbar {
-    width: 12px;
-  }
-
-  .memory-deck::-webkit-scrollbar-track {
-    background: #292929;
-  }
-
-  .memory-deck::-webkit-scrollbar-thumb {
-    background-color: var(--home_settings_color);
-    border-radius: 20px;
-    border: 2px solid #0e0e0e;
   }
 }
 
@@ -1398,15 +1377,6 @@ section.deck-container div.memory-deck {
 }
 
 @media (orientation: landscape) and (max-height: 600px) and (max-width: 800px) {
-  .ingame-settings {
-    gap: 10vw;
-  }
-
-  .ingame-settings.show {
-    height: 92vh;
-    transform: translate(-50%, 4%) !important;
-  }
-
   .ingame-settings #ingame-settings-title {
     margin: 0 auto;
     font-size: 4vw;
@@ -1442,7 +1412,7 @@ section.deck-container div.memory-deck {
     overflow-x: hidden;
     overflow-y: auto;
 
-    top: 23% !important;
+    top: 60% !important;
     transform: translate(-50%, 0%);
   }
 }
@@ -1450,7 +1420,7 @@ section.deck-container div.memory-deck {
 @media (orientation: landscape) and (min-width: 420px) and (max-width: 920px) {
   .memory-deck {
     grid-template-columns: repeat(4, auto) !important;
-    top: 15% !important;
+    top: 15%;
   }
 }
 
