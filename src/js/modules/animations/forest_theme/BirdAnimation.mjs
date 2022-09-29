@@ -42,6 +42,7 @@ function setBirdPosition() {
 }
 
 function resetBirdAnimation() {
+  window.removeEventListener('resize', setBirdPosition, false);
   clearInterval(birdAnimationInterval);
   clearTimeout(perchedBirdTimeout);
   clearTimeout(flyingBirdTimeout);

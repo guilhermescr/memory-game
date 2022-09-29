@@ -1,4 +1,4 @@
-import { revealElements } from "../../main.js";
+import { revealElements, timeoutItems } from "../../main.js";
 import { themes } from "./themesData.mjs";
 import { btnThemeId } from "./addCards.mjs";
 import { startGame } from '../gameAlgorithm.mjs';
@@ -19,7 +19,7 @@ function renderDeck() {
     MEMORY_DECK.style.gridTemplateColumns = 'repeat(5, auto)';
   }
 
-  setTimeout(startGame, 2000);
+  timeoutItems(startGame);
 }
 
 export { DECK_CONTAINER, renderDeck };

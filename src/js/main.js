@@ -1,12 +1,12 @@
-import { SETTINGS_BUTTONS } from './modules/menuActions.mjs';
-import { playHomeMusic } from './modules/Home.mjs';
-import { showCurrentTemplateImage } from './modules/templates/TemplatesAlgorithm.mjs';
-import { MusicIsActive } from './modules/m-audio/audio.mjs';
 import {
-  BODY_CLASSLIST_TEMPLATE_OPTIONS,
-  TEMPLATES_DATA,
-  TEMPLATES_KEYS
-} from './modules/templates/TemplatesData.mjs';
+  closeMenu,
+  menuIsOpen,
+  SETTINGS_BUTTONS
+} from './modules/menuActions.mjs';
+import { playHomeMusic } from './modules/Home.mjs';
+import { MusicIsActive } from './modules/m-audio/audio.mjs';
+import { BODY_CLASSLIST_TEMPLATE_OPTIONS } from './modules/templates/TemplatesData.mjs';
+import { setCurrentTemplateImage } from './modules/templates/TemplatesAlgorithm.mjs';
 
 const CLICK_ON_WINDOW_CONTAINER = document.querySelector(
   '#click_on_window_message'
@@ -14,12 +14,14 @@ const CLICK_ON_WINDOW_CONTAINER = document.querySelector(
 const LOADER_CONTAINER = document.getElementById('loader-container');
 const LOADER_TITLE = document.getElementById('loader-title');
 
-function timeoutItems(functionInputs) {
-  if (typeof functionInputs === 'function') {
-    setTimeout(functionInputs, 1200);
+function timeoutItems(functionItems) {
+  if (typeof functionItems === 'function') {
+    setTimeout(functionItems, 1200);
   }
-  if (typeof functionInputs === 'object') {
-    functionInputs.forEach(func => {
+
+  // when functionItems is an array
+  if (typeof functionItems === 'object') {
+    functionItems.forEach(func => {
       setTimeout(func, 1200);
     });
   }
@@ -40,17 +42,6 @@ function allowGameToStart() {
   if (!document.body.classList.contains('forest_template')) {
     hideElements(document.querySelector('.bird_animated_gif_container'));
   }
-}
-
-function setCurrentTemplateImage() {
-  TEMPLATES_KEYS.forEach((_, TEMPLATE_KEY) => {
-    const { TemplateStyles } = TEMPLATES_DATA[TEMPLATES_KEYS[TEMPLATE_KEY]];
-    const { src, alt } = TEMPLATES_DATA[TEMPLATES_KEYS[TEMPLATE_KEY]].MenuTemplate;
-
-    if (TemplateStyles === document.body.classList[0]) {
-      showCurrentTemplateImage(src, alt);
-    }
-  });
 }
 
 function renderClickOnWindowMessage() {
@@ -229,14 +220,19 @@ function toggleFullscreenMode() {
 
 FULLSCREEN_BUTTON.addEventListener('click', toggleFullscreenMode);
 
-window.addEventListener('keydown', function (event) {
-  let { key } = event;
-
-  key === 'F11' ? event.preventDefault() : null;
-
-  if (key === 'f') {
+function handleKeydownEvent(keydown) {
+  if (keydown === 'f') {
     toggleFullscreenMode();
   }
+
+  if (keydown === 'Escape' && menuIsOpen) {
+    closeMenu();
+  }
+}
+
+window.addEventListener('keydown', function (event) {
+  let { key } = event;
+  handleKeydownEvent(key);
 });
 
 function revealElements(elements) {

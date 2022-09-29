@@ -50,9 +50,6 @@ body.forest_template {
 }
 
 .forest_template {
-  --template_font_family: 'Trebuchet';
-  --template_font_source: url(../fonts/forest_template/trebuc.ttf);
-
   --window_message_text_color: #01e4e4;
   --window_message_text_shadow: 0 0 15px #16a4a8;
   --loader_box_shadow: 0px 5px 5px #01d9ff;
@@ -189,7 +186,67 @@ body.military_template {
 }
 
 .military_template {
-  color: green;
+  --window_message_text_color: #03942e;
+  --window_message_text_shadow: 0 0 15px #02972f;
+  --loader_box_shadow: 0px 5px 5px #03942e;
+
+  --body_background_image: url('../images/templates/military_template/military_background.jpg');
+
+  --main_title_gradient: linear-gradient(to bottom, #bff76d, #38502d);
+
+  --top_bar_container_background_image_gradient: linear-gradient(
+    #22990a,
+    #7ec90f
+  );
+  --top_bar_container_svg_color: #fff;
+
+  --settings_background_image_gradient: linear-gradient(
+    to bottom,
+    #c4d188,
+    #3b8101e5
+  );
+  --settings_box_shadow_color: #009933b3;
+
+  --setting_option_background_image_gradient: linear-gradient(
+    to right,
+    #36531f 30%,
+    #054214
+  );
+  --setting_option_border_color: #009933;
+  --setting_option_box_shadow_color: #009933b3;
+  --setting_option_text_color: #ddffe9;
+  --setting_option_hover_gradient: linear-gradient(#009933, #0ada4f);
+  --setting_option_active_gradient: linear-gradient(#54f088, #49dd04);
+
+  --scrollbar_thumb_background_color: #009933;
+
+  /* BUTTONS */
+  --buttons_background_image_gradient: linear-gradient(#01972ee8, #46bb10);
+  --buttons_border_color: #01972ee8;
+  --buttons_box_shadow_color: #01972ee8;
+  --buttons_hover_gradient: linear-gradient(#32662be8, #32c45e);
+  --buttons_active_gradient: linear-gradient(#01631fe8, #0d9135);
+
+  --home_settings_color: #009933;
+
+  --switch_sounds_container--inactive_background_color: #444;
+  --switch_sounds_container--active_background_color: #7ec90f;
+  --switch_sounds_button_background_image_gradient: linear-gradient(
+    #30eb01 5%,
+    #629e08
+  );
+  --switch_sounds_button_active_gradient: linear-gradient(#629e08 5%, #1c7a04);
+
+  --difficulty_level_button_background_image_gradient: linear-gradient(
+    #03bb0c,
+    #446628
+  );
+  --difficulty_level_button_box_shadow_color: #048cb6;
+  --difficulty_level_button_hover_gradient: linear-gradient(#446628, #018107);
+  --difficulty_level_button_active_gradient: linear-gradient(
+    #64d806c5,
+    #61ca4c
+  );
 }
 
 body {
@@ -254,8 +311,7 @@ h2 {
 }
 
 .clickGif {
-  width: 30%;
-  animation: moveLoadingTitle 0.8s alternate infinite;
+  width: 8%;
 }
 
 #loader {
@@ -289,7 +345,7 @@ h2 {
 
 .show {
   transform: translate(-50%, 15%) scale(1) !important;
-  transition: transform 0.4s ease;
+  transition: transform 0.2s ease;
 }
 
 .hide {
@@ -298,7 +354,7 @@ h2 {
 }
 
 .menu {
-  background-color: rgba(17, 17, 17, 0.9);
+  background-color: #111111e6;
   border-radius: 10px;
 
   display: block;
@@ -1099,6 +1155,7 @@ h2 {
 }
 
 .playMusic:hover {
+  background-image: var(--buttons_hover_gradient);
   transform: scale(1.1);
 }
 
