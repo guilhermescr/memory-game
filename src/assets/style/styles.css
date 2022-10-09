@@ -390,6 +390,7 @@ h2 {
   transform: translateX(-50%);
   user-select: none;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .game-menu h1 {
@@ -457,20 +458,176 @@ h2 {
 
 .game-menu .template_animation {
   height: max-content;
-  width: 50px;
-  perspective: 1000px;
   position: absolute;
-  top: 0;
   left: 0;
 }
 
-.game-menu .template_animation img {
+.forest_template .game-menu .template_animation {
+  perspective: 1000px;
+  top: 0;
+  width: 50px;
+}
+
+.forest_template .game-menu .template_animation img {
   width: 100%;
 }
 
 /* Rainbow Template Animation */
 
 /* Military Template Animation */
+.military_template .game-menu .template_animation {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  top: 9%;
+  height: 300px;
+  width: 100vw;
+  pointer-events: none;
+}
+
+.military_template .game-menu .template_animation .army_soldier {
+  position: absolute;
+  top: 30%;
+  width: 70px;
+}
+
+.game-menu .template_animation #left_army_soldier {
+  left: 0;
+}
+
+.game-menu .template_animation #right_army_soldier {
+  right: 2%;
+  transform: rotateY(180deg);
+}
+
+.military_template .game-menu .template_animation #bullet {
+  background-color: #107346;
+  border-radius: 30%;
+  display: none;
+  height: 4.5px;
+  position: absolute;
+  top: 36%;
+  left: 11vw;
+  width: 15px;
+}
+
+.HorizontalBulletAnimation {
+  animation: HorizontalBulletAnimation 2s;
+}
+
+.VerticalBulletAnimation {
+  animation: VerticalBulletAnimation 3s;
+}
+
+.LeftSoldierAnimation {
+  animation: LeftSoldierAnimation 1s;
+}
+
+.LeftSoldierGoesDown {
+  animation: LeftSoldierGoesDownAnimation 1s;
+}
+
+.RightSoldierAnimation {
+  animation: RightSoldierAnimation 1s;
+}
+
+.RightSoldierGoesDown {
+  animation: RightSoldierGoesDownAnimation 1s;
+}
+
+.RightSoldierShootToTheBottomAnimation {
+  animation: RightSoldierShootToTheBottomAnimation 1.5s;
+}
+
+.RightSoldierShootToTheTopAnimation {
+  animation: RightSoldierShootToTheTopAnimation 1.5s;
+}
+
+@keyframes HorizontalBulletAnimation {
+  0% {
+    left: 11vw;
+  }
+  100% {
+    left: 105vw;
+  }
+}
+
+@keyframes VerticalBulletAnimation {
+  0% {
+    left: 11vw;
+    top: 39%;
+    transform: rotate(0deg);
+  }
+  100% {
+    left: 87vw;
+    top: 14%;
+    transform: rotate(-15deg);
+  }
+}
+
+@keyframes RightSoldierGoesDownAnimation {
+  0% {
+    top: 5%;
+  }
+  100% {
+    transform: rotateY(180deg) rotate(-15deg);
+    top: 30%;
+  }
+}
+
+@keyframes RightSoldierShootToTheBottomAnimation {
+  0% {
+    left: 85vw;
+    top: 14%;
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(-15deg) translateX(-150%);
+    left: 0vw;
+    top: 39%;
+  }
+}
+
+@keyframes RightSoldierShootToTheTopAnimation {
+  0% {
+    left: 85vw;
+    top: 32%;
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(15deg) translateX(-150%);
+    left: 0vw;
+    top: 14%;
+  }
+}
+
+@keyframes RightSoldierAnimation {
+  0% {
+    top: 30%;
+  }
+  100% {
+    transform: rotateY(180deg) rotate(30deg);
+    top: 5%;
+  }
+}
+
+@keyframes LeftSoldierAnimation {
+  0% {
+    top: 30%;
+  }
+  100% {
+    top: 5%;
+  }
+}
+
+@keyframes LeftSoldierGoesDownAnimation {
+  0% {
+    top: 5%;
+  }
+  100% {
+    top: 30%;
+  }
+}
 
 /* TOP BAR CONTAINER*/
 

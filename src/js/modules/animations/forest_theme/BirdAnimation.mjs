@@ -1,9 +1,18 @@
 // Bird Animation
-const BIRD_CONTAINER = document.querySelector('.bird_animated_gif_container');
+const TEMPLATE_ANIMATION_CONTAINER = document.querySelector(
+  '.template_animation'
+);
 let birdAnimationInterval, perchedBirdTimeout, flyingBirdTimeout;
 
 function startBirdAnimation() {
-  BIRD_CONTAINER.classList.add('flying_animation');
+  TEMPLATE_ANIMATION_CONTAINER.innerHTML = `
+  <img
+    id="bird_image"
+    src="../src/assets/gifs/single-bird-flying.gif"
+    alt="Bird flying around"
+  />
+  `;
+  TEMPLATE_ANIMATION_CONTAINER.classList.add('flying_animation');
   switchBirdState();
   setBirdPosition();
   setBirdAnimationInterval();
@@ -47,19 +56,20 @@ function resetBirdAnimation() {
   clearInterval(birdAnimationInterval);
   clearTimeout(perchedBirdTimeout);
   clearTimeout(flyingBirdTimeout);
-  BIRD_CONTAINER.classList.remove('flying_animation');
-  BIRD_CONTAINER.firstElementChild.src =
+  TEMPLATE_ANIMATION_CONTAINER.classList.remove('flying_animation');
+  TEMPLATE_ANIMATION_CONTAINER.firstElementChild.src =
     '../src/assets/gifs/single-bird-flying.gif';
+  TEMPLATE_ANIMATION_CONTAINER.innerHTML = '';
 }
 
 function switchBirdState() {
   perchedBirdTimeout = setTimeout(() => {
-    BIRD_CONTAINER.firstElementChild.src =
+    TEMPLATE_ANIMATION_CONTAINER.firstElementChild.src =
       '../src/assets/images/templates/forest_template/perched_bird.png';
   }, 8000);
 
   flyingBirdTimeout = setTimeout(() => {
-    BIRD_CONTAINER.firstElementChild.src =
+    TEMPLATE_ANIMATION_CONTAINER.firstElementChild.src =
       '../src/assets/gifs/single-bird-flying.gif';
   }, 14000);
 }

@@ -4,6 +4,10 @@ import {
   setBirdPosition,
   startBirdAnimation
 } from '../animations/forest_theme/BirdAnimation.mjs';
+import {
+  resetArmySoldiersAnimation,
+  startArmySoldiersAnimation
+} from '../animations/military_template/ArmySoldiersAnimation.js';
 
 const TEMPLATES_DATA = {
   ForestTemplate: {
@@ -38,18 +42,20 @@ const TEMPLATES_DATA = {
 const TEMPLATES_KEYS = Object.keys(TEMPLATES_DATA);
 
 function addForestTemplateChanges() {
+  resetArmySoldiersAnimation();
   timeoutItems(startBirdAnimation);
-  revealElements(document.querySelector('.bird_animated_gif_container'));
   window.addEventListener('resize', setBirdPosition);
 }
 
 function addRainbowTemplateChanges() {
   resetBirdAnimation();
+  resetArmySoldiersAnimation();
   console.log("It's working!");
 }
 
 function addMilitaryTemplateChanges() {
   resetBirdAnimation();
+  timeoutItems(startArmySoldiersAnimation);
   console.log("It's working!");
 }
 
