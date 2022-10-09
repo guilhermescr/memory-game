@@ -4,6 +4,10 @@ import {
   setBirdPosition,
   startBirdAnimation
 } from '../animations/forest_theme/BirdAnimation.mjs';
+import {
+  resetArmySoldiersAnimation,
+  startArmySoldiersAnimation
+} from '../animations/military_template/ArmySoldiersAnimation.js';
 
 const TEMPLATES_DATA = {
   ForestTemplate: {
@@ -30,25 +34,28 @@ const TEMPLATES_DATA = {
       alt: 'Image shows menu in Military Template'
     },
     TemplateStyles: 'military_template',
-    SoundTrack: '../src/soundtracks/home_sounds/templates/military_template/military_theme.mp3'
+    SoundTrack:
+      '../src/soundtracks/home_sounds/templates/military_template/military_theme.mp3'
   }
 };
 
 const TEMPLATES_KEYS = Object.keys(TEMPLATES_DATA);
 
 function addForestTemplateChanges() {
-  timeoutItems([startBirdAnimation, setBirdPosition]);
-  revealElements(document.querySelector('.bird_animated_gif_container'));
+  resetArmySoldiersAnimation();
+  timeoutItems(startBirdAnimation);
   window.addEventListener('resize', setBirdPosition);
 }
 
 function addRainbowTemplateChanges() {
   resetBirdAnimation();
+  resetArmySoldiersAnimation();
   console.log("It's working!");
 }
 
 function addMilitaryTemplateChanges() {
   resetBirdAnimation();
+  timeoutItems(startArmySoldiersAnimation);
   console.log("It's working!");
 }
 

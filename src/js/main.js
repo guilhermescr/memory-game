@@ -38,10 +38,6 @@ function allowGameToStart() {
   if (document.body.classList) {
     BODY_CLASSLIST_TEMPLATE_OPTIONS[document.body.classList[0]]();
   }
-
-  if (!document.body.classList.contains('forest_template')) {
-    hideElements(document.querySelector('.bird_animated_gif_container'));
-  }
 }
 
 function renderClickOnWindowMessage() {
