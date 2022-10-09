@@ -5,6 +5,7 @@ let birdAnimationInterval, perchedBirdTimeout, flyingBirdTimeout;
 function startBirdAnimation() {
   BIRD_CONTAINER.classList.add('flying_animation');
   switchBirdState();
+  setBirdPosition();
   setBirdAnimationInterval();
 }
 

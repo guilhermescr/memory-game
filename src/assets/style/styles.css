@@ -399,6 +399,10 @@ h2 {
   margin: 0 auto;
 }
 
+.game-menu h1 span {
+  filter: drop-shadow(0 0 1px #000);
+}
+
 .game-menu h1 #memory_txt {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -451,7 +455,7 @@ h2 {
   animation: FlyingAnimation 20s infinite;
 }
 
-.game-menu .bird_animated_gif_container {
+.game-menu .template_animation {
   height: max-content;
   width: 50px;
   perspective: 1000px;
@@ -460,9 +464,13 @@ h2 {
   left: 0;
 }
 
-.game-menu .bird_animated_gif_container img {
+.game-menu .template_animation img {
   width: 100%;
 }
+
+/* Rainbow Template Animation */
+
+/* Military Template Animation */
 
 /* TOP BAR CONTAINER*/
 

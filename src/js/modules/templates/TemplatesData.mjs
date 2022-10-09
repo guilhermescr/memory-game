@@ -30,14 +30,15 @@ const TEMPLATES_DATA = {
       alt: 'Image shows menu in Military Template'
     },
     TemplateStyles: 'military_template',
-    SoundTrack: '../src/soundtracks/home_sounds/templates/military_template/military_theme.mp3'
+    SoundTrack:
+      '../src/soundtracks/home_sounds/templates/military_template/military_theme.mp3'
   }
 };
 
 const TEMPLATES_KEYS = Object.keys(TEMPLATES_DATA);
 
 function addForestTemplateChanges() {
-  timeoutItems([startBirdAnimation, setBirdPosition]);
+  timeoutItems(startBirdAnimation);
   revealElements(document.querySelector('.bird_animated_gif_container'));
   window.addEventListener('resize', setBirdPosition);
 }
