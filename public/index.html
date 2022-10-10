@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    <div id="loader-container" class="hide">
+    <div id="loader-container">
       <h2 id="loader-title">Loading...</h2>
       <div id="loader"></div>
     </div>
@@ -108,6 +108,70 @@
 
         <span class="toggleFullscreenIcon_container"></span>
       </div>
+    </section>
+
+    <section class="sign_up_in_container">
+      <h2 id="welcomeMessage">Welcome to the Memory Game!</h2>
+
+      <form id="sign_up_in_form">
+        <h2 id="sign_up_in_title">Sign Up</h2>
+        <div class="username_container">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            class="usernameInput"
+            name="username"
+            placeholder="I.e.: julian"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <p class="successMessage hide"></p>
+          <p class="errorMessage error hide">Please, insert a username.</p>
+        </div>
+        <div class="password_container">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            class="passwordInput"
+            name="password"
+            pattern="^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$"
+          />
+          <i class="togglePassword hide">
+            <img
+              src="../src/assets/images/icons/eye-password-show.svg"
+              alt="Show Password Eye Icon"
+            />
+          </i>
+          <p id="passwordInfo">
+            Must be 8 to 16 characters and contain at least 1 number and 1
+            special character.
+          </p>
+        </div>
+        <button class="submitButton" type="submit">Sign Up</button>
+
+        <div class="or_container">
+          <span id="leftBar"></span>
+          <p>Or</p>
+          <span id="rightBar"></span>
+        </div>
+
+        <div class="play_anonymously_container">
+          <h3 id="playAnonymously" role="button">Play without an account</h3>
+          <p>
+            OBS: Your progress will be deleted when you reload the page, if
+            you're playing without an account.
+          </p>
+        </div>
+
+        <div class="auth_option">
+          <h3>
+            <span id="auth_message">Already a user?</span>
+            <span class="register" id="auth_button" role="button">Login</span>
+          </h3>
+        </div>
+      </form>
     </section>
 
     <main class="game-menu">

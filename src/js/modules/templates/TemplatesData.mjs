@@ -1,4 +1,3 @@
-import { revealElements, timeoutItems } from '../../main.js';
 import {
   resetBirdAnimation,
   setBirdPosition,
@@ -42,8 +41,10 @@ const TEMPLATES_DATA = {
 const TEMPLATES_KEYS = Object.keys(TEMPLATES_DATA);
 
 function addForestTemplateChanges() {
+  resetBirdAnimation();
   resetArmySoldiersAnimation();
-  timeoutItems(startBirdAnimation);
+
+  startBirdAnimation();
   window.addEventListener('resize', setBirdPosition);
 }
 
@@ -55,7 +56,9 @@ function addRainbowTemplateChanges() {
 
 function addMilitaryTemplateChanges() {
   resetBirdAnimation();
-  timeoutItems(startArmySoldiersAnimation);
+  resetArmySoldiersAnimation();
+
+  startArmySoldiersAnimation();
   console.log("It's working!");
 }
 

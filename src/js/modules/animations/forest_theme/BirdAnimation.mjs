@@ -57,8 +57,6 @@ function resetBirdAnimation() {
   clearTimeout(perchedBirdTimeout);
   clearTimeout(flyingBirdTimeout);
   TEMPLATE_ANIMATION_CONTAINER.classList.remove('flying_animation');
-  TEMPLATE_ANIMATION_CONTAINER.firstElementChild.src =
-    '../src/assets/gifs/single-bird-flying.gif';
   TEMPLATE_ANIMATION_CONTAINER.innerHTML = '';
 }
 

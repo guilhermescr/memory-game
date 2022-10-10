@@ -7,6 +7,7 @@ import { playHomeMusic } from './modules/Home.mjs';
 import { MusicIsActive } from './modules/m-audio/audio.mjs';
 import { BODY_CLASSLIST_TEMPLATE_OPTIONS } from './modules/templates/TemplatesData.mjs';
 import { setCurrentTemplateImage } from './modules/templates/TemplatesAlgorithm.mjs';
+import { endAuthPage } from './modules/auth/LoginService.mjs';
 
 const CLICK_ON_WINDOW_CONTAINER = document.querySelector(
   '#click_on_window_message'
@@ -28,7 +29,6 @@ function timeoutItems(functionItems) {
 }
 
 function allowGameToStart() {
-  renderLoaderContainer();
   setCurrentTemplateImage();
 
   if (MusicIsActive) {
@@ -46,26 +46,27 @@ function renderClickOnWindowMessage() {
 
 function renderLoaderContainer(loaderMessage) {
   document.body.appendChild(LOADER_CONTAINER);
-  revealElements(LOADER_CONTAINER);
 
   if (loaderMessage) {
     LOADER_TITLE.innerHTML = loaderMessage;
   } else {
     LOADER_TITLE.innerHTML = 'Loading...';
   }
-
-  timeoutItems(() => {
-    hideElements(LOADER_CONTAINER);
-    document.body.removeChild(LOADER_CONTAINER);
-  });
+  timeoutItems(removeLoaderContainer);
 }
 
-function handleClickOnWindowEvent() {
+function removeLoaderContainer() {
+  document.body.removeChild(LOADER_CONTAINER);
+}
+
+function removeClickOnWindowMessage() {
   document.body.removeChild(CLICK_ON_WINDOW_CONTAINER);
-  allowGameToStart();
 }
 
-CLICK_ON_WINDOW_CONTAINER.onclick = handleClickOnWindowEvent;
+CLICK_ON_WINDOW_CONTAINER.onclick = () => {
+  removeClickOnWindowMessage();
+  allowGameToStart();
+};
 
 const ROOT_ELEMENT = document.documentElement; // <- <html> tag
 const FULLSCREEN_BUTTON = document.querySelector(
@@ -226,11 +227,6 @@ function handleKeydownEvent(keydown) {
   }
 }
 
-window.addEventListener('keydown', function (event) {
-  let { key } = event;
-  handleKeydownEvent(key);
-});
-
 function revealElements(elements) {
   if (elements.length !== undefined) {
     elements.forEach(element => {
@@ -251,10 +247,18 @@ function hideElements(elements) {
   elements.classList.add('hide');
 }
 
+document.body.onload = () => {
+  removeLoaderContainer();
+  removeClickOnWindowMessage();
+  hideElements(document.querySelector('.toggleFullscreenIcon_container'));
+};
+
 export {
   timeoutItems,
+  allowGameToStart,
   renderClickOnWindowMessage,
   renderLoaderContainer,
   revealElements,
-  hideElements
+  hideElements,
+  handleKeydownEvent
 };

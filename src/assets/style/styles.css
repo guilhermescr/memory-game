@@ -256,7 +256,21 @@ body {
   background: #cdfffe var(--body_background_image) center no-repeat fixed;
   background-size: cover;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #292929;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #313f3f;
+  border-radius: 20px;
+  border: 2px solid #0e0e0e;
 }
 
 h1,
@@ -344,6 +358,178 @@ h2 {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.success {
+  color: #080;
+}
+
+.error {
+  color: #d00 !important;
+}
+
+.sign_up_in_container {
+  align-items: center;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  overflow-y: overlay;
+  padding-block: 20px;
+  position: absolute;
+  width: 100vw;
+  z-index: 1;
+}
+
+.sign_up_in_container #welcomeMessage {
+  margin-bottom: 20px;
+}
+
+.sign_up_in_container form {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgb(253, 230, 237);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  max-width: 400px;
+  padding: 20px 40px;
+  width: 100%;
+}
+
+.sign_up_in_container form h2 {
+  align-self: flex-start;
+  color: #000;
+  text-transform: uppercase;
+}
+
+.sign_up_in_container form .username_container,
+.sign_up_in_container form .password_container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+  width: 100%;
+}
+
+.sign_up_in_container form input {
+  outline: none;
+  padding: 5px;
+  transition: 0.1s ease-in-out;
+}
+
+.sign_up_in_container form input:focus {
+  border: 1px solid #000;
+  padding: 10px;
+}
+
+.sign_up_in_container form .password_container .togglePassword {
+  position: absolute;
+  right: 3%;
+  top: 30%;
+  width: 22px;
+}
+
+.sign_up_in_container form .password_container .togglePassword img {
+  cursor: pointer;
+  width: 100%;
+}
+
+.sign_up_in_container form .password_container #passwordInfo {
+  color: #555;
+  font-size: 15px;
+}
+
+.sign_up_in_container form .submitButton {
+  background-color: #313f3f;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  padding-block: 10px;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.sign_up_in_container form .submitButton:hover {
+  background-color: #123030;
+}
+
+.sign_up_in_container form .submitButton:active {
+  background-color: #3e5050;
+}
+
+.or_container {
+  align-items: center;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.or_container * {
+  border: 1px solid #bbb;
+  color: #777;
+}
+
+.or_container p {
+  border-radius: 5px;
+  padding: 5px;
+  text-transform: uppercase;
+}
+
+.or_container span {
+  width: 45%;
+}
+
+.or_container #leftBar {
+  left: 0;
+}
+
+.or_container #rightBar {
+  right: 0;
+}
+
+.play_anonymously_container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.play_anonymously_container *,
+.auth_option * {
+  color: #555;
+}
+
+.play_anonymously_container h3 {
+  cursor: pointer;
+  text-decoration: underline;
+  text-transform: uppercase;
+  width: max-content;
+}
+
+.play_anonymously_container h3:hover {
+  color: #222;
+}
+
+.auth_option h3 {
+  font-size: 18px;
+}
+
+.auth_option h3 #auth_button {
+  cursor: pointer;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+.auth_option h3 #auth_button:hover {
+  color: #222;
 }
 
 .show {
@@ -501,22 +687,27 @@ h2 {
 }
 
 .military_template .game-menu .template_animation #bullet {
-  background-color: #107346;
-  border-radius: 30%;
+  background-image: linear-gradient(
+    to right,
+    #c38755 20%,
+    #107346,
+    #c36f55 90%
+  );
+  border-radius: 30% 50%;
   display: none;
-  height: 4.5px;
+  height: 5px;
+  left: 11vw;
   position: absolute;
   top: 36%;
-  left: 11vw;
-  width: 15px;
+  width: 18px;
 }
 
 .HorizontalBulletAnimation {
-  animation: HorizontalBulletAnimation 2s;
+  animation: HorizontalBulletAnimation 1.8s;
 }
 
 .VerticalBulletAnimation {
-  animation: VerticalBulletAnimation 3s;
+  animation: VerticalBulletAnimation 1.8s;
 }
 
 .LeftSoldierAnimation {
