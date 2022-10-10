@@ -256,7 +256,21 @@ body {
   background: #cdfffe var(--body_background_image) center no-repeat fixed;
   background-size: cover;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #292929;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #313f3f;
+  border-radius: 20px;
+  border: 2px solid #0e0e0e;
 }
 
 h1,
@@ -362,28 +376,14 @@ h2 {
   justify-content: center;
   min-height: 100vh;
   overflow-y: overlay;
+  padding-block: 20px;
   position: absolute;
   width: 100vw;
   z-index: 1;
 }
 
-/* SIGN UP/IN SCROLL BAR */
-.sign_up_in_container::-webkit-scrollbar {
-  width: 12px;
-}
-
-.sign_up_in_container::-webkit-scrollbar-track {
-  background: #292929;
-}
-
-.sign_up_in_container::-webkit-scrollbar-thumb {
-  background-color: #313f3f;
-  border-radius: 20px;
-  border: 2px solid #0e0e0e;
-}
-
 .sign_up_in_container #welcomeMessage {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .sign_up_in_container form {
@@ -503,7 +503,7 @@ h2 {
 }
 
 .play_anonymously_container *,
-.login_option * {
+.auth_option * {
   color: #555;
 }
 
@@ -518,17 +518,17 @@ h2 {
   color: #222;
 }
 
-.login_option h3 {
+.auth_option h3 {
   font-size: 18px;
 }
 
-.login_option h3 #login_button {
+.auth_option h3 #auth_button {
   cursor: pointer;
   text-decoration: underline;
   text-transform: uppercase;
 }
 
-.login_option h3 #login_button:hover {
+.auth_option h3 #auth_button:hover {
   color: #222;
 }
 

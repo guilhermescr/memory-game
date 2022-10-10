@@ -34,7 +34,10 @@ const REGEX = new RegExp(
   '^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$'
 );
 
+const AUTH_BUTTON = document.querySelector('#auth_button');
+
 let type = 'password';
+let approvedValidation = false;
 
 function handleUsernameChange() {
   removeAlertMessage(SUCCESS_MESSAGE_PARAGRAPH, 'success');
@@ -56,7 +59,9 @@ function handleUsernameChange() {
 }
 
 function handlePasswordChange() {
+  approvedValidation = false;
   removeAlertMessage(PASSWORD_INFO, 'error');
+
   if (PASSWORD_INPUT.value.length === 0) {
     hideElements(TOGGLE_PASSWORD_ICON);
     type === 'text' ? togglePasswordVisibility() : null;
@@ -65,6 +70,7 @@ function handlePasswordChange() {
   revealElements(TOGGLE_PASSWORD_ICON);
 
   if (REGEX.test(PASSWORD_INPUT.value)) {
+    approvedValidation = true;
     return;
   }
 
@@ -91,18 +97,49 @@ function handleSubmit() {
   if (USERNAME_INPUT.value.length === 0) {
     revealElements(document.querySelector('.errorMessage'));
   }
-  if (PASSWORD_INPUT.value.length === 0) {
+  if (PASSWORD_INPUT.value.length === 0 || !approvedValidation) {
     addAlertMessage(PASSWORD_INFO, 'error');
   }
-  if (
-    USERNAME_INPUT.value.length !== 0 &&
-    PASSWORD_INPUT.value.length !== 0
-  ) {
-    endLogin();
+  if (approvedValidation) {
+    endAuthPage();
   }
 }
 
-function endLogin() {
+function showRegisterMenu() {
+  clearInputs();
+
+  document.querySelector('#sign_up_in_title').innerHTML = 'Sign Up';
+  SUBMIT_BUTTON.innerHTML = 'Sign Up';
+
+  document.querySelector('#auth_message').innerHTML = 'Already a user?';
+  AUTH_BUTTON.innerHTML = 'Login';
+}
+
+function showLoginMenu() {
+  clearInputs();
+
+  document.querySelector('#sign_up_in_title').innerHTML = 'Sign In';
+  SUBMIT_BUTTON.innerHTML = 'Sign In';
+
+  document.querySelector('#auth_message').innerHTML = "Don't have an account?";
+  AUTH_BUTTON.innerHTML = 'Register';
+}
+
+function handleAuthButton() {
+  if (AUTH_BUTTON.classList.contains('login')) {
+    AUTH_BUTTON.classList.remove('login');
+    AUTH_BUTTON.classList.add('register');
+    showRegisterMenu();
+  } else {
+    AUTH_BUTTON.classList.add('login');
+    AUTH_BUTTON.classList.remove('register');
+    showLoginMenu();
+  }
+}
+
+function endAuthPage() {
+  document.body.style.overflowY = 'hidden';
+
   allowGameToStart();
   renderLoaderContainer();
   document.body.removeChild(SIGN_UP_IN_CONTAINER);
@@ -113,6 +150,10 @@ function endLogin() {
   });
 
   revealElements(document.querySelector('.toggleFullscreenIcon_container'));
+}
+
+function clearInputs() {
+  [USERNAME_INPUT.value, PASSWORD_INPUT.value] = ['', ''];
 }
 
 USERNAME_INPUT.addEventListener('input', handleUsernameChange);
@@ -143,11 +184,14 @@ TOGGLE_PASSWORD_ICON.addEventListener('click', togglePasswordVisibility);
 FORM.addEventListener('submit', event => {
   event.preventDefault();
 });
+
 SUBMIT_BUTTON.addEventListener('click', event => {
   event.preventDefault();
   handleSubmit();
 });
 
-PLAY_ANONYMOUSLY_BUTTON.addEventListener('click', endLogin);
+PLAY_ANONYMOUSLY_BUTTON.addEventListener('click', endAuthPage);
 
-export { endLogin };
+AUTH_BUTTON.addEventListener('click', handleAuthButton);
+
+export { endAuthPage };

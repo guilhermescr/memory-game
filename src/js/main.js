@@ -7,7 +7,7 @@ import { playHomeMusic } from './modules/Home.mjs';
 import { MusicIsActive } from './modules/m-audio/audio.mjs';
 import { BODY_CLASSLIST_TEMPLATE_OPTIONS } from './modules/templates/TemplatesData.mjs';
 import { setCurrentTemplateImage } from './modules/templates/TemplatesAlgorithm.mjs';
-import { endLogin } from './modules/auth/LoginService.mjs';
+import { endAuthPage } from './modules/auth/LoginService.mjs';
 
 const CLICK_ON_WINDOW_CONTAINER = document.querySelector(
   '#click_on_window_message'
