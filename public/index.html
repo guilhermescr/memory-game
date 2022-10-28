@@ -115,6 +115,7 @@
 
       <form id="sign_up_in_form">
         <h2 id="sign_up_in_title">Sign Up</h2>
+        <p id="accountNotFound" class="error hide">Account not found.</p>
         <div class="username_container">
           <label for="username">Username</label>
           <input
@@ -136,6 +137,7 @@
             id="password"
             class="passwordInput"
             name="password"
+            placeholder="I.e.: @julian2022"
             pattern="^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$"
           />
           <i class="togglePassword hide">

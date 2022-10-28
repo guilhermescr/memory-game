@@ -27,6 +27,7 @@ const HIDE_PASSWORD_EYE = `
 />`;
 
 const SUBMIT_BUTTON = document.querySelector('.submitButton');
+const AUTH_BUTTON = document.querySelector('#auth_button');
 const PLAY_ANONYMOUSLY_BUTTON = document.querySelector('#playAnonymously');
 const SUCCESS_MESSAGE_PARAGRAPH = document.querySelector('.successMessage');
 
@@ -34,10 +35,31 @@ const REGEX = new RegExp(
   '^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$'
 );
 
-const AUTH_BUTTON = document.querySelector('#auth_button');
-
 let type = 'password';
 let approvedValidation = false;
+const accounts = [];
+
+function showRegisterMenu() {
+  approvedValidation = false;
+  clearInputs();
+
+  document.querySelector('#sign_up_in_title').innerHTML = 'Sign Up';
+  SUBMIT_BUTTON.innerHTML = 'Sign Up';
+
+  document.querySelector('#auth_message').innerHTML = 'Already a user?';
+  AUTH_BUTTON.innerHTML = 'Login';
+}
+
+function showLoginMenu() {
+  approvedValidation = false;
+  clearInputs();
+
+  document.querySelector('#sign_up_in_title').innerHTML = 'Sign In';
+  SUBMIT_BUTTON.innerHTML = 'Sign In';
+
+  document.querySelector('#auth_message').innerHTML = "Don't have an account?";
+  AUTH_BUTTON.innerHTML = 'Register';
+}
 
 function handleUsernameChange() {
   removeAlertMessage(SUCCESS_MESSAGE_PARAGRAPH, 'success');
@@ -101,28 +123,13 @@ function handleSubmit() {
     addAlertMessage(PASSWORD_INFO, 'error');
   }
   if (approvedValidation) {
-    endAuthPage();
+    if (SUBMIT_BUTTON.innerHTML === 'Sign Up') {
+      createAccount(USERNAME_INPUT.value, PASSWORD_INPUT.value);
+      showLoginMenu();
+    } else {
+      login(USERNAME_INPUT.value, PASSWORD_INPUT.value);
+    }
   }
-}
-
-function showRegisterMenu() {
-  clearInputs();
-
-  document.querySelector('#sign_up_in_title').innerHTML = 'Sign Up';
-  SUBMIT_BUTTON.innerHTML = 'Sign Up';
-
-  document.querySelector('#auth_message').innerHTML = 'Already a user?';
-  AUTH_BUTTON.innerHTML = 'Login';
-}
-
-function showLoginMenu() {
-  clearInputs();
-
-  document.querySelector('#sign_up_in_title').innerHTML = 'Sign In';
-  SUBMIT_BUTTON.innerHTML = 'Sign In';
-
-  document.querySelector('#auth_message').innerHTML = "Don't have an account?";
-  AUTH_BUTTON.innerHTML = 'Register';
 }
 
 function handleAuthButton() {
@@ -134,6 +141,60 @@ function handleAuthButton() {
     AUTH_BUTTON.classList.add('login');
     AUTH_BUTTON.classList.remove('register');
     showLoginMenu();
+  }
+}
+
+function createAccount($username, $password) {
+  const userData = {
+    username: $username,
+    password: $password,
+    profilePicture: '',
+    exp: 0,
+    matches: 0,
+    wonMatches: 0,
+    ties: 0,
+    lostMatches: 0,
+    achievements: {
+      amount: 0
+    }
+  };
+  accounts.push(userData);
+
+  localStorage.setItem('accounts', JSON.stringify(accounts));
+}
+
+function getAccounts() {
+  const data = localStorage.getItem('accounts');
+
+  if (data) {
+    accounts.push(...JSON.parse(data));
+    console.log(accounts);
+  } else {
+    console.log('Create an account and start playing!');
+  }
+}
+
+function login($username, $password) {
+  searchAccount($username, $password);
+}
+
+function searchAccount($username, $password) {
+  if (accounts.length !== 0) {
+    for (let account of accounts) {
+      const loginAccepted =
+        account.username === $username && account.password === $password
+          ? true
+          : false;
+
+      if (loginAccepted) {
+        endAuthPage();
+      } else {
+        revealElements(document.getElementById('accountNotFound'));
+        timeoutItems(() => {
+          hideElements(document.getElementById('accountNotFound'));
+        }, 3000);
+      }
+    }
   }
 }
 
@@ -194,4 +255,4 @@ PLAY_ANONYMOUSLY_BUTTON.addEventListener('click', endAuthPage);
 
 AUTH_BUTTON.addEventListener('click', handleAuthButton);
 
-export { endAuthPage };
+export { getAccounts, endAuthPage };

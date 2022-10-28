@@ -7,7 +7,7 @@ import { playHomeMusic } from './modules/Home.mjs';
 import { MusicIsActive } from './modules/m-audio/audio.mjs';
 import { BODY_CLASSLIST_TEMPLATE_OPTIONS } from './modules/templates/TemplatesData.mjs';
 import { setCurrentTemplateImage } from './modules/templates/TemplatesAlgorithm.mjs';
-import { endAuthPage } from './modules/auth/LoginService.mjs';
+import * as LoginService from './modules/auth/LoginService.mjs';
 
 const CLICK_ON_WINDOW_CONTAINER = document.querySelector(
   '#click_on_window_message'
@@ -15,15 +15,19 @@ const CLICK_ON_WINDOW_CONTAINER = document.querySelector(
 const LOADER_CONTAINER = document.getElementById('loader-container');
 const LOADER_TITLE = document.getElementById('loader-title');
 
-function timeoutItems(functionItems) {
+function timeoutItems(functionItems, timing) {
+  if (!timing) {
+    timing = 1200;
+  }
+
   if (typeof functionItems === 'function') {
-    setTimeout(functionItems, 1200);
+    setTimeout(functionItems, timing);
   }
 
   // when functionItems is an array
   if (typeof functionItems === 'object') {
     functionItems.forEach(func => {
-      setTimeout(func, 1200);
+      setTimeout(func, timing);
     });
   }
 }
@@ -248,6 +252,8 @@ function hideElements(elements) {
 }
 
 document.body.onload = () => {
+  LoginService.getAccounts();
+
   removeLoaderContainer();
   removeClickOnWindowMessage();
   hideElements(document.querySelector('.toggleFullscreenIcon_container'));
