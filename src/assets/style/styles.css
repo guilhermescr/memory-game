@@ -406,6 +406,10 @@ h2 {
   text-transform: uppercase;
 }
 
+.sign_up_in_container #accountNotFound {
+  align-self: flex-start;
+}
+
 .sign_up_in_container form .username_container,
 .sign_up_in_container form .password_container {
   display: flex;
