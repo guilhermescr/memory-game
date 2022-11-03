@@ -6,30 +6,33 @@ import {
   revealElements,
   timeoutItems
 } from '../../main.js';
-import { addAlertMessage, removeAlertMessage } from './ValidationMessages.mjs';
-
-const SIGN_UP_IN_CONTAINER = document.querySelector('.sign_up_in_container');
-const FORM = document.querySelector('#sign_up_in_form');
-const USERNAME_INPUT = document.querySelector('.usernameInput');
-const PASSWORD_INPUT = document.querySelector('.passwordInput');
-const TOGGLE_PASSWORD_ICON = document.querySelector('.togglePassword');
-const PASSWORD_INFO = document.querySelector('#passwordInfo');
-
-const SHOW_PASSWORD_EYE = `
-<img
-src="../src/assets/images/icons/eye-password-show.svg"
-alt="Show Password Eye Icon"
-/>`;
-const HIDE_PASSWORD_EYE = `
-<img
-  src="../src/assets/images/icons/eye-password-hide.svg"
-  alt="Hide Password Eye Icon"
-/>`;
-
-const SUBMIT_BUTTON = document.querySelector('.submitButton');
-const AUTH_BUTTON = document.querySelector('#auth_button');
-const PLAY_ANONYMOUSLY_BUTTON = document.querySelector('#playAnonymously');
-const SUCCESS_MESSAGE_PARAGRAPH = document.querySelector('.successMessage');
+import { showLoginMenu, showRegisterMenu } from './AuthMenus.mjs';
+import {
+  addAlertMessage,
+  removeAlertMessage,
+  SUCCESS_MESSAGE_PARAGRAPH
+} from './ValidationMessages.mjs';
+import {
+  searchAccount,
+  createAccount,
+  getAccounts,
+  searchUsername,
+  authError,
+  setOnlineUser
+} from './AccountMethods.mjs';
+import {
+  AUTH_BUTTON,
+  FORM,
+  HIDE_PASSWORD_EYE,
+  PASSWORD_INFO,
+  PASSWORD_INPUT,
+  PLAY_ANONYMOUSLY_BUTTON,
+  SHOW_PASSWORD_EYE,
+  SIGN_UP_IN_CONTAINER,
+  SUBMIT_BUTTON,
+  TOGGLE_PASSWORD_ICON,
+  USERNAME_INPUT
+} from './FormElements.mjs';
 
 const REGEX = new RegExp(
   '^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$'
@@ -37,32 +40,15 @@ const REGEX = new RegExp(
 
 let type = 'password';
 let approvedValidation = false;
-const accounts = [];
 
-function showRegisterMenu() {
-  approvedValidation = false;
-  clearInputs();
-
-  document.querySelector('#sign_up_in_title').innerHTML = 'Sign Up';
-  SUBMIT_BUTTON.innerHTML = 'Sign Up';
-
-  document.querySelector('#auth_message').innerHTML = 'Already a user?';
-  AUTH_BUTTON.innerHTML = 'Login';
-}
-
-function showLoginMenu() {
-  approvedValidation = false;
-  clearInputs();
-
-  document.querySelector('#sign_up_in_title').innerHTML = 'Sign In';
-  SUBMIT_BUTTON.innerHTML = 'Sign In';
-
-  document.querySelector('#auth_message').innerHTML = "Don't have an account?";
-  AUTH_BUTTON.innerHTML = 'Register';
+function updateApprovedValidation(boolean) {
+  approvedValidation = boolean;
 }
 
 function handleUsernameChange() {
   removeAlertMessage(SUCCESS_MESSAGE_PARAGRAPH, 'success');
+  removeAlertMessage(SUCCESS_MESSAGE_PARAGRAPH, 'error');
+  hideElements(document.getElementById('authError'));
 
   if (USERNAME_INPUT.value.length === 0) {
     hideElements(SUCCESS_MESSAGE_PARAGRAPH);
@@ -71,18 +57,30 @@ function handleUsernameChange() {
   }
 
   hideElements(document.querySelector('.errorMessage'));
-  revealElements(SUCCESS_MESSAGE_PARAGRAPH);
-  SUCCESS_MESSAGE_PARAGRAPH.innerHTML = 'Checking username...';
 
-  timeoutItems(() => {
-    SUCCESS_MESSAGE_PARAGRAPH.classList.add('success');
-    SUCCESS_MESSAGE_PARAGRAPH.innerHTML = 'This username is available.';
-  });
+  if (SUBMIT_BUTTON.innerHTML === 'Sign Up') {
+    revealElements(SUCCESS_MESSAGE_PARAGRAPH);
+    SUCCESS_MESSAGE_PARAGRAPH.innerHTML = 'Checking username...';
+
+    timeoutItems(() => {
+      let usernameAvailable = searchUsername(USERNAME_INPUT.value);
+
+      if (usernameAvailable) {
+        addAlertMessage(SUCCESS_MESSAGE_PARAGRAPH, 'success');
+        SUCCESS_MESSAGE_PARAGRAPH.innerHTML = 'This username is available.';
+      } else {
+        approvedValidation = false;
+        addAlertMessage(SUCCESS_MESSAGE_PARAGRAPH, 'error');
+        SUCCESS_MESSAGE_PARAGRAPH.innerHTML = 'This username is not available.';
+      }
+    });
+  }
 }
 
 function handlePasswordChange() {
-  approvedValidation = false;
+  updateApprovedValidation(false);
   removeAlertMessage(PASSWORD_INFO, 'error');
+  hideElements(document.getElementById('authError'));
 
   if (PASSWORD_INPUT.value.length === 0) {
     hideElements(TOGGLE_PASSWORD_ICON);
@@ -92,7 +90,7 @@ function handlePasswordChange() {
   revealElements(TOGGLE_PASSWORD_ICON);
 
   if (REGEX.test(PASSWORD_INPUT.value)) {
-    approvedValidation = true;
+    updateApprovedValidation(true);
     return;
   }
 
@@ -124,8 +122,14 @@ function handleSubmit() {
   }
   if (approvedValidation) {
     if (SUBMIT_BUTTON.innerHTML === 'Sign Up') {
-      createAccount(USERNAME_INPUT.value, PASSWORD_INPUT.value);
-      showLoginMenu();
+      let usernameAvailable = searchUsername(USERNAME_INPUT.value);
+
+      if (usernameAvailable) {
+        createAccount(USERNAME_INPUT.value, PASSWORD_INPUT.value);
+        showLoginMenu();
+      } else {
+        authError('Please, create an account with another name.');
+      }
     } else {
       login(USERNAME_INPUT.value, PASSWORD_INPUT.value);
     }
@@ -144,57 +148,14 @@ function handleAuthButton() {
   }
 }
 
-function createAccount($username, $password) {
-  const userData = {
-    username: $username,
-    password: $password,
-    profilePicture: '',
-    exp: 0,
-    matches: 0,
-    wonMatches: 0,
-    ties: 0,
-    lostMatches: 0,
-    achievements: {
-      amount: 0
-    }
-  };
-  accounts.push(userData);
-
-  localStorage.setItem('accounts', JSON.stringify(accounts));
-}
-
-function getAccounts() {
-  const data = localStorage.getItem('accounts');
-
-  if (data) {
-    accounts.push(...JSON.parse(data));
-    console.log(accounts);
-  } else {
-    console.log('Create an account and start playing!');
-  }
-}
-
 function login($username, $password) {
-  searchAccount($username, $password);
-}
+  const account = searchAccount($username, $password);
 
-function searchAccount($username, $password) {
-  if (accounts.length !== 0) {
-    for (let account of accounts) {
-      const loginAccepted =
-        account.username === $username && account.password === $password
-          ? true
-          : false;
-
-      if (loginAccepted) {
-        endAuthPage();
-      } else {
-        revealElements(document.getElementById('accountNotFound'));
-        timeoutItems(() => {
-          hideElements(document.getElementById('accountNotFound'));
-        }, 3000);
-      }
-    }
+  if (account !== undefined) {
+    endAuthPage();
+    setOnlineUser(account);
+  } else {
+    authError('Account not found.');
   }
 }
 
@@ -211,10 +172,6 @@ function endAuthPage() {
   });
 
   revealElements(document.querySelector('.toggleFullscreenIcon_container'));
-}
-
-function clearInputs() {
-  [USERNAME_INPUT.value, PASSWORD_INPUT.value] = ['', ''];
 }
 
 USERNAME_INPUT.addEventListener('input', handleUsernameChange);
@@ -255,4 +212,4 @@ PLAY_ANONYMOUSLY_BUTTON.addEventListener('click', endAuthPage);
 
 AUTH_BUTTON.addEventListener('click', handleAuthButton);
 
-export { getAccounts, endAuthPage };
+export { getAccounts, endAuthPage, updateApprovedValidation };
