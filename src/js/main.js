@@ -7,7 +7,9 @@ import { playHomeMusic } from './modules/Home.mjs';
 import { MusicIsActive } from './modules/m-audio/audio.mjs';
 import { BODY_CLASSLIST_TEMPLATE_OPTIONS } from './modules/templates/TemplatesData.mjs';
 import { setCurrentTemplateImage } from './modules/templates/TemplatesAlgorithm.mjs';
-import * as LoginService from './modules/auth/LoginService.mjs';
+import * as AuthService from './modules/auth/AuthService.mjs';
+import { getAccounts } from './modules/auth/AuthService.mjs';
+import { isUserOnline } from './modules/auth/AccountMethods.mjs';
 
 const CLICK_ON_WINDOW_CONTAINER = document.querySelector(
   '#click_on_window_message'
@@ -252,7 +254,8 @@ function hideElements(elements) {
 }
 
 document.body.onload = () => {
-  LoginService.getAccounts();
+  getAccounts();
+  isUserOnline();
 
   removeLoaderContainer();
   removeClickOnWindowMessage();

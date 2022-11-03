@@ -406,7 +406,7 @@ h2 {
   text-transform: uppercase;
 }
 
-.sign_up_in_container #accountNotFound {
+.sign_up_in_container #authError {
   align-self: flex-start;
 }
 
