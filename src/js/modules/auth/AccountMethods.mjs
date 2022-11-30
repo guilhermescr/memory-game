@@ -59,11 +59,9 @@ function isUserOnline() {
 
   if (data) {
     const onlineUserData = JSON.parse(data);
-    onlineUser.online = true;
-    onlineUser.userData = onlineUserData;
+    onlineUser.online = onlineUserData.online;
+    onlineUser.userData = onlineUserData.userData;
     endAuthPage();
-
-    console.log(onlineUser);
   }
 }
 
@@ -91,6 +89,7 @@ function authError(msg) {
 export {
   createAccount,
   getAccounts,
+  onlineUser,
   setOnlineUser,
   isUserOnline,
   searchUsername,
