@@ -1,4 +1,5 @@
 import { hideElements, revealElements, timeoutItems } from '../../main.js';
+import { updateSoundsStatus } from '../m-audio/audio.mjs';
 import { endAuthPage } from './AuthService.mjs';
 
 const accounts = [];
@@ -38,6 +39,10 @@ function createAccount($username, $password) {
       lostMatches: 0,
       achievements: {
         amount: 0
+      },
+      sounds: {
+        music: true,
+        audio: true
       }
     };
     accounts.push(userData);
@@ -61,6 +66,8 @@ function isUserOnline() {
     const onlineUserData = JSON.parse(data);
     onlineUser.online = onlineUserData.online;
     onlineUser.userData = onlineUserData.userData;
+
+    updateSoundsStatus();
     endAuthPage();
   }
 }

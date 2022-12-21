@@ -163,7 +163,8 @@ function login($username, $password) {
 function endAuthPage() {
   document.body.style.overflowY = 'hidden';
 
-  document.getElementById('profile_name').innerHTML = onlineUser.userData.username;
+  document.getElementById('profile_name').innerHTML =
+    onlineUser.userData.username;
 
   allowGameToStart();
   renderLoaderContainer();

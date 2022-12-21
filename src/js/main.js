@@ -62,6 +62,7 @@ function renderLoaderContainer(loaderMessage) {
 }
 
 function removeLoaderContainer() {
+  document.body.appendChild(LOADER_CONTAINER);
   document.body.removeChild(LOADER_CONTAINER);
 }
 
