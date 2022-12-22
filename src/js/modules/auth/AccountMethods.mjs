@@ -43,12 +43,31 @@ function createAccount($username, $password) {
       sounds: {
         music: true,
         audio: true
-      }
+      },
+      CurrentTemplate: 'forest_template'
     };
     accounts.push(userData);
 
     localStorage.setItem('accounts', JSON.stringify(accounts));
   }
+}
+
+function updateAccount(properties, newData) {
+  switch (properties.length) {
+    case 1:
+      onlineUser.userData[properties[0]] = newData;
+      break;
+    case 2:
+      onlineUser.userData[properties[0]][properties[1]] = newData;
+      break;
+    case 3:
+      onlineUser.userData[properties[0]][properties[1]][properties[2]] =
+        newData;
+      break;
+    default:
+      console.log('Switch not expected.');
+  }
+  localStorage.setItem('onlineUser', JSON.stringify(onlineUser));
 }
 
 function setOnlineUser(account) {
@@ -69,7 +88,9 @@ function isUserOnline() {
 
     updateSoundsStatus();
     endAuthPage();
+    return true;
   }
+  return false;
 }
 
 function getAccounts() {
@@ -95,6 +116,7 @@ function authError(msg) {
 
 export {
   createAccount,
+  updateAccount,
   getAccounts,
   onlineUser,
   setOnlineUser,

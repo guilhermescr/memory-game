@@ -166,7 +166,6 @@ function endAuthPage() {
   document.getElementById('profile_name').innerHTML =
     onlineUser.userData.username;
 
-  allowGameToStart();
   renderLoaderContainer();
   document.body.removeChild(SIGN_UP_IN_CONTAINER);
 

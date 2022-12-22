@@ -6,10 +6,13 @@ import {
 import { playHomeMusic } from './modules/Home.mjs';
 import { MusicIsActive } from './modules/m-audio/audio.mjs';
 import { BODY_CLASSLIST_TEMPLATE_OPTIONS } from './modules/templates/TemplatesData.mjs';
-import { setCurrentTemplateImage } from './modules/templates/TemplatesAlgorithm.mjs';
+import {
+  changeCurrentTemplate,
+  setCurrentTemplateImage
+} from './modules/templates/TemplatesAlgorithm.mjs';
 import * as AuthService from './modules/auth/AuthService.mjs';
 import { getAccounts } from './modules/auth/AuthService.mjs';
-import { isUserOnline } from './modules/auth/AccountMethods.mjs';
+import { isUserOnline, onlineUser } from './modules/auth/AccountMethods.mjs';
 
 const CLICK_ON_WINDOW_CONTAINER = document.querySelector(
   '#click_on_window_message'
@@ -35,14 +38,12 @@ function timeoutItems(functionItems, timing) {
 }
 
 function allowGameToStart() {
-  setCurrentTemplateImage();
-
+  // setCurrentTemplateImage();
   if (MusicIsActive) {
     timeoutItems(playHomeMusic);
   }
-
-  if (document.body.classList) {
-    BODY_CLASSLIST_TEMPLATE_OPTIONS[document.body.classList[0]]();
+  if (document.body.classList[0]) {
+    BODY_CLASSLIST_TEMPLATE_OPTIONS[onlineUser.userData.CurrentTemplate]();
   }
 }
 
@@ -256,7 +257,13 @@ function hideElements(elements) {
 
 document.body.onload = () => {
   getAccounts();
-  isUserOnline();
+  let userIsOnline = isUserOnline();
+  if (userIsOnline) {
+    changeCurrentTemplate(onlineUser.userData.CurrentTemplate);
+    setCurrentTemplateImage();
+    renderClickOnWindowMessage();
+    return;
+  }
 
   removeLoaderContainer();
   removeClickOnWindowMessage();

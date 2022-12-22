@@ -1,7 +1,7 @@
 import { themes } from '../m-themes/themesData.mjs';
 import { btnThemeId } from '../m-themes/addCards.mjs';
 import { Is_Home_Page, playHomeMusic, stopHomeMusic } from '../Home.mjs';
-import { onlineUser } from '../auth/AccountMethods.mjs';
+import { onlineUser, updateAccount } from '../auth/AccountMethods.mjs';
 
 const MUSIC_AUDIO_TAGS = document.querySelectorAll('.musicAudioTag');
 const THEME_AUDIO_TAG = document.getElementById('themeMusic');
@@ -184,8 +184,7 @@ function switchMusic() {
 
 function switchSound() {
   AudioIsActive = !AudioIsActive;
-  onlineUser.userData.sounds.audio = AudioIsActive;
-  localStorage.setItem('onlineUser', JSON.stringify(onlineUser));
+  updateAccount(['sounds', 'audio'], AudioIsActive);
 }
 
 SWITCH_BUTTONS.forEach(SWITCH_BUTTON => {

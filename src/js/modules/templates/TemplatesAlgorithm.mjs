@@ -3,6 +3,7 @@ import {
   revealElements,
   renderClickOnWindowMessage
 } from '../../main.js';
+import { updateAccount } from '../auth/AccountMethods.mjs';
 import { stopHomeMusic } from '../Home.mjs';
 import { closeMenu } from '../menuActions.mjs';
 import { TEMPLATES_DATA, TEMPLATES_KEYS } from './TemplatesData.mjs';
@@ -73,6 +74,7 @@ function createTemplates() {
         event.preventDefault();
         changeCurrentTemplate(TemplateStyles);
         setCurrentTemplateImage();
+        updateAccount(['CurrentTemplate'], document.body.classList[0]);
         showSettingsMenu();
         closeMenu();
         stopHomeMusic();
@@ -107,4 +109,4 @@ HOME_SETTINGS_RETURN_ICON.onclick = showSettingsMenu;
 
 CHANGE_TEMPLATE_BUTTON.onclick = showTemplatesInMenu;
 
-export { currentTemplate, setCurrentTemplateImage };
+export { currentTemplate, setCurrentTemplateImage, changeCurrentTemplate };
