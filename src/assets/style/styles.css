@@ -128,7 +128,7 @@ body.rainbow_template {
   /* DEFAULT BACKGROUND IMAGE */
   --body_background_image: url('../images/templates/rainbow_template/rainbow_background.jpg');
 
-  --main_title_gradient: linear-gradient(to bottom, #970556, #ff299e);
+  --main_title_gradient: linear-gradient(to bottom, #ffbfe2, #ff299e);
 
   --top_bar_container_background_image_gradient: linear-gradient(
     #f838f8,
@@ -137,14 +137,14 @@ body.rainbow_template {
   --top_bar_container_svg_color: #ff92e4;
 
   --settings_background_image_gradient: linear-gradient(
-    to bottom,
-    #a01f55,
-    #830b3d
+    70deg,
+    #fddcee,
+    #f5619e
   );
   --settings_box_shadow_color: #ff008cb3;
   --setting_option_background_image_gradient: linear-gradient(
-    #fd6296 20%,
-    #b93c66
+    #ff73e1 20%,
+    #ffb3cc
   );
 
   --setting_option_border_color: #ff299e99;

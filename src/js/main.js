@@ -4,7 +4,7 @@ import {
   SETTINGS_BUTTONS
 } from './modules/menuActions.mjs';
 import { playHomeMusic } from './modules/Home.mjs';
-import { MusicIsActive } from './modules/m-audio/audio.mjs';
+import { MusicIsActive, setVolume } from './modules/m-audio/audio.mjs';
 import { BODY_CLASSLIST_TEMPLATE_OPTIONS } from './modules/templates/TemplatesData.mjs';
 import {
   changeCurrentTemplate,
@@ -51,6 +51,11 @@ function renderClickOnWindowMessage() {
   document.body.appendChild(CLICK_ON_WINDOW_CONTAINER);
 }
 
+function removeClickOnWindowMessage() {
+  document.body.removeChild(CLICK_ON_WINDOW_CONTAINER);
+  renderLoaderContainer();
+}
+
 function renderLoaderContainer(loaderMessage) {
   document.body.appendChild(LOADER_CONTAINER);
 
@@ -65,10 +70,6 @@ function renderLoaderContainer(loaderMessage) {
 function removeLoaderContainer() {
   document.body.appendChild(LOADER_CONTAINER);
   document.body.removeChild(LOADER_CONTAINER);
-}
-
-function removeClickOnWindowMessage() {
-  document.body.removeChild(CLICK_ON_WINDOW_CONTAINER);
 }
 
 CLICK_ON_WINDOW_CONTAINER.onclick = () => {
@@ -261,13 +262,13 @@ document.body.onload = () => {
   if (userIsOnline) {
     changeCurrentTemplate(onlineUser.userData.CurrentTemplate);
     setCurrentTemplateImage();
+    setVolume(onlineUser.userData.sounds.volume);
     renderClickOnWindowMessage();
-    return;
+  } else {
+    removeLoaderContainer();
+    removeClickOnWindowMessage();
+    hideElements(document.querySelector('.toggleFullscreenIcon_container'));
   }
-
-  removeLoaderContainer();
-  removeClickOnWindowMessage();
-  hideElements(document.querySelector('.toggleFullscreenIcon_container'));
 };
 
 export {

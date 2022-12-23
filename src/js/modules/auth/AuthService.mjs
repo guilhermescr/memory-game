@@ -166,7 +166,6 @@ function endAuthPage() {
   document.getElementById('profile_name').innerHTML =
     onlineUser.userData.username;
 
-  renderLoaderContainer();
   document.body.removeChild(SIGN_UP_IN_CONTAINER);
 
   window.addEventListener('keydown', function (event) {

@@ -97,13 +97,22 @@ function stopSoundTrack() {
   THEME_AUDIO_SOURCE_TAG.src = '';
 }
 
-// parameter gets the clicked range input
+// VOLUME_INPUT parameter is the range input for volume
 function setVolume(VOLUME_INPUT) {
+  let volumeValue;
+  // setVolume(1) || setVolume(inputElement) -> number or HTML element
+  if (VOLUME_INPUT.value) {
+    volumeValue = VOLUME_INPUT.value;
+  } else {
+    volumeValue = VOLUME_INPUT;
+  }
+
   for (let index = 0; index < MUSIC_AUDIO_TAGS.length; index++) {
     // all audio tags used for music and all range inputs receive the current volume.
-    MUSIC_AUDIO_TAGS[index].volume = VOLUME_INPUT.value;
+    MUSIC_AUDIO_TAGS[index].volume = volumeValue;
     if (VOLUME_INPUTS[index]) {
-      VOLUME_INPUTS[index].value = VOLUME_INPUT.value;
+      VOLUME_INPUTS[index].value = volumeValue;
+      updateAccount(['sounds', 'volume'], Number(volumeValue));
     }
   }
 }
@@ -209,5 +218,6 @@ export {
   stopSoundTrack,
   playHoverSoundEffect,
   stopHoverSoundEffect,
-  playClickSoundEffect
+  playClickSoundEffect,
+  setVolume
 };

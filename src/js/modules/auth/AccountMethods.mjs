@@ -42,7 +42,8 @@ function createAccount($username, $password) {
       },
       sounds: {
         music: true,
-        audio: true
+        audio: true,
+        volume: 10
       },
       CurrentTemplate: 'forest_template'
     };
