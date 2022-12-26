@@ -18,7 +18,8 @@ import {
   getAccounts,
   searchUsername,
   authError,
-  setOnlineUser
+  setOnlineUser,
+  onlineUser
 } from './AccountMethods.mjs';
 import {
   AUTH_BUTTON,
@@ -152,8 +153,8 @@ function login($username, $password) {
   const account = searchAccount($username, $password);
 
   if (account !== undefined) {
-    endAuthPage();
     setOnlineUser(account);
+    endAuthPage();
   } else {
     authError('Account not found.');
   }
@@ -162,8 +163,9 @@ function login($username, $password) {
 function endAuthPage() {
   document.body.style.overflowY = 'hidden';
 
-  allowGameToStart();
-  renderLoaderContainer();
+  document.getElementById('profile_name').innerHTML =
+    onlineUser.userData.username;
+
   document.body.removeChild(SIGN_UP_IN_CONTAINER);
 
   window.addEventListener('keydown', function (event) {

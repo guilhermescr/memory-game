@@ -1,11 +1,7 @@
 Features:
-Add swap sound effect to the options
-Music Options
 Achievements
 Levels
-Winning System, with hearts to measure your losses.
 Win Streak
-Theme Options - Done.
 Restart button
 Button to come back to home - Half Done.
 
@@ -16,5 +12,4 @@ Modules:
    - Hard = 20 cards
  - Submodules for each theme:
    - Adventure Time, Ben 10, Boruto, DB, Nanatsu No Taizai, Naruto, One Piece, One    Punch Man...
- - Songs
  - Effects - Half Done.

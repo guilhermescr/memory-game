@@ -1,4 +1,5 @@
 import { hideElements, revealElements, timeoutItems } from '../../main.js';
+import { updateSoundsStatus } from '../m-audio/audio.mjs';
 import { endAuthPage } from './AuthService.mjs';
 
 const accounts = [];
@@ -38,12 +39,36 @@ function createAccount($username, $password) {
       lostMatches: 0,
       achievements: {
         amount: 0
-      }
+      },
+      sounds: {
+        music: true,
+        audio: true,
+        volume: 10
+      },
+      CurrentTemplate: 'forest_template'
     };
     accounts.push(userData);
 
     localStorage.setItem('accounts', JSON.stringify(accounts));
   }
+}
+
+function updateAccount(properties, newData) {
+  switch (properties.length) {
+    case 1:
+      onlineUser.userData[properties[0]] = newData;
+      break;
+    case 2:
+      onlineUser.userData[properties[0]][properties[1]] = newData;
+      break;
+    case 3:
+      onlineUser.userData[properties[0]][properties[1]][properties[2]] =
+        newData;
+      break;
+    default:
+      console.log('Switch not expected.');
+  }
+  localStorage.setItem('onlineUser', JSON.stringify(onlineUser));
 }
 
 function setOnlineUser(account) {
@@ -59,12 +84,14 @@ function isUserOnline() {
 
   if (data) {
     const onlineUserData = JSON.parse(data);
-    onlineUser.online = true;
-    onlineUser.userData = onlineUserData;
-    endAuthPage();
+    onlineUser.online = onlineUserData.online;
+    onlineUser.userData = onlineUserData.userData;
 
-    console.log(onlineUser);
+    updateSoundsStatus();
+    endAuthPage();
+    return true;
   }
+  return false;
 }
 
 function getAccounts() {
@@ -90,7 +117,9 @@ function authError(msg) {
 
 export {
   createAccount,
+  updateAccount,
   getAccounts,
+  onlineUser,
   setOnlineUser,
   isUserOnline,
   searchUsername,

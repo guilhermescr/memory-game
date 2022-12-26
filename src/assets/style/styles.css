@@ -128,7 +128,7 @@ body.rainbow_template {
   /* DEFAULT BACKGROUND IMAGE */
   --body_background_image: url('../images/templates/rainbow_template/rainbow_background.jpg');
 
-  --main_title_gradient: linear-gradient(to bottom, #970556, #ff299e);
+  --main_title_gradient: linear-gradient(to bottom, #ffbfe2, #ff299e);
 
   --top_bar_container_background_image_gradient: linear-gradient(
     #f838f8,
@@ -137,14 +137,14 @@ body.rainbow_template {
   --top_bar_container_svg_color: #ff92e4;
 
   --settings_background_image_gradient: linear-gradient(
-    to bottom,
-    #a01f55,
-    #830b3d
+    70deg,
+    #fddcee,
+    #f5619e
   );
   --settings_box_shadow_color: #ff008cb3;
   --setting_option_background_image_gradient: linear-gradient(
-    #fd6296 20%,
-    #b93c66
+    #ff73e1 20%,
+    #ffb3cc
   );
 
   --setting_option_border_color: #ff299e99;
@@ -1151,12 +1151,12 @@ h2 {
 
 /* HOME SETTINGS */
 .home_settings_container {
-  display: flex;
   align-items: flex-start;
-  justify-content: center;
+  display: flex;
   flex-wrap: wrap;
-  overflow-y: auto;
   height: 90vh;
+  justify-content: space-around;
+  overflow-y: auto;
 }
 
 .home_settings_container .templates_container,
@@ -1170,13 +1170,12 @@ h2 {
 }
 
 .home_settings_container .templates_container {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   gap: 10px;
+  justify-content: center;
   margin: 0;
-  max-width: max-content;
 }
 
 .home_settings_container .templates_container h3,
@@ -1209,6 +1208,43 @@ h2 {
   width: 45%;
 }
 
+/* Profile */
+.profile_settings {
+  align-items: center;
+  background-color: #353535;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  gap: 13px;
+  justify-content: center;
+  padding: 5px 15px;
+}
+
+.profile_settings:hover {
+  background-color: #323232;
+}
+
+.profile_settings:active {
+  background-color: #383838;
+  opacity: 0.9;
+}
+
+.profile_image_container {
+  background-color: #292929;
+  border-radius: 50%;
+  padding: 8px;
+  width: max-content;
+}
+
+.profile_settings svg {
+  fill: #fef;
+  width: 23px;
+}
+
+.profile_settings h3 {
+  font-weight: 500;
+}
+
 /* Audio */
 .audio-container {
   display: flex;
@@ -1216,7 +1252,7 @@ h2 {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  width: 50%;
+  width: 100%;
 }
 
 .audio-content {
@@ -1669,6 +1705,10 @@ section.deck-container div.memory-deck {
     width: 75%;
   }
 
+  .home_settings_container {
+    gap: 20px;
+  }
+
   .home_settings_container .templates_container {
     max-width: 100%;
     width: 100%;
@@ -1677,6 +1717,8 @@ section.deck-container div.memory-deck {
   .home_settings_container .templates .template {
     width: 100%;
   }
+
+  .profile_settings {}
 
   .audio-container {
     gap: 20px;

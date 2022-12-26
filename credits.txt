@@ -3,6 +3,3 @@ I got the fonts from:
 - https://www.dafont.com/
 
 Inspired me: https://www.designbombs.com/best-gaming-fonts/
-
-Website used to check SEO insights:
-- https://pagespeed.web.dev/

@@ -1,6 +1,7 @@
-import { themes } from "../m-themes/themesData.mjs";
-import { btnThemeId } from "../m-themes/addCards.mjs";
-import { Is_Home_Page, playHomeMusic, stopHomeMusic } from "../Home.mjs";
+import { themes } from '../m-themes/themesData.mjs';
+import { btnThemeId } from '../m-themes/addCards.mjs';
+import { Is_Home_Page, playHomeMusic, stopHomeMusic } from '../Home.mjs';
+import { onlineUser, updateAccount } from '../auth/AccountMethods.mjs';
 
 const MUSIC_AUDIO_TAGS = document.querySelectorAll('.musicAudioTag');
 const THEME_AUDIO_TAG = document.getElementById('themeMusic');
@@ -8,11 +9,27 @@ const THEME_AUDIO_SOURCE_TAG = document.getElementById('themeSoundTrack');
 const VOLUME_INPUTS = document.querySelectorAll('.volumeInput');
 let [MusicIsActive, AudioIsActive] = [true, true];
 
+function updateSoundsStatus() {
+  let soundButtons;
+  const { audio, music } = onlineUser.userData.sounds;
+  [AudioIsActive, MusicIsActive] = [audio, music];
+
+  soundButtons = document.querySelectorAll('.switchSoundButton');
+  if (!AudioIsActive) {
+    switchSoundButtonCSS(soundButtons);
+  }
+
+  soundButtons = document.querySelectorAll('.switchMusicButton');
+  if (!MusicIsActive) {
+    switchSoundButtonCSS(soundButtons);
+  }
+}
+
 function getPlayMusicButtons() {
   const PLAY_MUSIC_BUTTONS = document.querySelectorAll('.hasMusic');
 
-  PLAY_MUSIC_BUTTONS.forEach((PLAY_MUSIC_BUTTON) => {
-    PLAY_MUSIC_BUTTON.addEventListener('click', function() {
+  PLAY_MUSIC_BUTTONS.forEach(PLAY_MUSIC_BUTTON => {
+    PLAY_MUSIC_BUTTON.addEventListener('click', function () {
       playSoundTrack(this);
     });
   });
@@ -20,8 +37,8 @@ function getPlayMusicButtons() {
 
 function renderPlayMusicButtons() {
   const SOUNDTRACKS_AMOUNT = Object.keys(themes[btnThemeId].soundTracks).length;
-  let musicButtonsContainer = document.querySelector(".music-options");
-  musicButtonsContainer.innerHTML = "";
+  let musicButtonsContainer = document.querySelector('.music-options');
+  musicButtonsContainer.innerHTML = '';
 
   for (let index = 1; index <= SOUNDTRACKS_AMOUNT; index++) {
     const MUSIC = `
@@ -36,7 +53,11 @@ function renderPlayMusicButtons() {
     </div>
     `;
 
-    musicButtonsContainer.innerHTML += themes[btnThemeId].soundTracks[`Music${index}`] ? MUSIC : MUSIC_COMING_SOON;
+    musicButtonsContainer.innerHTML += themes[btnThemeId].soundTracks[
+      `Music${index}`
+    ]
+      ? MUSIC
+      : MUSIC_COMING_SOON;
   }
   getPlayMusicButtons();
 }
@@ -62,7 +83,9 @@ function playSoundTrack(playMusicButton) {
 }
 
 function unpauseSoundTrack() {
-  THEME_AUDIO_SOURCE_TAG.src === '' ? playDefaultSoundTrack() : THEME_AUDIO_TAG.play();
+  THEME_AUDIO_SOURCE_TAG.src === ''
+    ? playDefaultSoundTrack()
+    : THEME_AUDIO_TAG.play();
 }
 
 function pauseSoundTrack() {
@@ -74,13 +97,22 @@ function stopSoundTrack() {
   THEME_AUDIO_SOURCE_TAG.src = '';
 }
 
-// parameter gets the clicked range input
+// VOLUME_INPUT parameter is the range input for volume
 function setVolume(VOLUME_INPUT) {
+  let volumeValue;
+  // setVolume(1) || setVolume(inputElement) -> number or HTML element
+  if (VOLUME_INPUT.value) {
+    volumeValue = VOLUME_INPUT.value;
+  } else {
+    volumeValue = VOLUME_INPUT;
+  }
+
   for (let index = 0; index < MUSIC_AUDIO_TAGS.length; index++) {
     // all audio tags used for music and all range inputs receive the current volume.
-    MUSIC_AUDIO_TAGS[index].volume = VOLUME_INPUT.value;
+    MUSIC_AUDIO_TAGS[index].volume = volumeValue;
     if (VOLUME_INPUTS[index]) {
-      VOLUME_INPUTS[index].value = VOLUME_INPUT.value;
+      VOLUME_INPUTS[index].value = volumeValue;
+      updateAccount(['sounds', 'volume'], Number(volumeValue));
     }
   }
 }
@@ -116,7 +148,10 @@ const SWITCH_BUTTONS = document.querySelectorAll('.switchButton');
 let audioButtons;
 
 function switchAudioStyles(SwitchButton) {
-  if (SwitchButton.classList.contains("switchMusicButton")) {
+  if (
+    SwitchButton.classList.contains('switchMusicButton') ||
+    SwitchButton === 'switchMusicButton'
+  ) {
     audioButtons = document.querySelectorAll('.switchMusicButton');
     switchMusic();
   } else {
@@ -124,21 +159,30 @@ function switchAudioStyles(SwitchButton) {
     switchSound();
   }
 
-  audioButtons.forEach((audioButton) => {
+  switchSoundButtonCSS(audioButtons);
+}
+
+function switchSoundButtonCSS(soundButtons) {
+  soundButtons.forEach(soundButton => {
     // turn off
-    if (audioButton.classList.contains("active")) {
-      audioButton.innerHTML = "Off";
-      audioButton.parentElement.classList.remove('switch-audio-container--active');
-    } else { // turn on
-      audioButton.innerHTML = "On";
-      audioButton.parentElement.classList.add('switch-audio-container--active');
+    if (soundButton.classList.contains('active')) {
+      soundButton.innerHTML = 'Off';
+      soundButton.parentElement.classList.remove(
+        'switch-audio-container--active'
+      );
+    } else {
+      // turn on
+      soundButton.innerHTML = 'On';
+      soundButton.parentElement.classList.add('switch-audio-container--active');
     }
-    audioButton.classList.toggle("active");
+    soundButton.classList.toggle('active');
   });
 }
 
 function switchMusic() {
   MusicIsActive = !MusicIsActive;
+  onlineUser.userData.sounds.music = MusicIsActive;
+  localStorage.setItem('onlineUser', JSON.stringify(onlineUser));
 
   if (Is_Home_Page) {
     MusicIsActive ? playHomeMusic() : stopHomeMusic();
@@ -149,18 +193,31 @@ function switchMusic() {
 
 function switchSound() {
   AudioIsActive = !AudioIsActive;
+  updateAccount(['sounds', 'audio'], AudioIsActive);
 }
 
-SWITCH_BUTTONS.forEach((SWITCH_BUTTON) => {
-  SWITCH_BUTTON.addEventListener("click", function() {
+SWITCH_BUTTONS.forEach(SWITCH_BUTTON => {
+  SWITCH_BUTTON.addEventListener('click', function () {
     switchAudioStyles(this);
   });
 });
 
-VOLUME_INPUTS.forEach((VOLUME_INPUT) => {
-  VOLUME_INPUT.addEventListener('input', function() {
+VOLUME_INPUTS.forEach(VOLUME_INPUT => {
+  VOLUME_INPUT.addEventListener('input', function () {
     setVolume(this);
   });
-})
+});
 
-export { MusicIsActive, renderPlayMusicButtons, setDefaultSoundTrack, playDefaultSoundTrack, playSoundTrack, stopSoundTrack, playHoverSoundEffect, stopHoverSoundEffect, playClickSoundEffect };
+export {
+  MusicIsActive,
+  updateSoundsStatus,
+  renderPlayMusicButtons,
+  setDefaultSoundTrack,
+  playDefaultSoundTrack,
+  playSoundTrack,
+  stopSoundTrack,
+  playHoverSoundEffect,
+  stopHoverSoundEffect,
+  playClickSoundEffect,
+  setVolume
+};
