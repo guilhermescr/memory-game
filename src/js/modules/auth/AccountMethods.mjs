@@ -42,7 +42,7 @@ function createAccount($username, $password) {
       sounds: {
         music: true,
         audio: true,
-        volume: 10
+        volume: 1
       },
       CurrentTemplate: 'forest_template'
     };
@@ -68,6 +68,8 @@ function updateAccount(properties, newData) {
       console.log('Switch not expected.');
   }
   localStorage.setItem('onlineUser', JSON.stringify(onlineUser));
+
+  //
 }
 
 function setOnlineUser(account) {

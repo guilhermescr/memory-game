@@ -88,7 +88,6 @@ function showTemplatesInMenu() {
   hideElements([
     document.querySelector('.templates_container'),
     document.querySelector('.audio-container'),
-    document.querySelector('.profile_menu'),
     document.querySelector('.open_profile_menu')
   ]);
   HOME_SETTINGS_RETURN_ICON.style.display = 'block';
@@ -97,11 +96,10 @@ function showTemplatesInMenu() {
 }
 
 function showSettingsMenu() {
-  hideElements(TEMPLATES_CONTAINER);
+  hideElements([TEMPLATES_CONTAINER, document.querySelector('.profile_menu')]);
   revealElements([
     document.querySelector('.templates_container'),
     document.querySelector('.audio-container'),
-    document.querySelector('.profile_menu'),
     document.querySelector('.open_profile_menu')
   ]);
   TEMPLATES_CONTAINER.innerHTML = '';
@@ -109,10 +107,22 @@ function showSettingsMenu() {
   HOME_SETTINGS_RETURN_ICON.style.display = 'none';
 }
 
-function showUserProfileInfo() {}
+function showUserProfileInfo() {
+  hideElements([
+    document.querySelector('.templates_container'),
+    document.querySelector('.audio-container'),
+    document.querySelector('.open_profile_menu')
+  ]);
+  revealElements(document.querySelector('.profile_menu'));
+
+  HOME_SETTINGS_TITLE.innerHTML = 'Profile Info';
+  HOME_SETTINGS_RETURN_ICON.style.display = 'block';
+}
 
 HOME_SETTINGS_RETURN_ICON.onclick = showSettingsMenu;
 
 CHANGE_TEMPLATE_BUTTON.onclick = showTemplatesInMenu;
+
+document.querySelector('.open_profile_menu').onclick = showUserProfileInfo;
 
 export { currentTemplate, setCurrentTemplateImage, changeCurrentTemplate };
