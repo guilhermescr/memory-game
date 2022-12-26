@@ -1209,7 +1209,7 @@ h2 {
 }
 
 /* Profile */
-.profile_settings {
+.open_profile_menu {
   align-items: center;
   background-color: #353535;
   border-radius: 5px;
@@ -1220,11 +1220,11 @@ h2 {
   padding: 5px 15px;
 }
 
-.profile_settings:hover {
+.open_profile_menu:hover {
   background-color: #323232;
 }
 
-.profile_settings:active {
+.open_profile_menu:active {
   background-color: #383838;
   opacity: 0.9;
 }
@@ -1236,13 +1236,107 @@ h2 {
   width: max-content;
 }
 
-.profile_settings svg {
+.default_profile_picture {
   fill: #fef;
+}
+
+.open_profile_menu svg {
   width: 23px;
 }
 
-.profile_settings h3 {
+.open_profile_menu h3 {
   font-weight: 500;
+}
+
+.profile_menu {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.profile_left_column, .profile_right_column {
+  width: 40%;
+}
+
+.profile_left_column {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+  width: max-content;
+}
+
+.profile_picture_container {
+  align-items: center;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: flex;
+  padding: 10px;
+  width: 100px;
+}
+
+.profile_menu .default_profile_picture {
+  border-radius: 50%;
+  width: 100%;
+}
+
+.profile_info_options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 250px;
+}
+
+.profile_info_option {
+  background-color: #343434;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.profile_info_option:hover {
+  background-color: #444;
+}
+
+.profile_info_option:active {
+  background-color: #393939;
+  opacity: 0.8;
+}
+
+.profile_right_column {
+  padding: 20px;
+}
+
+.general_info_container {
+  margin: 0 auto;
+  width: max-content;
+}
+
+.general_info_list {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  /* gap: 10px; */
+  justify-content: center;
+}
+
+.general_info_list li {
+  border-bottom: 1px solid #000;
+  color: #fff;
+  font-size: 20px;
+  font-weight: normal;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.general_info_list li:last-child {
+  border: none;
 }
 
 /* Audio */
@@ -1717,8 +1811,6 @@ section.deck-container div.memory-deck {
   .home_settings_container .templates .template {
     width: 100%;
   }
-
-  .profile_settings {}
 
   .audio-container {
     gap: 20px;
