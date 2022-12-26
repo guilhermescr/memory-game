@@ -163,8 +163,11 @@ function login($username, $password) {
 function endAuthPage() {
   document.body.style.overflowY = 'hidden';
 
-  document.getElementById('profile_name').innerHTML =
-    onlineUser.userData.username;
+  document
+    .querySelectorAll('.user_name')
+    .forEach(
+      usernameTag => (usernameTag.innerHTML = onlineUser.userData.username)
+    );
 
   document.body.removeChild(SIGN_UP_IN_CONTAINER);
 

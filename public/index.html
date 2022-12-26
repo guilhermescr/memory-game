@@ -297,9 +297,11 @@
           </svg>
         </div>
 
-        <h2 id="home_settings_title">Settings</h2>
+        <!-- Change it to 'Settings'-->
+        <h2 id="home_settings_title">Profile Info</h2>
 
-        <section class="templates_container">
+        <!-- remove .hide -->
+        <section class="templates_container hide">
           <h3>Current Template</h3>
           <img
             id="currentTemplateImage"
@@ -317,9 +319,11 @@
 
         <section class="templates hide"></section>
 
-        <section class="profile_settings">
+        <!-- remove .hide -->
+        <div class="open_profile_menu hide">
           <div class="profile_image_container">
             <svg
+              class="default_profile_picture"
               version="1.1"
               id="Capa_1"
               xmlns="http://www.w3.org/2000/svg"
@@ -334,9 +338,9 @@
                 <path
                   id="XMLID_1718_"
                   d="M442.7,444.6c-14.3-96.2-51.6-191-139.6-221.4C337.3,201.9,360,164,360,120.7C360,54.1,306,0,239.3,0
-		S118.6,54,118.6,120.7c0,43.2,22.8,81.2,56.9,102.5c-88,30.4-125.4,125.2-139.6,221.4c-2.7,17.9,11.4,34,29.5,34H413
-		C431.3,478.6,445.4,462.5,442.7,444.6z M164.1,120.7c0-41.5,33.8-75.3,75.3-75.3c9.9,0,18,8.1,18,18s-8.1,18-18,18
-		c-21.7,0-39.3,17.6-39.3,39.3c0,9.9-8.1,18-18,18C172.1,138.7,164.1,130.7,164.1,120.7z"
+      S118.6,54,118.6,120.7c0,43.2,22.8,81.2,56.9,102.5c-88,30.4-125.4,125.2-139.6,221.4c-2.7,17.9,11.4,34,29.5,34H413
+      C431.3,478.6,445.4,462.5,442.7,444.6z M164.1,120.7c0-41.5,33.8-75.3,75.3-75.3c9.9,0,18,8.1,18,18s-8.1,18-18,18
+      c-21.7,0-39.3,17.6-39.3,39.3c0,9.9-8.1,18-18,18C172.1,138.7,164.1,130.7,164.1,120.7z"
                 />
               </g>
               <g></g>
@@ -357,10 +361,75 @@
             </svg>
           </div>
 
-          <h3 id="profile_name">username</h3>
+          <h3 class="user_name">username</h3>
+        </div>
+
+        <section class="profile_menu">
+          <section class="profile_left_column">
+            <div class="profile_picture_container">
+              <svg
+                class="default_profile_picture"
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                viewBox="0 0 478.6 478.6"
+                style="enable-background: new 0 0 478.6 478.6"
+                xml:space="preserve"
+              >
+                <g>
+                  <path
+                    id="XMLID_1718_"
+                    d="M442.7,444.6c-14.3-96.2-51.6-191-139.6-221.4C337.3,201.9,360,164,360,120.7C360,54.1,306,0,239.3,0
+      S118.6,54,118.6,120.7c0,43.2,22.8,81.2,56.9,102.5c-88,30.4-125.4,125.2-139.6,221.4c-2.7,17.9,11.4,34,29.5,34H413
+      C431.3,478.6,445.4,462.5,442.7,444.6z M164.1,120.7c0-41.5,33.8-75.3,75.3-75.3c9.9,0,18,8.1,18,18s-8.1,18-18,18
+      c-21.7,0-39.3,17.6-39.3,39.3c0,9.9-8.1,18-18,18C172.1,138.7,164.1,130.7,164.1,120.7z"
+                  />
+                </g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+              </svg>
+            </div>
+
+            <ul class="profile_info_options">
+              <li class="profile_info_option" role="button">General Info</li>
+              <li class="profile_info_option" role="button">Achievements</li>
+            </ul>
+          </section>
+
+          <section class="profile_right_column">
+            <div class="general_info_container">
+              <ul class="general_info_list">
+                <li>User: <span class="user_name">user</span></li>
+                <li>Experience: 256</li>
+                <li>Matches: 0</li>
+                <li>Victories: 0</li>
+                <li>Defeats: 0</li>
+              </ul>
+            </div>
+            <div class="achievements_container hide">
+              <h3>Achievements:</h3>
+            </div>
+          </section>
         </section>
 
-        <section class="audio-container">
+        <!-- remove .hide -->
+        <section class="audio-container hide">
           <div class="audio-content">
             <h3>
               <svg

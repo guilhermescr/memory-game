@@ -87,7 +87,9 @@ function showTemplatesInMenu() {
   HOME_SETTINGS_TITLE.innerHTML = 'Templates';
   hideElements([
     document.querySelector('.templates_container'),
-    document.querySelector('.audio-container')
+    document.querySelector('.audio-container'),
+    document.querySelector('.profile_menu'),
+    document.querySelector('.open_profile_menu')
   ]);
   HOME_SETTINGS_RETURN_ICON.style.display = 'block';
   createTemplates();
@@ -98,12 +100,16 @@ function showSettingsMenu() {
   hideElements(TEMPLATES_CONTAINER);
   revealElements([
     document.querySelector('.templates_container'),
-    document.querySelector('.audio-container')
+    document.querySelector('.audio-container'),
+    document.querySelector('.profile_menu'),
+    document.querySelector('.open_profile_menu')
   ]);
   TEMPLATES_CONTAINER.innerHTML = '';
   HOME_SETTINGS_TITLE.innerHTML = 'Settings';
   HOME_SETTINGS_RETURN_ICON.style.display = 'none';
 }
+
+function showUserProfileInfo() {}
 
 HOME_SETTINGS_RETURN_ICON.onclick = showSettingsMenu;
 

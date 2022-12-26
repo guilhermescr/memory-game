@@ -35,7 +35,6 @@ function createAccount($username, $password) {
       exp: 0,
       matches: 0,
       wonMatches: 0,
-      ties: 0,
       lostMatches: 0,
       achievements: {
         amount: 0
