@@ -1314,7 +1314,6 @@ h2 {
 
 .general_info_container {
   margin: 0 auto;
-  width: max-content;
 }
 
 .general_info_list {
@@ -1810,6 +1809,29 @@ section.deck-container div.memory-deck {
 
   .home_settings_container .templates .template {
     width: 100%;
+  }
+
+  .profile_menu {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .profile_picture_container {
+    width: 80px;
+  }
+
+  .profile_right_column {
+    padding: 0;
+    width: 100%;
+  }
+
+  .general_info_list {
+    flex-flow: row wrap;
+  }
+
+  .general_info_list li {
+    font-size: 18px;
+    width: max-content;
   }
 
   .audio-container {
