@@ -188,6 +188,10 @@ body.military_template {
   font-family: 'Grind Demolished';
 }
 
+body.military_template h2 {
+  font-size: 23px;
+}
+
 .military_template {
   --window_message_text_color: #03942e;
   --window_message_text_shadow: 0 0 15px #02972f;
@@ -1255,7 +1259,8 @@ h2 {
   width: 100%;
 }
 
-.profile_left_column, .profile_right_column {
+.profile_left_column,
+.profile_right_column {
   width: 40%;
 }
 
@@ -1265,7 +1270,6 @@ h2 {
   flex-direction: column;
   gap: 20px;
   justify-content: space-between;
-  width: max-content;
 }
 
 .profile_picture_container {
@@ -1282,11 +1286,55 @@ h2 {
   width: 100%;
 }
 
+.profile_info {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
+
+.experience_bar,
+.exp_progress {
+  border-radius: 20px;
+}
+
+.experience_bar {
+  background-color: #555;
+  display: flex;
+  margin: 0 auto;
+  max-width: 250px;
+  padding: 5px;
+  position: relative;
+  width: 100%;
+}
+
+.exp_progress {
+  background-color: var(--window_message_text_color);
+  padding: 6px;
+  padding-left: 10px;
+  width: 12%;
+}
+
+.experience_bar > p {
+  color: #e8ffe6;
+  position: absolute;
+  right: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.experience_bar > p, .experience_bar > p span {
+  font: normal normal 14px Arial, Helvetica, sans-serif;
+}
+
 .profile_info_options {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 250px;
+  max-width: 250px;
+  width: 100%;
 }
 
 .profile_info_option {
@@ -1325,7 +1373,6 @@ h2 {
 }
 
 .general_info_list li {
-  border-bottom: 1px solid #000;
   color: #fff;
   font-size: 20px;
   font-weight: normal;
@@ -1813,13 +1860,14 @@ section.deck-container div.memory-deck {
 
   .profile_menu {
     flex-direction: column;
-    gap: 30px;
+    gap: 10px;
   }
 
   .profile_picture_container {
     width: 80px;
   }
 
+  .profile_left_column,
   .profile_right_column {
     padding: 0;
     width: 100%;
