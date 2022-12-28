@@ -19,6 +19,7 @@ const HIDE_PASSWORD_EYE = `
 const SUBMIT_BUTTON = document.querySelector('.submitButton');
 const AUTH_BUTTON = document.querySelector('#auth_button');
 const PLAY_ANONYMOUSLY_BUTTON = document.querySelector('#playAnonymously');
+const LOGOUT_BUTTON = document.getElementById('logoutButton');
 
 export {
   SIGN_UP_IN_CONTAINER,
@@ -31,5 +32,6 @@ export {
   HIDE_PASSWORD_EYE,
   SUBMIT_BUTTON,
   AUTH_BUTTON,
-  PLAY_ANONYMOUSLY_BUTTON
+  PLAY_ANONYMOUSLY_BUTTON,
+  LOGOUT_BUTTON
 };

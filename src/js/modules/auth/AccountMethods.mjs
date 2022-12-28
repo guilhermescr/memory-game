@@ -1,8 +1,10 @@
+import { v4 as uuidv4 } from 'https://cdn.skypack.dev/uuid';
+
 import { hideElements, revealElements, timeoutItems } from '../../main.js';
 import { updateSoundsStatus } from '../m-audio/audio.mjs';
 import { endAuthPage } from './AuthService.mjs';
 
-const accounts = [];
+let accounts = [];
 const onlineUser = {
   online: false,
   userData: {}
@@ -32,6 +34,7 @@ function createAccount($username, $password) {
       username: $username,
       password: $password,
       profilePicture: '',
+      id: uuidv4(),
       exp: 0,
       matches: 0,
       wonMatches: 0,
@@ -67,10 +70,68 @@ function updateAccount(properties, newData) {
     default:
       console.log('Switch not expected.');
   }
+  accounts = accounts.map(account => {
+    if (account.id === onlineUser.userData.id) {
+      return { ...onlineUser.userData };
+    } else {
+      return account;
+    }
+  });
+  localStorage.setItem('accounts', JSON.stringify(accounts));
   localStorage.setItem('onlineUser', JSON.stringify(onlineUser));
-
-  //
 }
+
+function showEditAccountMenu() {
+  revealElements(document.querySelector('.edit_profile_menu'));
+}
+
+function closeEditAccountMenu() {
+  hideElements(document.querySelector('.edit_profile_menu'));
+}
+
+document
+  .querySelector('.editProfileButton')
+  .addEventListener('click', showEditAccountMenu);
+
+// document.getElementById('editProfilePictureButton').addEventListener('click');
+
+// update username
+function showEditUsernameMenu() {
+  hideElements(document.querySelector('.which_info_container'));
+  revealElements(document.querySelector('.edit_username_container'));
+}
+
+function renderUsernames() {
+  document
+    .querySelectorAll('.user_name')
+    .forEach(
+      usernameTag => (usernameTag.innerHTML = onlineUser.userData.username)
+    );
+}
+
+function updateUsername() {
+  let newUsername = document.getElementById('usernameInput').value;
+
+  if (!newUsername.length) return;
+
+  let isUsernameAvailable = searchUsername(newUsername);
+  if (isUsernameAvailable) {
+    updateAccount(['username'], newUsername);
+    renderUsernames();
+    closeEditAccountMenu();
+  } else {
+    // show error to the user
+    console.log(newUsername);
+  }
+}
+
+document
+  .getElementById('editUsernameButton')
+  .addEventListener('click', showEditUsernameMenu);
+
+document
+  .getElementById('saveUsernameButton')
+  .addEventListener('click', updateUsername);
 
 function setOnlineUser(account) {
   onlineUser.online = true;
@@ -123,6 +184,7 @@ export {
   onlineUser,
   setOnlineUser,
   isUserOnline,
+  renderUsernames,
   searchUsername,
   searchAccount,
   authError
