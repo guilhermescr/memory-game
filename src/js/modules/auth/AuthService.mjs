@@ -1,8 +1,6 @@
 import {
-  allowGameToStart,
   handleKeydownEvent,
   hideElements,
-  renderLoaderContainer,
   revealElements,
   timeoutItems
 } from '../../main.js';
@@ -19,12 +17,13 @@ import {
   searchUsername,
   authError,
   setOnlineUser,
-  onlineUser
+  renderUsernames
 } from './AccountMethods.mjs';
 import {
   AUTH_BUTTON,
   FORM,
   HIDE_PASSWORD_EYE,
+  LOGOUT_BUTTON,
   PASSWORD_INFO,
   PASSWORD_INPUT,
   PLAY_ANONYMOUSLY_BUTTON,
@@ -163,11 +162,7 @@ function login($username, $password) {
 function endAuthPage() {
   document.body.style.overflowY = 'hidden';
 
-  document
-    .querySelectorAll('.user_name')
-    .forEach(
-      usernameTag => (usernameTag.innerHTML = onlineUser.userData.username)
-    );
+  renderUsernames();
 
   document.body.removeChild(SIGN_UP_IN_CONTAINER);
 
@@ -177,6 +172,11 @@ function endAuthPage() {
   });
 
   revealElements(document.querySelector('.toggleFullscreenIcon_container'));
+}
+
+function logout() {
+  localStorage.removeItem('onlineUser');
+  window.location.reload();
 }
 
 USERNAME_INPUT.addEventListener('input', handleUsernameChange);
@@ -216,5 +216,7 @@ SUBMIT_BUTTON.addEventListener('click', event => {
 PLAY_ANONYMOUSLY_BUTTON.addEventListener('click', endAuthPage);
 
 AUTH_BUTTON.addEventListener('click', handleAuthButton);
+
+LOGOUT_BUTTON.addEventListener('click', logout);
 
 export { getAccounts, endAuthPage, updateApprovedValidation };

@@ -359,10 +359,66 @@
           </div>
 
           <h3 class="user_name">username</h3>
+
+          <div class="experience_bar">
+            <div class="exp_progress"></div>
+            <p><span class="xpAmount">256</span>xp</p>
+          </div>
+
+          <button id="logoutButton" type="button">Logout</button>
         </div>
 
         <section class="profile_menu hide">
+          <section class="edit_profile_menu hide">
+            <div class="which_info_container">
+              <h3>Which info do you want to update?</h3>
+
+              <div class="edit_profile_options">
+                <button
+                  id="editProfilePictureButton"
+                  class="edit_profile_option"
+                  type="button"
+                >
+                  Profile Picture
+                </button>
+                <button
+                  id="editUsernameButton"
+                  class="edit_profile_option"
+                  type="button"
+                >
+                  Username
+                </button>
+              </div>
+            </div>
+
+            <div class="edit_username_container hide">
+              <h3>What is your new username?</h3>
+
+              <form class="usernameInput_container">
+                <h3>
+                  Old username:
+                  <span class="user_name">username</span>
+                </h3>
+                <label for="usernameInput">New username:</label>
+                <input
+                  type="text"
+                  name="usernameInput"
+                  id="usernameInput"
+                  spellcheck="false"
+                  autocomplete="off"
+                />
+                <button id="saveUsernameButton" type="button">
+                  Save Username
+                </button>
+              </form>
+            </div>
+          </section>
+
           <section class="profile_left_column">
+            <div class="editProfileButton" role="button">
+              <i class="fa-solid fa-user-pen"></i>
+            </div>
+
             <div class="profile_picture_container">
               <svg
                 class="default_profile_picture"
@@ -408,7 +464,7 @@
 
               <div class="experience_bar">
                 <div class="exp_progress"></div>
-                <p><span id="xpAmount">256</span>xp</p>
+                <p><span class="xpAmount">256</span>xp</p>
               </div>
             </div>
 

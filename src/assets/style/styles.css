@@ -1046,7 +1046,8 @@ h2 {
 
 .play-themeBtn,
 .switchButton,
-.changeTemplateButton {
+.changeTemplateButton,
+.edit_profile_option {
   background-image: var(--buttons_background_image_gradient);
   border-radius: 10px;
   border: 1px solid var(--buttons_border_color);
@@ -1061,13 +1062,15 @@ h2 {
 }
 
 .play-themeBtn:hover,
-.changeTemplateButton:hover {
+.changeTemplateButton:hover,
+.edit_profile_option:hover {
   transform: scale(1.1);
   background-image: var(--buttons_hover_gradient);
 }
 
 .play-themeBtn:active,
-.changeTemplateButton:active {
+.changeTemplateButton:active,
+.edit_profile_option:active {
   background-image: var(--buttons_active_gradient);
 }
 
@@ -1216,12 +1219,14 @@ h2 {
 .open_profile_menu {
   align-items: center;
   background-color: #353535;
-  border-radius: 5px;
+  border-radius: 5px 5px 0 0;
   cursor: pointer;
   display: flex;
-  gap: 13px;
+  flex-wrap: wrap;
+  gap: 5px;
   justify-content: center;
-  padding: 5px 15px;
+  padding: 5px;
+  position: relative;
 }
 
 .open_profile_menu:hover {
@@ -1250,13 +1255,117 @@ h2 {
 
 .open_profile_menu h3 {
   font-weight: 500;
+  width: 60%;
+}
+
+#logoutButton {
+  background-color: #410000;
+  border: none;
+  border-radius: 0 0 10px 10px;
+  bottom: -31%;
+  color: #fff;
+  cursor: pointer;
+  left: 0.2%;
+  padding: 5px;
+  position: absolute;
+  width: 100%;
+}
+
+#logoutButton:hover {
+  background-color: #5a1a1a;
 }
 
 .profile_menu {
   align-items: center;
   display: flex;
   justify-content: center;
+  position: relative;
   width: 100%;
+}
+
+.edit_profile_menu {
+  align-items: center;
+  background-color: #121212;
+  border-radius: 15px;
+  height: 100%;
+  left: 50%;
+  max-width: 400px;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 1;
+}
+
+.edit_profile_menu > div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.edit_profile_options {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-block: auto;
+  width: 100%;
+}
+
+.usernameInput_container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  width: 100%;
+}
+
+.usernameInput_container label,
+.usernameInput_container h3 {
+  font-size: 16px;
+  text-align: left;
+}
+
+.usernameInput_container label {
+  color: #fff;
+}
+
+.usernameInput_container input {
+  background-color: #252525;
+  border: 1px solid #444;
+  color: #fff;
+  outline: none;
+  padding: 5px;
+  transition: 0.2s ease;
+}
+
+.usernameInput_container input:focus {
+  box-shadow: 0 0 15px #444;
+  padding: 8px;
+}
+
+#saveUsernameButton {
+  background-color: #2e2e2e;
+  border: 1px solid #353535;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  margin-inline: auto;
+  margin-top: 10px;
+  max-width: 200px;
+  padding: 10px;
+  width: 100%;
+}
+
+#saveUsernameButton:hover {
+  background-color: #454545;
+}
+
+#saveUsernameButton:active {
+  background-color: #191919;
 }
 
 .profile_left_column,
@@ -1270,11 +1379,30 @@ h2 {
   flex-direction: column;
   gap: 20px;
   justify-content: space-between;
+  position: relative;
+}
+
+.editProfileButton {
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-size: 20px;
+  position: absolute;
+  right: 8%;
+  top: 2%;
+}
+
+.editProfileButton:hover {
+  color: #f4fff4e0;
+}
+
+.editProfileButton:active {
+  color: #efefef;
 }
 
 .profile_picture_container {
   align-items: center;
-  background-color: #ccc;
+  background-color: #ababab;
   border-radius: 50%;
   display: flex;
   padding: 10px;
@@ -1325,7 +1453,8 @@ h2 {
   transform: translateY(-50%);
 }
 
-.experience_bar > p, .experience_bar > p span {
+.experience_bar > p,
+.experience_bar > p span {
   font: normal normal 14px Arial, Helvetica, sans-serif;
 }
 
@@ -1856,6 +1985,10 @@ section.deck-container div.memory-deck {
 
   .home_settings_container .templates .template {
     width: 100%;
+  }
+
+  .open_profile_menu {
+    margin-bottom: 20px;
   }
 
   .profile_menu {
