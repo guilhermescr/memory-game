@@ -1227,6 +1227,7 @@ h2 {
   justify-content: center;
   padding: 5px;
   position: relative;
+  width: 30%;
 }
 
 .open_profile_menu:hover {
@@ -1382,21 +1383,29 @@ h2 {
   position: relative;
 }
 
-.editProfileButton {
+.profile_crud_buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  right: 10%;
+}
+
+.editProfileButton,
+.deleteProfileButton {
   color: #fff;
   cursor: pointer;
   display: flex;
   font-size: 20px;
-  position: absolute;
-  right: 8%;
-  top: 2%;
 }
 
-.editProfileButton:hover {
+.editProfileButton:hover,
+.deleteProfileButton:hover {
   color: #f4fff4e0;
 }
 
-.editProfileButton:active {
+.editProfileButton:active,
+.deleteProfileButton:active {
   color: #efefef;
 }
 
@@ -1412,6 +1421,41 @@ h2 {
 .profile_menu .default_profile_picture {
   border-radius: 50%;
   width: 100%;
+}
+
+.profile_picture_options {
+  margin-top: 10px;
+}
+
+.profile_picture_options label {
+  color: #fff;
+  font-size: 18px;
+}
+
+.checked_radio_input_container {
+  color: #fff;
+  margin-top: 20px;
+}
+
+.checked_radio_input_container > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.checked_radio_input_container input[name='imgLink'] {
+  background-color: #252525;
+  border: 1px solid #444;
+  color: #fff;
+  outline: none;
+  padding: 5px;
+  transition: 0.2s ease;
+  width: 100%;
+}
+
+.checked_radio_input_container input[name='imgLink']:focus {
+  box-shadow: 0 0 15px #444;
+  padding: 8px;
 }
 
 .profile_info {
@@ -1989,6 +2033,8 @@ section.deck-container div.memory-deck {
 
   .open_profile_menu {
     margin-bottom: 20px;
+    max-width: 210px;
+    width: 100%;
   }
 
   .profile_menu {

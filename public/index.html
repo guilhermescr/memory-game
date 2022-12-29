@@ -412,11 +412,66 @@
                 </button>
               </form>
             </div>
+
+            <div class="edit_profile_picture_container hide">
+              <h3>Upload an image or Insert a link</h3>
+
+              <div class="profile_picture_options">
+                <div>
+                  <input
+                    type="radio"
+                    name="imgType"
+                    id="imgFile"
+                    class="profile_picture_option"
+                    checked
+                  />
+                  <label for="imgFile">Image File</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    name="imgType"
+                    id="imgLink"
+                    class="profile_picture_option"
+                  />
+                  <label for="imgLink">Image Link</label>
+                </div>
+
+                <div class="checked_radio_input_container">
+                  <div>
+                    <label for="imgFile">File:</label>
+                    <input
+                      type="file"
+                      name="imgFile"
+                      class="profilePictureInput"
+                    />
+                  </div>
+                  <div class="hide">
+                    <label for="imgLink">Link:</label>
+                    <input
+                      type="text"
+                      name="imgLink"
+                      class="profilePictureInput hide"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
 
           <section class="profile_left_column">
-            <div class="editProfileButton" role="button">
-              <i class="fa-solid fa-user-pen"></i>
+            <div class="profile_crud_buttons">
+              <div class="editProfileButton" role="button" title="Edit Profile">
+                <i class="fa-solid fa-user-pen"></i>
+              </div>
+
+              <div
+                class="deleteProfileButton"
+                role="button"
+                title="Delete Profile"
+              >
+                <i class="fa-solid fa-trash-can"></i>
+              </div>
             </div>
 
             <div class="profile_picture_container">

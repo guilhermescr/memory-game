@@ -93,7 +93,23 @@ document
   .querySelector('.editProfileButton')
   .addEventListener('click', showEditAccountMenu);
 
-// document.getElementById('editProfilePictureButton').addEventListener('click');
+// update profile picture
+function showEditProfilePictureMenu() {
+  hideElements(document.querySelector('.which_info_container'));
+  revealElements(document.querySelector('.edit_profile_picture_container'));
+}
+
+function renderProfilePictures() {
+  document
+    .querySelectorAll('.profile_picture_container')
+    .forEach(profile_pic_container => {
+      profile_pic_container.innerHTML = onlineUser.userData.profilePicture;
+    });
+}
+
+document
+  .getElementById('editProfilePictureButton')
+  .addEventListener('click', showEditProfilePictureMenu);
 
 // update username
 function showEditUsernameMenu() {
