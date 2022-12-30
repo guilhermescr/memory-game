@@ -12,7 +12,11 @@ import {
 } from './modules/templates/TemplatesAlgorithm.mjs';
 import * as AuthService from './modules/auth/AuthService.mjs';
 import { getAccounts } from './modules/auth/AuthService.mjs';
-import { isUserOnline, onlineUser } from './modules/auth/AccountMethods.mjs';
+import {
+  isUserOnline,
+  onlineUser,
+  renderProfilePictures
+} from './modules/auth/AccountMethods.mjs';
 
 const CLICK_ON_WINDOW_CONTAINER = document.querySelector(
   '#click_on_window_message'
@@ -263,6 +267,13 @@ document.body.onload = () => {
     changeCurrentTemplate(onlineUser.userData.CurrentTemplate);
     setCurrentTemplateImage();
     setVolume(onlineUser.userData.sounds.volume);
+
+    if (onlineUser.userData.profilePicture.length) {
+      renderProfilePictures();
+      document.querySelector('.open_profile_menu').classList.add('hasPFP');
+      document.querySelector('.profile_menu').classList.add('hasPFP');
+    }
+
     renderClickOnWindowMessage();
   } else {
     removeLoaderContainer();

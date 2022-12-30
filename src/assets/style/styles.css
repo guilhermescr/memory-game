@@ -1246,6 +1246,11 @@ h2 {
   width: max-content;
 }
 
+.open_profile_menu.hasPFP .profile_image_container {
+  background-color: transparent;
+  width: 60px;
+}
+
 .default_profile_picture {
   fill: #fef;
 }
@@ -1263,7 +1268,7 @@ h2 {
   background-color: #410000;
   border: none;
   border-radius: 0 0 10px 10px;
-  bottom: -31%;
+  bottom: -25px;
   color: #fff;
   cursor: pointer;
   left: 0.2%;
@@ -1348,7 +1353,8 @@ h2 {
   padding: 8px;
 }
 
-#saveUsernameButton {
+#saveUsernameButton,
+#saveProfilePictureButton {
   background-color: #2e2e2e;
   border: 1px solid #353535;
   border-radius: 6px;
@@ -1361,11 +1367,13 @@ h2 {
   width: 100%;
 }
 
-#saveUsernameButton:hover {
+#saveUsernameButton:hover,
+#saveProfilePictureButton:hover {
   background-color: #454545;
 }
 
-#saveUsernameButton:active {
+#saveUsernameButton:active,
+#saveProfilePictureButton:active {
   background-color: #191919;
 }
 
@@ -1418,13 +1426,35 @@ h2 {
   width: 100px;
 }
 
-.profile_menu .default_profile_picture {
+.profile_menu.hasPFP .profile_picture_container {
+  background-color: transparent;
+  width: 190px;
+}
+
+.userImage_container svg,
+.userImage_container img {
   border-radius: 50%;
+}
+
+.userImage_container img {
   width: 100%;
+}
+
+.edit_profile_picture_container {
+  justify-content: space-evenly;
 }
 
 .profile_picture_options {
   margin-top: 10px;
+}
+
+.profile_picture_options > div:first-child {
+  margin-bottom: 5px;
+}
+
+.profile_picture_options input,
+.profile_picture_options label {
+  cursor: pointer;
 }
 
 .profile_picture_options label {
@@ -1437,7 +1467,7 @@ h2 {
   margin-top: 20px;
 }
 
-.checked_radio_input_container > div {
+.checked_radio_input_container {
   display: flex;
   flex-direction: column;
   gap: 5px;

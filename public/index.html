@@ -318,7 +318,7 @@
         <section class="templates hide"></section>
 
         <div class="open_profile_menu">
-          <div class="profile_image_container">
+          <div class="profile_image_container userImage_container">
             <svg
               class="default_profile_picture"
               version="1.1"
@@ -356,6 +356,12 @@
               <g></g>
               <g></g>
             </svg>
+
+            <img
+              class="userProfileImage hide"
+              src=""
+              alt="Profile Image"
+            />
           </div>
 
           <h3 class="user_name">username</h3>
@@ -408,7 +414,7 @@
                   autocomplete="off"
                 />
                 <button id="saveUsernameButton" type="button">
-                  Save Username
+                  Save Changes
                 </button>
               </form>
             </div>
@@ -436,26 +442,16 @@
                   />
                   <label for="imgLink">Image Link</label>
                 </div>
-
-                <div class="checked_radio_input_container">
-                  <div>
-                    <label for="imgFile">File:</label>
-                    <input
-                      type="file"
-                      name="imgFile"
-                      class="profilePictureInput"
-                    />
-                  </div>
-                  <div class="hide">
-                    <label for="imgLink">Link:</label>
-                    <input
-                      type="text"
-                      name="imgLink"
-                      class="profilePictureInput hide"
-                    />
-                  </div>
-                </div>
               </div>
+
+              <div class="checked_radio_input_container">
+                <label for="imgFile">File:</label>
+                <input type="file" name="imgFile" class="profilePictureInput" />
+              </div>
+
+              <button id="saveProfilePictureButton" type="button">
+                Save Changes
+              </button>
             </div>
           </section>
 
@@ -474,7 +470,7 @@
               </div>
             </div>
 
-            <div class="profile_picture_container">
+            <div class="profile_picture_container userImage_container">
               <svg
                 class="default_profile_picture"
                 version="1.1"
@@ -512,6 +508,12 @@
                 <g></g>
                 <g></g>
               </svg>
+
+              <img
+                class="userProfileImage hide"
+                src=""
+                alt="Profile Image"
+              />
             </div>
 
             <div class="profile_info">
