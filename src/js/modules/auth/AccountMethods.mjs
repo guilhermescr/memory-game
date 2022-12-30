@@ -93,7 +93,92 @@ document
   .querySelector('.editProfileButton')
   .addEventListener('click', showEditAccountMenu);
 
-// document.getElementById('editProfilePictureButton').addEventListener('click');
+// update profile picture
+const PROFILE_PICTURE_OPTIONS = document.querySelectorAll(
+  '.profile_picture_option'
+);
+const CHECKED_RADIO_INPUT_CONTAINER = document.querySelector(
+  '.checked_radio_input_container'
+);
+
+function showEditProfilePictureMenu() {
+  hideElements(document.querySelector('.which_info_container'));
+  revealElements(document.querySelector('.edit_profile_picture_container'));
+}
+
+function renderProfilePictures() {
+  document.querySelectorAll('.userProfileImage').forEach(userProfileImage => {
+    hideElements(document.querySelectorAll('.default_profile_picture'));
+    revealElements(userProfileImage);
+    userProfileImage.src = onlineUser.userData.profilePicture;
+  });
+}
+
+function renderCheckedRadioContainer(imgType) {
+  if (imgType === 'imgLink') {
+    CHECKED_RADIO_INPUT_CONTAINER.innerHTML = `
+      <label for="imgLink">Link:</label>
+      <input
+        type="text"
+        name="imgLink"
+        class="profilePictureInput"
+      />
+    `;
+  } else {
+    CHECKED_RADIO_INPUT_CONTAINER.innerHTML = `
+    <label for="imgFile">File:</label>
+    <input
+      type="file"
+      name="imgFile"
+      class="profilePictureInput"
+    />
+    `;
+  }
+}
+
+function changeInputForImage() {
+  if (!PROFILE_PICTURE_OPTIONS[0].checked) {
+    PROFILE_PICTURE_OPTIONS[0].removeAttribute('checked');
+    PROFILE_PICTURE_OPTIONS[1].setAttribute('checked', '');
+    renderCheckedRadioContainer('imgLink');
+  } else {
+    PROFILE_PICTURE_OPTIONS[0].setAttribute('checked', '');
+    PROFILE_PICTURE_OPTIONS[1].removeAttribute('checked');
+    renderCheckedRadioContainer('imgFile');
+  }
+}
+
+function updateProfilePicture() {
+  let input = CHECKED_RADIO_INPUT_CONTAINER.children[1];
+
+  if (input.name === 'imgFile') {
+    const reader = new FileReader();
+    let img;
+
+    reader.addEventListener('load', () => {
+      img = reader.result;
+      updateAccount(['profilePicture', img]);
+    });
+
+    reader.readAsDataURL(input.files[0]);
+  } else {
+    updateAccount(['profilePicture'], input.value);
+  }
+  renderProfilePictures();
+  closeEditAccountMenu();
+}
+
+PROFILE_PICTURE_OPTIONS.forEach(profile_pic_option => {
+  profile_pic_option.addEventListener('click', changeInputForImage);
+});
+
+document
+  .getElementById('editProfilePictureButton')
+  .addEventListener('click', showEditProfilePictureMenu);
+
+document
+  .getElementById('saveProfilePictureButton')
+  .addEventListener('click', updateProfilePicture);
 
 // update username
 function showEditUsernameMenu() {
@@ -184,6 +269,7 @@ export {
   onlineUser,
   setOnlineUser,
   isUserOnline,
+  renderProfilePictures,
   renderUsernames,
   searchUsername,
   searchAccount,
