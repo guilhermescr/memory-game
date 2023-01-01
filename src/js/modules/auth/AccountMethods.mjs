@@ -86,12 +86,35 @@ function showEditAccountMenu() {
 }
 
 function closeEditAccountMenu() {
+  let EDIT_PROFILE_MENU_OPTIONS = document.querySelectorAll(
+    '.edit_profile_menu_option'
+  );
+
+  for (let index = 0; index < EDIT_PROFILE_MENU_OPTIONS.length; index++) {
+    if (index !== 0) {
+      hideElements(EDIT_PROFILE_MENU_OPTIONS[index]);
+    } else {
+      revealElements(EDIT_PROFILE_MENU_OPTIONS[index]);
+    }
+  }
+
   hideElements(document.querySelector('.edit_profile_menu'));
 }
 
 document
   .querySelector('.editProfileButton')
   .addEventListener('click', showEditAccountMenu);
+
+document
+  .getElementById('removeProfilePictureButton')
+  .addEventListener('click', () => {
+    resetProfilePictures();
+    toggleKebabMenu();
+  });
+
+document
+  .querySelector('.close_edit_profile_menu_icon')
+  .addEventListener('click', closeEditAccountMenu);
 
 // update profile picture
 const PROFILE_PICTURE_OPTIONS = document.querySelectorAll(
@@ -106,11 +129,14 @@ function showEditProfilePictureMenu() {
   revealElements(document.querySelector('.edit_profile_picture_container'));
 }
 
-function renderProfilePictures() {
+function renderProfilePictures(data) {
+  document.querySelector('.open_profile_menu').classList.add('hasPFP');
+  document.querySelector('.profile_menu').classList.add('hasPFP');
+
   document.querySelectorAll('.userProfileImage').forEach(userProfileImage => {
     hideElements(document.querySelectorAll('.default_profile_picture'));
     revealElements(userProfileImage);
-    userProfileImage.src = onlineUser.userData.profilePicture;
+    userProfileImage.src = data;
   });
 }
 
@@ -136,6 +162,20 @@ function renderCheckedRadioContainer(imgType) {
   }
 }
 
+function resetProfilePictures() {
+  document.querySelector('.open_profile_menu').classList.remove('hasPFP');
+  document.querySelector('.profile_menu').classList.remove('hasPFP');
+
+  document.querySelectorAll('.userProfileImage').forEach(userProfileImage => {
+    revealElements(document.querySelectorAll('.default_profile_picture'));
+    hideElements(userProfileImage);
+    userProfileImage.src = '';
+  });
+
+  updateAccount(['profilePicture'], '');
+  closeEditAccountMenu();
+}
+
 function changeInputForImage() {
   if (!PROFILE_PICTURE_OPTIONS[0].checked) {
     PROFILE_PICTURE_OPTIONS[0].removeAttribute('checked');
@@ -152,19 +192,22 @@ function updateProfilePicture() {
   let input = CHECKED_RADIO_INPUT_CONTAINER.children[1];
 
   if (input.name === 'imgFile') {
+    let imgURL = (window.URL ? URL : webkitURL).createObjectURL(input.files[0]);
+    renderProfilePictures(imgURL);
+
     const reader = new FileReader();
     let img;
 
     reader.addEventListener('load', () => {
       img = reader.result;
-      updateAccount(['profilePicture', img]);
+      updateAccount(['profilePicture'], img);
     });
-
     reader.readAsDataURL(input.files[0]);
   } else {
     updateAccount(['profilePicture'], input.value);
+    renderProfilePictures(input.value);
   }
-  renderProfilePictures();
+  input.value = '';
   closeEditAccountMenu();
 }
 
@@ -179,6 +222,23 @@ document
 document
   .getElementById('saveProfilePictureButton')
   .addEventListener('click', updateProfilePicture);
+
+// kebab code
+const KEBAB_ICON = document.querySelector('.kebabIcon');
+const KEBAB_MENU = document.querySelector('.kebab_menu');
+let isKebabMenuOpen = false;
+
+function toggleKebabMenu() {
+  if (!isKebabMenuOpen) {
+    revealElements(KEBAB_MENU);
+  } else {
+    hideElements(KEBAB_MENU);
+  }
+
+  isKebabMenuOpen = !isKebabMenuOpen;
+}
+
+KEBAB_ICON.addEventListener('click', toggleKebabMenu);
 
 // update username
 function showEditUsernameMenu() {
@@ -196,6 +256,7 @@ function renderUsernames() {
 
 function updateUsername() {
   let newUsername = document.getElementById('usernameInput').value;
+  document.getElementById('usernameInput').value = '';
 
   if (!newUsername.length) return;
 
@@ -269,6 +330,7 @@ export {
   onlineUser,
   setOnlineUser,
   isUserOnline,
+  resetProfilePictures,
   renderProfilePictures,
   renderUsernames,
   searchUsername,

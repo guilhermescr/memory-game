@@ -357,11 +357,7 @@
               <g></g>
             </svg>
 
-            <img
-              class="userProfileImage hide"
-              src=""
-              alt="Profile Image"
-            />
+            <img class="userProfileImage hide" src="" alt="Profile Image" />
           </div>
 
           <h3 class="user_name">username</h3>
@@ -371,12 +367,18 @@
             <p><span class="xpAmount">256</span>xp</p>
           </div>
 
-          <button id="logoutButton" type="button">Logout</button>
+          <button class="logoutBtn" id="logoutButton" type="button">
+            Logout
+          </button>
         </div>
 
         <section class="profile_menu hide">
           <section class="edit_profile_menu hide">
-            <div class="which_info_container">
+            <i
+              class="fa-regular fa-circle-xmark close_edit_profile_menu_icon"
+            ></i>
+
+            <div class="which_info_container edit_profile_menu_option">
               <h3>Which info do you want to update?</h3>
 
               <div class="edit_profile_options">
@@ -397,7 +399,7 @@
               </div>
             </div>
 
-            <div class="edit_username_container hide">
+            <div class="edit_username_container edit_profile_menu_option hide">
               <h3>What is your new username?</h3>
 
               <form class="usernameInput_container">
@@ -419,7 +421,9 @@
               </form>
             </div>
 
-            <div class="edit_profile_picture_container hide">
+            <div
+              class="edit_profile_picture_container edit_profile_menu_option hide"
+            >
               <h3>Upload an image or Insert a link</h3>
 
               <div class="profile_picture_options">
@@ -456,6 +460,27 @@
           </section>
 
           <section class="profile_left_column">
+            <div class="kebab_menu_container" role="button">
+              <i
+                class="fa-solid fa-ellipsis-vertical kebabIcon"
+                title="More Options"
+              ></i>
+
+              <div class="kebab_menu hide">
+                <p
+                  class="kebab_option"
+                  role="button"
+                  id="removeProfilePictureButton"
+                  title="Remove Profile Picture"
+                >
+                  Remove Photo
+                </p>
+                <p class="kebab_option logoutBtn" role="button" title="Logout">
+                  Logout
+                </p>
+              </div>
+            </div>
+
             <div class="profile_crud_buttons">
               <div class="editProfileButton" role="button" title="Edit Profile">
                 <i class="fa-solid fa-user-pen"></i>
@@ -509,15 +534,11 @@
                 <g></g>
               </svg>
 
-              <img
-                class="userProfileImage hide"
-                src=""
-                alt="Profile Image"
-              />
+              <img class="userProfileImage hide" src="" alt="Profile Image" />
             </div>
 
             <div class="profile_info">
-              <h3>User: <span class="user_name">user</span></h3>
+              <h3 class="user_name">user</h3>
 
               <div class="experience_bar">
                 <div class="exp_progress"></div>

@@ -23,7 +23,7 @@ import {
   AUTH_BUTTON,
   FORM,
   HIDE_PASSWORD_EYE,
-  LOGOUT_BUTTON,
+  LOGOUT_BUTTONS,
   PASSWORD_INFO,
   PASSWORD_INPUT,
   PLAY_ANONYMOUSLY_BUTTON,
@@ -217,6 +217,8 @@ PLAY_ANONYMOUSLY_BUTTON.addEventListener('click', endAuthPage);
 
 AUTH_BUTTON.addEventListener('click', handleAuthButton);
 
-LOGOUT_BUTTON.addEventListener('click', logout);
+LOGOUT_BUTTONS.forEach(logout_button => {
+  logout_button.addEventListener('click', logout);
+});
 
 export { getAccounts, endAuthPage, updateApprovedValidation };
