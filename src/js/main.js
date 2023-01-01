@@ -15,7 +15,8 @@ import { getAccounts } from './modules/auth/AuthService.mjs';
 import {
   isUserOnline,
   onlineUser,
-  renderProfilePictures
+  renderProfilePictures,
+  resetProfilePictures
 } from './modules/auth/AccountMethods.mjs';
 
 const CLICK_ON_WINDOW_CONTAINER = document.querySelector(
@@ -269,9 +270,9 @@ document.body.onload = () => {
     setVolume(onlineUser.userData.sounds.volume);
 
     if (onlineUser.userData.profilePicture.length) {
-      renderProfilePictures();
-      document.querySelector('.open_profile_menu').classList.add('hasPFP');
-      document.querySelector('.profile_menu').classList.add('hasPFP');
+      renderProfilePictures(onlineUser.userData.profilePicture);
+    } else {
+      resetProfilePictures();
     }
 
     renderClickOnWindowMessage();

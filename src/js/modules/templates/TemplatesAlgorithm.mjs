@@ -125,4 +125,9 @@ CHANGE_TEMPLATE_BUTTON.onclick = showTemplatesInMenu;
 
 document.querySelector('.open_profile_menu').onclick = showUserProfileInfo;
 
-export { currentTemplate, setCurrentTemplateImage, changeCurrentTemplate };
+export {
+  currentTemplate,
+  setCurrentTemplateImage,
+  changeCurrentTemplate,
+  showSettingsMenu
+};

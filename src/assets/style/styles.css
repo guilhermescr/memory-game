@@ -1224,7 +1224,6 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
-  justify-content: center;
   padding: 5px;
   position: relative;
   width: 30%;
@@ -1262,6 +1261,7 @@ h2 {
 .open_profile_menu h3 {
   font-weight: 500;
   width: 60%;
+  word-break: break-word;
 }
 
 #logoutButton {
@@ -1295,6 +1295,7 @@ h2 {
   border-radius: 15px;
   height: 100%;
   left: 50%;
+  max-height: 300px;
   max-width: 400px;
   padding: 20px;
   position: absolute;
@@ -1302,6 +1303,14 @@ h2 {
   transform: translateX(-50%);
   width: 100%;
   z-index: 1;
+}
+
+.close_edit_profile_menu_icon {
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  position: absolute;
+  right: 20px;
 }
 
 .edit_profile_menu > div {
@@ -1391,6 +1400,43 @@ h2 {
   position: relative;
 }
 
+.kebab_menu_container {
+  left: 7%;
+  position: absolute;
+  top: 10px;
+}
+
+.kebabIcon {
+  font-size: 25px;
+}
+
+.kebab_menu {
+  background-color: #282828;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transform: translate(15%, -90%);
+  width: max-content;
+}
+
+.kebab_option {
+  background-color: #353535;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.kebab_option:hover {
+  background-color: #303030;
+}
+
+.kebab_option:active {
+  background-color: #575757;
+  opacity: 0.9;
+}
+
 .profile_crud_buttons {
   display: flex;
   flex-direction: column;
@@ -1401,19 +1447,26 @@ h2 {
 
 .editProfileButton,
 .deleteProfileButton {
-  color: #fff;
-  cursor: pointer;
-  display: flex;
   font-size: 20px;
 }
 
+.editProfileButton,
+.deleteProfileButton,
+.kebabIcon {
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+}
+
 .editProfileButton:hover,
-.deleteProfileButton:hover {
+.deleteProfileButton:hover,
+.kebabIcon:hover {
   color: #f4fff4e0;
 }
 
 .editProfileButton:active,
-.deleteProfileButton:active {
+.deleteProfileButton:active,
+.kebabIcon:active {
   color: #efefef;
 }
 
@@ -1971,6 +2024,12 @@ section.deck-container div.memory-deck {
   width: calc(100% - 20px);
 }
 
+@media (min-width: 760px) {
+  .kebab_menu_container {
+    left: 12%;
+  }
+}
+
 @media (max-width: 580px) {
   #click_on_window_message h2 {
     font-size: 8vw;
@@ -2072,6 +2131,12 @@ section.deck-container div.memory-deck {
     gap: 10px;
   }
 
+  .edit_profile_menu > div > h3:nth-child(1) {
+    margin: 0 auto;
+    max-width: 180px;
+    width: 100%;
+  }
+
   .profile_picture_container {
     width: 80px;
   }
@@ -2082,6 +2147,14 @@ section.deck-container div.memory-deck {
     width: 100%;
   }
 
+  .kebab_menu_container {
+    left: 10%;
+  }
+
+  .edit_profile_options {
+    flex-direction: column;
+  }
+
   .general_info_list {
     flex-flow: row wrap;
   }
@@ -2089,6 +2162,11 @@ section.deck-container div.memory-deck {
   .general_info_list li {
     font-size: 18px;
     width: max-content;
+  }
+
+  .edit_profile_picture_container {
+    gap: 10px;
+    justify-content: flex-start;
   }
 
   .audio-container {

@@ -6,6 +6,7 @@ import {
   playHoverSoundEffect,
   stopHoverSoundEffect
 } from './m-audio/audio.mjs';
+import { showSettingsMenu } from './templates/TemplatesAlgorithm.mjs';
 
 const SETTINGS_MENUS = document.querySelectorAll('.menu');
 const MENU_SETTINGS_OPTIONS = document.querySelectorAll('.setting-option');
@@ -28,6 +29,9 @@ function openMenu() {
   }
   if (buttonDataset === 'ingame-settings') {
     TOP_BAR_CONTAINER.style.display = 'none';
+  }
+  if (buttonDataset === 'home_settings') {
+    showSettingsMenu();
   }
 }
 
@@ -77,4 +81,10 @@ MENU_SETTINGS_OPTIONS.forEach(SETTING_BUTTON => {
   SETTING_BUTTON.addEventListener('mouseleave', stopHoverSoundEffect);
 });
 
-export { SETTINGS_BUTTONS, CLOSE_MENU_BUTTONS, openMenu, closeMenu, menuIsOpen };
+export {
+  SETTINGS_BUTTONS,
+  CLOSE_MENU_BUTTONS,
+  openMenu,
+  closeMenu,
+  menuIsOpen
+};
