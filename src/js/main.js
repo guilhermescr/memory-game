@@ -43,7 +43,6 @@ function timeoutItems(functionItems, timing) {
 }
 
 function allowGameToStart() {
-  // setCurrentTemplateImage();
   if (MusicIsActive) {
     timeoutItems(playHomeMusic);
   }
@@ -261,26 +260,31 @@ function hideElements(elements) {
   elements.classList.add('hide');
 }
 
+function setDefaultSettings() {
+  changeCurrentTemplate(onlineUser.userData.CurrentTemplate);
+  setCurrentTemplateImage();
+  setVolume(onlineUser.userData.sounds.volume);
+
+  if (onlineUser.userData.profilePicture.length) {
+    renderProfilePictures(onlineUser.userData.profilePicture);
+  } else {
+    resetProfilePictures();
+  }
+  allowGameToStart();
+}
+
 document.body.onload = () => {
   getAccounts();
   let userIsOnline = isUserOnline();
   if (userIsOnline) {
-    changeCurrentTemplate(onlineUser.userData.CurrentTemplate);
-    setCurrentTemplateImage();
-    setVolume(onlineUser.userData.sounds.volume);
-
-    if (onlineUser.userData.profilePicture.length) {
-      renderProfilePictures(onlineUser.userData.profilePicture);
-    } else {
-      resetProfilePictures();
-    }
-
+    setDefaultSettings();
     renderClickOnWindowMessage();
   } else {
     removeLoaderContainer();
     removeClickOnWindowMessage();
     hideElements(document.querySelector('.toggleFullscreenIcon_container'));
   }
+  // come back here
 };
 
 export {
@@ -290,5 +294,6 @@ export {
   renderLoaderContainer,
   revealElements,
   hideElements,
-  handleKeydownEvent
+  handleKeydownEvent,
+  setDefaultSettings
 };

@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'https://cdn.skypack.dev/uuid';
 
 import { hideElements, revealElements, timeoutItems } from '../../main.js';
 import { updateSoundsStatus } from '../m-audio/audio.mjs';
-import { endAuthPage } from './AuthService.mjs';
+import { endAuthPage, logout } from './AuthService.mjs';
 
 let accounts = [];
 const onlineUser = {
@@ -211,6 +211,17 @@ function updateProfilePicture() {
   closeEditAccountMenu();
 }
 
+function deleteAccount() {
+  accounts = accounts.filter(account => account.id !== onlineUser.userData.id);
+
+  if (accounts.length) {
+    localStorage.setItem('accounts', JSON.stringify(accounts));
+  } else {
+    localStorage.removeItem('accounts');
+  }
+  logout();
+}
+
 PROFILE_PICTURE_OPTIONS.forEach(profile_pic_option => {
   profile_pic_option.addEventListener('click', changeInputForImage);
 });
@@ -222,6 +233,10 @@ document
 document
   .getElementById('saveProfilePictureButton')
   .addEventListener('click', updateProfilePicture);
+
+document
+  .querySelector('.deleteProfileButton')
+  .addEventListener('click', deleteAccount);
 
 // kebab code
 const KEBAB_ICON = document.querySelector('.kebabIcon');
@@ -282,7 +297,6 @@ document
 function setOnlineUser(account) {
   onlineUser.online = true;
   onlineUser.userData = account;
-  console.log(onlineUser);
 
   localStorage.setItem('onlineUser', JSON.stringify(onlineUser));
 }

@@ -1,7 +1,10 @@
 import {
+  allowGameToStart,
   handleKeydownEvent,
   hideElements,
+  renderLoaderContainer,
   revealElements,
+  setDefaultSettings,
   timeoutItems
 } from '../../main.js';
 import { showLoginMenu, showRegisterMenu } from './AuthMenus.mjs';
@@ -153,6 +156,8 @@ function login($username, $password) {
 
   if (account !== undefined) {
     setOnlineUser(account);
+    setDefaultSettings();
+    renderLoaderContainer('Welcome!');
     endAuthPage();
   } else {
     authError('Account not found.');
@@ -161,10 +166,9 @@ function login($username, $password) {
 
 function endAuthPage() {
   document.body.style.overflowY = 'hidden';
+  document.body.removeChild(SIGN_UP_IN_CONTAINER);
 
   renderUsernames();
-
-  document.body.removeChild(SIGN_UP_IN_CONTAINER);
 
   window.addEventListener('keydown', function (event) {
     let { key } = event;
@@ -221,4 +225,4 @@ LOGOUT_BUTTONS.forEach(logout_button => {
   logout_button.addEventListener('click', logout);
 });
 
-export { getAccounts, endAuthPage, updateApprovedValidation };
+export { getAccounts, endAuthPage, updateApprovedValidation, logout };

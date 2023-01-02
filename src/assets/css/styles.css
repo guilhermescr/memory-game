@@ -1224,6 +1224,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+  justify-content: center;
   padding: 5px;
   position: relative;
   width: 30%;
@@ -1775,56 +1776,11 @@ h2 {
   margin-top: -4px;
 }
 
-/* CREDITS */
-.credits {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 10px;
-  overflow: hidden;
-}
-
-.credits-info {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.credits-info .credits-image-creator {
-  width: 50%;
-  text-align: center;
-  position: relative;
-}
-
-.credits-info .credits-image-creator img {
-  background-size: cover;
-  box-shadow: 0px 0px 20px #f7ccac;
-  border-radius: 50%;
-
-  width: 80%;
-  margin-bottom: 15px;
-}
-
-.credits-info .credits-image-creator img#creator-background-image {
-  position: absolute;
-  height: 86.4%;
-  z-index: -1;
-}
-
-.credits-info .social {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.credits-info .social h3 {
+.credits__info .social h3 {
   line-height: 30px;
 }
 
-.credits-info .social > div {
+.credits__info .social > div {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -1834,19 +1790,9 @@ h2 {
   padding-inline: 5px;
 }
 
-.credits-info .social > div > svg {
+.credits__info .social > div > svg {
   width: 15%;
   fill: #fff;
-}
-
-.credits-info .social .social-links {
-  color: #fff;
-  font-size: 16px;
-  max-width: max-content;
-}
-
-.social-links:hover {
-  text-decoration: underline;
 }
 
 /* DECK */
@@ -2087,18 +2033,6 @@ section.deck-container div.memory-deck {
     gap: 25px;
   }
 
-  .credits-info .credits-image-creator {
-    width: 100%;
-  }
-
-  .credits-info .credits-image-creator img {
-    width: 42%;
-  }
-
-  .credits-info .credits-image-creator img#creator-background-image {
-    height: 85%;
-  }
-
   .deck-container {
     overflow-y: hidden;
   }
@@ -2195,28 +2129,6 @@ section.deck-container div.memory-deck {
     padding-bottom: 10px;
 
     transform: translate(-50%, 0%);
-  }
-}
-
-@media (max-width: 540px) {
-  .credits-info .credits-image-creator img#creator-background-image {
-    height: 83%;
-  }
-}
-
-@media (max-width: 480px) {
-  .theme {
-    height: 240px;
-  }
-
-  .credits-info .credits-image-creator img#creator-background-image {
-    height: 80%;
-  }
-}
-
-@media (max-width: 380px) {
-  .credits-info .credits-image-creator img#creator-background-image {
-    height: 75%;
   }
 }
 
