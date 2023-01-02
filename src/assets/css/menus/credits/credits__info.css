@@ -1,0 +1,6 @@
+.credits__info {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}

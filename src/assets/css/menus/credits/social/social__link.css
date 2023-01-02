@@ -1,0 +1,9 @@
+.social__link {
+  color: #fff;
+  font-size: 16px;
+  max-width: max-content;
+}
+
+.social__link:hover {
+  text-decoration: underline;
+}
