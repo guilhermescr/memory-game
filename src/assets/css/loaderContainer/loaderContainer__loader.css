@@ -1,0 +1,15 @@
+#loaderContainer__loader {
+  border-radius: 50%;
+  box-shadow: var(--loader_box_shadow);
+
+  width: 150px;
+  height: 150px;
+  animation: SpinLoaderAnimation 2s linear infinite;
+}
+
+@media (max-width: 580px) {
+  #loaderContainer__loader {
+    width: 120px;
+    height: 120px;
+  }
+}

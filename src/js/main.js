@@ -20,10 +20,10 @@ import {
 } from './modules/auth/AccountMethods.mjs';
 
 const CLICK_ON_WINDOW_CONTAINER = document.querySelector(
-  '#click_on_window_message'
+  '#clickOnWindowMessageContainer'
 );
-const LOADER_CONTAINER = document.getElementById('loader-container');
-const LOADER_TITLE = document.getElementById('loader-title');
+const LOADER_CONTAINER = document.getElementById('loaderContainer');
+const LOADER_TITLE = document.getElementById('loaderContainer__loaderTitle');
 
 function timeoutItems(functionItems, timing) {
   if (!timing) {
@@ -270,7 +270,6 @@ function setDefaultSettings() {
   } else {
     resetProfilePictures();
   }
-  allowGameToStart();
 }
 
 document.body.onload = () => {

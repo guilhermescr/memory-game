@@ -51,7 +51,6 @@ function addForestTemplateChanges() {
 function addRainbowTemplateChanges() {
   resetBirdAnimation();
   resetArmySoldiersAnimation();
-  console.log("It's working!");
 }
 
 function addMilitaryTemplateChanges() {
@@ -59,7 +58,6 @@ function addMilitaryTemplateChanges() {
   resetArmySoldiersAnimation();
 
   startArmySoldiersAnimation();
-  console.log("It's working!");
 }
 
 const BODY_CLASSLIST_TEMPLATE_OPTIONS = {

@@ -74,7 +74,7 @@ function createTemplates() {
         event.preventDefault();
         changeCurrentTemplate(TemplateStyles);
         setCurrentTemplateImage();
-        updateAccount(['CurrentTemplate'], document.body.classList[0]);
+        updateAccount(['CurrentTemplate'], TemplateStyles);
         showSettingsMenu();
         closeMenu();
         stopHomeMusic();

@@ -158,6 +158,7 @@ function login($username, $password) {
     setOnlineUser(account);
     setDefaultSettings();
     renderLoaderContainer('Welcome!');
+    allowGameToStart();
     endAuthPage();
   } else {
     authError('Account not found.');

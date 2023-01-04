@@ -10,6 +10,37 @@
     />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../src/assets/css/styles.css" />
+
+    <!-- Window Sections: Click On Window Message -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/clickOnWindowMessage/clickOnWindowMessageContainer.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/clickOnWindowMessage/clickOnWindowMessageContainer__clickGifContainer.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/clickOnWindowMessage/clickGifContainer__clickGif.css"
+    />
+
+    <!-- Window Sections: Loading Container -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/loaderContainer/loaderContainer.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/loaderContainer/loaderContainer__loaderTitle.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/loaderContainer/loaderContainer__loader.css"
+    />
+
+    <!-- Credits Menu -->
+
     <link rel="stylesheet" href="../src/assets/css/menus/credits/credits.css" />
     <link
       rel="stylesheet"
@@ -25,8 +56,14 @@
     />
 
     <!-- Social -->
-    <link rel="stylesheet" href="../src/assets/css/menus/credits/social/social.css">
-    <link rel="stylesheet" href="../src/assets/css/menus/credits/social/social__link.css">
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/credits/social/social.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/credits/social/social__link.css"
+    />
     <title>Memory Game</title>
 
     <!-- Font Awesome -->
@@ -37,21 +74,21 @@
     ></script>
   </head>
   <body class="forest_template">
-    <div id="click_on_window_message">
+    <section id="clickOnWindowMessageContainer">
       <h2>Click on the page to start!</h2>
-      <div class="click_gif_container">
+      <div class="clickOnWindowMessageContainer__clickGifContainer">
         <img
-          class="clickGif"
+          class="clickGifContainer__clickGif"
           src="../src/assets/gifs/click.gif"
           alt="Click Gif"
         />
       </div>
-    </div>
+    </section>
 
-    <div id="loader-container">
-      <h2 id="loader-title">Loading...</h2>
-      <div id="loader"></div>
-    </div>
+    <section id="loaderContainer">
+      <h2 id="loaderContainer__loaderTitle">Loading...</h2>
+      <div id="loaderContainer__loader"></div>
+    </section>
 
     <section class="top_bar_container">
       <div class="top_bar_left_content">
@@ -659,7 +696,7 @@
         <div class="credits__info">
           <div class="credits__info__creatorImageContainer">
             <img
-              id="creator-background-image"
+              id="credits__info__creatorBackgroundImage"
               src="../src/assets/images/social/background.jpg"
               alt="Background Image for the creator picture"
             />
