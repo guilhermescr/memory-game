@@ -1,0 +1,21 @@
+#loaderContainer {
+  background-color: #181d20fb;
+
+  width: 100vw;
+  height: 100vh;
+  padding-top: 10%;
+
+  position: absolute;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+@media (max-width: 580px) {
+  #loaderContainer {
+    padding-top: 0;
+    justify-content: center;
+  }
+}

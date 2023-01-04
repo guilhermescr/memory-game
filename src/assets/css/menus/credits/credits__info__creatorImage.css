@@ -9,7 +9,7 @@
 
 .credits__info
   .credits__info__creatorImageContainer
-  img#creator-background-image {
+  img#credits__info__creatorBackgroundImage {
   position: absolute;
   height: 86.4%;
   z-index: -1;
@@ -22,7 +22,7 @@
 
   .credits__info
     .credits__info__creatorImageContainer
-    img#creator-background-image {
+    img#credits__info__creatorBackgroundImage {
     height: 85%;
   }
 }
@@ -30,7 +30,7 @@
 @media (max-width: 540px) {
   .credits__info
     .credits__info__creatorImageContainer
-    img#creator-background-image {
+    img#credits__info__creatorBackgroundImage {
     height: 81%;
   }
 }
@@ -42,7 +42,7 @@
 
   .credits__info
     .credits__info__creatorImageContainer
-    img#creator-background-image {
+    img#credits__info__creatorBackgroundImage {
     height: 80%;
   }
 }
@@ -50,7 +50,7 @@
 @media (max-width: 400px) {
   .credits__info
     .credits__info__creatorImageContainer
-    img#creator-background-image {
+    img#credits__info__creatorBackgroundImage {
     height: 76%;
   }
 }
@@ -58,7 +58,7 @@
 @media (max-width: 380px) {
   .credits__info
     .credits__info__creatorImageContainer
-    img#creator-background-image {
+    img#credits__info__creatorBackgroundImage {
     height: 75%;
   }
 }

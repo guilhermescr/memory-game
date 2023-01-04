@@ -293,57 +293,6 @@ h2 {
   font-size: 30px;
 }
 
-#click_on_window_message,
-#loader-container {
-  background-color: #181d20fb;
-
-  width: 100vw;
-  height: 100vh;
-  padding-top: 10%;
-
-  position: absolute;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 50px;
-}
-
-#click_on_window_message {
-  background-color: #000;
-  cursor: pointer;
-}
-
-#click_on_window_message h2,
-#loader-container h2 {
-  color: var(--window_message_text_color);
-  text-shadow: var(--window_message_text_shadow);
-  font-size: 50px;
-  animation: moveLoadingTitle 0.8s alternate infinite;
-}
-
-#click_on_window_message h2 {
-  max-width: 70%;
-}
-
-.click_gif_container {
-  text-align: center;
-  width: 100%;
-}
-
-.clickGif {
-  width: 8%;
-}
-
-#loader {
-  border-radius: 50%;
-  box-shadow: var(--loader_box_shadow);
-
-  width: 150px;
-  height: 150px;
-  animation: SpinLoaderAnimation 2s linear infinite;
-}
-
 @keyframes moveLoadingTitle {
   0% {
     transform: translateX(-2%);
@@ -1977,29 +1926,6 @@ section.deck-container div.memory-deck {
 }
 
 @media (max-width: 580px) {
-  #click_on_window_message h2 {
-    font-size: 8vw;
-  }
-
-  .clickGif {
-    width: 60%;
-  }
-
-  #loader-container {
-    padding-top: 0;
-    justify-content: center;
-  }
-
-  #loader-container h2 {
-    font-size: 200%;
-    max-width: 240px;
-  }
-
-  #loader {
-    width: 120px;
-    height: 120px;
-  }
-
   .top_bar_container .top_bar_left_content {
     flex-wrap: wrap;
   }

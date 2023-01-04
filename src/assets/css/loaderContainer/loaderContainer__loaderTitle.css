@@ -1,0 +1,13 @@
+#loaderContainer__loaderTitle {
+  color: var(--window_message_text_color);
+  text-shadow: var(--window_message_text_shadow);
+  font-size: 50px;
+  animation: moveLoadingTitle 0.8s alternate infinite;
+}
+
+@media (max-width: 580px) {
+  #loaderContainer__loaderTitle {
+    font-size: 200%;
+    max-width: 240px;
+  }
+}

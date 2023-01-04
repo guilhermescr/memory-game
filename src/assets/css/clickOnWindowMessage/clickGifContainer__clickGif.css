@@ -1,0 +1,9 @@
+.clickGifContainer__clickGif {
+  width: 8%;
+}
+
+@media (max-width: 580px) {
+  .clickGifContainer__clickGif {
+    width: 60%;
+  }
+}
