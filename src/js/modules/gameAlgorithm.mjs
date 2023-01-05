@@ -23,7 +23,7 @@ import { fillRandomThemes } from './randomThemes/fillRandomThemes.mjs';
 
 const SCOREBOARD = document.getElementById('scorePoints');
 const MOVE_COUNT = document.getElementById('moveCount');
-const HEARTS = document.querySelectorAll('.heart');
+const HEARTS = document.querySelectorAll('.heartsContainer__heart');
 let cards;
 
 function startGame() {
@@ -42,7 +42,7 @@ function startGame() {
   let lives = 5;
   changeHomePageState(false);
 
-  if (!document.querySelector('.hearts_container').classList.contains('hide')) {
+  if (!document.querySelector('.topBarLeftContent__heartsContainer').classList.contains('hide')) {
     resetHeartsColor();
     withLives = true;
   }
@@ -52,23 +52,23 @@ function startGame() {
 
   function resetHeartsColor() {
     for (let heart of HEARTS) {
-      heart.classList.add('alive_heart');
-      heart.classList.remove('dead_heart');
+      heart.classList.add('heartsContainer__aliveHeart');
+      heart.classList.remove('heartsContainer__deadHeart');
     }
   }
 
   function recoverHeart() {
     if (HEARTS[lives]) {
-      HEARTS[lives].classList.remove('dead_heart');
-      HEARTS[lives].classList.add('alive_heart');
+      HEARTS[lives].classList.remove('heartsContainer__deadHeart');
+      HEARTS[lives].classList.add('heartsContainer__aliveHeart');
       lives < 5 ? lives++ : null;
     }
   }
 
   function loseHeart() {
     lives--;
-    HEARTS[lives].classList.remove('alive_heart');
-    HEARTS[lives].classList.add('dead_heart');
+    HEARTS[lives].classList.remove('heartsContainer__aliveHeart');
+    HEARTS[lives].classList.add('heartsContainer__deadHeart');
     if (lives === 0) {
       setTimeout(() => {
         alert('You lost.');
@@ -182,11 +182,11 @@ function endGame() {
   }
 
   memoryDeck.innerHTML = '';
-  TOP_BAR_CONTAINER.classList.remove('top_bar_container__background');
+  TOP_BAR_CONTAINER.classList.remove('topBarContainer--background');
 
   const GAME_MENU = document.querySelector('.game-menu');
   let topBarContainerIngameElements =
-    document.querySelectorAll('.top_bar_item');
+    document.querySelectorAll('.topBarContainer__topBarItem');
 
   hideElements(DECK_CONTAINER);
   hideElements(topBarContainerIngameElements);

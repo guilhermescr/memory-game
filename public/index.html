@@ -39,6 +39,55 @@
       href="../src/assets/css/loaderContainer/loaderContainer__loader.css"
     />
 
+    <!-- Top Bar Container -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/topBarContainer/topBarContainer.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/topBarContainer/topBarContainer__topBarItem.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/topBarContainer/topBarContainer__svg.css"
+    />
+
+    <!-- Top Bar Left Content -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/topBarContainer/topBarLeftContent/topBarContainer__topBarLeftContent.css"
+    />
+
+    <!-- Top Bar Left Content - Hearts Container -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/topBarContainer/topBarLeftContent/heartsContainer/heartsContainer__heart.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/topBarContainer/topBarLeftContent/heartsContainer/heartsContainer__aliveHeart.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/topBarContainer/topBarLeftContent/heartsContainer/heartsContainer__deadHeart.css"
+    />
+
+    <!-- Top Bar Right Content -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/topBarContainer/topBarRightContent/topBarContainer__topBarRightContent.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/topBarContainer/topBarRightContent/topBarRightContent__toggleFullscreenIconContainer.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/topBarContainer/topBarRightContent/topBarRightContent__settingsIcon.css"
+    />
+
     <!-- Credits Menu -->
 
     <link rel="stylesheet" href="../src/assets/css/menus/credits/credits.css" />
@@ -90,30 +139,41 @@
       <div id="loaderContainer__loader"></div>
     </section>
 
-    <section class="top_bar_container">
-      <div class="top_bar_left_content">
-        <h3 id="score" class="top_bar_item hide">
+    <section class="topBarContainer">
+      <div class="topBarContainer__topBarLeftContent">
+        <h3 id="score" class="topBarContainer__topBarItem hide">
           Score: <span id="scorePoints">0</span>
         </h3>
-        <h3 id="moves" class="top_bar_item hide">
+        <h3 id="moves" class="topBarContainer__topBarItem hide">
           Moves: <span id="moveCount">0</span>
         </h3>
-        <h3 class="top_bar_item hearts_container hide">
+        <h3
+          class="topBarContainer__topBarItem topBarLeftContent__heartsContainer hide"
+        >
           Lives:
           <span id="hearts">
-            <i class="fa-sharp fa-solid fa-heart heart alive_heart"></i>
-            <i class="fa-sharp fa-solid fa-heart heart alive_heart"></i>
-            <i class="fa-sharp fa-solid fa-heart heart alive_heart"></i>
-            <i class="fa-sharp fa-solid fa-heart heart alive_heart"></i>
-            <i class="fa-sharp fa-solid fa-heart heart alive_heart"></i>
+            <i
+              class="fa-sharp fa-solid fa-heart heartsContainer__heart heartsContainer__aliveHeart"
+            ></i>
+            <i
+              class="fa-sharp fa-solid fa-heart heartsContainer__heart heartsContainer__aliveHeart"
+            ></i>
+            <i
+              class="fa-sharp fa-solid fa-heart heartsContainer__heart heartsContainer__aliveHeart"
+            ></i>
+            <i
+              class="fa-sharp fa-solid fa-heart heartsContainer__heart heartsContainer__aliveHeart"
+            ></i>
+            <i
+              class="fa-sharp fa-solid fa-heart heartsContainer__heart heartsContainer__aliveHeart"
+            ></i>
           </span>
         </h3>
       </div>
 
-      <div class="top_bar_right_content">
+      <div class="topBarContainer__topBarRightContent">
         <svg
-          id="settingsIcon"
-          class="top_bar_item hide settingButton"
+          class="topBarContainer__topBarItem topBarRightContent__settingsIcon settingButton hide"
           data-setting="ingame-settings"
           version="1.1"
           id="Layer_1"
@@ -160,7 +220,7 @@
           <g></g>
         </svg>
 
-        <span class="toggleFullscreenIcon_container"></span>
+        <span class="topBarRightContent__toggleFullscreenIconContainer"></span>
       </div>
     </section>
 

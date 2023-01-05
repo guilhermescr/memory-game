@@ -1,0 +1,4 @@
+.heartsContainer__deadHeart {
+  color: #202020;
+  transition: 0.3s ease-out;
+}

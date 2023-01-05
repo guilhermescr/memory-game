@@ -176,7 +176,7 @@ function endAuthPage() {
     handleKeydownEvent(key);
   });
 
-  revealElements(document.querySelector('.toggleFullscreenIcon_container'));
+  revealElements(document.querySelector('.topBarRightContent__toggleFullscreenIconContainer'));
 }
 
 function logout() {

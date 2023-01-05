@@ -8,7 +8,7 @@ import { themes } from './themesData.mjs';
 import { resetThemesContainerStyles } from './themesDifficulty.mjs';
 import { renderDeck } from './deckStyles.mjs';
 
-const TOP_BAR_CONTAINER = document.querySelector('.top_bar_container');
+const TOP_BAR_CONTAINER = document.querySelector('.topBarContainer');
 let createCardsTwice,
   btnThemeId,
   memoryDeck = document.getElementById('deck');
@@ -77,9 +77,9 @@ function createCards(difficulty) {
 function addEasyModeCards() {
   const GAME_MENU = document.querySelector('.game-menu');
   let topBarContainerIngameElements = document.querySelectorAll(
-    '.top_bar_item:not(.top_bar_item.hearts_container)'
+    '.topBarContainer__topBarItem:not(.topBarContainer__topBarItem.topBarLeftContent__heartsContainer)'
   );
-  TOP_BAR_CONTAINER.classList.add('top_bar_container__background');
+  TOP_BAR_CONTAINER.classList.add('topBarContainer--background');
 
   closeMenu();
   resetThemesContainerStyles();
@@ -99,7 +99,7 @@ function addNormalModeCards() {
 }
 
 function addHardModeCards() {
-  revealElements(document.querySelector('.hearts_container'));
+  revealElements(document.querySelector('.topBarLeftContent__heartsContainer'));
   createCards(themesDifficultiesList[2]);
   addNormalModeCards();
 }

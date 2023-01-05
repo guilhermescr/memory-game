@@ -1,0 +1,16 @@
+.topBarContainer {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  min-height: max-content;
+  padding: 7px 15px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.topBarContainer--background {
+  background-image: var(--top_bar_container_background_image_gradient);
+  border-radius: 0 0 25px 25px;
+}

@@ -83,7 +83,7 @@ CLICK_ON_WINDOW_CONTAINER.onclick = () => {
 
 const ROOT_ELEMENT = document.documentElement; // <- <html> tag
 const FULLSCREEN_BUTTON = document.querySelector(
-  '.toggleFullscreenIcon_container'
+  '.topBarRightContent__toggleFullscreenIconContainer'
 );
 const MAXIMIZE_FULLSCREEN_ICON = `
 <svg
@@ -281,7 +281,7 @@ document.body.onload = () => {
   } else {
     removeLoaderContainer();
     removeClickOnWindowMessage();
-    hideElements(document.querySelector('.toggleFullscreenIcon_container'));
+    hideElements(document.querySelector('.topBarRightContent__toggleFullscreenIconContainer'));
   }
   // come back here
 };

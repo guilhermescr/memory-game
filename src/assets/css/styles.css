@@ -777,86 +777,6 @@ h2 {
   }
 }
 
-/* TOP BAR CONTAINER*/
-
-.top_bar_container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  min-height: max-content;
-  width: 100%;
-  padding: 10px 15px;
-
-  z-index: 100;
-  position: absolute;
-  top: 0;
-}
-
-.top_bar_container__background {
-  background-image: var(--top_bar_container_background_image_gradient);
-  border-radius: 0 0 25px 25px;
-}
-
-.top_bar_container .top_bar_left_content {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  position: relative;
-}
-
-.top_bar_container .top_bar_left_content h3 {
-  color: #fff;
-  padding: 5px 10px;
-}
-
-.top_bar_container .top_bar_left_content h3:last-child {
-  cursor: default;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.top_bar_container .top_bar_left_content h3 .heart {
-  cursor: pointer;
-  font-size: 20px;
-}
-
-.top_bar_container .top_bar_right_content {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-}
-
-.top_bar_container .toggleFullscreenIcon_container,
-#settingsIcon {
-  height: 30px;
-}
-
-.top_bar_container svg {
-  cursor: pointer;
-  fill: var(--top_bar_container_svg_color);
-  height: 100%;
-  opacity: 0.8;
-  pointer-events: all !important;
-}
-
-.top_bar_container svg:hover {
-  opacity: 1;
-}
-
-/* LIVES FOR THE GAME */
-
-.alive_heart {
-  text-shadow: 0 0 3px #000000;
-  color: red;
-}
-
-.dead_heart {
-  transition: 0.3s ease-out;
-  color: #202020;
-}
-
 /* GAME SETTINGS OPTIONS */
 .settings {
   border-radius: 10px;
@@ -1926,14 +1846,6 @@ section.deck-container div.memory-deck {
 }
 
 @media (max-width: 580px) {
-  .top_bar_container .top_bar_left_content {
-    flex-wrap: wrap;
-  }
-
-  .top_bar_container .top_bar_left_content h3 {
-    padding-block: 0;
-  }
-
   .themes {
     flex-direction: column;
   }
@@ -2142,15 +2054,5 @@ section.deck-container div.memory-deck {
     width: 60px;
     position: fixed;
     right: 20%;
-  }
-}
-
-@media (max-width: 300px) {
-  .top_bar_container .top_bar_left_content * {
-    font-size: 15px;
-  }
-
-  .top_bar_container .top_bar_left_content .heart {
-    font-size: 15px !important;
   }
 }

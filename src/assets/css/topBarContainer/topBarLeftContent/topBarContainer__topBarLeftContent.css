@@ -1,0 +1,18 @@
+.topBarContainer__topBarLeftContent {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+}
+
+@media (max-width: 580px) {
+  .topBarContainer__topBarLeftContent {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 300px) {
+  .topBarContainer__topBarLeftContent * {
+    font-size: 15px;
+  }
+}
