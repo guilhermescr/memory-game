@@ -1,4 +1,4 @@
-#loaderContainer__loaderTitle {
+#loader-container__loader-title {
   color: var(--window_message_text_color);
   text-shadow: var(--window_message_text_shadow);
   font-size: 50px;
@@ -6,7 +6,7 @@
 }
 
 @media (max-width: 580px) {
-  #loaderContainer__loaderTitle {
+  #loader-container__loader-title {
     font-size: 200%;
     max-width: 240px;
   }

@@ -1,4 +1,4 @@
-.topBarContainer {
+.top-bar-container {
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -10,7 +10,7 @@
   z-index: 100;
 }
 
-.topBarContainer--background {
+.top-bar-container--background {
   background-image: var(--top_bar_container_background_image_gradient);
   border-radius: 0 0 25px 25px;
 }

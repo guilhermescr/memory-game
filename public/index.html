@@ -14,78 +14,77 @@
     <!-- Window Sections: Click On Window Message -->
     <link
       rel="stylesheet"
-      href="../src/assets/css/clickOnWindowMessage/clickOnWindowMessageContainer.css"
+      href="../src/assets/css/click-on-window-message-container/click-on-window-message-container.css"
     />
     <link
       rel="stylesheet"
-      href="../src/assets/css/clickOnWindowMessage/clickOnWindowMessageContainer__clickGifContainer.css"
+      href="../src/assets/css/click-on-window-message-container/click-on-window-message-container__click-gif-container.css"
     />
     <link
       rel="stylesheet"
-      href="../src/assets/css/clickOnWindowMessage/clickGifContainer__clickGif.css"
+      href="../src/assets/css/click-on-window-message-container/click-gif-container__click-gif.css"
     />
 
     <!-- Window Sections: Loading Container -->
     <link
       rel="stylesheet"
-      href="../src/assets/css/loaderContainer/loaderContainer.css"
+      href="../src/assets/css/loader-container/loader-container.css"
     />
     <link
       rel="stylesheet"
-      href="../src/assets/css/loaderContainer/loaderContainer__loaderTitle.css"
+      href="../src/assets/css/loader-container/loader-container__loader-title.css"
     />
     <link
       rel="stylesheet"
-      href="../src/assets/css/loaderContainer/loaderContainer__loader.css"
+      href="../src/assets/css/loader-container/loader-container__loader.css"
     />
 
     <!-- Top Bar Container -->
     <link
       rel="stylesheet"
-      href="../src/assets/css/topBarContainer/topBarContainer.css"
+      href="../src/assets/css/top-bar-container/top-bar-container.css"
     />
     <link
       rel="stylesheet"
-      href="../src/assets/css/topBarContainer/topBarContainer__topBarItem.css"
+      href="../src/assets/css/top-bar-container/top-bar-container__top-bar-item.css"
     />
     <link
       rel="stylesheet"
-      href="../src/assets/css/topBarContainer/topBarContainer__svg.css"
-    />
-
-    <!-- Top Bar Left Content -->
-    <link
-      rel="stylesheet"
-      href="../src/assets/css/topBarContainer/topBarLeftContent/topBarContainer__topBarLeftContent.css"
+      href="../src/assets/css/top-bar-container/top-bar-container__svg.css"
     />
 
-    <!-- Top Bar Left Content - Hearts Container -->
+    <!-- Top Bar Container - Left Content -->
     <link
       rel="stylesheet"
-      href="../src/assets/css/topBarContainer/topBarLeftContent/heartsContainer/heartsContainer__heart.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../src/assets/css/topBarContainer/topBarLeftContent/heartsContainer/heartsContainer__aliveHeart.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../src/assets/css/topBarContainer/topBarLeftContent/heartsContainer/heartsContainer__deadHeart.css"
+      href="../src/assets/css/top-bar-container/top-bar-container__left-content/top-bar-container__left-content.css"
     />
 
-    <!-- Top Bar Right Content -->
+    <!-- Top Bar Container - Left Content - Hearts Container -->
     <link
       rel="stylesheet"
-      href="../src/assets/css/topBarContainer/topBarRightContent/topBarContainer__topBarRightContent.css"
+      href="../src/assets/css/top-bar-container/top-bar-container__left-content/left-content__hearts-container/hearts-container__heart.css"
     />
     <link
       rel="stylesheet"
-      href="../src/assets/css/topBarContainer/topBarRightContent/topBarRightContent__toggleFullscreenIconContainer.css"
+      href="../src/assets/css/top-bar-container/top-bar-container__left-content/left-content__hearts-container/hearts-container__alive-heart.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/top-bar-container/top-bar-container__left-content/left-content__hearts-container/hearts-container__dead-heart.css"
     />
 
+    <!-- Top Bar Container - Right Content -->
     <link
       rel="stylesheet"
-      href="../src/assets/css/topBarContainer/topBarRightContent/topBarRightContent__settingsIcon.css"
+      href="../src/assets/css/top-bar-container/top-bar-container__right-content/top-bar-container__right-content.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/top-bar-container/top-bar-container__right-content/right-content__settings-icon.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/top-bar-container/top-bar-container__right-content/right-content__toggle-fullscreen-icon-container.css"
     />
 
     <!-- Credits Menu -->
@@ -123,57 +122,57 @@
     ></script>
   </head>
   <body class="forest_template">
-    <section id="clickOnWindowMessageContainer">
+    <section id="click-on-window-message-container">
       <h2>Click on the page to start!</h2>
-      <div class="clickOnWindowMessageContainer__clickGifContainer">
+      <div class="click-on-window-message-container__click-gif-container">
         <img
-          class="clickGifContainer__clickGif"
+          class="click-gif-container__click-gif"
           src="../src/assets/gifs/click.gif"
           alt="Click Gif"
         />
       </div>
     </section>
 
-    <section id="loaderContainer">
-      <h2 id="loaderContainer__loaderTitle">Loading...</h2>
-      <div id="loaderContainer__loader"></div>
+    <section id="loader-container">
+      <h2 id="loader-container__loader-title">Loading...</h2>
+      <div id="loader-container__loader"></div>
     </section>
 
-    <section class="topBarContainer">
-      <div class="topBarContainer__topBarLeftContent">
-        <h3 id="score" class="topBarContainer__topBarItem hide">
+    <section class="top-bar-container">
+      <div class="top-bar-container__left-content">
+        <h3 id="score" class="top-bar-container__top-bar-item hide">
           Score: <span id="scorePoints">0</span>
         </h3>
-        <h3 id="moves" class="topBarContainer__topBarItem hide">
+        <h3 id="moves" class="top-bar-container__top-bar-item hide">
           Moves: <span id="moveCount">0</span>
         </h3>
         <h3
-          class="topBarContainer__topBarItem topBarLeftContent__heartsContainer hide"
+          class="top-bar-container__top-bar-item left-content__hearts-container hide"
         >
           Lives:
           <span id="hearts">
             <i
-              class="fa-sharp fa-solid fa-heart heartsContainer__heart heartsContainer__aliveHeart"
+              class="fa-sharp fa-solid fa-heart hearts-container__heart hearts-container__alive-heart"
             ></i>
             <i
-              class="fa-sharp fa-solid fa-heart heartsContainer__heart heartsContainer__aliveHeart"
+              class="fa-sharp fa-solid fa-heart hearts-container__heart hearts-container__alive-heart"
             ></i>
             <i
-              class="fa-sharp fa-solid fa-heart heartsContainer__heart heartsContainer__aliveHeart"
+              class="fa-sharp fa-solid fa-heart hearts-container__heart hearts-container__alive-heart"
             ></i>
             <i
-              class="fa-sharp fa-solid fa-heart heartsContainer__heart heartsContainer__aliveHeart"
+              class="fa-sharp fa-solid fa-heart hearts-container__heart hearts-container__alive-heart"
             ></i>
             <i
-              class="fa-sharp fa-solid fa-heart heartsContainer__heart heartsContainer__aliveHeart"
+              class="fa-sharp fa-solid fa-heart hearts-container__heart hearts-container__alive-heart"
             ></i>
           </span>
         </h3>
       </div>
 
-      <div class="topBarContainer__topBarRightContent">
+      <div class="top-bar-container__right-content">
         <svg
-          class="topBarContainer__topBarItem topBarRightContent__settingsIcon settingButton hide"
+          class="top-bar-container__top-bar-item right-content__settings-icon settingButton hide"
           data-setting="ingame-settings"
           version="1.1"
           id="Layer_1"
@@ -220,7 +219,7 @@
           <g></g>
         </svg>
 
-        <span class="topBarRightContent__toggleFullscreenIconContainer"></span>
+        <span class="right-content__toggle-fullscreen-icon-container"></span>
       </div>
     </section>
 

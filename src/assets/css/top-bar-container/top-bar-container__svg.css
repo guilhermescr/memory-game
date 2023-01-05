@@ -1,4 +1,4 @@
-.topBarContainer svg {
+.top-bar-container svg {
   cursor: pointer;
   fill: var(--top_bar_container_svg_color);
   height: 100%;
@@ -6,6 +6,6 @@
   pointer-events: all !important;
 }
 
-.topBarContainer svg:hover {
+.top-bar-container svg:hover {
   opacity: 1;
 }

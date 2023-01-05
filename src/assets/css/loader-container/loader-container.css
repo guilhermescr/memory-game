@@ -1,4 +1,4 @@
-#loaderContainer {
+#loader-container {
   background-color: #181d20fb;
 
   width: 100vw;
@@ -14,7 +14,7 @@
 }
 
 @media (max-width: 580px) {
-  #loaderContainer {
+  #loader-container {
     padding-top: 0;
     justify-content: center;
   }

@@ -1,4 +1,4 @@
-.topBarContainer__topBarLeftContent {
+.top-bar-container__left-content {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -6,13 +6,13 @@
 }
 
 @media (max-width: 580px) {
-  .topBarContainer__topBarLeftContent {
+  .top-bar-container__left-content {
     flex-wrap: wrap;
   }
 }
 
 @media (max-width: 300px) {
-  .topBarContainer__topBarLeftContent * {
+  .top-bar-container__left-content * {
     font-size: 15px;
   }
 }

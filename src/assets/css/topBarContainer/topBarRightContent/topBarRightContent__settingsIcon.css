@@ -1,9 +1,0 @@
-.topBarContainer__topBarRightContent .topBarRightContent__settingsIcon {
-  height: 40px;
-}
-
-@media (max-width: 580px) {
-  .topBarContainer__topBarRightContent .topBarRightContent__settingsIcon {
-    height: 30px;
-  }
-}
