@@ -20,10 +20,10 @@ import {
 } from './modules/auth/AccountMethods.mjs';
 
 const CLICK_ON_WINDOW_CONTAINER = document.querySelector(
-  '#clickOnWindowMessageContainer'
+  '#click-on-window-message-container'
 );
-const LOADER_CONTAINER = document.getElementById('loaderContainer');
-const LOADER_TITLE = document.getElementById('loaderContainer__loaderTitle');
+const LOADER_CONTAINER = document.getElementById('loader-container');
+const LOADER_TITLE = document.getElementById('loader-container__loader-title');
 
 function timeoutItems(functionItems, timing) {
   if (!timing) {
@@ -83,7 +83,7 @@ CLICK_ON_WINDOW_CONTAINER.onclick = () => {
 
 const ROOT_ELEMENT = document.documentElement; // <- <html> tag
 const FULLSCREEN_BUTTON = document.querySelector(
-  '.toggleFullscreenIcon_container'
+  '.right-content__toggle-fullscreen-icon-container'
 );
 const MAXIMIZE_FULLSCREEN_ICON = `
 <svg
@@ -281,9 +281,10 @@ document.body.onload = () => {
   } else {
     removeLoaderContainer();
     removeClickOnWindowMessage();
-    hideElements(document.querySelector('.toggleFullscreenIcon_container'));
+    hideElements(
+      document.querySelector('.right-content__toggle-fullscreen-icon-container')
+    );
   }
-  // come back here
 };
 
 export {

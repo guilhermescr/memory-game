@@ -20,10 +20,12 @@ import {
   startBirdAnimation
 } from './animations/forest_theme/BirdAnimation.mjs';
 import { fillRandomThemes } from './randomThemes/fillRandomThemes.mjs';
+import { onlineUser } from './auth/AccountMethods.mjs';
+import { BODY_CLASSLIST_TEMPLATE_OPTIONS } from './templates/TemplatesData.mjs';
 
 const SCOREBOARD = document.getElementById('scorePoints');
 const MOVE_COUNT = document.getElementById('moveCount');
-const HEARTS = document.querySelectorAll('.heart');
+const HEARTS = document.querySelectorAll('.hearts-container__heart');
 let cards;
 
 function startGame() {
@@ -42,7 +44,11 @@ function startGame() {
   let lives = 5;
   changeHomePageState(false);
 
-  if (!document.querySelector('.hearts_container').classList.contains('hide')) {
+  if (
+    !document
+      .querySelector('.left-content__hearts-container')
+      .classList.contains('hide')
+  ) {
     resetHeartsColor();
     withLives = true;
   }
@@ -52,23 +58,23 @@ function startGame() {
 
   function resetHeartsColor() {
     for (let heart of HEARTS) {
-      heart.classList.add('alive_heart');
-      heart.classList.remove('dead_heart');
+      heart.classList.add('hearts-container__alive-heart');
+      heart.classList.remove('hearts-container__dead-heart');
     }
   }
 
   function recoverHeart() {
     if (HEARTS[lives]) {
-      HEARTS[lives].classList.remove('dead_heart');
-      HEARTS[lives].classList.add('alive_heart');
+      HEARTS[lives].classList.remove('hearts-container__dead-heart');
+      HEARTS[lives].classList.add('hearts-container__alive-heart');
       lives < 5 ? lives++ : null;
     }
   }
 
   function loseHeart() {
     lives--;
-    HEARTS[lives].classList.remove('alive_heart');
-    HEARTS[lives].classList.add('dead_heart');
+    HEARTS[lives].classList.remove('hearts-container__alive-heart');
+    HEARTS[lives].classList.add('hearts-container__dead-heart');
     if (lives === 0) {
       setTimeout(() => {
         alert('You lost.');
@@ -182,16 +188,19 @@ function endGame() {
   }
 
   memoryDeck.innerHTML = '';
-  TOP_BAR_CONTAINER.classList.remove('top_bar_container__background');
+  TOP_BAR_CONTAINER.classList.remove('top-bar-container--background');
 
   const GAME_MENU = document.querySelector('.game-menu');
-  let topBarContainerIngameElements =
-    document.querySelectorAll('.top_bar_item');
+  let topBarContainerIngameElements = document.querySelectorAll(
+    '.top-bar-container__top-bar-item'
+  );
 
   hideElements(DECK_CONTAINER);
   hideElements(topBarContainerIngameElements);
   fillRandomThemes();
-  timeoutItems(startBirdAnimation);
+  timeoutItems(
+    BODY_CLASSLIST_TEMPLATE_OPTIONS[onlineUser.userData.CurrentTemplate]
+  );
   revealElements(GAME_MENU);
 }
 

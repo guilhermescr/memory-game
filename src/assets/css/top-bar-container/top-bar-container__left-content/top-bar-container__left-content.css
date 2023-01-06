@@ -1,0 +1,18 @@
+.top-bar-container__left-content {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+}
+
+@media (max-width: 580px) {
+  .top-bar-container__left-content {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 300px) {
+  .top-bar-container__left-content * {
+    font-size: 15px;
+  }
+}

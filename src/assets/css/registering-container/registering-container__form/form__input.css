@@ -1,0 +1,10 @@
+.registering-container__form input {
+  outline: none;
+  padding: 5px;
+  transition: 0.1s ease-in-out;
+}
+
+.registering-container__form input:focus {
+  border: 1px solid #000;
+  padding: 10px;
+}

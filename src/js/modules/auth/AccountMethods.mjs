@@ -328,7 +328,7 @@ function getAccounts() {
 }
 
 function authError(msg) {
-  const authErrorElement = document.getElementById('authError');
+  const authErrorElement = document.getElementById('auth-error');
   authErrorElement.innerHTML = msg;
 
   revealElements(authErrorElement);

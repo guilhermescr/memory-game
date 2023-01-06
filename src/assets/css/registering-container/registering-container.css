@@ -1,0 +1,13 @@
+.registering-container {
+  align-items: center;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  overflow-y: overlay;
+  padding-block: 20px;
+  position: absolute;
+  width: 100vw;
+  z-index: 1;
+}

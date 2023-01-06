@@ -12,7 +12,7 @@ const SETTINGS_MENUS = document.querySelectorAll('.menu');
 const MENU_SETTINGS_OPTIONS = document.querySelectorAll('.setting-option');
 const SETTINGS_BUTTONS = document.querySelectorAll('.settingButton');
 const CLOSE_MENU_BUTTONS = document.querySelectorAll('.close-icon');
-const TOP_BAR_CONTAINER = document.querySelector('.top_bar_container');
+const TOP_BAR_CONTAINER = document.querySelector('.top-bar-container');
 let menuIsOpen = false;
 
 function openMenu() {

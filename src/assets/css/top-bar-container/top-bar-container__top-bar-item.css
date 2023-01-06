@@ -1,0 +1,29 @@
+.top-bar-container__top-bar-item {
+  color: #fff;
+  padding: 5px 10px;
+}
+
+.top-bar-container__top-bar-item:last-child {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  gap: 5px;
+}
+
+@media (max-width: 580px) {
+  .top-bar-container__top-bar-item {
+    padding-block: 0;
+  }
+}
+
+@media (max-width: 360px) {
+  body.military_template .top-bar-container__top-bar-item {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 315px) {
+  body.military_template .top-bar-container__top-bar-item {
+    font-size: 14px;
+  }
+}

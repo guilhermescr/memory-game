@@ -1,0 +1,9 @@
+.top-bar-container__right-content .right-content__settings-icon {
+  height: 40px;
+}
+
+@media (max-width: 580px) {
+  .top-bar-container__right-content .right-content__settings-icon {
+    height: 30px;
+  }
+}
