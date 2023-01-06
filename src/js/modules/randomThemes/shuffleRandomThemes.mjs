@@ -1,7 +1,7 @@
-import { saveClickedBtnThemeId } from "../m-themes/addCards.mjs";
-import { shuffleDifficulties } from "../m-themes/themesDifficulty.mjs";
+import { saveClickedBtnThemeId } from '../m-themes/addCards.mjs';
+import { shuffleDifficulties } from '../m-themes/themesDifficulty.mjs';
 
-const RANDOM_THEMES_TITLE = document.getElementById('randomThemesTitle');
+const RANDOM_THEMES_TITLE = document.getElementById('random-themes-title');
 let [chosenTheme, isShuffling] = [null, false];
 
 function resetStyles(RANDOM_THEME, drawnTheme) {
@@ -15,20 +15,22 @@ function resetStyles(RANDOM_THEME, drawnTheme) {
 function shuffleRandomThemes() {
   if (isShuffling) return;
   const RANDOM_THEMES = document.querySelectorAll('.random-theme');
-  let drawnTheme = RANDOM_THEMES[Math.floor(Math.random() * RANDOM_THEMES.length)];
+  let drawnTheme =
+    RANDOM_THEMES[Math.floor(Math.random() * RANDOM_THEMES.length)];
 
   isShuffling = true;
 
   // This "while" prevents the algorithm from choosing the same theme twice.
   while (drawnTheme === chosenTheme) {
-    drawnTheme = RANDOM_THEMES[Math.floor(Math.random() * RANDOM_THEMES.length)];
+    drawnTheme =
+      RANDOM_THEMES[Math.floor(Math.random() * RANDOM_THEMES.length)];
   }
   chosenTheme = drawnTheme;
 
-  RANDOM_THEMES.forEach((RANDOM_THEME) => {
+  RANDOM_THEMES.forEach(RANDOM_THEME => {
     resetStyles(RANDOM_THEME, drawnTheme);
 
-    RANDOM_THEME.classList.add('shuffleAnimationStart');
+    RANDOM_THEME.classList.add('shuffle-animation-start');
 
     const SHUFFLE_POSITIONS = setInterval(() => {
       let randomPos = Math.floor(Math.random() * RANDOM_THEMES.length);
@@ -42,7 +44,7 @@ function shuffleRandomThemes() {
 
     // stop shuffle animation
     setTimeout(() => {
-      RANDOM_THEME.classList.remove('shuffleAnimationStart');
+      RANDOM_THEME.classList.remove('shuffle-animation-start');
       clearInterval(SHUFFLE_POSITIONS);
 
       if (RANDOM_THEME === drawnTheme) {

@@ -9,10 +9,8 @@ import { resetThemesContainerStyles } from './themesDifficulty.mjs';
 import { renderDeck } from './deckStyles.mjs';
 
 const TOP_BAR_CONTAINER = document.querySelector('.top-bar-container');
-let createCardsTwice,
-  btnThemeId,
-  memoryDeck = document.getElementById('deck');
-let themesDifficultiesList;
+let memoryDeck = document.querySelector('.memory-deck');
+let createCardsTwice, btnThemeId, themesDifficultiesList;
 
 function saveClickedBtnThemeId(clickedBtnThemeId) {
   btnThemeId = clickedBtnThemeId;

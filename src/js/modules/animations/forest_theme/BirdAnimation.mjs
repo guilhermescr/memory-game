@@ -1,6 +1,6 @@
 // Bird Animation
 const TEMPLATE_ANIMATION_CONTAINER = document.querySelector(
-  '.template_animation'
+  '.game-menu__template-animation'
 );
 let birdAnimationInterval, perchedBirdTimeout, flyingBirdTimeout;
 
@@ -12,7 +12,7 @@ function startBirdAnimation() {
     alt="Bird flying around"
   />
   `;
-  TEMPLATE_ANIMATION_CONTAINER.classList.add('flying_animation');
+  TEMPLATE_ANIMATION_CONTAINER.classList.add('flying-animation');
   switchBirdState();
   setBirdPosition();
   setBirdAnimationInterval();
@@ -56,7 +56,7 @@ function resetBirdAnimation() {
   clearInterval(birdAnimationInterval);
   clearTimeout(perchedBirdTimeout);
   clearTimeout(flyingBirdTimeout);
-  TEMPLATE_ANIMATION_CONTAINER.classList.remove('flying_animation');
+  TEMPLATE_ANIMATION_CONTAINER.classList.remove('flying-animation');
   TEMPLATE_ANIMATION_CONTAINER.innerHTML = '';
 }
 

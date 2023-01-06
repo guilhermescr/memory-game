@@ -1,0 +1,78 @@
+.memory-deck {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  margin-inline: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 1000px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.memory-deck::-webkit-scrollbar {
+  width: 12px;
+}
+
+.memory-deck::-webkit-scrollbar-track {
+  background-color: #292929;
+}
+
+.memory-deck::-webkit-scrollbar-thumb {
+  background-color: var(--home_settings_color);
+  border: 2px solid #0e0e0e;
+  border-radius: 20px;
+}
+
+@media (max-width: 580px) {
+  .memory-deck {
+    grid-template-columns: repeat(3, auto) !important;
+    height: 80vh !important;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    transform: translate(-50%, 0%);
+    width: max-content;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 600px) and (max-width: 800px) {
+  .memory-deck {
+    grid-template-columns: repeat(3, auto) !important;
+    height: 80vh !important;
+    margin: 0 auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 10px;
+    top: 60% !important;
+    transform: translate(-50%, 0%);
+    width: max-content;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 420px) and (max-width: 920px) {
+  .memory-deck {
+    grid-template-columns: repeat(4, auto) !important;
+    top: 15%;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 650px) {
+  .memory-deck {
+    grid-template-columns: repeat(6, auto) !important;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 300px) {
+  .memory-deck {
+    padding-bottom: 20px;
+    top: 65% !important;
+  }
+}
+
+@media (orientation: portrait) and (max-width: 510px) {
+  .memory-deck {
+    top: 54% !important;
+  }
+}

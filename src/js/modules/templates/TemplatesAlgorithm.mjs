@@ -9,12 +9,14 @@ import { closeMenu } from '../menuActions.mjs';
 import { TEMPLATES_DATA, TEMPLATES_KEYS } from './TemplatesData.mjs';
 
 const HOME_SETTINGS_RETURN_ICON = document.querySelector(
-  '.home_settings_container .return-icon'
+  '.home-settings-container .return-icon'
 );
-const HOME_SETTINGS_TITLE = document.querySelector('#home_settings_title');
-const CURRENT_TEMPLATE_IMAGE = document.querySelector('#currentTemplateImage');
+const HOME_SETTINGS_TITLE = document.querySelector('#home-settings-title');
+const CURRENT_TEMPLATE_IMAGE = document.querySelector(
+  '#current-template-image'
+);
 const CHANGE_TEMPLATE_BUTTON = document.querySelector(
-  '#changeCurrentTemplateButton'
+  '#change-current-template-button'
 );
 const TEMPLATES_CONTAINER = document.querySelector('.templates');
 let currentTemplate;
@@ -58,13 +60,13 @@ function createTemplates() {
     template.innerHTML = `
     <h3>${TEMPLATES_KEYS[templateIndex].replace('Template', ' Template')}</h3>
     <img
-      class="templateImage"
+      class="template-image"
       src=${src}
       alt=${alt}
     />
     <button id="${
       TEMPLATES_KEYS[templateIndex]
-    }" class="changeTemplateButton" type="button">Change</button>
+    }" class="change-template-button" type="button">Change</button>
     `;
     TEMPLATES_CONTAINER.appendChild(template);
 
@@ -86,9 +88,9 @@ function createTemplates() {
 function showTemplatesInMenu() {
   HOME_SETTINGS_TITLE.innerHTML = 'Templates';
   hideElements([
-    document.querySelector('.templates_container'),
+    document.querySelector('.templates-container'),
     document.querySelector('.audio-container'),
-    document.querySelector('.open_profile_menu')
+    document.querySelector('.open-profile-menu')
   ]);
   HOME_SETTINGS_RETURN_ICON.style.display = 'block';
   createTemplates();
@@ -96,11 +98,11 @@ function showTemplatesInMenu() {
 }
 
 function showSettingsMenu() {
-  hideElements([TEMPLATES_CONTAINER, document.querySelector('.profile_menu')]);
+  hideElements([TEMPLATES_CONTAINER, document.querySelector('.profile-menu')]);
   revealElements([
-    document.querySelector('.templates_container'),
+    document.querySelector('.templates-container'),
     document.querySelector('.audio-container'),
-    document.querySelector('.open_profile_menu')
+    document.querySelector('.open-profile-menu')
   ]);
   TEMPLATES_CONTAINER.innerHTML = '';
   HOME_SETTINGS_TITLE.innerHTML = 'Settings';
@@ -109,11 +111,11 @@ function showSettingsMenu() {
 
 function showUserProfileInfo() {
   hideElements([
-    document.querySelector('.templates_container'),
+    document.querySelector('.templates-container'),
     document.querySelector('.audio-container'),
-    document.querySelector('.open_profile_menu')
+    document.querySelector('.open-profile-menu')
   ]);
-  revealElements(document.querySelector('.profile_menu'));
+  revealElements(document.querySelector('.profile-menu'));
 
   HOME_SETTINGS_TITLE.innerHTML = 'Profile Info';
   HOME_SETTINGS_RETURN_ICON.style.display = 'block';
@@ -123,7 +125,7 @@ HOME_SETTINGS_RETURN_ICON.onclick = showSettingsMenu;
 
 CHANGE_TEMPLATE_BUTTON.onclick = showTemplatesInMenu;
 
-document.querySelector('.open_profile_menu').onclick = showUserProfileInfo;
+document.querySelector('.open-profile-menu').onclick = showUserProfileInfo;
 
 export {
   currentTemplate,

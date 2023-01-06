@@ -1,8 +1,8 @@
 import { currentTemplate } from './templates/TemplatesAlgorithm.mjs';
 import { TEMPLATES_DATA } from './templates/TemplatesData.mjs';
 
-const HOME_AUDIO_TAG = document.querySelector('#homeMusic');
-const HOME_AUDIO_SOURCE_TAG = document.querySelector('#homeMusicFile');
+const HOME_AUDIO_TAG = document.querySelector('#home-music');
+const HOME_AUDIO_SOURCE_TAG = document.querySelector('#home-music-file');
 let Is_Home_Page = true;
 
 // state exists ? Is_Home_Page = true : Is_Home_Page = false;

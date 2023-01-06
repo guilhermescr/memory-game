@@ -55,11 +55,11 @@ function handleUsernameChange() {
 
   if (USERNAME_INPUT.value.length === 0) {
     hideElements(SUCCESS_MESSAGE_PARAGRAPH);
-    revealElements(document.querySelector('.errorMessage'));
+    revealElements(document.querySelector('.error-message'));
     return;
   }
 
-  hideElements(document.querySelector('.errorMessage'));
+  hideElements(document.querySelector('.error-message'));
 
   if (SUBMIT_BUTTON.innerHTML === 'Sign Up') {
     revealElements(SUCCESS_MESSAGE_PARAGRAPH);
@@ -118,7 +118,7 @@ function togglePasswordVisibility() {
 
 function handleSubmit() {
   if (USERNAME_INPUT.value.length === 0) {
-    revealElements(document.querySelector('.errorMessage'));
+    revealElements(document.querySelector('.error-message'));
   }
   if (PASSWORD_INPUT.value.length === 0 || !approvedValidation) {
     addAlertMessage(PASSWORD_INFO, 'error');
@@ -203,7 +203,7 @@ USERNAME_INPUT.addEventListener('focus', () => {
 USERNAME_INPUT.addEventListener('focusout', () => {
   removeAlertMessage(SUCCESS_MESSAGE_PARAGRAPH, 'success');
 
-  hideElements(document.querySelector('.errorMessage'));
+  hideElements(document.querySelector('.error-message'));
   hideElements(SUCCESS_MESSAGE_PARAGRAPH);
 });
 

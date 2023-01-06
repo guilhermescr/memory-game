@@ -1,10 +1,10 @@
-import { revealElements, timeoutItems } from "../../main.js";
-import { themes } from "./themesData.mjs";
-import { btnThemeId } from "./addCards.mjs";
+import { revealElements, timeoutItems } from '../../main.js';
+import { themes } from './themesData.mjs';
+import { btnThemeId } from './addCards.mjs';
 import { startGame } from '../gameAlgorithm.mjs';
 
 const DECK_CONTAINER = document.querySelector('.deck-container');
-const MEMORY_DECK = document.getElementById('deck');
+const MEMORY_DECK = document.querySelector('.memory-deck');
 
 function renderDeck() {
   DECK_CONTAINER.style.backgroundImage = `url('${themes[btnThemeId].bodyBackgroundImage}')`;

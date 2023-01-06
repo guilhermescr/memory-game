@@ -1,0 +1,16 @@
+.audio-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (max-width: 580px) {
+  .audio-container {
+    gap: 20px;
+    height: max-content !important;
+    width: 100%;
+  }
+}

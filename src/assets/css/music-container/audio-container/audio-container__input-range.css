@@ -1,0 +1,55 @@
+.audio-container input[type='range'] {
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 20px;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  width: 150px;
+}
+
+.audio-container input[type='range']::before,
+.audio-container input[type='range']::after {
+  color: #fff;
+  display: inline-block;
+  position: absolute;
+}
+
+.audio-container input[type='range']::before {
+  content: attr(min);
+  left: 0;
+  transform: translateX(calc(-100% - 5px));
+}
+
+.audio-container input[type='range']::after {
+  content: '10';
+  right: 0;
+  transform: translateX(calc(100% + 5px));
+}
+
+/* SCROLL */
+.audio-container input[type='range']::-webkit-slider-runnable-track {
+  appearance: none;
+  background-color: #02141a;
+  border: 1px solid #505050;
+  border-radius: 20px;
+  height: 16px;
+  width: 16px;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+}
+
+.audio-container input[type='range']::-webkit-slider-thumb {
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--home_settings_color);
+  border-radius: 12px;
+  height: calc(100% + 8px);
+  margin-top: -4px;
+  width: 3px;
+}

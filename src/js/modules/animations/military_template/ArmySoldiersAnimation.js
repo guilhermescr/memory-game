@@ -2,7 +2,7 @@ let ARMY_SOLDIERS_ANIMATION_INTERVAL, LEFT_SOLDIER, RIGHT_SOLDIER, BULLET;
 let ARMY_SOLDIERS_ANIMATION_TIMEOUT_LIST = [];
 
 function startArmySoldiersAnimation() {
-  document.querySelector('.template_animation').innerHTML = `
+  document.querySelector('.game-menu__template-animation').innerHTML = `
   <img class="army_soldier" id="left_army_soldier" src="../src/assets/images/templates/military_template/toy_army_soldier.png" alt="Toy Army Soldier">
 
   <img class="army_soldier" id="right_army_soldier" src="../src/assets/images/templates/military_template/toy_army_soldier.png" alt="Toy Army Soldier">
@@ -38,7 +38,7 @@ function resetArmySoldiersAnimation() {
     }
   );
 
-  document.querySelector('.template_animation').innerHTML = '';
+  document.querySelector('.game-menu__template-animation').innerHTML = '';
 }
 
 function leftSoldierShoot() {

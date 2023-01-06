@@ -1,0 +1,26 @@
+.switch-button {
+  align-items: center;
+  border-radius: 15px;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  position: absolute;
+  right: 45%;
+  top: -7%;
+  transition: 0.3s;
+  width: 40px;
+}
+
+.switch-button:hover {
+  transform: scale(1.05);
+}
+
+.switch-button:active {
+  background-image: var(--switch_sounds_button_active_gradient);
+  transform: scale(0.98);
+}
+
+.switch-button.active {
+  background-image: var(--switch_sounds_button_background_image_gradient);
+  right: -5%;
+}
