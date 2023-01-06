@@ -1,0 +1,18 @@
+.form__submit-button {
+  background-color: #313f3f;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  padding-block: 10px;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.form__submit-button:hover {
+  background-color: #123030;
+}
+
+.form__submit-button:active {
+  background-color: #3e5050;
+}

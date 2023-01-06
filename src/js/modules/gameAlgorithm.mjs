@@ -20,6 +20,8 @@ import {
   startBirdAnimation
 } from './animations/forest_theme/BirdAnimation.mjs';
 import { fillRandomThemes } from './randomThemes/fillRandomThemes.mjs';
+import { onlineUser } from './auth/AccountMethods.mjs';
+import { BODY_CLASSLIST_TEMPLATE_OPTIONS } from './templates/TemplatesData.mjs';
 
 const SCOREBOARD = document.getElementById('scorePoints');
 const MOVE_COUNT = document.getElementById('moveCount');
@@ -196,7 +198,9 @@ function endGame() {
   hideElements(DECK_CONTAINER);
   hideElements(topBarContainerIngameElements);
   fillRandomThemes();
-  timeoutItems(startBirdAnimation);
+  timeoutItems(
+    BODY_CLASSLIST_TEMPLATE_OPTIONS[onlineUser.userData.CurrentTemplate]
+  );
   revealElements(GAME_MENU);
 }
 

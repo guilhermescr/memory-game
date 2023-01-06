@@ -87,6 +87,104 @@
       href="../src/assets/css/top-bar-container/top-bar-container__right-content/right-content__toggle-fullscreen-icon-container.css"
     />
 
+    <!-- Registering Container -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/registering-container/registering-container.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/registering-container/welcome-message.css"
+    />
+
+    <!-- Registering Container - Form -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/registering-container/registering-container__form/registering-container__form.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/registering-container/registering-container__form/form__h2.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/registering-container/registering-container__form/form__auth-error.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/registering-container/registering-container__form/form__input.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/registering-container/registering-container__form/form__submit-button.css"
+    />
+
+    <!-- Registering Container - Form - Username Container -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/registering-container/registering-container__form/form__username-container/form__username-container.css"
+    />
+
+    <!-- Registering Container - Form - Password Container -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/registering-container/registering-container__form/form__password-container/form__password-container.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/registering-container/registering-container__form/form__password-container/password-container__toggle-password.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/registering-container/registering-container__form/form__password-container/password-container__password-info.css"
+    />
+
+    <!-- Registering Container - Form - Or Container -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/registering-container/registering-container__form/form__or-container/form__or-container.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/registering-container/registering-container__form/form__or-container/or-container__span.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/registering-container/registering-container__form/form__or-container/or-container__p.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/registering-container/registering-container__form/form__or-container/or-container__left-bar.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/registering-container/registering-container__form/form__or-container/or-container__right-bar.css"
+    />
+
+    <!-- Registering Container - Form - Play Anonymously Container -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/registering-container/registering-container__form/form__play-anonymously-container/form__play-anonymously-container.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/registering-container/registering-container__form/form__play-anonymously-container/play-anonymously-container__h3play-anonymously.css"
+    />
+
+    <!-- Registering Container - Form - Auth Option Container -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/registering-container/registering-container__form/form__auth-option/form__auth-option.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/registering-container/registering-container__form/form__auth-option/auth-option__h3.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/registering-container/registering-container__form/form__auth-option/auth-option__auth-button.css"
+    />
+
     <!-- Credits Menu -->
 
     <link rel="stylesheet" href="../src/assets/css/menus/credits/credits.css" />
@@ -223,13 +321,14 @@
       </div>
     </section>
 
-    <section class="sign_up_in_container">
-      <h2 id="welcomeMessage">Welcome to the Memory Game!</h2>
+    <section class="registering-container">
+      <h2 id="welcome-message">Welcome to the Memory Game!</h2>
 
-      <form id="sign_up_in_form">
+      <form class="registering-container__form">
         <h2 id="sign_up_in_title">Sign Up</h2>
-        <p id="authError" class="error hide"></p>
-        <div class="username_container">
+        <p id="auth-error" class="error hide"></p>
+
+        <div class="form__username-container">
           <label for="username">Username</label>
           <input
             type="text"
@@ -243,7 +342,7 @@
           <p class="successMessage hide"></p>
           <p class="errorMessage error hide">Please, insert a username.</p>
         </div>
-        <div class="password_container">
+        <div class="form__password-container">
           <label for="password">Password</label>
           <input
             type="password"
@@ -253,37 +352,37 @@
             placeholder="I.e.: @julian2022"
             pattern="^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$"
           />
-          <i class="togglePassword hide">
+          <i class="password-container__toggle-password hide">
             <img
               src="../src/assets/images/icons/eye-password-show.svg"
               alt="Show Password Eye Icon"
             />
           </i>
-          <p id="passwordInfo">
+          <p id="password-info">
             Must be 8 to 16 characters and contain at least 1 number and 1
             special character.
           </p>
         </div>
-        <button class="submitButton" type="submit">Sign Up</button>
+        <button class="form__submit-button" type="submit">Sign Up</button>
 
-        <div class="or_container">
-          <span id="leftBar"></span>
+        <div class="form__or-container">
+          <span id="left-bar"></span>
           <p>Or</p>
-          <span id="rightBar"></span>
+          <span id="right-bar"></span>
         </div>
 
-        <div class="play_anonymously_container">
-          <h3 id="playAnonymously" role="button">Play without an account</h3>
+        <div class="form__play-anonymously-container">
+          <h3 id="play-anonymously" role="button">Play without an account</h3>
           <p>
             OBS: Your progress will be deleted when you reload the page, if
             you're playing without an account.
           </p>
         </div>
 
-        <div class="auth_option">
+        <div class="form__auth-option">
           <h3>
-            <span id="auth_message">Already a user?</span>
-            <span class="register" id="auth_button" role="button">Login</span>
+            <span id="auth-message">Already a user?</span>
+            <span class="register" id="auth-button" role="button">Login</span>
           </h3>
         </div>
       </form>

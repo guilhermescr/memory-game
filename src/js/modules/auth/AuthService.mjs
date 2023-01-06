@@ -51,7 +51,7 @@ function updateApprovedValidation(boolean) {
 function handleUsernameChange() {
   removeAlertMessage(SUCCESS_MESSAGE_PARAGRAPH, 'success');
   removeAlertMessage(SUCCESS_MESSAGE_PARAGRAPH, 'error');
-  hideElements(document.getElementById('authError'));
+  hideElements(document.getElementById('auth-error'));
 
   if (USERNAME_INPUT.value.length === 0) {
     hideElements(SUCCESS_MESSAGE_PARAGRAPH);
@@ -83,7 +83,7 @@ function handleUsernameChange() {
 function handlePasswordChange() {
   updateApprovedValidation(false);
   removeAlertMessage(PASSWORD_INFO, 'error');
-  hideElements(document.getElementById('authError'));
+  hideElements(document.getElementById('auth-error'));
 
   if (PASSWORD_INPUT.value.length === 0) {
     hideElements(TOGGLE_PASSWORD_ICON);

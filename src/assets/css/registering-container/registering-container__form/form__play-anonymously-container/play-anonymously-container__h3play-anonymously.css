@@ -1,0 +1,10 @@
+#play-anonymously {
+  cursor: pointer;
+  text-decoration: underline;
+  text-transform: uppercase;
+  width: max-content;
+}
+
+#play-anonymously:hover {
+  color: #222;
+}
