@@ -1,0 +1,4 @@
+.templates img {
+  border: 1px solid var(--home_settings_color);
+  width: 200px;
+}

@@ -1,0 +1,7 @@
+@media (max-width: 580px) {
+  .edit-profile-menu > div > h3:nth-child(1) {
+    margin: 0 auto;
+    max-width: 180px;
+    width: 100%;
+  }
+}

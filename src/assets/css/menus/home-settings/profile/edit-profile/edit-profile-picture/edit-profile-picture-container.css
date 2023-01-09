@@ -1,0 +1,10 @@
+.edit-profile-picture-container {
+  justify-content: space-evenly;
+}
+
+@media (max-width: 580px) {
+  .edit-profile-picture-container {
+    gap: 10px;
+    justify-content: flex-start;
+  }
+}

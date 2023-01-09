@@ -1,0 +1,30 @@
+.open-profile-menu {
+  align-items: center;
+  background-color: #353535;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  padding: 5px;
+  position: relative;
+  width: 30%;
+}
+
+.open-profile-menu.change-template-button {
+  background-color: #323232;
+}
+
+.open-profile-menu:active {
+  background-color: #383838;
+  opacity: 0.9;
+}
+
+@media (max-width: 580px) {
+  .open-profile-menu {
+    margin-bottom: 20px;
+    max-width: 210px;
+    width: 100%;
+  }
+}

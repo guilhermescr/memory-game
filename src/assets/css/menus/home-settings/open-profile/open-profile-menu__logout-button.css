@@ -1,0 +1,16 @@
+#logout-button {
+  background-color: #410000;
+  border: none;
+  border-radius: 0 0 10px 10px;
+  bottom: -25px;
+  color: #fff;
+  cursor: pointer;
+  left: 0.2%;
+  padding: 5px;
+  position: absolute;
+  width: 100%;
+}
+
+#logout-button.change-template-button {
+  background-color: #5a1a1a;
+}

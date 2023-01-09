@@ -88,7 +88,7 @@ function createTemplates() {
 function showTemplatesInMenu() {
   HOME_SETTINGS_TITLE.innerHTML = 'Templates';
   hideElements([
-    document.querySelector('.templates-container'),
+    document.querySelector('.current-template'),
     document.querySelector('.audio-container'),
     document.querySelector('.open-profile-menu')
   ]);
@@ -100,7 +100,7 @@ function showTemplatesInMenu() {
 function showSettingsMenu() {
   hideElements([TEMPLATES_CONTAINER, document.querySelector('.profile-menu')]);
   revealElements([
-    document.querySelector('.templates-container'),
+    document.querySelector('.current-template'),
     document.querySelector('.audio-container'),
     document.querySelector('.open-profile-menu')
   ]);
@@ -111,7 +111,7 @@ function showSettingsMenu() {
 
 function showUserProfileInfo() {
   hideElements([
-    document.querySelector('.templates-container'),
+    document.querySelector('.current-template'),
     document.querySelector('.audio-container'),
     document.querySelector('.open-profile-menu')
   ]);

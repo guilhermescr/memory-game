@@ -1,0 +1,16 @@
+.profile-left-column {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+  position: relative;
+  width: 40%;
+}
+
+@media (max-width: 580px) {
+  .profile-left-column {
+    padding: 0;
+    width: 100%;
+  }
+}

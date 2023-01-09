@@ -1,0 +1,4 @@
+.templates h3 {
+  color: var(--home_settings_color);
+  font-size: 20px;
+}

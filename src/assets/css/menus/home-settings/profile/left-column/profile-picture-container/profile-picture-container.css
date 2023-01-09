@@ -1,0 +1,19 @@
+.profile-picture-container {
+  align-items: center;
+  background-color: #ababab;
+  border-radius: 50%;
+  display: flex;
+  padding: 10px;
+  width: 100px;
+}
+
+.profile-menu.hasPFP .profile-picture-container {
+  background-color: transparent;
+  width: 190px;
+}
+
+@media (max-width: 580px) {
+  .profile-picture-container {
+    width: 80px;
+  }
+}

@@ -1,0 +1,14 @@
+.delete-profile-button {
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-size: 20px;
+}
+
+.delete-profile-button:active {
+  color: #efefef;
+}
+
+.delete-profile-button.change-template-button {
+  color: #f4fff4e0;
+}

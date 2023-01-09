@@ -1,0 +1,13 @@
+.social > div {
+  align-items: center;
+  display: flex;
+  gap: 5px;
+  max-width: 200px;
+  padding-inline: 5px;
+  width: 100%;
+}
+
+.social > div > svg {
+  fill: #fff;
+  width: 15%;
+}

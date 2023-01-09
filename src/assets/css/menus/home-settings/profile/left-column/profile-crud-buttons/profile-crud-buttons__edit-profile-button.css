@@ -1,0 +1,14 @@
+.edit-profile-button {
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-size: 20px;
+}
+
+.edit-profile-button:active {
+  color: #efefef;
+}
+
+.edit-profile-button.change-template-button {
+  color: #f4fff4e0;
+}
