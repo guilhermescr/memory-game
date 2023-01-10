@@ -5,7 +5,7 @@ import {
   saveClickedBtnThemeId
 } from './addCards.mjs';
 
-const RETURN_ICON = document.querySelector('.themes-container .return-icon');
+const RETURN_ICON = document.querySelector('.themes-container .return-icon-container__return-icon');
 const THEMES_CONTAINER = document.getElementById('themes-container');
 const THEMES_TITLE = document.getElementById('themes-title');
 

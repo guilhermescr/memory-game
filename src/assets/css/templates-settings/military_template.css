@@ -1,0 +1,77 @@
+@font-face {
+  font-family: 'Grind Demolished';
+  font-display: swap;
+  src: url(../fonts/military_template/Grind_Demolished.ttf);
+}
+
+body.military_template {
+  font-family: 'Grind Demolished';
+}
+
+body.military_template h2 {
+  font-size: 23px;
+}
+
+.military_template {
+  --window_message_text_color: #03942e;
+  --window_message_text_shadow: 0 0 15px #02972f;
+  --loader_box_shadow: 0px 5px 5px #03942e;
+
+  --body_background_image: url('../images/templates/military_template/military_background.jpg');
+
+  --main_title_gradient: linear-gradient(to bottom, #bff76d, #a09c5f);
+
+  --top_bar_container_background_image_gradient: linear-gradient(
+    #22990a,
+    #7ec90f
+  );
+  --top_bar_container_svg_color: #fff;
+
+  --settings_background_image_gradient: linear-gradient(
+    to bottom,
+    #8ead46ee,
+    #7c7735
+  );
+  --settings_box_shadow_color: #009933b3;
+
+  --setting_option_background_image_gradient: linear-gradient(
+    to right,
+    #aec257 30%,
+    #375e13
+  );
+  --setting_option_border_color: #009933;
+  --setting_option_box_shadow_color: #009933b3;
+  --setting_option_text_color: #ddffe9;
+  --setting_option_hover_gradient: linear-gradient(#5f7403, #aec257);
+  --setting_option_active_gradient: linear-gradient(#99b908, #8a9c39);
+
+  --scrollbar_thumb_background_color: #009933;
+
+  /* BUTTONS */
+  --buttons_background_image_gradient: linear-gradient(#01972ee8, #46bb10);
+  --buttons_border_color: #01972ee8;
+  --buttons_box_shadow_color: #01972ee8;
+  --buttons_hover_gradient: linear-gradient(#32662be8, #32c45e);
+  --buttons_active_gradient: linear-gradient(#01631fe8, #0d9135);
+
+  --home_settings_color: #009933;
+
+  --switch_sounds_container--inactive_background_color: #444;
+  --switch_sounds_container--active_background_color: #7ec90f;
+  --switch_sounds_button_background_image_gradient: linear-gradient(
+    #30eb01 5%,
+    #629e08
+  );
+  --switch_sounds_button_active_gradient: linear-gradient(#629e08 5%, #1c7a04);
+
+  --difficulty_level_button_background_image_gradient: linear-gradient(
+    #03bb0c,
+    #446628
+  );
+  --difficulty_level_button_box_shadow_color: #048cb6;
+  --difficulty_level_button_hover_gradient: linear-gradient(#446628, #018107);
+  --difficulty_level_button_active_gradient: linear-gradient(
+    #64d806c5,
+    #61ca4c
+  );
+}

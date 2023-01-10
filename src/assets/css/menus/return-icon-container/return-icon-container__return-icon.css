@@ -1,0 +1,6 @@
+.return-icon-container__return-icon {
+  cursor: pointer;
+  display: none;
+  fill: #f44336;
+  width: 100%;
+}

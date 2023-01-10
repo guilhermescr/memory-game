@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+* {
+  list-style: none;
+  list-style-position: inside;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+*:not(#title-container__title, #title-container__title *) {
+  font-weight: normal;
+}

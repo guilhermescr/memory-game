@@ -1,0 +1,10 @@
+.theme h3 {
+  font-size: 22px;
+  width: 50%;
+}
+
+@media (max-width: 580px) {
+  .theme h3 {
+    width: 100%;
+  }
+}

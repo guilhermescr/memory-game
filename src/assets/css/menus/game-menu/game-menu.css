@@ -1,0 +1,16 @@
+.game-menu {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100vh;
+  justify-content: flex-start;
+  left: 50%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 20px 10px;
+  position: absolute;
+  transform: translateX(-50%);
+  user-select: none;
+  width: 100%;
+}

@@ -11,7 +11,7 @@ import { showSettingsMenu } from './templates/TemplatesAlgorithm.mjs';
 const SETTINGS_MENUS = document.querySelectorAll('.menu');
 const MENU_SETTINGS_OPTIONS = document.querySelectorAll('.setting-option');
 const SETTINGS_BUTTONS = document.querySelectorAll('.setting-button');
-const CLOSE_MENU_BUTTONS = document.querySelectorAll('.close-icon');
+const CLOSE_MENU_BUTTONS = document.querySelectorAll('.close-menu-container__close-icon');
 const TOP_BAR_CONTAINER = document.querySelector('.top-bar-container');
 let menuIsOpen = false;
 

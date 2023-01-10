@@ -1,0 +1,20 @@
+body {
+  background: #cdfffe var(--body_background_image) center no-repeat fixed;
+  background-size: cover;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #292929;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #313f3f;
+  border: 2px solid #0e0e0e;
+  border-radius: 20px;
+}

@@ -1,0 +1,73 @@
+@font-face {
+  font-family: 'Trebuchet';
+  font-display: swap;
+  src: url(../fonts/forest_template/trebuc.ttf);
+}
+
+body.forest_template {
+  font-family: 'Trebuchet';
+}
+
+.forest_template {
+  --window_message_text_color: #01e4e4;
+  --window_message_text_shadow: 0 0 15px #16a4a8;
+  --loader_box_shadow: 0px 5px 5px #01d9ff;
+
+  /* DEFAULT BACKGROUND IMAGE */
+  --body_background_image: url('../images/templates/forest_template/forest_background.jpg');
+
+  --main_title_gradient: linear-gradient(to bottom, #106370, #10bb9f);
+
+  --top_bar_container_background_image_gradient: linear-gradient(
+    #10bb9f,
+    #16a4a8
+  );
+  --top_bar_container_svg_color: #2f4246;
+
+  --settings_background_image_gradient: linear-gradient(
+    to bottom,
+    #2f4246,
+    #181d20
+  );
+  --settings_box_shadow_color: #59e6ffb3;
+  --setting_option_background_image_gradient: linear-gradient(
+    #091114e8,
+    #060c0e
+  );
+
+  --setting_option_border_color: #59e6ff99;
+  --setting_option_box_shadow_color: #59e6ffb3;
+  --setting_option_text_color: #cdfffe;
+  --setting_option_hover_gradient: linear-gradient(#14899b, #16a4a8);
+  --setting_option_active_gradient: linear-gradient(#2dcadf, #04a0c7);
+
+  --scrollbar_thumb_background_color: #10bb9f;
+
+  /* BUTTONS */
+  --buttons_background_image_gradient: linear-gradient(#016f97e8, #10bb9f);
+  --buttons_border_color: #59e6ff99;
+  --buttons_box_shadow_color: #59e6ffb3;
+  --buttons_hover_gradient: linear-gradient(#243469e8, #1093bb);
+  --buttons_active_gradient: linear-gradient(#1a7fd1e8, #048cb6);
+
+  --home_settings_color: #10bb9f;
+
+  --switch_sounds_container--inactive_background_color: #444;
+  --switch_sounds_container--active_background_color: #10bb9f;
+  --switch_sounds_button_background_image_gradient: linear-gradient(
+    #01baef 5%,
+    #10bb9f
+  );
+  --switch_sounds_button_active_gradient: linear-gradient(#048cb6 5%, #10bb9f);
+
+  --difficulty_level_button_background_image_gradient: linear-gradient(
+    #20bf55,
+    #01baef
+  );
+  --difficulty_level_button_box_shadow_color: #048cb6;
+  --difficulty_level_button_hover_gradient: linear-gradient(#1aa548, #048db3);
+  --difficulty_level_button_active_gradient: linear-gradient(
+    #20bf55c5,
+    #00a1ce
+  );
+}

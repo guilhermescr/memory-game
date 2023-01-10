@@ -1,3 +1,13 @@
+@keyframes moveLoadingTitle {
+  0% {
+    transform: translateX(-2%);
+  }
+
+  100% {
+    transform: translateX(3%);
+  }
+}
+
 #loader-container__loader-title {
   color: var(--window_message_text_color);
   text-shadow: var(--window_message_text_shadow);

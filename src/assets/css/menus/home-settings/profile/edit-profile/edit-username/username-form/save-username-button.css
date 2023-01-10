@@ -1,0 +1,20 @@
+#save-username-button {
+  background-color: #2e2e2e;
+  border: 1px solid #353535;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  margin-inline: auto;
+  margin-top: 10px;
+  max-width: 200px;
+  padding: 10px;
+  width: 100%;
+}
+
+#save-username-button:active {
+  background-color: #191919;
+}
+
+#save-username-button.change-template-button {
+  background-color: #454545;
+}

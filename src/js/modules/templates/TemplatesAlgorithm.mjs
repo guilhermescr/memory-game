@@ -9,7 +9,7 @@ import { closeMenu } from '../menuActions.mjs';
 import { TEMPLATES_DATA, TEMPLATES_KEYS } from './TemplatesData.mjs';
 
 const HOME_SETTINGS_RETURN_ICON = document.querySelector(
-  '.home-settings-container .return-icon'
+  '.home-settings-container .return-icon-container__return-icon'
 );
 const HOME_SETTINGS_TITLE = document.querySelector('#home-settings-title');
 const CURRENT_TEMPLATE_IMAGE = document.querySelector(

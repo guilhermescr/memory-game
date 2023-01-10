@@ -1,0 +1,8 @@
+.random-theme img {
+  border-radius: 5px;
+  width: 240px !important;
+}
+
+.random-theme img#ben-10 {
+  width: 60% !important;
+}
