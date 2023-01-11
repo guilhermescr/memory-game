@@ -1,0 +1,28 @@
+.ingame-settings {
+  align-items: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  position: fixed;
+}
+
+.ingame-settings.menu {
+  height: 85%;
+}
+
+.ingame-settings.show {
+  transform: translate(-50%, 10%) !important;
+}
+
+@media (max-width: 580px) {
+  .ingame-settings.menu {
+    height: 85%;
+  }
+}
+
+@media (min-width: 550px) and (max-width: 1000px) and (max-height: 500px) {
+  .ingame-settings {
+    gap: 0;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,34 @@
+.switch-button {
+  align-items: center;
+  background-image: var(--buttons_background_image_gradient);
+  border: 1px solid var(--buttons_border_color);
+  border-radius: 10px;
+  /* border-radius: 15px; */
+  box-shadow: 0 0 4px var(--buttons_box_shadow_color);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-size: 15px;
+  height: 40px;
+  justify-content: center;
+  padding: 8px 10px;
+  position: absolute;
+  right: 45%;
+  top: -7%;
+  transition: 0.3s ease;
+  width: 40px;
+}
+
+.switch-button:hover {
+  transform: scale(1.05);
+}
+
+.switch-button:active {
+  background-image: var(--switch_sounds_button_active_gradient);
+  transform: scale(0.98);
+}
+
+.switch-button.active {
+  background-image: var(--switch_sounds_button_background_image_gradient);
+  right: -5%;
+}

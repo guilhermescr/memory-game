@@ -1,0 +1,18 @@
+.profile-info-option {
+  background-color: #343434;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.profile-info-option:hover {
+  background-color: #444;
+}
+
+.profile-info-option:active {
+  background-color: #393939;
+  opacity: 0.8;
+}

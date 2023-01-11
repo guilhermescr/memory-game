@@ -1,0 +1,17 @@
+.game-menu__settings {
+  border-radius: 10px;
+  box-shadow: 0px 0px 8px var(--settings_box_shadow_color);
+  background-image: var(--settings_background_image_gradient);
+
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  padding-block: 10px;
+  max-height: 300px;
+  height: 100%;
+  max-width: 400px;
+  width: 100%;
+}

@@ -1,0 +1,7 @@
+.profile-crud-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  right: 10%;
+}

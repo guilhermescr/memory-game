@@ -1,0 +1,158 @@
+@keyframes HorizontalBulletAnimation {
+  0% {
+    left: 11vw;
+  }
+  100% {
+    left: 105vw;
+  }
+}
+
+@keyframes VerticalBulletAnimation {
+  0% {
+    left: 11vw;
+    top: 39%;
+    transform: rotate(0deg);
+  }
+  100% {
+    left: 87vw;
+    top: 14%;
+    transform: rotate(-15deg);
+  }
+}
+
+@keyframes RightSoldierGoesDownAnimation {
+  0% {
+    top: 5%;
+  }
+  100% {
+    transform: rotateY(180deg) rotate(-15deg);
+    top: 30%;
+  }
+}
+
+@keyframes RightSoldierShootToTheBottomAnimation {
+  0% {
+    left: 85vw;
+    top: 14%;
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(-15deg) translateX(-150%);
+    left: 0vw;
+    top: 39%;
+  }
+}
+
+@keyframes RightSoldierShootToTheTopAnimation {
+  0% {
+    left: 85vw;
+    top: 32%;
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(15deg) translateX(-150%);
+    left: 0vw;
+    top: 14%;
+  }
+}
+
+@keyframes RightSoldierAnimation {
+  0% {
+    top: 30%;
+  }
+  100% {
+    transform: rotateY(180deg) rotate(30deg);
+    top: 5%;
+  }
+}
+
+@keyframes LeftSoldierAnimation {
+  0% {
+    top: 30%;
+  }
+  100% {
+    top: 5%;
+  }
+}
+
+@keyframes LeftSoldierGoesDownAnimation {
+  0% {
+    top: 5%;
+  }
+  100% {
+    top: 30%;
+  }
+}
+
+.military_template .game-menu__template-animation {
+  align-items: center;
+  display: flex;
+  height: 300px;
+  justify-content: space-between;
+  pointer-events: none;
+  top: 9%;
+  width: 100vw;
+}
+
+.military_template .game-menu__template-animation .army_soldier {
+  position: absolute;
+  top: 30%;
+  width: 70px;
+}
+
+.game-menu .game-menu__template-animation #left_army_soldier {
+  left: 0;
+}
+
+.game-menu .game-menu__template-animation #right_army_soldier {
+  right: 2%;
+  transform: rotateY(180deg);
+}
+
+.military_template .game-menu__template-animation #bullet {
+  background-image: linear-gradient(
+    to right,
+    #c38755 20%,
+    #107346,
+    #c36f55 90%
+  );
+  border-radius: 30% 50%;
+  display: none;
+  height: 5px;
+  left: 11vw;
+  position: absolute;
+  top: 36%;
+  width: 18px;
+}
+
+.HorizontalBulletAnimation {
+  animation: HorizontalBulletAnimation 1.8s;
+}
+
+.VerticalBulletAnimation {
+  animation: VerticalBulletAnimation 1.8s;
+}
+
+.LeftSoldierAnimation {
+  animation: LeftSoldierAnimation 1s;
+}
+
+.LeftSoldierGoesDown {
+  animation: LeftSoldierGoesDownAnimation 1s;
+}
+
+.RightSoldierAnimation {
+  animation: RightSoldierAnimation 1s;
+}
+
+.RightSoldierGoesDown {
+  animation: RightSoldierGoesDownAnimation 1s;
+}
+
+.RightSoldierShootToTheBottomAnimation {
+  animation: RightSoldierShootToTheBottomAnimation 1.5s;
+}
+
+.RightSoldierShootToTheTopAnimation {
+  animation: RightSoldierShootToTheTopAnimation 1.5s;
+}

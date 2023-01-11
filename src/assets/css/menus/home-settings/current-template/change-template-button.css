@@ -1,0 +1,22 @@
+.change-template-button {
+  background-image: var(--buttons_background_image_gradient);
+  border: 1px solid var(--buttons_border_color);
+  border-radius: 10px;
+  box-shadow: 0 0 4px var(--buttons_box_shadow_color);
+  color: #fff;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 8px 10px;
+  transition: 0.3s ease;
+}
+
+.change-template-button:hover {
+  background-image: var(--buttons_hover_gradient);
+  transform: scale(1.1);
+}
+
+.change-template-button:active {
+  background-image: var(--buttons_active_gradient);
+}
+
+

@@ -1,0 +1,17 @@
+.kebab-option {
+  background-color: #353535;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.kebab-option:hover {
+  background-color: #303030;
+}
+
+.kebab-option:active {
+  background-color: #575757;
+  opacity: 0.9;
+}

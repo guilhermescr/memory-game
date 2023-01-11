@@ -7,7 +7,7 @@ function fillThemes() {
   resetThemesContainerStyles();
   if (lockCreation) return;
 
-  let themesContainer = document.getElementById('themesContainer');
+  let themesContainer = document.getElementById('themes-container');
 
   for (let index = 0; index < THEMES_LIST.length; index++) {
 
@@ -18,7 +18,7 @@ function fillThemes() {
       ${THEMES_LOGOS[index]}
     </div>
     <h3>${THEMES_NAMES[index]}</h3>
-    <button class="play-themeBtn choosable-theme" data-themeid="${THEMES_LIST[index]}">Play Theme</button>
+    <button class="play-theme-btn choosable-theme" data-themeid="${THEMES_LIST[index]}">Play Theme</button>
     `;
     themesContainer.appendChild(theme);
   }

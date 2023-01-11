@@ -1,0 +1,19 @@
+.general-info-list li {
+  color: #fff;
+  font-size: 20px;
+  font-weight: normal;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.general-info-list li:last-child {
+  border: none;
+}
+
+@media (max-width: 580px) {
+  .general-info-list li {
+    font-size: 18px;
+    width: max-content;
+  }
+}

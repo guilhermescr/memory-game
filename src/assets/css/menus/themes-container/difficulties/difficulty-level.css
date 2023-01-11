@@ -1,0 +1,22 @@
+.difficulty-level {
+  background-image: var(--difficulty_level_button_background_image_gradient);
+  border: none;
+  box-shadow: 0px 0px 22px var(--buttons_box_shadow_color);
+  color: #fff;
+  cursor: pointer;
+  font-size: 25px;
+  max-width: 300px;
+  padding-block: 5px;
+  transition: 0.3s ease;
+  width: 100%;
+}
+
+.difficulty-level:hover {
+  background-image: var(--difficulty_level_button_hover_gradient);
+  color: #fef;
+  transform: scale(0.95);
+}
+
+.difficulty-level:active {
+  background-image: var(--difficulty_level_button_active_gradient);
+}

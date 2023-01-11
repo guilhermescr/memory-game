@@ -1,0 +1,14 @@
+.themes {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  height: max-content;
+  justify-content: center;
+  position: relative;
+}
+
+@media (max-width: 580px) {
+  .themes {
+    flex-direction: column;
+  }
+}

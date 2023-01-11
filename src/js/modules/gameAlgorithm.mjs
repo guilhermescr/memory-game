@@ -23,8 +23,8 @@ import { fillRandomThemes } from './randomThemes/fillRandomThemes.mjs';
 import { onlineUser } from './auth/AccountMethods.mjs';
 import { BODY_CLASSLIST_TEMPLATE_OPTIONS } from './templates/TemplatesData.mjs';
 
-const SCOREBOARD = document.getElementById('scorePoints');
-const MOVE_COUNT = document.getElementById('moveCount');
+const SCOREBOARD = document.getElementById('score-points');
+const MOVE_COUNT = document.getElementById('move-count');
 const HEARTS = document.querySelectorAll('.hearts-container__heart');
 let cards;
 

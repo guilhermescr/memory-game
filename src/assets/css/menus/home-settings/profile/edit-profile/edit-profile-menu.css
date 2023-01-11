@@ -1,0 +1,22 @@
+.edit-profile-menu {
+  align-items: center;
+  background-color: #121212;
+  border-radius: 15px;
+  height: 100%;
+  left: 50%;
+  max-height: 300px;
+  max-width: 400px;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 1;
+}
+
+.edit-profile-menu > div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}

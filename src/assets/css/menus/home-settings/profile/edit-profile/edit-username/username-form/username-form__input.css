@@ -1,0 +1,13 @@
+.username-form input {
+  background-color: #252525;
+  border: 1px solid #444;
+  color: #fff;
+  outline: none;
+  padding: 5px;
+  transition: 0.2s ease;
+}
+
+.username-form input:focus {
+  box-shadow: 0 0 15px #444;
+  padding: 8px;
+}

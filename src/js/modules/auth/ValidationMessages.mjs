@@ -1,4 +1,4 @@
-const SUCCESS_MESSAGE_PARAGRAPH = document.querySelector('.successMessage');
+const SUCCESS_MESSAGE_PARAGRAPH = document.querySelector('.success-message');
 
 function addAlertMessage(element, alertType) {
   element.classList.add(alertType);

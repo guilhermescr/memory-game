@@ -1,0 +1,15 @@
+.template {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 280px;
+  justify-content: space-between;
+  width: 45%;
+}
+
+@media (max-width: 580px) {
+  .template {
+    width: 100%;
+  }
+}

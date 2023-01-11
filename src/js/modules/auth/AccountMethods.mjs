@@ -82,12 +82,12 @@ function updateAccount(properties, newData) {
 }
 
 function showEditAccountMenu() {
-  revealElements(document.querySelector('.edit_profile_menu'));
+  revealElements(document.querySelector('.edit-profile-menu'));
 }
 
 function closeEditAccountMenu() {
   let EDIT_PROFILE_MENU_OPTIONS = document.querySelectorAll(
-    '.edit_profile_menu_option'
+    '.edit-profile-menu-option'
   );
 
   for (let index = 0; index < EDIT_PROFILE_MENU_OPTIONS.length; index++) {
@@ -98,76 +98,76 @@ function closeEditAccountMenu() {
     }
   }
 
-  hideElements(document.querySelector('.edit_profile_menu'));
+  hideElements(document.querySelector('.edit-profile-menu'));
 }
 
 document
-  .querySelector('.editProfileButton')
+  .querySelector('.edit-profile-button')
   .addEventListener('click', showEditAccountMenu);
 
 document
-  .getElementById('removeProfilePictureButton')
+  .getElementById('remove-profile-picture-button')
   .addEventListener('click', () => {
     resetProfilePictures();
     toggleKebabMenu();
   });
 
 document
-  .querySelector('.close_edit_profile_menu_icon')
+  .querySelector('.close-edit-profile-menu-icon')
   .addEventListener('click', closeEditAccountMenu);
 
 // update profile picture
 const PROFILE_PICTURE_OPTIONS = document.querySelectorAll(
-  '.profile_picture_option'
+  '.profile-picture-option'
 );
 const CHECKED_RADIO_INPUT_CONTAINER = document.querySelector(
-  '.checked_radio_input_container'
+  '.checked-radio-input-container'
 );
 
 function showEditProfilePictureMenu() {
-  hideElements(document.querySelector('.which_info_container'));
-  revealElements(document.querySelector('.edit_profile_picture_container'));
+  hideElements(document.querySelector('.which-info-container'));
+  revealElements(document.querySelector('.edit-profile-picture-container'));
 }
 
 function renderProfilePictures(data) {
-  document.querySelector('.open_profile_menu').classList.add('hasPFP');
-  document.querySelector('.profile_menu').classList.add('hasPFP');
+  document.querySelector('.open-profile-menu').classList.add('hasPFP');
+  document.querySelector('.profile-menu').classList.add('hasPFP');
 
-  document.querySelectorAll('.userProfileImage').forEach(userProfileImage => {
-    hideElements(document.querySelectorAll('.default_profile_picture'));
+  document.querySelectorAll('.user-profile-image').forEach(userProfileImage => {
+    hideElements(document.querySelectorAll('.default-profile-picture'));
     revealElements(userProfileImage);
     userProfileImage.src = data;
   });
 }
 
 function renderCheckedRadioContainer(imgType) {
-  if (imgType === 'imgLink') {
+  if (imgType === 'img-link') {
     CHECKED_RADIO_INPUT_CONTAINER.innerHTML = `
-      <label for="imgLink">Link:</label>
+      <label for="img-link">Link:</label>
       <input
         type="text"
-        name="imgLink"
-        class="profilePictureInput"
+        name="img-link"
+        class="profile-picture-input"
       />
     `;
   } else {
     CHECKED_RADIO_INPUT_CONTAINER.innerHTML = `
-    <label for="imgFile">File:</label>
+    <label for="img-file">File:</label>
     <input
       type="file"
-      name="imgFile"
-      class="profilePictureInput"
+      name="img-file"
+      class="profile-picture-input"
     />
     `;
   }
 }
 
 function resetProfilePictures() {
-  document.querySelector('.open_profile_menu').classList.remove('hasPFP');
-  document.querySelector('.profile_menu').classList.remove('hasPFP');
+  document.querySelector('.open-profile-menu').classList.remove('hasPFP');
+  document.querySelector('.profile-menu').classList.remove('hasPFP');
 
-  document.querySelectorAll('.userProfileImage').forEach(userProfileImage => {
-    revealElements(document.querySelectorAll('.default_profile_picture'));
+  document.querySelectorAll('.user-profile-image').forEach(userProfileImage => {
+    revealElements(document.querySelectorAll('.default-profile-picture'));
     hideElements(userProfileImage);
     userProfileImage.src = '';
   });
@@ -180,18 +180,18 @@ function changeInputForImage() {
   if (!PROFILE_PICTURE_OPTIONS[0].checked) {
     PROFILE_PICTURE_OPTIONS[0].removeAttribute('checked');
     PROFILE_PICTURE_OPTIONS[1].setAttribute('checked', '');
-    renderCheckedRadioContainer('imgLink');
+    renderCheckedRadioContainer('img-link');
   } else {
     PROFILE_PICTURE_OPTIONS[0].setAttribute('checked', '');
     PROFILE_PICTURE_OPTIONS[1].removeAttribute('checked');
-    renderCheckedRadioContainer('imgFile');
+    renderCheckedRadioContainer('img-file');
   }
 }
 
 function updateProfilePicture() {
   let input = CHECKED_RADIO_INPUT_CONTAINER.children[1];
 
-  if (input.name === 'imgFile') {
+  if (input.name === 'img-file') {
     let imgURL = (window.URL ? URL : webkitURL).createObjectURL(input.files[0]);
     renderProfilePictures(imgURL);
 
@@ -227,20 +227,20 @@ PROFILE_PICTURE_OPTIONS.forEach(profile_pic_option => {
 });
 
 document
-  .getElementById('editProfilePictureButton')
+  .getElementById('edit-profile-picture-button')
   .addEventListener('click', showEditProfilePictureMenu);
 
 document
-  .getElementById('saveProfilePictureButton')
+  .getElementById('save-profile-picture-button')
   .addEventListener('click', updateProfilePicture);
 
 document
-  .querySelector('.deleteProfileButton')
+  .querySelector('.delete-profile-button')
   .addEventListener('click', deleteAccount);
 
 // kebab code
-const KEBAB_ICON = document.querySelector('.kebabIcon');
-const KEBAB_MENU = document.querySelector('.kebab_menu');
+const KEBAB_ICON = document.querySelector('.kebab-icon');
+const KEBAB_MENU = document.querySelector('.kebab-menu');
 let isKebabMenuOpen = false;
 
 function toggleKebabMenu() {
@@ -257,21 +257,21 @@ KEBAB_ICON.addEventListener('click', toggleKebabMenu);
 
 // update username
 function showEditUsernameMenu() {
-  hideElements(document.querySelector('.which_info_container'));
-  revealElements(document.querySelector('.edit_username_container'));
+  hideElements(document.querySelector('.which-info-container'));
+  revealElements(document.querySelector('.edit-username-container'));
 }
 
 function renderUsernames() {
   document
-    .querySelectorAll('.user_name')
+    .querySelectorAll('.user-name')
     .forEach(
       usernameTag => (usernameTag.innerHTML = onlineUser.userData.username)
     );
 }
 
 function updateUsername() {
-  let newUsername = document.getElementById('usernameInput').value;
-  document.getElementById('usernameInput').value = '';
+  let newUsername = document.getElementById('username-input').value;
+  document.getElementById('username-input').value = '';
 
   if (!newUsername.length) return;
 
@@ -287,11 +287,11 @@ function updateUsername() {
 }
 
 document
-  .getElementById('editUsernameButton')
+  .getElementById('edit-username-button')
   .addEventListener('click', showEditUsernameMenu);
 
 document
-  .getElementById('saveUsernameButton')
+  .getElementById('save-username-button')
   .addEventListener('click', updateUsername);
 
 function setOnlineUser(account) {

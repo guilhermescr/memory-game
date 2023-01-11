@@ -1,0 +1,7 @@
+.profile-info-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 250px;
+  width: 100%;
+}

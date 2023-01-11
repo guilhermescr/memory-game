@@ -1,0 +1,11 @@
+.profile-image-container {
+  background-color: #292929;
+  border-radius: 50%;
+  padding: 8px;
+  width: max-content;
+}
+
+.open-profile-menu.hasPFP .profile-image-container {
+  background-color: transparent;
+  width: 60px;
+}

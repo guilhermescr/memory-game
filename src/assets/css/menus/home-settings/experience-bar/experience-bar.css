@@ -1,0 +1,10 @@
+.experience-bar {
+  background-color: #555;
+  border-radius: 20px;
+  display: flex;
+  margin: 0 auto;
+  max-width: 250px;
+  padding: 5px;
+  position: relative;
+  width: 100%;
+}

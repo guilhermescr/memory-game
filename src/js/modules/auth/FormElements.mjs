@@ -1,7 +1,7 @@
 const SIGN_UP_IN_CONTAINER = document.querySelector('.registering-container');
 const FORM = document.querySelector('.registering-container__form');
-const USERNAME_INPUT = document.querySelector('.usernameInput');
-const PASSWORD_INPUT = document.querySelector('.passwordInput');
+const USERNAME_INPUT = document.querySelector('.username-input');
+const PASSWORD_INPUT = document.querySelector('.password-input');
 const TOGGLE_PASSWORD_ICON = document.querySelector(
   '.password-container__toggle-password'
 );
@@ -21,7 +21,7 @@ const HIDE_PASSWORD_EYE = `
 const SUBMIT_BUTTON = document.querySelector('.form__submit-button');
 const AUTH_BUTTON = document.querySelector('#auth-button');
 const PLAY_ANONYMOUSLY_BUTTON = document.querySelector('#play-anonymously');
-const LOGOUT_BUTTONS = document.querySelectorAll('.logoutBtn');
+const LOGOUT_BUTTONS = document.querySelectorAll('.logout-btn');
 
 export {
   SIGN_UP_IN_CONTAINER,

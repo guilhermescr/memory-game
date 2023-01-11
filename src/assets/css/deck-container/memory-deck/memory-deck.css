@@ -1,0 +1,123 @@
+.memory-deck {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  margin-inline: auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  perspective: 1000px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.memory-deck::-webkit-scrollbar {
+  width: 12px;
+}
+
+.memory-deck::-webkit-scrollbar-track {
+  background-color: #292929;
+}
+
+.memory-deck::-webkit-scrollbar-thumb {
+  background-color: var(--home_settings_color);
+  border: 2px solid #0e0e0e;
+  border-radius: 20px;
+}
+
+@media (max-width: 1366px) {
+  .memory-deck {
+    grid-template-columns: repeat(5, auto) !important;
+  }
+}
+
+@media (min-width: 900px) and (min-height: 500px) and (max-height: 650px) {
+  .memory-deck {
+    grid-template-columns: repeat(7, auto) !important;
+  }
+}
+
+@media (max-height: 600px) {
+  .memory-deck {
+    max-height: 265px;
+    overflow-y: auto;
+    padding-bottom: 50px;
+    transform: translateY(-40%);
+  }
+}
+
+@media (max-height: 320px) {
+  .memory-deck {
+    max-height: 220px;
+    padding-bottom: 20px;
+    transform: translateY(-35%);
+  }
+}
+
+@media (max-width: 540px) {
+  .memory-deck {
+    grid-template-columns: repeat(3, auto) !important;
+    max-height: 530px;
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 320px) {
+  .memory-deck {
+    grid-template-columns: repeat(2, auto) !important;
+  }
+}
+
+/*
+@media (max-width: 580px) {
+  .memory-deck {
+    grid-template-columns: repeat(3, auto) !important;
+    height: 80vh !important;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    transform: translate(-50%, 0%);
+    width: max-content;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 600px) and (max-width: 800px) {
+  .memory-deck {
+    grid-template-columns: repeat(3, auto) !important;
+    height: 80vh !important;
+    margin: 0 auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 10px;
+    top: 60% !important;
+    transform: translate(-50%, 0%);
+    width: max-content;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 420px) and (max-width: 920px) {
+  .memory-deck {
+    grid-template-columns: repeat(4, auto) !important;
+    top: 15%;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 650px) {
+  .memory-deck {
+    grid-template-columns: repeat(6, auto) !important;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 300px) {
+  .memory-deck {
+    padding-bottom: 20px;
+    top: 65% !important;
+  }
+}
+
+@media (orientation: portrait) and (max-width: 510px) {
+  .memory-deck {
+    top: 54% !important;
+  }
+}
+*/

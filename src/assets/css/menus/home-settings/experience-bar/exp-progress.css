@@ -1,0 +1,7 @@
+.exp-progress {
+  background-color: var(--window_message_text_color);
+  border-radius: 20px;
+  padding: 6px;
+  padding-left: 10px;
+  width: 12%;
+}

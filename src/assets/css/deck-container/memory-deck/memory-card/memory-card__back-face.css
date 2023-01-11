@@ -1,0 +1,13 @@
+.back-face {
+  backface-visibility: hidden;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  transform: rotateY(180deg);
+  width: 100%;
+}
+
+.back-face[alt='Bulma'] {
+  height: calc(100% + 50px);
+  width: calc(100% - 20px);
+}

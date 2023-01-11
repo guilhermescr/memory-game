@@ -1,0 +1,20 @@
+.setting-option {
+  background-image: var(--setting_option_background_image_gradient);
+  border: 1px solid var(--setting_option_border_color);
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px var(--setting_option_box_shadow_color);
+  color: var(--setting_option_text_color);
+  cursor: pointer;
+  font-size: 20px;
+  padding-block: 8px;
+  width: 95%;
+}
+
+.setting-option:hover {
+  background-image: var(--setting_option_hover_gradient);
+  color: #fff;
+}
+
+.setting-option:active {
+  background-image: var(--setting_option_active_gradient);
+}

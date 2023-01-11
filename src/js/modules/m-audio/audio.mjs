@@ -3,10 +3,10 @@ import { btnThemeId } from '../m-themes/addCards.mjs';
 import { Is_Home_Page, playHomeMusic, stopHomeMusic } from '../Home.mjs';
 import { onlineUser, updateAccount } from '../auth/AccountMethods.mjs';
 
-const MUSIC_AUDIO_TAGS = document.querySelectorAll('.musicAudioTag');
-const THEME_AUDIO_TAG = document.getElementById('themeMusic');
-const THEME_AUDIO_SOURCE_TAG = document.getElementById('themeSoundTrack');
-const VOLUME_INPUTS = document.querySelectorAll('.volumeInput');
+const MUSIC_AUDIO_TAGS = document.querySelectorAll('.music-audio-tag');
+const THEME_AUDIO_TAG = document.getElementById('theme-music');
+const THEME_AUDIO_SOURCE_TAG = document.getElementById('theme-sound-track');
+const VOLUME_INPUTS = document.querySelectorAll('.volume-input');
 let [MusicIsActive, AudioIsActive] = [true, true];
 
 function updateSoundsStatus() {
@@ -14,19 +14,19 @@ function updateSoundsStatus() {
   const { audio, music } = onlineUser.userData.sounds;
   [AudioIsActive, MusicIsActive] = [audio, music];
 
-  soundButtons = document.querySelectorAll('.switchSoundButton');
+  soundButtons = document.querySelectorAll('.switch-sound-button');
   if (!AudioIsActive) {
     switchSoundButtonCSS(soundButtons);
   }
 
-  soundButtons = document.querySelectorAll('.switchMusicButton');
+  soundButtons = document.querySelectorAll('.switch-music-button');
   if (!MusicIsActive) {
     switchSoundButtonCSS(soundButtons);
   }
 }
 
 function getPlayMusicButtons() {
-  const PLAY_MUSIC_BUTTONS = document.querySelectorAll('.hasMusic');
+  const PLAY_MUSIC_BUTTONS = document.querySelectorAll('.has-music');
 
   PLAY_MUSIC_BUTTONS.forEach(PLAY_MUSIC_BUTTON => {
     PLAY_MUSIC_BUTTON.addEventListener('click', function () {
@@ -43,13 +43,13 @@ function renderPlayMusicButtons() {
   for (let index = 1; index <= SOUNDTRACKS_AMOUNT; index++) {
     const MUSIC = `
     <div class="music">
-      <button data-music="Music${index}" class="playMusic hasMusic">Music ${index}</button>
+      <button data-music="Music${index}" class="play-music has-music">Music ${index}</button>
     </div>
     `;
 
     const MUSIC_COMING_SOON = `
     <div class="music">
-      <button data-music="ComingSoon" class="playMusic">Coming Soon...</button>
+      <button data-music="ComingSoon" class="play-music-button">Coming Soon...</button>
     </div>
     `;
 
@@ -118,7 +118,7 @@ function setVolume(VOLUME_INPUT) {
 }
 
 // SOUND EFFECTS
-const HOVER_SOUND_EFFECT = document.getElementById('hover-soundEffect');
+const HOVER_SOUND_EFFECT = document.getElementById('hover-sound-effect');
 const CLICK_SOUND_EFFECT = document.getElementById('click-setting-effect');
 
 /* console.clear() has been used to hide the following error:
@@ -144,18 +144,18 @@ function playClickSoundEffect() {
 }
 
 // Switch Audio Settings
-const SWITCH_BUTTONS = document.querySelectorAll('.switchButton');
+const SWITCH_BUTTONS = document.querySelectorAll('.switch-button');
 let audioButtons;
 
 function switchAudioStyles(SwitchButton) {
   if (
-    SwitchButton.classList.contains('switchMusicButton') ||
-    SwitchButton === 'switchMusicButton'
+    SwitchButton.classList.contains('switch-music-button') ||
+    SwitchButton === 'switch-music-button'
   ) {
-    audioButtons = document.querySelectorAll('.switchMusicButton');
+    audioButtons = document.querySelectorAll('.switch-music-button');
     switchMusic();
   } else {
-    audioButtons = document.querySelectorAll('.switchSoundButton');
+    audioButtons = document.querySelectorAll('.switch-sound-button');
     switchSound();
   }
 

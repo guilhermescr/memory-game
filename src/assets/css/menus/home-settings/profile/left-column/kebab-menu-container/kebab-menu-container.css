@@ -1,0 +1,17 @@
+.kebab-menu-container {
+  left: 7%;
+  position: absolute;
+  top: 10px;
+}
+
+@media (min-width: 760px) {
+  .kebab-menu-container {
+    left: 12%;
+  }
+}
+
+@media (max-width: 580px) {
+  .kebab-menu-container {
+    left: 10%;
+  }
+}

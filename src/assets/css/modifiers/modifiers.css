@@ -1,0 +1,17 @@
+.success {
+  color: #080;
+}
+
+.error {
+  color: #d00 !important;
+}
+
+.show {
+  transform: translate(-50%, 5%) scale(1) !important;
+  transition: transform 0.2s ease;
+}
+
+.hide {
+  display: none !important;
+  z-index: -1 !important;
+}

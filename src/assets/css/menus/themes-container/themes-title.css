@@ -1,0 +1,6 @@
+@media (max-width: 580px) {
+  #themes-title {
+    margin: 0 auto;
+    max-width: 160px;
+  }
+}
