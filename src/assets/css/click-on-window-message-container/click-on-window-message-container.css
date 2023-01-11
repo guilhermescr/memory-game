@@ -6,8 +6,10 @@
   flex-direction: column;
   gap: 50px;
   height: 100vh;
+  left: 0;
   padding-top: 10%;
   position: absolute;
+  top: 0;
   width: 100vw;
   z-index: 1000;
 }

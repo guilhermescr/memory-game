@@ -11,10 +11,10 @@
   width: 100%;
 }
 
-#save-username-button:active {
-  background-color: #191919;
+#save-username-button:hover {
+  background-color: #454545;
 }
 
-#save-username-button.change-template-button {
-  background-color: #454545;
+#save-username-button:active {
+  background-color: #191919;
 }

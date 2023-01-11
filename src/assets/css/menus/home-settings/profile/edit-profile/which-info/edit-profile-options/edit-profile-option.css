@@ -10,7 +10,7 @@
   transition: 0.3s ease;
 }
 
-.edit-profile-option.change-template-button {
+.edit-profile-option:hover {
   background-image: var(--buttons_hover_gradient);
   transform: scale(1.1);
 }

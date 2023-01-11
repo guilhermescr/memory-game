@@ -1,8 +1,8 @@
 .credits {
+  align-items: center;
   display: flex;
   flex-flow: column wrap;
-  justify-content: space-evenly;
-  align-items: center;
   gap: 10px;
+  justify-content: space-evenly;
   overflow: hidden;
 }

@@ -8,11 +8,11 @@
   width: 100%;
 }
 
+.profile-info-option:hover {
+  background-color: #444;
+}
+
 .profile-info-option:active {
   background-color: #393939;
   opacity: 0.8;
-}
-
-.profile-info-option.change-template-button {
-  background-color: #444;
 }

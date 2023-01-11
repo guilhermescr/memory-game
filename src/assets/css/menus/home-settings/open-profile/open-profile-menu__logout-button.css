@@ -11,6 +11,6 @@
   width: 100%;
 }
 
-#logout-button.change-template-button {
+#logout-button:hover {
   background-color: #5a1a1a;
 }

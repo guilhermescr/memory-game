@@ -5,10 +5,10 @@
   font-size: 20px;
 }
 
-.delete-profile-button:active {
-  color: #efefef;
+.delete-profile-button:hover {
+  color: #f4fff4e0;
 }
 
-.delete-profile-button.change-template-button {
-  color: #f4fff4e0;
+.delete-profile-button:active {
+  color: #efefef;
 }

@@ -1,11 +1,11 @@
-.credits__info .credits__info__creatorImageContainer {
-  width: 50%;
-  text-align: center;
+.credits__info .credits__info__creator-image-container {
   position: relative;
+  text-align: center;
+  width: 50%;
 }
 
 @media (max-width: 580px) {
-  .credits__info .credits__info__creatorImageContainer {
+  .credits__info .credits__info__creator-image-container {
     width: 100%;
   }
 }

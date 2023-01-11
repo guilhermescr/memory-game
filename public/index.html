@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../src/assets/css/global.css" />
     <link rel="stylesheet" href="../src/assets/css/body.css" />
     <link rel="stylesheet" href="../src/assets/css/headings.css" />
+    <link rel="stylesheet" href="../src/assets/css/root.css" />
 
     <!-- Modifiers -->
     <link rel="stylesheet" href="../src/assets/css/modifiers/modifiers.css" />
@@ -92,6 +93,16 @@
     <link
       rel="stylesheet"
       href="../src/assets/css/top-bar-container/top-bar-container__right-content/right-content__toggle-fullscreen-icon-container.css"
+    />
+
+    <!-- Templates Animations -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/templates-settings/templates-animations/forest_template_animation/forest_template_animation.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/templates-settings/templates-animations/military_template_animation/military_template_animation.css"
     />
 
     <!-- Registering Container -->
@@ -193,6 +204,7 @@
     />
 
     <!-- Menus -->
+    <link rel="stylesheet" href="../src/assets/css/menus/menu.css" />
 
     <!-- Menu Icons - Close Icon -->
     <link
@@ -278,6 +290,7 @@
       href="../src/assets/css/menus/themes-container/themes-container__themes/themes__theme/theme__h3.css"
     />
 
+    <!-- Themes - Theme - Theme Image Container -->
     <link
       rel="stylesheet"
       href="../src/assets/css/menus/themes-container/themes-container__themes/themes__theme/theme-image-container/theme-image-container.css"
@@ -422,9 +435,75 @@
       rel="stylesheet"
       href="../src/assets/css/menus/home-settings/profile/edit-profile/close-edit-profile-menu-icon.css"
     />
+
+    <!-- Profile Menu - Edit Profile - Edit Profile Picture -->
     <link
       rel="stylesheet"
-      href="../src/assets/css/menus/home-settings/profile/edit-profile/"
+      href="../src/assets/css/menus/home-settings/profile/edit-profile/edit-profile-picture/edit-profile-picture-container.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/edit-profile/edit-profile-picture/save-profile-picture-button.css"
+    />
+
+    <!-- Edit Profile - Edit Profile Picture - Checked Radio Input Container -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/edit-profile/edit-profile-picture/checked-radio-input-container/checked-radio-input-container.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/edit-profile/edit-profile-picture/checked-radio-input-container/checked-radio-input-container__input.css"
+    />
+
+    <!-- Edit Profile - Edit Profile Picture - Profile Picture Options -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/edit-profile/edit-profile-picture/profile-picture-options/profile-picture-options.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/edit-profile/edit-profile-picture/profile-picture-options/profile-picture-options__div.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/edit-profile/edit-profile-picture/profile-picture-options/profile-picture-options__label.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/edit-profile/edit-profile-picture/profile-picture-options/profile-picture-options__input.css"
+    />
+
+    <!-- Edit Profile - Edit Username - Username Form -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/edit-profile/edit-username/username-form/username-form.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/edit-profile/edit-username/username-form/username-form__h3.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/edit-profile/edit-username/username-form/username-form__label.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/edit-profile/edit-username/username-form/username-form__input.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/edit-profile/edit-username/username-form/save-username-button.css"
+    />
+
+    <!-- Edit Profile - Which Info - Edit Profile Options -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/edit-profile/which-info/edit-profile-options/edit-profile-options.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/edit-profile/which-info/edit-profile-options/edit-profile-option.css"
     />
 
     <!-- Home Settings - Profile Menu - Left Column -->
@@ -546,11 +625,11 @@
     />
     <link
       rel="stylesheet"
-      href="../src/assets/css/menus/credits/credits__info__creatorImageContainer.css"
+      href="../src/assets/css/menus/credits/credits__info__creator-image-container.css"
     />
     <link
       rel="stylesheet"
-      href="../src/assets/css/menus/credits/credits__info__creatorImage.css"
+      href="../src/assets/css/menus/credits/credits__info__creator-image.css"
     />
 
     <!-- Social -->
@@ -561,6 +640,14 @@
     <link
       rel="stylesheet"
       href="../src/assets/css/menus/credits/social/social__link.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/credits/social/social__div.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/credits/social/social__h3.css"
     />
 
     <!-- Deck Container -->
@@ -1292,7 +1379,7 @@
         </section>
       </section>
 
-      <div class="credits menu" data-setting="credits-menu">
+      <section class="credits menu" data-setting="credits-menu">
         <div class="close-menu-container">
           <img
             class="close-menu-container__close-icon"
@@ -1300,6 +1387,7 @@
             alt="Close Window Icon"
           />
         </div>
+
         <h2>Credits</h2>
         <div class="credits__info">
           <div class="credits__info__creator-image-container">
@@ -1382,7 +1470,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </section>
 
     <section class="deck-container hide">

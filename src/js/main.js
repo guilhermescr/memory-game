@@ -19,8 +19,8 @@ import {
   resetProfilePictures
 } from './modules/auth/AccountMethods.mjs';
 
-const CLICK_ON_WINDOW_CONTAINER = document.querySelector(
-  '#click-on-window-message-container'
+const CLICK_ON_WINDOW_CONTAINER = document.getElementById(
+  'click-on-window-message-container'
 );
 const LOADER_CONTAINER = document.getElementById('loader-container');
 const LOADER_TITLE = document.getElementById('loader-container__loader-title');
@@ -211,7 +211,7 @@ FULLSCREEN_BUTTON.innerHTML = MAXIMIZE_FULLSCREEN_ICON;
 
 function toggleFullscreenMode() {
   let isMaximizeFullscreen = FULLSCREEN_BUTTON.classList.contains(
-    'fullscreenActivated'
+    'fullscreen-activated'
   );
 
   // turn on fullscreen mode
@@ -225,7 +225,7 @@ function toggleFullscreenMode() {
 
     document.exitFullscreen();
   }
-  FULLSCREEN_BUTTON.classList.toggle('fullscreenActivated');
+  FULLSCREEN_BUTTON.classList.toggle('fullscreen-activated');
 }
 
 FULLSCREEN_BUTTON.addEventListener('click', toggleFullscreenMode);

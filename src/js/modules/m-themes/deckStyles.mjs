@@ -15,8 +15,11 @@ function renderDeck() {
   if (cardsAmountInMemoryDeck === 8) {
     MEMORY_DECK.style.gridTemplateColumns = 'repeat(4, auto)';
   }
-  if (cardsAmountInMemoryDeck === 14 || cardsAmountInMemoryDeck === 20) {
+  if (cardsAmountInMemoryDeck === 14) {
     MEMORY_DECK.style.gridTemplateColumns = 'repeat(5, auto)';
+  }
+  if (cardsAmountInMemoryDeck === 20) {
+    MEMORY_DECK.style.gridTemplateColumns = 'repeat(7, auto)';
   }
 
   timeoutItems(startGame);

@@ -12,7 +12,7 @@
   width: 30%;
 }
 
-.open-profile-menu.change-template-button {
+.open-profile-menu:hover {
   background-color: #323232;
 }
 

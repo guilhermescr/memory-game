@@ -11,12 +11,12 @@
   width: 100%;
 }
 
-.difficulty-level:active {
-  background-image: var(--difficulty_level_button_active_gradient);
-}
-
-.difficulty-level.change-template-button {
+.difficulty-level:hover {
   background-image: var(--difficulty_level_button_hover_gradient);
   color: #fef;
   transform: scale(0.95);
+}
+
+.difficulty-level:active {
+  background-image: var(--difficulty_level_button_active_gradient);
 }

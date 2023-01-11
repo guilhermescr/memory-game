@@ -11,10 +11,10 @@
   width: 100%;
 }
 
-#save-profile-picture-button:active {
-  background-color: #191919;
+#save-profile-picture-button:hover {
+  background-color: #454545;
 }
 
-#save-profile-picture-button.change-template-button {
-  background-color: #454545;
+#save-profile-picture-button:active {
+  background-color: #191919;
 }

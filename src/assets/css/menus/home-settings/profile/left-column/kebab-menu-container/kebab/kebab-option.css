@@ -7,7 +7,7 @@
   text-align: center;
 }
 
-.kebab-option.change-template-button {
+.kebab-option:hover {
   background-color: #303030;
 }
 

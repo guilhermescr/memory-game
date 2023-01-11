@@ -10,11 +10,11 @@
   width: 95%;
 }
 
-.setting-option:active {
-  background-image: var(--setting_option_active_gradient);
-}
-
-.setting-option.change-template-button {
+.setting-option:hover {
   background-image: var(--setting_option_hover_gradient);
   color: #fff;
+}
+
+.setting-option:active {
+  background-image: var(--setting_option_active_gradient);
 }

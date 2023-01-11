@@ -5,10 +5,10 @@
   font-size: 25px;
 }
 
-.kebab-icon:active {
-  color: #efefef;
+.kebab-icon:hover {
+  color: #f4fff4e0;
 }
 
-.kebab-icon.change-template-button {
-  color: #f4fff4e0;
+.kebab-icon:active {
+  color: #efefef;
 }

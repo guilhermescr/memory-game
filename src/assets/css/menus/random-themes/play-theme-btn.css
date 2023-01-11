@@ -10,7 +10,7 @@
   transition: 0.3s ease;
 }
 
-.play-theme-btn.change-template-button {
+.play-theme-btn:hover {
   background-image: var(--buttons_hover_gradient);
   transform: scale(1.1);
 }

@@ -10,11 +10,13 @@
   transition: 0.3s ease;
 }
 
+.change-template-button:hover {
+  background-image: var(--buttons_hover_gradient);
+  transform: scale(1.1);
+}
+
 .change-template-button:active {
   background-image: var(--buttons_active_gradient);
 }
 
-.change-template-button.change-template-button {
-  background-image: var(--buttons_hover_gradient);
-  transform: scale(1.1);
-}
+
