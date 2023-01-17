@@ -1,0 +1,12 @@
+.achievement__achievement-xp {
+  background-image: var(--top_bar_container_background_image_gradient);
+  border-radius: 50%;
+  color: #fffcfc;
+  font-size: 15px;
+  padding: 15px 8px;
+  text-shadow: 0 0 3px #000000f3;
+}
+
+body.forest_template .achievement__achievement-xp {
+  padding: 12px 9px;
+}

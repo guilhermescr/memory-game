@@ -1,0 +1,13 @@
+.font-awesome-icon {
+  cursor: pointer;
+  fill: #fff;
+  height: 20px;
+}
+
+.font-awesome-icon:hover {
+  fill: #f4fff4e0;
+}
+
+.font-awesome-icon:active {
+  fill: #efefef;
+}

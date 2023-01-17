@@ -18,6 +18,7 @@ import {
   renderProfilePictures,
   resetProfilePictures
 } from './modules/auth/AccountMethods.mjs';
+import * as ProfileSections from './modules/m-profile/ProfileSections.mjs';
 
 const CLICK_ON_WINDOW_CONTAINER = document.getElementById(
   'click-on-window-message-container'

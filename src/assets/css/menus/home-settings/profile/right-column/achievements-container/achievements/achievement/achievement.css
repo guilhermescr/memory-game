@@ -1,0 +1,18 @@
+.achievements__achievement {
+  align-items: center;
+  background-color: #282828;
+  border: 1px solid #757575;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 6px;
+  padding: 10px 5px;
+  width: 100%;
+}
+
+.achievements__achievement:last-child {
+  margin-bottom: 0;
+}

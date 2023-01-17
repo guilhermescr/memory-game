@@ -203,27 +203,33 @@
       href="../src/assets/css/registering-container/registering-container__form/form__auth-option/auth-option__auth-button.css"
     />
 
-    <!-- Menus -->
+    <!-- Menus - Menu -->
     <link rel="stylesheet" href="../src/assets/css/menus/menu.css" />
 
-    <!-- Menu Icons - Close Icon -->
+    <!-- Menus - Icon Container - Font Awesome Icons -->
     <link
       rel="stylesheet"
-      href="../src/assets/css/menus/close-menu-container/close-menu-container.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../src/assets/css/menus/close-menu-container/close-menu-container__close-icon.css"
+      href="../src/assets/css/menus/icons-container/font-awesome-icon.css"
     />
 
-    <!-- Menu Icons - Return Icon -->
+    <!-- Menus - Icons Container - Close Icon -->
     <link
       rel="stylesheet"
-      href="../src/assets/css/menus/return-icon-container/return-icon-container.css"
+      href="../src/assets/css/menus/icons-container/close-menu-container/close-menu-container.css"
     />
     <link
       rel="stylesheet"
-      href="../src/assets/css/menus/return-icon-container/return-icon-container__return-icon.css"
+      href="../src/assets/css/menus/icons-container/close-menu-container/close-menu-container__close-icon.css"
+    />
+
+    <!-- Menus - Icons Container - Return Icon -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/icons-container/return-icon-container/return-icon-container.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/icons-container/return-icon-container/return-icon-container__return-icon.css"
     />
 
     <!-- Game Menu -->
@@ -587,7 +593,58 @@
     />
 
     <!-- Profile Menu - Right Column - Achievements -->
-    <!-- <link rel="stylesheet" href="../src/assets/css/menus/home-settings/profile/right-column/achievements/" /> -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/right-column/achievements-container/achievements-container.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/right-column/achievements-container/achievements-container__h3.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/right-column/achievements-container/achievements-container__total-achievements.css"
+    />
+
+    <!-- Right Column - Achievements -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/right-column/achievements-container/achievements/achievements.css"
+    />
+
+    <!-- Right Column - Achievements - Achievement -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/right-column/achievements-container/achievements/achievement/achievement.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/right-column/achievements-container/achievements/achievement/achievement-xp.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/right-column/achievements-container/achievements/achievement/achievement__progress-bar.css"
+    />
+
+    <!-- Achievements - Achievement - Badge Container -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/right-column/achievements-container/achievements/achievement/badge-container/achievement__badge-container.css"
+    />
+
+    <!-- Achievements - Achievement - Achievement Info -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/right-column/achievements-container/achievements/achievement/achievement-info/achievement-info.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/right-column/achievements-container/achievements/achievement/achievement-info/achievement-info__title.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/right-column/achievements-container/achievements/achievement/achievement-info/achievement-info__p.css"
+    />
 
     <!-- Home Settings - Templates Container -->
     <link
@@ -631,6 +688,10 @@
       rel="stylesheet"
       href="../src/assets/css/menus/credits/credits__info__creator-image.css"
     />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/credits/credits-info__h3.css"
+    />
 
     <!-- Social -->
     <link
@@ -644,10 +705,6 @@
     <link
       rel="stylesheet"
       href="../src/assets/css/menus/credits/social/social__div.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../src/assets/css/menus/credits/social/social__h3.css"
     />
 
     <!-- Deck Container -->
@@ -781,19 +838,19 @@
           Lives:
           <span id="hearts">
             <i
-              class="fa-sharp fa-solid fa-heart hearts-container__heart hearts-container__alive-heart"
+              class="fa-solid fa-heart hearts-container__heart hearts-container__alive-heart"
             ></i>
             <i
-              class="fa-sharp fa-solid fa-heart hearts-container__heart hearts-container__alive-heart"
+              class="fa-solid fa-heart hearts-container__heart hearts-container__alive-heart"
             ></i>
             <i
-              class="fa-sharp fa-solid fa-heart hearts-container__heart hearts-container__alive-heart"
+              class="fa-solid fa-heart hearts-container__heart hearts-container__alive-heart"
             ></i>
             <i
-              class="fa-sharp fa-solid fa-heart hearts-container__heart hearts-container__alive-heart"
+              class="fa-solid fa-heart hearts-container__heart hearts-container__alive-heart"
             ></i>
             <i
-              class="fa-sharp fa-solid fa-heart hearts-container__heart hearts-container__alive-heart"
+              class="fa-solid fa-heart hearts-container__heart hearts-container__alive-heart"
             ></i>
           </span>
         </h3>
@@ -880,6 +937,7 @@
             id="password"
             class="password-input"
             name="password"
+            autocomplete="off"
             placeholder="I.e.: @julian2022"
             pattern="^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$"
           />
@@ -1206,10 +1264,17 @@
 
           <section class="profile-left-column">
             <div class="kebab-menu-container" role="button">
-              <i
-                class="fa-solid fa-ellipsis-vertical kebab-icon"
+              <svg
+                class="kebab-icon"
                 title="More Options"
-              ></i>
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 128 512"
+              >
+                <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                <path
+                  d="M64 360c30.9 0 56 25.1 56 56s-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56zm0-160c30.9 0 56 25.1 56 56s-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56zM120 96c0 30.9-25.1 56-56 56S8 126.9 8 96S33.1 40 64 40s56 25.1 56 56z"
+                />
+              </svg>
 
               <div class="kebab-menu hide">
                 <p
@@ -1232,7 +1297,16 @@
                 role="button"
                 title="Edit Profile"
               >
-                <i class="fa-solid fa-user-pen"></i>
+                <svg
+                  class="font-awesome-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 640 512"
+                >
+                  <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                  <path
+                    d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H322.8c-3.1-8.8-3.7-18.4-1.4-27.8l15-60.1c2.8-11.3 8.6-21.5 16.8-29.7l40.3-40.3c-32.1-31-75.7-50.1-123.9-50.1H178.3zm435.5-68.3c-15.6-15.6-40.9-15.6-56.6 0l-29.4 29.4 71 71 29.4-29.4c15.6-15.6 15.6-40.9 0-56.6l-14.4-14.4zM375.9 417c-4.1 4.1-7 9.2-8.4 14.9l-15 60.1c-1.4 5.5 .2 11.2 4.2 15.2s9.7 5.6 15.2 4.2l60.1-15c5.6-1.4 10.8-4.3 14.9-8.4L576.1 358.7l-71-71L375.9 417z"
+                  />
+                </svg>
               </div>
 
               <div
@@ -1240,7 +1314,18 @@
                 role="button"
                 title="Delete Profile"
               >
-                <i class="fa-solid fa-trash-can"></i>
+                <svg
+                  class="font-awesome-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                >
+                  <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                  <path
+                    d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"
+                  />
+                </svg>
+
+                <!-- come back if anything goes wrong -->
               </div>
             </div>
 
@@ -1296,22 +1381,154 @@
             </div>
 
             <ul class="profile-info-options">
-              <li class="profile-info-option" role="button">General Info</li>
-              <li class="profile-info-option" role="button">Achievements</li>
+              <li
+                class="profile-info-option"
+                id="open-general-info-button"
+                role="button"
+              >
+                General Info
+              </li>
+              <li
+                class="profile-info-option"
+                id="open-achievements-button"
+                role="button"
+              >
+                Achievements
+              </li>
             </ul>
           </section>
 
           <section class="profile-right-column">
-            <div class="general-info-container">
+            <section class="general-info-container hide">
               <ul class="general-info-list">
                 <li>Matches: 0</li>
                 <li>Victories: 0</li>
                 <li>Defeats: 0</li>
               </ul>
-            </div>
-            <div class="achievements-container hide">
+            </section>
+            <!-- initially, add hide class to achievements, not to general info -->
+            <section class="achievements-container">
               <h3>Achievements:</h3>
-            </div>
+              <p class="achievements-container__total-achievements">
+                <span>Total: </span><span>4/4</span>
+              </p>
+              <div class="achievements-container__achievements">
+                <div class="achievements__achievement">
+                  <div class="achievement__badge-container">
+                    <div class="card-badge">
+                      <div class="card">
+                        <p>?</p>
+                      </div>
+                      <div class="card flipped">
+                        <p>:)</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="achievement__achievement-info">
+                    <h4 class="achievement-info__title">Flip it!</h4>
+                    <p>Flip your first card</p>
+                  </div>
+
+                  <p class="achievement__achievement-xp">3XP</p>
+
+                  <div class="achievement__progress-bar">
+                    <div class="progress-bar__current-progress"></div>
+                    <p>3/5</p>
+                  </div>
+                </div>
+
+                <div class="achievements__achievement">
+                  <div class="achievement__badge-container">
+                    <p>Fake IMG</p>
+                  </div>
+
+                  <div class="achievement__achievement-info">
+                    <h4 class="achievement-info__title">Flip it!</h4>
+                    <p>Flip your first card</p>
+                  </div>
+
+                  <p class="achievement__achievement-xp">3XP</p>
+
+                  <div class="achievement__progress-bar">
+                    <div class="progress-bar__current-progress"></div>
+                    <p>3/5</p>
+                  </div>
+                </div>
+
+                <div class="achievements__achievement">
+                  <div class="achievement__badge-container">
+                    <p>Fake IMG</p>
+                  </div>
+
+                  <div class="achievement__achievement-info">
+                    <h4 class="achievement-info__title">Flip it!</h4>
+                    <p>Flip your first card</p>
+                  </div>
+
+                  <p class="achievement__achievement-xp">3XP</p>
+
+                  <div class="achievement__progress-bar">
+                    <div class="progress-bar__current-progress"></div>
+                    <p>3/5</p>
+                  </div>
+                </div>
+
+                <div class="achievements__achievement">
+                  <div class="achievement__badge-container">
+                    <p>Fake IMG</p>
+                  </div>
+
+                  <div class="achievement__achievement-info">
+                    <h4 class="achievement-info__title">Flip it!</h4>
+                    <p>Flip your first card</p>
+                  </div>
+
+                  <p class="achievement__achievement-xp">3XP</p>
+
+                  <div class="achievement__progress-bar">
+                    <div class="progress-bar__current-progress"></div>
+                    <p>3/5</p>
+                  </div>
+                </div>
+
+                <div class="achievements__achievement">
+                  <div class="achievement__badge-container">
+                    <p>Fake IMG</p>
+                  </div>
+
+                  <div class="achievement__achievement-info">
+                    <h4 class="achievement-info__title">Flip it!</h4>
+                    <p>Flip your first card</p>
+                  </div>
+
+                  <p class="achievement__achievement-xp">3XP</p>
+
+                  <div class="achievement__progress-bar">
+                    <div class="progress-bar__current-progress"></div>
+                    <p>3/5</p>
+                  </div>
+                </div>
+
+                <div class="achievements__achievement">
+                  <div class="achievement__badge-container">
+                    <p>Fake IMG</p>
+                  </div>
+
+                  <div class="achievement__achievement-info">
+                    <h4 class="achievement-info__title">Flip it!</h4>
+                    <p>Flip your first card</p>
+                  </div>
+
+                  <p class="achievement__achievement-xp">3XP</p>
+
+                  <div class="achievement__progress-bar">
+                    <div class="progress-bar__current-progress"></div>
+                    <p>3/5</p>
+                  </div>
+                </div>
+              </div>
+            </section>
           </section>
         </section>
 
@@ -1405,7 +1622,6 @@
           </div>
 
           <div class="social">
-            <h3>Social:</h3>
             <div class="instagram">
               <svg
                 fill="#000000"

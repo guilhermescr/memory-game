@@ -1,0 +1,40 @@
+.achievement__badge-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 20%;
+}
+
+.card-badge {
+  display: flex;
+  padding-left: 7px;
+  padding-right: 5px;
+  position: relative;
+  width: 100%;
+}
+
+.card-badge .card {
+  align-items: center;
+  background-image: var(--buttons_hover_gradient);
+  border: 1px solid #0000007a;
+  display: flex;
+  font-size: 14px;
+  height: 30px;
+  justify-content: center;
+  transform: rotate(15deg);
+  width: 20px;
+}
+
+.card-badge .card.flipped {
+  position: absolute;
+  transform: rotate(15deg) translate(13px, -5px);
+}
+
+.card-badge .card p {
+  transform: rotate(-10deg);
+}
+
+.card-badge .card.flipped p {
+  transform: rotate(90deg);
+}

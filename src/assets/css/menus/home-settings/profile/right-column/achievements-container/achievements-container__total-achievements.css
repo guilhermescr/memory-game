@@ -1,0 +1,9 @@
+.achievements-container__total-achievements {
+  background-color: #414040;
+  border: 1px solid #757575;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 4px;
+  width: 98%;
+}
