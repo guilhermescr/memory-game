@@ -13,7 +13,3 @@
 *::after {
   box-sizing: border-box;
 }
-
-*:not(#title-container__title, #title-container__title *) {
-  font-weight: normal;
-}

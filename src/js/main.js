@@ -18,6 +18,8 @@ import {
   renderProfilePictures,
   resetProfilePictures
 } from './modules/auth/AccountMethods.mjs';
+import * as ProfileSections from './modules/m-profile/ProfileSections.mjs';
+import { renderAchievements } from './modules/m-profile/achievements/Achievements.mjs';
 
 const CLICK_ON_WINDOW_CONTAINER = document.getElementById(
   'click-on-window-message-container'
@@ -264,6 +266,7 @@ function setDefaultSettings() {
   changeCurrentTemplate(onlineUser.userData.CurrentTemplate);
   setCurrentTemplateImage();
   setVolume(onlineUser.userData.sounds.volume);
+  renderAchievements();
 
   if (onlineUser.userData.profilePicture.length) {
     renderProfilePictures(onlineUser.userData.profilePicture);

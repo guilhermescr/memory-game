@@ -1,14 +1,14 @@
 .kebab-icon {
-  color: #fff;
   cursor: pointer;
   display: flex;
-  font-size: 25px;
+  fill: #fff;
+  width: 7px;
 }
 
 .kebab-icon:hover {
-  color: #f4fff4e0;
+  fill: #f4fff4e0;
 }
 
 .kebab-icon:active {
-  color: #efefef;
+  fill: #efefef;
 }

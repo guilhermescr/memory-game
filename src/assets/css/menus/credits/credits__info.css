@@ -1,6 +1,12 @@
 .credits__info {
+  align-items: center;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  align-items: center;
+}
+
+@media (max-width: 580px) {
+  .credits__info {
+    gap: 10px;
+  }
 }

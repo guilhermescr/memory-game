@@ -25,12 +25,12 @@ function setBirdAnimationInterval() {
 function setBirdPosition() {
   // get title (h1) top and right position
   let titleTopPosition = document
-    .querySelector('#game-menu-title')
+    .getElementById('title-container__title')
     .getBoundingClientRect()
     .top.toFixed();
 
   let titleRightPosition = document
-    .querySelector('#game-menu-title')
+    .getElementById('title-container__title')
     .getBoundingClientRect()
     .right.toFixed();
 
