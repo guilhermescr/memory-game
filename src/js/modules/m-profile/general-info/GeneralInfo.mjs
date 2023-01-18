@@ -1,7 +1,7 @@
 import { hideElements, revealElements } from '../../../main.js';
 
 const ACHIEVEMENTS_CONTAINER = document.querySelector(
-  '.achievements-container'
+  '.achievements-section'
 );
 const GENERAL_INFO_CONTAINER = document.querySelector(
   '.general-info-container'

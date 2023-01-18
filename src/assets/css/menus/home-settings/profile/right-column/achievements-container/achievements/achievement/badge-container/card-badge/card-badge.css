@@ -1,0 +1,27 @@
+.card-badge {
+  display: flex;
+  padding-left: 5px;
+  position: relative;
+  width: 100%;
+}
+
+.card-badge img {
+  width: 14px;
+}
+
+.card-badge .card {
+  align-items: center;
+  background-image: var(--buttons_hover_gradient);
+  border: 1px solid #0000007a;
+  display: flex;
+  font-size: 14px;
+  height: 30px;
+  justify-content: center;
+  transform: rotate(-15deg);
+  width: 20px;
+}
+
+.card-badge .card.flipped {
+  position: absolute;
+  transform: rotate(15deg) translate(15px, -3px);
+}

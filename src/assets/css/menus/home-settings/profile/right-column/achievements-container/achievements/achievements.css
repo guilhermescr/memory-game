@@ -1,4 +1,4 @@
-.achievements-container__achievements {
+.achievements-section__achievements {
   border-radius: 10px;
   max-height: 320px;
   overflow-y: auto;
@@ -6,15 +6,15 @@
   width: 100%;
 }
 
-.achievements-container__achievements::-webkit-scrollbar {
+.achievements-section__achievements::-webkit-scrollbar {
   width: 12px;
 }
 
-.achievements-container__achievements::-webkit-scrollbar-track {
+.achievements-section__achievements::-webkit-scrollbar-track {
   background: #292929;
 }
 
-.achievements-container__achievements::-webkit-scrollbar-thumb {
+.achievements-section__achievements::-webkit-scrollbar-thumb {
   background-color: #555555;
   border: 2px solid #222222;
   border-radius: 20px;

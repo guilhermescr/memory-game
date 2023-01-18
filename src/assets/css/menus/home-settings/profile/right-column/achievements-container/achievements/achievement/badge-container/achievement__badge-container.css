@@ -1,40 +1,64 @@
 .achievement__badge-container {
   align-items: center;
+  background-color: #353535;
+  border: 1px solid #5f636d;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
+  margin-left: 15px;
+  padding: 12px 5px;
   position: relative;
+  text-align: center;
   width: 20%;
 }
 
-.card-badge {
+.badge-container__custom-border {
+  border-radius: 50%;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.custom-border__circle {
+  background-image: linear-gradient(#808080, #4b4b4b);
+  border: 1px solid #2f384e;
+  border-radius: 50%;
+  height: 10px;
+  position: absolute;
+  width: 10px;
+}
+
+.custom-border__circle:nth-child(1) {
+  left: 23px;
+  top: -6px;
+}
+
+.custom-border__circle:nth-child(2) {
+  left: -6px;
+  top: 22px;
+}
+
+.custom-border__circle:nth-child(3) {
+  left: 23px;
+  top: 49px;
+}
+
+.custom-border__circle:nth-child(4) {
+  left: 50px;
+  top: 22px;
+}
+
+.win-streak-badge {
+  align-items: center;
   display: flex;
-  padding-left: 7px;
-  padding-right: 5px;
+  height: 30px;
+  justify-content: center;
+  margin-left: 2px;
+  padding: 4px;
   position: relative;
   width: 100%;
 }
 
-.card-badge .card {
-  align-items: center;
-  background-image: var(--buttons_hover_gradient);
-  border: 1px solid #0000007a;
-  display: flex;
-  font-size: 14px;
-  height: 30px;
-  justify-content: center;
-  transform: rotate(15deg);
-  width: 20px;
-}
-
-.card-badge .card.flipped {
-  position: absolute;
-  transform: rotate(15deg) translate(13px, -5px);
-}
-
-.card-badge .card p {
-  transform: rotate(-10deg);
-}
-
-.card-badge .card.flipped p {
-  transform: rotate(90deg);
+.win-streak-badge img {
+  width: 100%;
 }

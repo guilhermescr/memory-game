@@ -1,2 +1,8 @@
 .achievement__achievement-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 150px;
+  padding-left: 5px;
+  width: 100%;
 }

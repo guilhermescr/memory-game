@@ -1,0 +1,11 @@
+.--bronze {
+  background-image: linear-gradient(#ff972f, #ca6546 60%);
+}
+
+.--silver {
+  background-image: linear-gradient(#ffffff, #868686);
+}
+
+.--gold {
+  background-image: linear-gradient(#ffae00, #fed33c);
+}

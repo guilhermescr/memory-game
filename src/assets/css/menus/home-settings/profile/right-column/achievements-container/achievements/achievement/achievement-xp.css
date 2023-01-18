@@ -1,12 +1,18 @@
 .achievement__achievement-xp {
+  align-items: center;
   background-image: var(--top_bar_container_background_image_gradient);
   border-radius: 50%;
   color: #fffcfc;
-  font-size: 15px;
-  padding: 15px 8px;
+  display: flex;
+  font-size: 13px;
+  height: 40px;
+  justify-content: center;
+  margin-right: 5px;
+  padding: 15px;
   text-shadow: 0 0 3px #000000f3;
+  width: 40px;
 }
 
 body.forest_template .achievement__achievement-xp {
-  padding: 12px 9px;
+  /* padding: 12px 6px; */
 }
