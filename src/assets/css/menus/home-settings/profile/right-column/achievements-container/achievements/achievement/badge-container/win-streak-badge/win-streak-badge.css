@@ -1,0 +1,14 @@
+.win-streak-badge {
+  align-items: center;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  margin-left: 2px;
+  padding: 4px;
+  position: relative;
+  width: 100%;
+}
+
+.win-streak-badge img {
+  width: 100%;
+}
