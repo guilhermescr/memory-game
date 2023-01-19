@@ -19,7 +19,13 @@ import {
   resetProfilePictures
 } from './modules/auth/AccountMethods.mjs';
 import * as ProfileSections from './modules/m-profile/ProfileSections.mjs';
-import { renderAchievements } from './modules/m-profile/achievements/Achievements.mjs';
+import {
+  renderAchievements,
+  resetAchievement,
+  resetTemporaryAchievements,
+  setAchievementProgressBarWidth,
+  updateExperienceBar
+} from './modules/m-profile/achievements/Achievements.mjs';
 
 const CLICK_ON_WINDOW_CONTAINER = document.getElementById(
   'click-on-window-message-container'
@@ -267,6 +273,9 @@ function setDefaultSettings() {
   setCurrentTemplateImage();
   setVolume(onlineUser.userData.sounds.volume);
   renderAchievements();
+  resetTemporaryAchievements();
+  setAchievementProgressBarWidth();
+  updateExperienceBar(onlineUser.userData.exp);
 
   if (onlineUser.userData.profilePicture.length) {
     renderProfilePictures(onlineUser.userData.profilePicture);

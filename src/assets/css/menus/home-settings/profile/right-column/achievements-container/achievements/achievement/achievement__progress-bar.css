@@ -10,7 +10,7 @@
   background-color: var(--switch_sounds_container--active_background_color);
   height: 100%;
   position: absolute;
-  width: 100%;
+  transition: 0.5s ease-out;
 }
 
 .achievement__progress-bar p {

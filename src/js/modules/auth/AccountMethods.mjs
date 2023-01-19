@@ -39,8 +39,75 @@ function createAccount($username, $password) {
       matches: 0,
       wonMatches: 0,
       lostMatches: 0,
-      achievements: {
-        amount: 0
+      achievements_data: {
+        amount: 0,
+        achievements: [
+          {
+            name: 'Flip It!',
+            current_progress: 0,
+            done: false
+          },
+          {
+            name: 'Perfect Move',
+            current_progress: 0,
+            done: false
+          },
+          {
+            name: 'Player Harder Than Rock',
+            current_progress: 0,
+            done: false
+          },
+          {
+            name: 'Unstoppable',
+            current_progress: 0,
+            done: false
+          },
+          {
+            name: '3 wins',
+            current_progress: 0,
+            done: false
+          },
+          {
+            name: '5 wins',
+            current_progress: 0,
+            done: false
+          },
+          {
+            name: '15 wins',
+            current_progress: 0,
+            done: false
+          },
+          {
+            name: '50 wins',
+            current_progress: 0,
+            done: false
+          },
+          {
+            name: '100 wins',
+            current_progress: 0,
+            done: false
+          },
+          {
+            name: 'Win Streak - Easy',
+            current_progress: 0,
+            done: false
+          },
+          {
+            name: 'Win Streak - Normal',
+            current_progress: 0,
+            done: false
+          },
+          {
+            name: 'Win Streak - Hard',
+            current_progress: 0,
+            done: false
+          },
+          {
+            name: 'Win Streak - Insane',
+            current_progress: 0,
+            done: false
+          }
+        ]
       },
       sounds: {
         music: true,
@@ -66,6 +133,21 @@ function updateAccount(properties, newData) {
     case 3:
       onlineUser.userData[properties[0]][properties[1]][properties[2]] =
         newData;
+      break;
+    case 4:
+      onlineUser.userData[properties[0]][properties[1]][properties[2]][
+        properties[3]
+      ] = newData;
+      break;
+    case 5:
+      onlineUser.userData[properties[0]][properties[1]][properties[2]][
+        properties[3]
+      ][properties[4]] = newData;
+      break;
+    case 6:
+      onlineUser.userData[properties[0]][properties[1]][properties[2]][
+        properties[3]
+      ][properties[4]][properties[5]] = newData;
       break;
     default:
       console.log('Switch not expected.');

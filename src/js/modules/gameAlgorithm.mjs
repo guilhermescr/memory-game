@@ -15,18 +15,22 @@ import {
 import { TOP_BAR_CONTAINER, memoryDeck } from './m-themes/addCards.mjs';
 import { DECK_CONTAINER } from './m-themes/deckStyles.mjs';
 import { difficulty } from './m-themes/themesDifficulty.mjs';
-import {
-  resetBirdAnimation,
-  startBirdAnimation
-} from './animations/forest_theme/BirdAnimation.mjs';
+import { resetBirdAnimation } from './animations/forest_theme/BirdAnimation.mjs';
 import { fillRandomThemes } from './randomThemes/fillRandomThemes.mjs';
 import { onlineUser } from './auth/AccountMethods.mjs';
 import { BODY_CLASSLIST_TEMPLATE_OPTIONS } from './templates/TemplatesData.mjs';
+import {
+  ACHIEVEMENTS_DATA,
+  getAchievement,
+  isAchievementObtained,
+  resetAchievement,
+  updateAchievement
+} from './m-profile/achievements/Achievements.mjs';
 
 const SCOREBOARD = document.getElementById('score-points');
 const MOVE_COUNT = document.getElementById('move-count');
 const HEARTS = document.querySelectorAll('.hearts-container__heart');
-let cards;
+let cards, win_streak;
 
 function startGame() {
   stopHomeMusic();
@@ -39,8 +43,13 @@ function startGame() {
   renderPlayMusicButtons();
 
   let firstCard, secondCard;
-  let [withLives, hasFlippedCard, lockBoard] = [false, false, false];
-  let [scorePoints, moves] = [0, 0];
+  let [withLives, hasFlippedCard, lockBoard, isHardMatch] = [
+    false,
+    false,
+    false,
+    false
+  ];
+  let [scorePoints, moves, cardSequence, mistakes] = [0, 0, 0, 0];
   let lives = 5;
   changeHomePageState(false);
 
@@ -50,7 +59,7 @@ function startGame() {
       .classList.contains('hide')
   ) {
     resetHeartsColor();
-    withLives = true;
+    [withLives, isHardMatch] = [true, true];
   }
 
   [SCOREBOARD.innerHTML, scorePoints, MOVE_COUNT.innerHTML] = [0, 0, 0];
@@ -97,6 +106,10 @@ function startGame() {
   }
 
   function flipCard() {
+    if (!isAchievementObtained('Flip It!')) {
+      updateAchievement('Flip It!', 1, true);
+    }
+
     if (lockBoard) return;
     this.classList.add('flip');
     if (this === firstCard) return;
@@ -119,14 +132,139 @@ function startGame() {
     // get back-face images' datasets
     let firstCardDataset = firstCard.children[1].dataset.character;
     let secondCardDataset = secondCard.children[1].dataset.character;
-
     let isMatch = firstCardDataset === secondCardDataset;
+    let isObtained = isAchievementObtained('Perfect Move');
+
     if (isMatch) {
       disableCards();
+      cardSequence++;
+      if (!isObtained && cardSequence <= 3) {
+        updateAchievement('Perfect Move', cardSequence, cardSequence === 3);
+      }
       withLives ? recoverHeart() : null;
     } else {
+      cardSequence = 0;
+      mistakes++;
       unflipCards();
       withLives ? loseHeart() : null;
+    }
+  }
+
+  function checkResultsForAchievements() {
+    if (isHardMatch && !isAchievementObtained('Player Harder Than Rock')) {
+      updateAchievement('Player Harder Than Rock', 1, true);
+    }
+
+    if (!mistakes && !isAchievementObtained('Unstoppable')) {
+      updateAchievement('Unstoppable', 1, true);
+    }
+
+    if (!isAchievementObtained('3 wins')) {
+      let achievementIndex = getAchievement('3 wins')[1];
+      const { current_progress } =
+        onlineUser.userData.achievements_data.achievements[achievementIndex];
+      const { total_progress } = ACHIEVEMENTS_DATA[achievementIndex];
+
+      let progress = current_progress + 1;
+      updateAchievement('3 wins', progress, progress === total_progress);
+    }
+
+    if (!isAchievementObtained('5 wins')) {
+      let achievementIndex = getAchievement('5 wins')[1];
+      const { current_progress } =
+        onlineUser.userData.achievements_data.achievements[achievementIndex];
+      const { total_progress } = ACHIEVEMENTS_DATA[achievementIndex];
+
+      let progress = current_progress + 1;
+      updateAchievement('5 wins', progress, progress === total_progress);
+    }
+
+    if (!isAchievementObtained('15 wins')) {
+      let achievementIndex = getAchievement('15 wins')[1];
+      const { current_progress } =
+        onlineUser.userData.achievements_data.achievements[achievementIndex];
+      const { total_progress } = ACHIEVEMENTS_DATA[achievementIndex];
+
+      let progress = current_progress + 1;
+      updateAchievement('15 wins', progress, progress === total_progress);
+    }
+
+    if (!isAchievementObtained('50 wins')) {
+      let achievementIndex = getAchievement('50 wins')[1];
+      const { current_progress } =
+        onlineUser.userData.achievements_data.achievements[achievementIndex];
+      const { total_progress } = ACHIEVEMENTS_DATA[achievementIndex];
+
+      let progress = current_progress + 1;
+      updateAchievement('50 wins', progress, progress === total_progress);
+    }
+
+    if (!isAchievementObtained('100 wins')) {
+      let achievementIndex = getAchievement('100 wins')[1];
+      const { current_progress } =
+        onlineUser.userData.achievements_data.achievements[achievementIndex];
+      const { total_progress } = ACHIEVEMENTS_DATA[achievementIndex];
+
+      let progress = current_progress + 1;
+      updateAchievement('100 wins', progress, progress === total_progress);
+    }
+
+    win_streak++;
+
+    if (!isAchievementObtained('Win Streak - Easy')) {
+      let achievementIndex = getAchievement('Win Streak - Easy')[1];
+      const { total_progress } = ACHIEVEMENTS_DATA[achievementIndex];
+      const { current_progress } =
+        onlineUser.userData.achievements_data.achievements[achievementIndex];
+      let progress = current_progress + 1;
+
+      updateAchievement(
+        'Win Streak - Easy',
+        progress,
+        progress === total_progress
+      );
+    }
+
+    if (!isAchievementObtained('Win Streak - Normal')) {
+      let achievementIndex = getAchievement('Win Streak - Normal')[1];
+      const { total_progress } = ACHIEVEMENTS_DATA[achievementIndex];
+      const { current_progress } =
+        onlineUser.userData.achievements_data.achievements[achievementIndex];
+      let progress = current_progress + 1;
+
+      updateAchievement(
+        'Win Streak - Normal',
+        progress,
+        progress === total_progress
+      );
+    }
+
+    if (!isAchievementObtained('Win Streak - Hard')) {
+      let achievementIndex = getAchievement('Win Streak - Hard')[1];
+      const { total_progress } = ACHIEVEMENTS_DATA[achievementIndex];
+      const { current_progress } =
+        onlineUser.userData.achievements_data.achievements[achievementIndex];
+      let progress = current_progress + 1;
+
+      updateAchievement(
+        'Win Streak - Hard',
+        progress,
+        progress === total_progress
+      );
+    }
+
+    if (!isAchievementObtained('Win Streak - Insane')) {
+      let achievementIndex = getAchievement('Win Streak - Insane')[1];
+      const { total_progress } = ACHIEVEMENTS_DATA[achievementIndex];
+      const { current_progress } =
+        onlineUser.userData.achievements_data.achievements[achievementIndex];
+      let progress = current_progress + 1;
+
+      updateAchievement(
+        'Win Streak - Insane',
+        progress,
+        progress === total_progress
+      );
     }
   }
 
@@ -140,6 +278,9 @@ function startGame() {
       setTimeout(() => {
         alert('YOU WON!');
         renderLoaderContainer('Bringing you to home...');
+
+        checkResultsForAchievements();
+
         endGame();
       }, 1000);
     }
@@ -181,6 +322,7 @@ function startGame() {
 }
 
 function endGame() {
+  resetAchievement('Perfect Move');
   changeHomePageState(true);
   stopSoundTrack();
   if (MusicIsActive) {
