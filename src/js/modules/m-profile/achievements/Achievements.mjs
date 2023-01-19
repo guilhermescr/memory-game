@@ -27,7 +27,7 @@ const ACHIEVEMENTS_DATA = [
   {
     title: 'Flip It!',
     description: 'Flip your first card',
-    xp: 10,
+    xp: 20,
     badge: 'card_badge',
     hierarchy: 'none',
     total_progress: 1,
@@ -45,7 +45,7 @@ const ACHIEVEMENTS_DATA = [
   {
     title: 'Player Harder Than Rock',
     description: 'Win your first Hard match',
-    xp: 50,
+    xp: 100,
     badge: 'crown_badge',
     hierarchy: 'bronze',
     total_progress: 1,
@@ -54,7 +54,7 @@ const ACHIEVEMENTS_DATA = [
   {
     title: 'Unstoppable',
     description: 'Win a match without losing a combination',
-    xp: 150,
+    xp: 180,
     badge: 'crown_badge',
     hierarchy: 'gold',
     total_progress: 1,
@@ -63,7 +63,7 @@ const ACHIEVEMENTS_DATA = [
   {
     title: '3 wins',
     description: 'Win 3 games',
-    xp: 30,
+    xp: 300,
     badge: 'crown_badge',
     hierarchy: 'bronze',
     total_progress: 3,
@@ -72,7 +72,7 @@ const ACHIEVEMENTS_DATA = [
   {
     title: '5 wins',
     description: 'Win 5 games',
-    xp: 50,
+    xp: 500,
     badge: 'crown_badge',
     hierarchy: 'silver',
     total_progress: 5,
@@ -81,7 +81,7 @@ const ACHIEVEMENTS_DATA = [
   {
     title: '15 wins',
     description: 'Win 15 games',
-    xp: 80,
+    xp: 1000,
     badge: 'crown_badge',
     hierarchy: 'silver',
     total_progress: 15,
@@ -90,7 +90,7 @@ const ACHIEVEMENTS_DATA = [
   {
     title: '50 wins',
     description: 'Win 50 games',
-    xp: 150,
+    xp: 2000,
     badge: 'crown_badge',
     hierarchy: 'gold',
     total_progress: 50,
@@ -99,7 +99,7 @@ const ACHIEVEMENTS_DATA = [
   {
     title: '100 wins',
     description: 'Win 100 games',
-    xp: 300,
+    xp: 4000,
     badge: 'crown_badge',
     hierarchy: 'gold',
     total_progress: 100,
@@ -108,7 +108,7 @@ const ACHIEVEMENTS_DATA = [
   {
     title: 'Win Streak - Easy',
     description: 'Get 3 win streak in Any Difficulty',
-    xp: 20,
+    xp: 500,
     badge: 'win_streak_badge',
     hierarchy: 'bronze',
     total_progress: 3,
@@ -117,7 +117,7 @@ const ACHIEVEMENTS_DATA = [
   {
     title: 'Win Streak - Normal',
     description: 'Get 5 win streak in Any Difficulty',
-    xp: 40,
+    xp: 600,
     badge: 'win_streak_badge',
     hierarchy: 'silver',
     total_progress: 5,
@@ -126,7 +126,7 @@ const ACHIEVEMENTS_DATA = [
   {
     title: 'Win Streak - Hard',
     description: 'Get 10 win streak in Any Difficulty',
-    xp: 75,
+    xp: 1000,
     badge: 'win_streak_badge',
     hierarchy: 'silver',
     total_progress: 10,
@@ -135,7 +135,7 @@ const ACHIEVEMENTS_DATA = [
   {
     title: 'Win Streak - Insane',
     description: 'Get 20 win streak in Hard Difficulty',
-    xp: 1500,
+    xp: 5000,
     badge: 'win_streak_badge',
     hierarchy: 'gold',
     total_progress: 20,
@@ -292,6 +292,9 @@ function resetAchievement(achievementTitle) {
 function resetTemporaryAchievements() {
   resetAchievement('Perfect Move');
   resetAchievement('Win Streak - Easy');
+  resetAchievement('Win Streak - Normal');
+  resetAchievement('Win Streak - Hard');
+  resetAchievement('Win Streak - Insane');
 }
 
 export {
