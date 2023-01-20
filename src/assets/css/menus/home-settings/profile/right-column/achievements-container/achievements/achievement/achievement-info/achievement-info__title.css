@@ -1,3 +1,12 @@
 .achievement-info__title {
-  font-weight: normal;
+  font-weight: 700;
+}
+
+@media (max-width: 800px) {
+  .achievement-info__title {
+    max-width: 120px;
+  }
+}
+
+@media (min-width: 581px) and (max-width: 695px) {
 }

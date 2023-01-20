@@ -14,3 +14,15 @@
   user-select: none;
   width: 100%;
 }
+
+.game-info {
+  bottom: 0;
+  color: #fff;
+  display: flex;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  justify-content: space-between;
+  padding: 4px;
+  position: absolute;
+  text-shadow: 1px 1px 1px #000;
+  width: 100%;
+}

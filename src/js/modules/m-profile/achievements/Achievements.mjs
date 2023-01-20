@@ -1,4 +1,4 @@
-import { hideElements, revealElements } from '../../../main.js';
+import { hideElements, revealElements, timeoutItems } from '../../../main.js';
 import { onlineUser, updateAccount } from '../../auth/AccountMethods.mjs';
 import { renderBadge } from './AchievementsBadges.mjs';
 
@@ -12,6 +12,9 @@ const ACHIEVEMENTS = document.querySelector(
 const OPEN_ACHIEVEMENTS_BUTTON = document.getElementById(
   'open-achievements-button'
 );
+
+const ACHIEVEMENT_POPUP_CONTAINER =
+  document.querySelector('.achievement-popup');
 
 function showAchievementsSection() {
   if (ACHIEVEMENTS_CONTAINER.classList.contains('hide')) {
@@ -143,10 +146,16 @@ const ACHIEVEMENTS_DATA = [
   }
 ];
 
-function updateTotalAchievements(total_achievements) {
+function updateTotalAchievements(amount) {
+  if (amount) {
+    updateAccount(['achievements_data', 'amount'], amount + 1);
+  } else {
+    updateAccount(['achievements_data', 'amount'], 0);
+  }
+
   document.getElementById(
     'total-achievements'
-  ).innerHTML = `${total_achievements}/${ACHIEVEMENTS_DATA.length}`;
+  ).innerHTML = `${amount}/${ACHIEVEMENTS_DATA.length}`;
 }
 
 function renderAchievements() {
@@ -179,7 +188,7 @@ function renderAchievements() {
 
     <div class="achievement__progress-bar">
       <div class="progress-bar__current-progress"></div>
-      <p><span id="${ACHIEVEMENTS_DATA[index].title}">${
+      <p><span data-achievementprogress="${ACHIEVEMENTS_DATA[index].title}">${
       onlineUser.userData.achievements_data.achievements[index].current_progress
     }</span>/${ACHIEVEMENTS_DATA[index].total_progress}</p>
     </div>
@@ -189,41 +198,97 @@ function renderAchievements() {
 }
 
 function setAchievementProgressBarWidth(
-  increaseWidth,
   achievementTitle,
-  currentProgress
+  achievementIndex,
+  current_progress
 ) {
-  const { achievements } = onlineUser.userData.achievements_data;
-
-  for (
-    let achievementIndex = 0;
-    achievementIndex < ACHIEVEMENTS_DATA.length;
-    achievementIndex++
-  ) {
-    let { title, iterator_progress_bar_width, total_progress } =
+  timeoutItems(() => {
+    let { iterator_progress_bar_width, total_progress } =
       ACHIEVEMENTS_DATA[achievementIndex];
-    let current_progress;
-
-    if (increaseWidth && title === achievementTitle) {
-      current_progress = currentProgress;
-    } else {
-      current_progress = achievements[achievementIndex].current_progress;
-    }
 
     let progress_bar = document.querySelector(
-      `.achievements__achievement[data-achievement="${title}"] .progress-bar__current-progress`
+      `.achievements__achievement[data-achievement="${achievementTitle}"] .progress-bar__current-progress`
     );
-    let progress_bar_width = current_progress * iterator_progress_bar_width;
+
+    let progress_bar_width = parseInt(
+      current_progress * iterator_progress_bar_width
+    );
 
     if (current_progress === total_progress) {
       progress_bar.style.width = '100%';
     } else {
-      progress_bar.style.width = progress_bar_width + '%';
+      progress_bar.style.width = `${progress_bar_width}%`;
     }
 
-    // span of the achievement current progress, i.e.: <span>1</span>/3
-    document.getElementById(`${title}`).innerHTML = current_progress;
+    document
+      .querySelectorAll(`span[data-achievementprogress="${achievementTitle}"]`)
+      .forEach(achievement_current_progress => {
+        achievement_current_progress.innerHTML = current_progress;
+      });
+  }, 700);
+}
+
+function popupAchievement(achievementIndex) {
+  ACHIEVEMENT_POPUP_CONTAINER.innerHTML = '';
+
+  const { amount } = onlineUser.userData.achievements_data;
+  updateTotalAchievements(amount);
+
+  const { current_progress } =
+    onlineUser.userData.achievements_data.achievements[achievementIndex];
+
+  const { title, description, xp, total_progress } =
+    ACHIEVEMENTS_DATA[achievementIndex];
+
+  ACHIEVEMENT_POPUP_CONTAINER.dataset.achievement =
+    ACHIEVEMENTS_DATA[achievementIndex].title;
+
+  /*
+  if (popup_container.classList.contains('achievement-popup--show')) {
+    console.log(ACHIEVEMENTS_DATA[achievementIndex]);
+    return;
   }
+  */
+
+  let achievement_popup_progress_bar_width = parseInt(
+    current_progress *
+      ACHIEVEMENTS_DATA[achievementIndex].iterator_progress_bar_width
+  );
+  if (current_progress === total_progress) {
+    achievement_popup_progress_bar_width = 100;
+  }
+
+  ACHIEVEMENT_POPUP_CONTAINER.innerHTML = `
+    <div class="achievement__badge-container">
+      <div class="badge-container__custom-border">
+        <div class="custom-border__circle"></div>
+        <div class="custom-border__circle"></div>
+        <div class="custom-border__circle"></div>
+        <div class="custom-border__circle"></div>
+      </div>
+
+      ${renderBadge(ACHIEVEMENTS_DATA[achievementIndex])}
+    </div>
+
+    <div class="achievement__achievement-info">
+      <h4 class="achievement-info__title">${title}</h4>
+      <p>${description}</p>
+    </div>
+
+    <p class="achievement__achievement-xp">${xp}XP</p>
+
+    <div class="achievement__progress-bar">
+      <div class="progress-bar__current-progress" style="width: ${achievement_popup_progress_bar_width}%;"></div>
+      <p><span data-achievementprogress=="${title}">${current_progress}</span>/${total_progress}</p>
+    </div>
+    `;
+
+  ACHIEVEMENT_POPUP_CONTAINER.classList.add('achievement-popup--show');
+  setTimeout(() => {
+    ACHIEVEMENT_POPUP_CONTAINER.classList.remove('achievement-popup--show');
+    ACHIEVEMENT_POPUP_CONTAINER.removeAttribute('data-achievement');
+    ACHIEVEMENT_POPUP_CONTAINER.innerHTML = '';
+  }, 4000);
 }
 
 function getAchievement(achievementTitle) {
@@ -251,36 +316,49 @@ function updateExperienceBar(exp) {
 
 function updateAchievement(achievementTitle, currentProgress, isObtained) {
   const { exp } = onlineUser.userData;
-  const { amount, achievements } = onlineUser.userData.achievements_data;
+  const { amount } = onlineUser.userData.achievements_data;
 
   let achievement = getAchievement(achievementTitle);
   let [_, achievementIndex] = achievement;
 
-  if (!achievements[achievementIndex].done) {
-    updateAccount(
-      [
-        'achievements_data',
-        'achievements',
-        achievementIndex,
-        'current_progress'
-      ],
-      currentProgress
-    );
-    updateAccount(
-      ['achievements_data', 'achievements', achievementIndex, 'done'],
-      isObtained
-    );
+  updateAccount(
+    ['achievements_data', 'achievements', achievementIndex, 'current_progress'],
+    currentProgress
+  );
+  updateAccount(
+    ['achievements_data', 'achievements', achievementIndex, 'done'],
+    isObtained
+  );
 
-    setAchievementProgressBarWidth(true, achievementTitle, currentProgress);
-
-    if (isObtained) {
-      updateAccount(['achievements_data', 'amount'], amount + 1);
-      let newXP = exp + ACHIEVEMENTS_DATA[achievementIndex].xp;
-      updateAccount(['exp'], newXP);
-      updateTotalAchievements(amount);
-      updateExperienceBar(newXP);
-    }
+  if (currentProgress) {
+    popupAchievement(achievementIndex);
   }
+
+  setAchievementProgressBarWidth(
+    achievementTitle,
+    achievementIndex,
+    currentProgress
+  );
+
+  if (isObtained) {
+    let newXP = exp + ACHIEVEMENTS_DATA[achievementIndex].xp;
+    updateAccount(['exp'], newXP);
+    updateTotalAchievements(amount);
+    updateExperienceBar(newXP);
+  }
+
+  /* 
+    if necessary, from the updateAchievement() to the if (currentProgress), wrap everything with the if below
+    if (!achievements[achievementIndex].done) {}
+   */
+}
+
+function resetAllAchievements() {
+  ACHIEVEMENTS_DATA.forEach(achievement => {
+    updateAchievement(achievement.title, 0, false);
+  });
+  updateTotalAchievements(0);
+  updateExperienceBar(0);
 }
 
 function resetAchievement(achievementTitle) {
@@ -304,6 +382,7 @@ export {
   getAchievement,
   isAchievementObtained,
   updateAchievement,
+  resetAllAchievements,
   resetAchievement,
   resetTemporaryAchievements,
   updateExperienceBar

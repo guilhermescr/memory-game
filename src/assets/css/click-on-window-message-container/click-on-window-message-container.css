@@ -11,7 +11,7 @@
   position: absolute;
   top: 0;
   width: 100vw;
-  z-index: 1000;
+  z-index: 100;
 }
 
 #click-on-window-message-container h2 {

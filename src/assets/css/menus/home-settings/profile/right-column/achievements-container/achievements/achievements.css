@@ -1,5 +1,4 @@
 .achievements-section__achievements {
-  border-radius: 10px;
   max-height: 320px;
   overflow-y: auto;
   padding-right: 5px;
@@ -18,4 +17,14 @@
   background-color: #555555;
   border: 2px solid #222222;
   border-radius: 20px;
+}
+
+@media (max-width: 580px) {
+  .achievements-section__achievements::-webkit-scrollbar {
+    display: none;
+  }
+
+  .achievements-section__achievements {
+    padding: 0;
+  }
 }

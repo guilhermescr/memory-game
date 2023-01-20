@@ -21,9 +21,7 @@ import {
 import * as ProfileSections from './modules/m-profile/ProfileSections.mjs';
 import {
   renderAchievements,
-  resetAchievement,
   resetTemporaryAchievements,
-  setAchievementProgressBarWidth,
   updateExperienceBar
 } from './modules/m-profile/achievements/Achievements.mjs';
 
@@ -274,7 +272,6 @@ function setDefaultSettings() {
   setVolume(onlineUser.userData.sounds.volume);
   renderAchievements();
   resetTemporaryAchievements();
-  setAchievementProgressBarWidth();
   updateExperienceBar(onlineUser.userData.exp);
 
   if (onlineUser.userData.profilePicture.length) {

@@ -10,3 +10,12 @@
   padding: 8px 15px;
   width: 100%;
 }
+
+@media (max-width: 580px) {
+  .achievements-section {
+    border-radius: 4px;
+    box-shadow: none;
+    margin: 0 auto;
+    max-width: 250px;
+  }
+}

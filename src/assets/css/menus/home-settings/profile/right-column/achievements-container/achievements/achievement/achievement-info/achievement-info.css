@@ -1,8 +1,33 @@
 .achievement__achievement-info {
   display: flex;
   flex-direction: column;
+  font-family: 'Roboto', sans-serif;
   gap: 5px;
   max-width: 150px;
   padding-left: 5px;
   width: 100%;
+}
+
+@media (max-width: 695px) {
+  .achievement__achievement-info {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 581px) and (max-width: 695px) {
+  .achievement__achievement-info {
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 580px) {
+  .achievement__achievement-info {
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 275px) {
+  .achievement__achievement-info {
+    max-width: 100px;
+  }
 }
