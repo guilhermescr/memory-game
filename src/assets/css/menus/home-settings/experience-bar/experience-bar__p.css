@@ -3,6 +3,9 @@
   font: normal normal 14px Arial, Helvetica, sans-serif;
   position: absolute;
   right: 4%;
-  top: 50%;
-  transform: translateY(-50%);
+  top: -90%;
+}
+
+.open-profile-menu .experience-bar > p {
+  right: 0%;
 }

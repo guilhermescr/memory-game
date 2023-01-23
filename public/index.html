@@ -393,6 +393,10 @@
       rel="stylesheet"
       href="../src/assets/css/menus/home-settings/experience-bar/exp-progress.css"
     />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/experience-bar/level-container.css"
+    />
 
     <!-- Home Settings - Open Profile -->
     <link
@@ -616,6 +620,10 @@
     <link
       rel="stylesheet"
       href="../src/assets/css/menus/home-settings/profile/right-column/achievements-container/achievements/achievement/achievement.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/home-settings/profile/right-column/achievements-container/achievements/achievement/achievement-popup.css"
     />
     <link
       rel="stylesheet"
@@ -1195,8 +1203,28 @@
           <h3 class="user-name">username</h3>
 
           <div class="experience-bar">
-            <div class="exp-progress"></div>
-            <p><span class="xp-amount">0</span>xp</p>
+            <div class="level-container">
+              <div class="level-container__decorative-ball"></div>
+              <div class="level-container__decorative-ball"></div>
+              <div class="level-container__decorative-ball"></div>
+              <div class="level-container__decorative-ball"></div>
+              <div class="level-container__decorative-ball"></div>
+              <div class="level-container__decorative-ball"></div>
+              <div class="level-container__decorative-ball"></div>
+              <div class="level-container__decorative-ball"></div>
+
+              <div class="level-container__middle-container">
+                <p class="middle-container__current-level">0</p>
+              </div>
+            </div>
+            <div class="exp-progress">
+              <div class="exp-progress__current-progress"></div>
+            </div>
+            <p>
+              <span class="xp-amount">0</span>xp/<span class="next-level-xp"
+                >0</span
+              >xp
+            </p>
           </div>
 
           <button class="logout-btn" id="logout-button" type="button">
@@ -1408,8 +1436,28 @@
               <h3 class="user-name">user</h3>
 
               <div class="experience-bar">
-                <div class="exp-progress"></div>
-                <p><span class="xp-amount">0</span>xp</p>
+                <div class="level-container">
+                  <div class="level-container__decorative-ball"></div>
+                  <div class="level-container__decorative-ball"></div>
+                  <div class="level-container__decorative-ball"></div>
+                  <div class="level-container__decorative-ball"></div>
+                  <div class="level-container__decorative-ball"></div>
+                  <div class="level-container__decorative-ball"></div>
+                  <div class="level-container__decorative-ball"></div>
+                  <div class="level-container__decorative-ball"></div>
+
+                  <div class="level-container__middle-container">
+                    <p class="middle-container__current-level">0</p>
+                  </div>
+                </div>
+                <div class="exp-progress">
+                  <div class="exp-progress__current-progress"></div>
+                </div>
+                <p>
+                  <span class="xp-amount">0</span>xp/<span class="next-level-xp"
+                    >0</span
+                  >xp
+                </p>
               </div>
             </div>
 

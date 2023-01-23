@@ -1,7 +1,57 @@
 .exp-progress {
+  border: 2px solid var(--switch_sounds_container--active_background_color);
+  border-left: none;
+  border-radius: 0 20px 20px 0;
+  height: 17px;
+  left: 21.5%;
+  max-width: 180px;
+  padding: 3px;
+  padding-left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.exp-progress__current-progress {
   background-color: var(--window_message_text_color);
-  border-radius: 20px;
-  padding: 6px;
-  padding-left: 10px;
-  width: 12%;
+  border-radius: 0 20px 20px 0;
+  height: 100%;
+  transition: 1s ease;
+  width: 0%;
+}
+
+@media (max-width: 660px) {
+  .exp-progress {
+    left: 24%;
+    max-width: 140px;
+  }
+}
+
+@media (max-width: 605px) {
+  .exp-progress {
+    left: 25%;
+    max-width: 140px;
+  }
+}
+
+@media (max-width: 580px) {
+  .exp-progress {
+    left: 21.5%;
+    max-width: 170px;
+  }
+}
+
+@media (max-width: 290px) {
+  .exp-progress {
+    left: 24%;
+    max-width: 140px;
+  }
+}
+
+@media (max-width: 275px) {
+  .exp-progress {
+    left: 25.5%;
+    max-width: 130px;
+  }
 }

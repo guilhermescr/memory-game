@@ -197,8 +197,8 @@ function startGame() {
     scorePoints++;
     SCOREBOARD.innerHTML = scorePoints;
     if (scorePoints === cards.length / 2) {
-      setTimeout(() => {
-        alert('YOU WON!');
+      timeoutItems(() => {
+        console.log('YOU WON!'); // final menu opens here
         renderLoaderContainer('Bringing you to home...');
 
         checkResultsForAchievements();

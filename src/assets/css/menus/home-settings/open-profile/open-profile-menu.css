@@ -7,7 +7,7 @@
   flex-wrap: wrap;
   gap: 5px;
   justify-content: center;
-  padding: 5px;
+  padding: 5px 10px;
   position: relative;
   width: 30%;
 }
@@ -21,10 +21,45 @@
   opacity: 0.9;
 }
 
+.open-profile-menu .experience-bar {
+  margin-bottom: 15px;
+}
+
+.open-profile-menu .exp-progress {
+  left: 26.5%;
+  max-width: 130px;
+}
+
+@media (max-width: 790px) {
+  .open-profile-menu .exp-progress {
+    left: 28%;
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 750px) {
+  .open-profile-menu .exp-progress {
+    left: 29.5%;
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 700px) {
+  .open-profile-menu .exp-progress {
+    left: 33%;
+    max-width: 90px;
+  }
+}
+
 @media (max-width: 580px) {
   .open-profile-menu {
     margin-bottom: 20px;
     max-width: 210px;
     width: 100%;
+  }
+
+  .open-profile-menu .exp-progress {
+    left: 29%;
+    max-width: 110px;
   }
 }

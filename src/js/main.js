@@ -21,9 +21,9 @@ import {
 import * as ProfileSections from './modules/m-profile/ProfileSections.mjs';
 import {
   renderAchievements,
-  resetTemporaryAchievements,
-  updateExperienceBar
+  resetTemporaryAchievements
 } from './modules/m-profile/achievements/Achievements.mjs';
+import { levelUp, renderCurrentLevel } from './modules/m-profile/LevelUp.mjs';
 
 const CLICK_ON_WINDOW_CONTAINER = document.getElementById(
   'click-on-window-message-container'
@@ -272,7 +272,8 @@ function setDefaultSettings() {
   setVolume(onlineUser.userData.sounds.volume);
   renderAchievements();
   resetTemporaryAchievements();
-  updateExperienceBar(onlineUser.userData.exp);
+  levelUp();
+  renderCurrentLevel(onlineUser.userData.lvl);
 
   if (onlineUser.userData.profilePicture.length) {
     renderProfilePictures(onlineUser.userData.profilePicture);

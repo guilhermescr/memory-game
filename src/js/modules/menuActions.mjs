@@ -7,11 +7,17 @@ import {
   stopHoverSoundEffect
 } from './m-audio/audio.mjs';
 import { showSettingsMenu } from './templates/TemplatesAlgorithm.mjs';
+import {
+  changeExpProgressBarWidth,
+  isExpProgressBarWidthUpdated
+} from './m-profile/LevelUp.mjs';
 
 const SETTINGS_MENUS = document.querySelectorAll('.menu');
 const MENU_SETTINGS_OPTIONS = document.querySelectorAll('.setting-option');
 const SETTINGS_BUTTONS = document.querySelectorAll('.setting-button');
-const CLOSE_MENU_BUTTONS = document.querySelectorAll('.close-menu-container__close-icon');
+const CLOSE_MENU_BUTTONS = document.querySelectorAll(
+  '.close-menu-container__close-icon'
+);
 const TOP_BAR_CONTAINER = document.querySelector('.top-bar-container');
 let menuIsOpen = false;
 
@@ -32,6 +38,9 @@ function openMenu() {
   }
   if (buttonDataset === 'home-settings') {
     showSettingsMenu();
+    if (!isExpProgressBarWidthUpdated.state) {
+      changeExpProgressBarWidth(isExpProgressBarWidthUpdated.width === 100);
+    }
   }
 }
 

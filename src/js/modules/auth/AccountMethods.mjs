@@ -35,6 +35,7 @@ function createAccount($username, $password) {
       password: $password,
       profilePicture: '',
       id: uuidv4(),
+      lvl: 0,
       exp: 0,
       matches: 0,
       wonMatches: 0,
