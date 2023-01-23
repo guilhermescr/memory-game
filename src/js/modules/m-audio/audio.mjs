@@ -43,7 +43,7 @@ function renderPlayMusicButtons() {
   for (let index = 1; index <= SOUNDTRACKS_AMOUNT; index++) {
     const MUSIC = `
     <div class="music">
-      <button data-music="Music${index}" class="play-music has-music">Music ${index}</button>
+      <button data-music="Music${index}" class="play-music-button has-music">Music ${index}</button>
     </div>
     `;
 

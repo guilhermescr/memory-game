@@ -21,7 +21,7 @@
 }
 
 @media (orientation: landscape) and (max-height: 600px) and (max-width: 800px) {
-  .ingame-settings .play-music-button {
+  .deck-container__ingame-settings .play-music-button {
     padding-block: 4px;
     width: 70%;
   }

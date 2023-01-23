@@ -101,13 +101,19 @@ function changeExpProgressBarWidth(is_lvl_up) {
       return;
     }
 
-    middle_container.classList.add('lvlup');
-    middle_container.style.backgroundColor = 'var(--window_message_text_color)';
+    if (isExpProgressBarWidthUpdated.width) {
+      middle_container.classList.add('lvlup');
+      middle_container.style.backgroundColor =
+        'var(--window_message_text_color)';
 
-    timeoutItems(() => {
-      middle_container.classList.remove('lvlup');
-      PROGRESS_BAR.style.width = `${isExpProgressBarWidthUpdated.width}%`;
-    }, 800);
+      timeoutItems(() => {
+        middle_container.classList.remove('lvlup');
+        PROGRESS_BAR.style.width = `${isExpProgressBarWidthUpdated.width}%`;
+      }, 800);
+      return;
+    }
+
+    PROGRESS_BAR.style.width = `${isExpProgressBarWidthUpdated.width}%`;
   });
 }
 

@@ -1,3 +1,10 @@
 .default-profile-picture {
   fill: #fef;
 }
+
+@media (max-width: 580px) {
+  .profile-picture-container .default-profile-picture {
+    height: 60px;
+    width: 60px;
+  }
+}

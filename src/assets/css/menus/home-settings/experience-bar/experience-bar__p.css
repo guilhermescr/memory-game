@@ -1,11 +1,18 @@
 .experience-bar > p {
+  background-color: var(--window_message_text_color);
+  border: 2px solid var(--switch_sounds_container--active_background_color);
+  border-radius: 0 0 15px 15px;
   color: #e8ffe6;
-  font: normal normal 14px Arial, Helvetica, sans-serif;
+  padding: 5px;
   position: absolute;
   right: 4%;
-  top: -90%;
+  text-transform: uppercase;
+  top: 100%;
 }
 
-.open-profile-menu .experience-bar > p {
-  right: 0%;
+.experience-bar > p,
+.experience-bar > p span {
+  font: normal normal 12px Arial, Helvetica, sans-serif;
+  text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000, 1px 1px #000,
+    -1px -1px #000, 1px -1px #000, -1px 1px #000;
 }

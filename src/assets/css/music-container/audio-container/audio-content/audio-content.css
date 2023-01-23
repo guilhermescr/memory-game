@@ -7,7 +7,7 @@
 }
 
 @media (orientation: landscape) and (max-height: 600px) and (max-width: 800px) {
-  .ingame-settings .audio-content {
+  .deck-container__ingame-settings .audio-content {
     justify-content: flex-start;
     position: relative;
     width: 100%;
@@ -20,5 +20,11 @@
     display: flex;
     justify-content: center;
     width: 100%;
+  }
+}
+
+@media (max-width: 270px) {
+  .audio-content:nth-child(3) {
+    flex-direction: column;
   }
 }
