@@ -3,8 +3,15 @@ import {
   revealElements,
   renderClickOnWindowMessage
 } from '../../main.js';
-import { updateAccount } from '../auth/AccountMethods.mjs';
+import {
+  closeEditAccountMenu,
+  updateAccount
+} from '../auth/AccountMethods.mjs';
 import { stopHomeMusic } from '../Home.mjs';
+import {
+  changeExpProgressBarWidth,
+  isExpProgressBarWidthUpdated
+} from '../m-profile/LevelUp.mjs';
 import { closeMenu } from '../menuActions.mjs';
 import { TEMPLATES_DATA, TEMPLATES_KEYS } from './TemplatesData.mjs';
 
@@ -98,6 +105,8 @@ function showTemplatesInMenu() {
 }
 
 function showSettingsMenu() {
+  closeEditAccountMenu();
+
   hideElements([TEMPLATES_CONTAINER, document.querySelector('.profile-menu')]);
   revealElements([
     document.querySelector('.current-template'),
@@ -119,6 +128,10 @@ function showUserProfileInfo() {
 
   HOME_SETTINGS_TITLE.innerHTML = 'Profile Info';
   HOME_SETTINGS_RETURN_ICON.style.display = 'block';
+
+  if (!isExpProgressBarWidthUpdated.state) {
+    changeExpProgressBarWidth(isExpProgressBarWidthUpdated.width === 100);
+  }
 }
 
 HOME_SETTINGS_RETURN_ICON.onclick = showSettingsMenu;

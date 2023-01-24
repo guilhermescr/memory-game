@@ -168,19 +168,23 @@ function showEditAccountMenu() {
   revealElements(document.querySelector('.edit-profile-menu'));
 }
 
-function closeEditAccountMenu() {
+function showMainMenuInEditProfile() {
   let EDIT_PROFILE_MENU_OPTIONS = document.querySelectorAll(
     '.edit-profile-menu-option'
   );
 
   for (let index = 0; index < EDIT_PROFILE_MENU_OPTIONS.length; index++) {
-    if (index !== 0) {
+    if (index) {
       hideElements(EDIT_PROFILE_MENU_OPTIONS[index]);
     } else {
       revealElements(EDIT_PROFILE_MENU_OPTIONS[index]);
     }
   }
+}
 
+function closeEditAccountMenu() {
+  cancelImagePreview();
+  showMainMenuInEditProfile();
   hideElements(document.querySelector('.edit-profile-menu'));
 }
 
@@ -206,6 +210,14 @@ const PROFILE_PICTURE_OPTIONS = document.querySelectorAll(
 const CHECKED_RADIO_INPUT_CONTAINER = document.querySelector(
   '.checked-radio-input-container'
 );
+const IMAGE_PREVIEW_CONTAINER = document.querySelector('.image-preview');
+const SAVE_PROFILE_PICTURE_BUTTON = document.getElementById(
+  'save-profile-picture-button'
+);
+const CANCEL_IMAGE_PREVIEW_BUTTON = document.getElementById(
+  'cancel-image-preview'
+);
+let profile_picture_imgs = [];
 
 function showEditProfilePictureMenu() {
   hideElements(document.querySelector('.which-info-container'));
@@ -255,7 +267,7 @@ function resetProfilePictures() {
     userProfileImage.src = '';
   });
 
-  updateAccount(['profilePicture'], '');
+  updateProfilePicture('');
   closeEditAccountMenu();
 }
 
@@ -271,27 +283,102 @@ function changeInputForImage() {
   }
 }
 
-function updateProfilePicture() {
+function updateProfilePicture(file) {
+  updateAccount(['profilePicture'], file);
+}
+
+function handlePreviewImageClick() {
+  let [profilePic, img_file] = profile_picture_imgs;
+
+  renderProfilePictures(profilePic);
+  updateProfilePicture(img_file);
+  closeEditAccountMenu();
+}
+
+function toggleReturnIconListener(cancel_image) {
+  if (cancel_image) {
+    document
+      .querySelector('.edit-profile-picture-container .circle-return-icon')
+      .removeEventListener('click', showMainMenuInEditProfile);
+    document
+      .querySelector('.edit-profile-picture-container .circle-return-icon')
+      .addEventListener('click', cancelImagePreview);
+  } else {
+    document
+      .querySelector('.edit-profile-picture-container .circle-return-icon')
+      .removeEventListener('click', cancelImagePreview);
+    document
+      .querySelector('.edit-profile-picture-container .circle-return-icon')
+      .addEventListener('click', showMainMenuInEditProfile);
+  }
+}
+
+function previewImage() {
   let input = CHECKED_RADIO_INPUT_CONTAINER.children[1];
+  if (!input.value) return;
+  let imgPreview_img = document.querySelector('.image-preview__img');
+  let profilePic = null;
+  const EDIT_PROFILE_PICTURE_TITLE = document.querySelector(
+    '.edit-profile-picture-container h3'
+  );
+
+  hideElements([
+    document.querySelector('.profile-picture-options'),
+    CHECKED_RADIO_INPUT_CONTAINER
+  ]);
+  revealElements(IMAGE_PREVIEW_CONTAINER);
 
   if (input.name === 'img-file') {
     let imgURL = (window.URL ? URL : webkitURL).createObjectURL(input.files[0]);
-    renderProfilePictures(imgURL);
+    imgPreview_img.src = imgURL;
+    profilePic = imgURL;
 
     const reader = new FileReader();
-    let img;
 
     reader.addEventListener('load', () => {
-      img = reader.result;
-      updateAccount(['profilePicture'], img);
+      profile_picture_imgs.push(profilePic, reader.result);
     });
     reader.readAsDataURL(input.files[0]);
   } else {
-    updateAccount(['profilePicture'], input.value);
-    renderProfilePictures(input.value);
+    imgPreview_img.src = input.value;
+    profilePic = input.value;
+    profile_picture_imgs.push(profilePic, input.value);
   }
-  input.value = '';
-  closeEditAccountMenu();
+
+  EDIT_PROFILE_PICTURE_TITLE.innerHTML = 'Image Preview';
+  SAVE_PROFILE_PICTURE_BUTTON.innerHTML = 'Save Changes';
+  SAVE_PROFILE_PICTURE_BUTTON.removeEventListener('click', previewImage);
+  SAVE_PROFILE_PICTURE_BUTTON.addEventListener(
+    'click',
+    handlePreviewImageClick
+  );
+  toggleReturnIconListener(true);
+}
+
+function cancelImagePreview() {
+  const EDIT_PROFILE_PICTURE_TITLE = document.querySelector(
+    '.edit-profile-picture-container h3'
+  );
+  let imgPreview_img = document.querySelector('.image-preview__img');
+
+  SAVE_PROFILE_PICTURE_BUTTON.removeEventListener(
+    'click',
+    handlePreviewImageClick
+  );
+  SAVE_PROFILE_PICTURE_BUTTON.addEventListener('click', previewImage);
+  toggleReturnIconListener(false);
+
+  hideElements(IMAGE_PREVIEW_CONTAINER);
+  revealElements([
+    document.querySelector('.profile-picture-options'),
+    CHECKED_RADIO_INPUT_CONTAINER
+  ]);
+
+  profile_picture_imgs = [];
+  imgPreview_img.src = '';
+  CHECKED_RADIO_INPUT_CONTAINER.children[1].value = '';
+  EDIT_PROFILE_PICTURE_TITLE.innerHTML = 'Upload an image or Insert a link';
+  SAVE_PROFILE_PICTURE_BUTTON.innerHTML = 'Continue';
 }
 
 function deleteAccount() {
@@ -313,9 +400,13 @@ document
   .getElementById('edit-profile-picture-button')
   .addEventListener('click', showEditProfilePictureMenu);
 
-document
-  .getElementById('save-profile-picture-button')
-  .addEventListener('click', updateProfilePicture);
+SAVE_PROFILE_PICTURE_BUTTON.addEventListener('click', previewImage);
+
+CANCEL_IMAGE_PREVIEW_BUTTON.addEventListener('click', cancelImagePreview);
+
+document.querySelectorAll('.circle-return-icon').forEach(circle_return_icon => {
+  circle_return_icon.addEventListener('click', showMainMenuInEditProfile);
+});
 
 document
   .querySelector('.delete-profile-button')
@@ -432,5 +523,6 @@ export {
   renderUsernames,
   searchUsername,
   searchAccount,
-  authError
+  authError,
+  closeEditAccountMenu
 };

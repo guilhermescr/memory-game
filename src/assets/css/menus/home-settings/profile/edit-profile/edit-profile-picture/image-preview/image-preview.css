@@ -1,0 +1,14 @@
+.image-preview {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.image-preview__img {
+  max-width: 100px;
+  width: 100%;
+}

@@ -1,0 +1,14 @@
+.circle-return-icon {
+  border: 2px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  fill: #fff;
+  height: 20px;
+  left: 0;
+  padding: 1px;
+  padding-right: 2px;
+  position: absolute;
+  top: 0;
+  width: 20px;
+  z-index: 1;
+}

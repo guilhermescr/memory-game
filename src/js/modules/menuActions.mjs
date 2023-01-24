@@ -7,10 +7,7 @@ import {
   stopHoverSoundEffect
 } from './m-audio/audio.mjs';
 import { showSettingsMenu } from './templates/TemplatesAlgorithm.mjs';
-import {
-  changeExpProgressBarWidth,
-  isExpProgressBarWidthUpdated
-} from './m-profile/LevelUp.mjs';
+import { closeEditAccountMenu } from './auth/AccountMethods.mjs';
 
 const SETTINGS_MENUS = document.querySelectorAll('.menu');
 const MENU_SETTINGS_OPTIONS = document.querySelectorAll('.setting-option');
@@ -38,9 +35,6 @@ function openMenu() {
   }
   if (buttonDataset === 'home-settings') {
     showSettingsMenu();
-    if (!isExpProgressBarWidthUpdated.state) {
-      changeExpProgressBarWidth(isExpProgressBarWidthUpdated.width === 100);
-    }
   }
 }
 
@@ -55,6 +49,10 @@ function closeMenu() {
 
     if (SETTINGS_MENU.dataset.setting === 'ingame-settings') {
       TOP_BAR_CONTAINER.style.display = 'flex';
+    }
+
+    if (SETTINGS_MENU.dataset.setting === 'home-settings') {
+      closeEditAccountMenu();
     }
   });
 }
