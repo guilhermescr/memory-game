@@ -1,0 +1,17 @@
+.modes__mode h3 {
+  color: var(--window_message_text_color);
+  font-size: 24px;
+  font-weight: normal;
+}
+
+@media (max-width: 540px) {
+  .modes__mode h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-height: 325px) {
+  .modes__mode h3 {
+    font-size: 18px;
+  }
+}

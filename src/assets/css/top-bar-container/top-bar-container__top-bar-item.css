@@ -27,3 +27,10 @@
     font-size: 14px;
   }
 }
+
+@media (max-width: 300px) {
+  .top-bar-container__top-bar-item:last-child {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

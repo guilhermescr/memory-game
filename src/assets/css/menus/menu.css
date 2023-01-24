@@ -26,3 +26,7 @@
   border: 2px solid #0e0e0e;
   border-radius: 20px;
 }
+
+.menu > h2 {
+  font-weight: normal;
+}

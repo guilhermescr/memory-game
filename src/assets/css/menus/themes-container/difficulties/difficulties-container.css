@@ -1,6 +1,6 @@
 .difficulties-container {
   align-items: center;
-  display: none;
+  display: flex;
   flex-flow: column wrap;
   gap: 40px;
   justify-content: center;

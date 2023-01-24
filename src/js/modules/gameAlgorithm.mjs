@@ -17,7 +17,11 @@ import { DECK_CONTAINER } from './m-themes/deckStyles.mjs';
 import { difficulty } from './m-themes/themesDifficulty.mjs';
 import { resetBirdAnimation } from './animations/forest_theme/BirdAnimation.mjs';
 import { fillRandomThemes } from './randomThemes/fillRandomThemes.mjs';
-import { onlineUser } from './auth/AccountMethods.mjs';
+import {
+  onlineUser,
+  renderGeneralInfo,
+  updateAccount
+} from './auth/AccountMethods.mjs';
 import { BODY_CLASSLIST_TEMPLATE_OPTIONS } from './templates/TemplatesData.mjs';
 import {
   ACHIEVEMENTS_DATA,
@@ -86,9 +90,9 @@ function startGame() {
     HEARTS[lives].classList.add('hearts-container__dead-heart');
     if (lives === 0) {
       setTimeout(() => {
-        alert('You lost.');
+        console.log('You lost.');
         renderLoaderContainer('Try to do better next time...');
-        endGame();
+        endGame('lostMatches');
       }, 800);
     }
   }
@@ -203,7 +207,7 @@ function startGame() {
 
         checkResultsForAchievements();
 
-        endGame();
+        endGame('wonMatches');
       }, 1000);
     }
 
@@ -243,7 +247,12 @@ function startGame() {
   addCardsListeners();
 }
 
-function endGame() {
+function endGame(matchResult) {
+  const { CurrentTemplate, matches } = onlineUser.userData;
+  updateAccount(['matches'], matches + 1);
+  updateAccount([matchResult], onlineUser.userData[matchResult] + 1);
+  renderGeneralInfo();
+
   resetAchievement('Perfect Move');
   changeHomePageState(true);
   stopSoundTrack();
@@ -262,9 +271,7 @@ function endGame() {
   hideElements(DECK_CONTAINER);
   hideElements(topBarContainerIngameElements);
   fillRandomThemes();
-  timeoutItems(
-    BODY_CLASSLIST_TEMPLATE_OPTIONS[onlineUser.userData.CurrentTemplate]
-  );
+  timeoutItems(BODY_CLASSLIST_TEMPLATE_OPTIONS[CurrentTemplate]);
   revealElements(GAME_MENU);
 }
 

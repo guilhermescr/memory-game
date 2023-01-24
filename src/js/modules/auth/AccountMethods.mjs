@@ -468,6 +468,14 @@ document
   .getElementById('save-username-button')
   .addEventListener('click', updateUsername);
 
+function renderGeneralInfo() {
+  const { matches, wonMatches, lostMatches } = onlineUser.userData;
+
+  document.getElementById('matches').innerHTML = matches;
+  document.getElementById('victories').innerHTML = wonMatches;
+  document.getElementById('defeats').innerHTML = lostMatches;
+}
+
 function setOnlineUser(account) {
   onlineUser.online = true;
   onlineUser.userData = account;
@@ -518,6 +526,7 @@ export {
   onlineUser,
   setOnlineUser,
   isUserOnline,
+  renderGeneralInfo,
   resetProfilePictures,
   renderProfilePictures,
   renderUsernames,

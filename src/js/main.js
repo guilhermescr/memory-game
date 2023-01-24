@@ -15,6 +15,7 @@ import { getAccounts } from './modules/auth/AuthService.mjs';
 import {
   isUserOnline,
   onlineUser,
+  renderGeneralInfo,
   renderProfilePictures,
   resetProfilePictures
 } from './modules/auth/AccountMethods.mjs';
@@ -95,7 +96,6 @@ const MAXIMIZE_FULLSCREEN_ICON = `
 <svg
       class="toggleFullscreenIcon"
       version="1.1"
-      id="Capa_1"
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
       x="0px"
@@ -155,7 +155,6 @@ const MINIMIZE_FULLSCREEN_ICON = `
 <svg
       class="toggleFullscreenIcon"
       version="1.1"
-      id="Capa_1"
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
       x="0px"
@@ -273,6 +272,7 @@ function setDefaultSettings() {
   renderAchievements();
   resetTemporaryAchievements();
   levelUp();
+  renderGeneralInfo();
   renderCurrentLevel(onlineUser.userData.lvl);
 
   if (onlineUser.userData.profilePicture.length) {

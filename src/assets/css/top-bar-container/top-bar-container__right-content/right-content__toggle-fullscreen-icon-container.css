@@ -1,3 +1,21 @@
 .right-content__toggle-fullscreen-icon-container {
+  cursor: pointer;
+  fill: var(--top_bar_container_svg_color);
   height: 30px;
+  opacity: 0.8;
+  pointer-events: all !important;
+}
+
+.right-content__toggle-fullscreen-icon-container:hover {
+  opacity: 1;
+}
+
+.right-content__toggle-fullscreen-icon-container svg {
+  height: 100%;
+}
+
+@media (max-width: 300px) {
+  .right-content__toggle-fullscreen-icon-container {
+    height: 20px;
+  }
 }

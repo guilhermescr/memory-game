@@ -7,5 +7,7 @@
 
 .open-profile-menu.hasPFP .profile-image-container {
   background-color: transparent;
-  width: 60px;
+  max-width: 100px;
+  padding-top: 0;
+  width: 100%;
 }

@@ -1,4 +1,4 @@
 .hearts-container__dead-heart {
-  color: #202020;
+  fill: #202020;
   transition: 0.3s ease-out;
 }

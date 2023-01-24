@@ -1,6 +1,6 @@
 .return-icon-container__return-icon {
   cursor: pointer;
-  display: none;
+  display: block;
   fill: #f44336;
   width: 100%;
 }

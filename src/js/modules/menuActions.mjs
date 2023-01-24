@@ -57,13 +57,21 @@ function closeMenu() {
   });
 }
 
-const PLAY_GAME_BUTTON = document.getElementById('play-btn');
-PLAY_GAME_BUTTON.addEventListener('click', fillThemes);
-
-const PLAY_RANDOM_THEMES_BUTTON = document.getElementById(
-  'play-random-themes-btn'
+const PLAY_CLASSIC_MODE_BUTTON = document.getElementById(
+  'play-classic-mode-button'
 );
-PLAY_RANDOM_THEMES_BUTTON.addEventListener('click', fillRandomThemes);
+PLAY_CLASSIC_MODE_BUTTON.addEventListener('click', () => {
+  closeMenu();
+  fillThemes();
+});
+
+const PLAY_RANDOM_MODE_BUTTON = document.getElementById(
+  'play-random-mode-button'
+);
+PLAY_RANDOM_MODE_BUTTON.addEventListener('click', () => {
+  closeMenu();
+  fillRandomThemes();
+});
 
 const SHUFFLE_THEMES_BUTTON = document.getElementById('shuffle-themes');
 SHUFFLE_THEMES_BUTTON.addEventListener('click', shuffleRandomThemes);

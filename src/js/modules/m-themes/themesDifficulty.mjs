@@ -1,3 +1,4 @@
+import { hideElements, revealElements } from '../../main.js';
 import {
   addEasyModeCards,
   addNormalModeCards,
@@ -5,7 +6,9 @@ import {
   saveClickedBtnThemeId
 } from './addCards.mjs';
 
-const RETURN_ICON = document.querySelector('.themes-container .return-icon-container__return-icon');
+const RETURN_ICON = document.querySelector(
+  '.themes-container .return-icon-container__return-icon'
+);
 const THEMES_CONTAINER = document.getElementById('themes-container');
 const THEMES_TITLE = document.getElementById('themes-title');
 
@@ -24,8 +27,7 @@ let difficulty;
 function resetThemesContainerStyles() {
   THEMES_CONTAINER.style.display = 'flex';
   THEMES_TITLE.innerHTML = 'Themes';
-  DIFFICULTIES_CONTAINER.style.display = 'none';
-  RETURN_ICON.style.display = 'none';
+  hideElements([RETURN_ICON, DIFFICULTIES_CONTAINER]);
 }
 
 function showDifficulties() {
@@ -35,9 +37,8 @@ function showDifficulties() {
 
   THEMES_CONTAINER.style.display = 'none';
   THEMES_TITLE.innerHTML = 'Select Your Difficulty';
-  DIFFICULTIES_CONTAINER.style.display = 'flex';
-  RETURN_ICON.style.display = 'block';
   RETURN_ICON.addEventListener('click', resetThemesContainerStyles);
+  revealElements([RETURN_ICON, DIFFICULTIES_CONTAINER]);
 }
 
 function renderPlayThemeButtons() {

@@ -270,6 +270,36 @@
       href="../src/assets/css/menus/game-menu/title-container/game-txt.css"
     />
 
+    <!-- Play Game -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/play-game/play-game.css"
+    />
+
+    <!-- Play Game - Modes -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/play-game/modes/modes.css"
+    />
+
+    <!-- Play Game - Mode -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/play-game/modes/mode/mode.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/play-game/modes/mode/mode__h3.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/play-game/modes/mode/mode__img.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/menus/play-game/modes/mode/mode__play-button.css"
+    />
+
     <!-- Themes Container -->
     <link
       rel="stylesheet"
@@ -843,13 +873,6 @@
     />
 
     <title>Memory Game</title>
-
-    <!-- Font Awesome -->
-    <script
-      src="https://kit.fontawesome.com/402b466f9c.js"
-      crossorigin="anonymous"
-      defer
-    ></script>
   </head>
   <body class="forest_template">
     <section id="click-on-window-message-container">
@@ -881,21 +904,51 @@
         >
           Lives:
           <span id="hearts">
-            <i
-              class="fa-solid fa-heart hearts-container__heart hearts-container__alive-heart"
-            ></i>
-            <i
-              class="fa-solid fa-heart hearts-container__heart hearts-container__alive-heart"
-            ></i>
-            <i
-              class="fa-solid fa-heart hearts-container__heart hearts-container__alive-heart"
-            ></i>
-            <i
-              class="fa-solid fa-heart hearts-container__heart hearts-container__alive-heart"
-            ></i>
-            <i
-              class="fa-solid fa-heart hearts-container__heart hearts-container__alive-heart"
-            ></i>
+            <svg
+              class="hearts-container__heart hearts-container__alive-heart"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
+              />
+            </svg>
+            <svg
+              class="hearts-container__heart hearts-container__alive-heart"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
+              />
+            </svg>
+            <svg
+              class="hearts-container__heart hearts-container__alive-heart"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
+              />
+            </svg>
+            <svg
+              class="hearts-container__heart hearts-container__alive-heart"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
+              />
+            </svg>
+            <svg
+              class="hearts-container__heart hearts-container__alive-heart"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
+              />
+            </svg>
           </span>
         </h3>
       </div>
@@ -1043,13 +1096,6 @@
         </button>
         <button
           class="setting-option setting-button"
-          id="play-random-themes-btn"
-          data-setting="random-theme"
-        >
-          Random Theme
-        </button>
-        <button
-          class="setting-option setting-button"
           data-setting="home-settings"
         >
           Settings
@@ -1069,7 +1115,55 @@
     </main>
 
     <section class="menus">
-      <section class="themes-container menu" data-setting="play-game">
+      <section class="play-game menu" data-setting="play-game">
+        <div class="close-menu-container">
+          <img
+            class="close-menu-container__close-icon"
+            src="../src/assets/images/icons/close-icon.png"
+            alt="Close Window Icon"
+          />
+        </div>
+
+        <h2>Choose a Mode</h2>
+
+        <section class="modes">
+          <div class="modes__mode">
+            <h3>Classic Mode</h3>
+            <img
+              class="mode__img"
+              src="../src/assets/images/modes/classic-mode.png"
+              alt="Classic Mode Menu"
+            />
+            <button
+              class="mode__play-button setting-button"
+              data-setting="classic-mode"
+              id="play-classic-mode-button"
+              type="button"
+            >
+              Play
+            </button>
+          </div>
+
+          <div class="modes__mode">
+            <h3>Random Mode</h3>
+            <img
+              class="mode__img"
+              src="../src/assets/images/modes/random-mode.png"
+              alt="Random Mode Menu"
+            />
+            <button
+              class="mode__play-button setting-button"
+              data-setting="random-mode"
+              id="play-random-mode-button"
+              type="button"
+            >
+              Play
+            </button>
+          </div>
+        </section>
+      </section>
+
+      <section class="themes-container menu" data-setting="classic-mode">
         <div class="close-menu-container">
           <img
             class="close-menu-container__close-icon"
@@ -1104,7 +1198,7 @@
         </div>
       </section>
 
-      <section class="random-themes-container menu" data-setting="random-theme">
+      <section class="random-themes-container menu" data-setting="random-mode">
         <div class="close-menu-container">
           <img
             class="close-menu-container__close-icon"
@@ -1218,9 +1312,15 @@
 
         <section class="profile-menu hide">
           <section class="edit-profile-menu hide">
-            <i
-              class="fa-regular fa-circle-xmark close-edit-profile-menu-icon"
-            ></i>
+            <svg
+              class="close-edit-profile-menu-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M175 175C184.4 165.7 199.6 165.7 208.1 175L255.1 222.1L303 175C312.4 165.7 327.6 165.7 336.1 175C346.3 184.4 346.3 199.6 336.1 208.1L289.9 255.1L336.1 303C346.3 312.4 346.3 327.6 336.1 336.1C327.6 346.3 312.4 346.3 303 336.1L255.1 289.9L208.1 336.1C199.6 346.3 184.4 346.3 175 336.1C165.7 327.6 165.7 312.4 175 303L222.1 255.1L175 208.1C165.7 199.6 165.7 184.4 175 175V175zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"
+              />
+            </svg>
 
             <div class="which-info-container edit-profile-menu-option">
               <h3>Which info do you want to update?</h3>
@@ -1340,7 +1440,6 @@
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 128 512"
               >
-                <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
                 <path
                   d="M64 360c30.9 0 56 25.1 56 56s-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56zm0-160c30.9 0 56 25.1 56 56s-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56zM120 96c0 30.9-25.1 56-56 56S8 126.9 8 96S33.1 40 64 40s56 25.1 56 56z"
                 />
@@ -1372,7 +1471,6 @@
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 640 512"
                 >
-                  <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
                   <path
                     d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H322.8c-3.1-8.8-3.7-18.4-1.4-27.8l15-60.1c2.8-11.3 8.6-21.5 16.8-29.7l40.3-40.3c-32.1-31-75.7-50.1-123.9-50.1H178.3zm435.5-68.3c-15.6-15.6-40.9-15.6-56.6 0l-29.4 29.4 71 71 29.4-29.4c15.6-15.6 15.6-40.9 0-56.6l-14.4-14.4zM375.9 417c-4.1 4.1-7 9.2-8.4 14.9l-15 60.1c-1.4 5.5 .2 11.2 4.2 15.2s9.7 5.6 15.2 4.2l60.1-15c5.6-1.4 10.8-4.3 14.9-8.4L576.1 358.7l-71-71L375.9 417z"
                   />
@@ -1389,13 +1487,10 @@
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 448 512"
                 >
-                  <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
                   <path
                     d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"
                   />
                 </svg>
-
-                <!-- come back if anything goes wrong -->
               </div>
             </div>
 
@@ -1490,9 +1585,15 @@
           <section class="profile-right-column">
             <section class="general-info-container hide">
               <ul class="general-info-list">
-                <li>Matches: 0</li>
-                <li>Victories: 0</li>
-                <li>Defeats: 0</li>
+                <li class="general-info-list__option">
+                  Matches: <span id="matches">0</span>
+                </li>
+                <li class="general-info-list__option">
+                  Victories: <span id="victories">0</span>
+                </li>
+                <li class="general-info-list__option">
+                  Defeats: <span id="defeats">0</span>
+                </li>
               </ul>
             </section>
             <!-- initially, add hide class to achievements, not to general info -->

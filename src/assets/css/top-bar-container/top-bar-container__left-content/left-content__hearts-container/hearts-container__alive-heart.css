@@ -1,4 +1,4 @@
 .hearts-container__alive-heart {
   text-shadow: 0 0 3px #000000;
-  color: red;
+  fill: red;
 }
