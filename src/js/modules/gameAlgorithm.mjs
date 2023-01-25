@@ -30,13 +30,42 @@ import {
   resetAchievement,
   updateAchievement
 } from './m-profile/achievements/Achievements.mjs';
+import { openMenu } from './menuActions.mjs';
 
 const SCOREBOARD = document.getElementById('score-points');
-const MOVE_COUNT = document.getElementById('move-count');
+const MOVE_COUNT = document.querySelectorAll('.move-count');
 const HEARTS = document.querySelectorAll('.hearts-container__heart');
-let cards, win_streak;
+let win_streak = 0;
+let cards, interval;
+
+let timing = {
+  count: 0,
+  start: function () {
+    interval = setInterval(() => {
+      timing.count++;
+    }, 1000);
+  },
+  end: function () {
+    clearInterval(interval);
+  },
+  render: function () {
+    console.log(this.count);
+    document.querySelectorAll('.timing-count').forEach(timing_count => {
+      if (this.count < 60) {
+        timing_count.innerHTML = `${this.count}s`;
+      } else if (this.count < 120) {
+        timing_count.innerHTML = `1min ${this.count}s`;
+      } else if (this.count < 180) {
+        timing_count.innerHTML = `2min ${this.count}s`;
+      } else if (this.count < 240) {
+        timing_count.innerHTML = `3min ${this.count}s`;
+      }
+    });
+  }
+};
 
 function startGame() {
+  timing.start();
   stopHomeMusic();
   setDefaultSoundTrack();
   resetBirdAnimation();
@@ -66,8 +95,15 @@ function startGame() {
     [withLives, isHardMatch] = [true, true];
   }
 
-  [SCOREBOARD.innerHTML, scorePoints, MOVE_COUNT.innerHTML] = [0, 0, 0];
+  [SCOREBOARD.innerHTML, scorePoints] = [0, 0];
   cards = document.querySelectorAll('.memory-card');
+  changeMovesCount(0);
+
+  function changeMovesCount(val) {
+    MOVE_COUNT.forEach(moves_tag => {
+      moves_tag.innerHTML = val;
+    });
+  }
 
   function resetHeartsColor() {
     for (let heart of HEARTS) {
@@ -91,8 +127,7 @@ function startGame() {
     if (lives === 0) {
       setTimeout(() => {
         console.log('You lost.');
-        renderLoaderContainer('Try to do better next time...');
-        endGame('lostMatches');
+        endGame('lostMatches', false);
       }, 800);
     }
   }
@@ -110,16 +145,17 @@ function startGame() {
   }
 
   function flipCard() {
+    if (lockBoard) return;
+
     if (!isAchievementObtained('Flip It!')) {
       updateAchievement('Flip It!', 1, true);
     }
 
-    if (lockBoard) return;
     this.classList.add('flip');
     if (this === firstCard) return;
 
     moves++;
-    MOVE_COUNT.innerHTML = moves;
+    changeMovesCount(moves);
 
     if (!hasFlippedCard) {
       hasFlippedCard = true;
@@ -202,12 +238,8 @@ function startGame() {
     SCOREBOARD.innerHTML = scorePoints;
     if (scorePoints === cards.length / 2) {
       timeoutItems(() => {
-        console.log('YOU WON!'); // final menu opens here
-        renderLoaderContainer('Bringing you to home...');
-
-        checkResultsForAchievements();
-
-        endGame('wonMatches');
+        console.log('YOU WON!');
+        endGame('wonMatches', true);
       }, 1000);
     }
 
@@ -247,13 +279,43 @@ function startGame() {
   addCardsListeners();
 }
 
-function endGame(matchResult) {
+function endGame(matchResult, isWin) {
+  timing.end();
+
   const { CurrentTemplate, matches } = onlineUser.userData;
+  const END_GAME_TITLE = document.getElementById('match-result-title');
+  const END_GAME_XP = document.getElementById('end-game-xp');
+
   updateAccount(['matches'], matches + 1);
   updateAccount([matchResult], onlineUser.userData[matchResult] + 1);
   renderGeneralInfo();
-
   resetAchievement('Perfect Move');
+
+  let topBarContainerIngameElements = document.querySelectorAll(
+    '.top-bar-container__top-bar-item'
+  );
+  hideElements(topBarContainerIngameElements);
+  TOP_BAR_CONTAINER.classList.remove('top-bar-container--background');
+
+  openMenu('end-game-menu');
+  timing.render();
+  END_GAME_TITLE.innerHTML = isWin ? 'Win!' : 'Game Over!';
+
+  // drop the code below on the other if statement.
+  if (isWin) {
+    END_GAME_XP.innerHTML = Math.round(Math.random() * (30 - 15) + 15);
+  } else {
+    END_GAME_XP.innerHTML = Math.round(Math.random() * (15 - 5) + 5);
+  }
+
+  return;
+  if (isWin) {
+    checkResultsForAchievements();
+    renderLoaderContainer('Bringing you to home...');
+  } else {
+    renderLoaderContainer('Try to do better next time...');
+  }
+
   changeHomePageState(true);
   stopSoundTrack();
   if (MusicIsActive) {
@@ -261,18 +323,13 @@ function endGame(matchResult) {
   }
 
   memoryDeck.innerHTML = '';
-  TOP_BAR_CONTAINER.classList.remove('top-bar-container--background');
 
   const GAME_MENU = document.querySelector('.game-menu');
-  let topBarContainerIngameElements = document.querySelectorAll(
-    '.top-bar-container__top-bar-item'
-  );
 
   hideElements(DECK_CONTAINER);
-  hideElements(topBarContainerIngameElements);
   fillRandomThemes();
   timeoutItems(BODY_CLASSLIST_TEMPLATE_OPTIONS[CurrentTemplate]);
   revealElements(GAME_MENU);
 }
 
-export { startGame };
+export { startGame, win_streak };

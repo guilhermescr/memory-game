@@ -8,6 +8,7 @@ import {
 } from './m-audio/audio.mjs';
 import { showSettingsMenu } from './templates/TemplatesAlgorithm.mjs';
 import { closeEditAccountMenu } from './auth/AccountMethods.mjs';
+import { resetThemesContainerStyles } from './m-themes/themesDifficulty.mjs';
 
 const SETTINGS_MENUS = document.querySelectorAll('.menu');
 const MENU_SETTINGS_OPTIONS = document.querySelectorAll('.setting-option');
@@ -18,9 +19,15 @@ const CLOSE_MENU_BUTTONS = document.querySelectorAll(
 const TOP_BAR_CONTAINER = document.querySelector('.top-bar-container');
 let menuIsOpen = false;
 
-function openMenu() {
+function openMenu(dataset_name) {
   playClickSoundEffect();
-  let buttonDataset = this.dataset.setting;
+
+  let buttonDataset;
+  if (this) {
+    buttonDataset = this.dataset.setting;
+  } else {
+    buttonDataset = dataset_name;
+  }
 
   for (let index = 0; index < SETTINGS_MENUS.length; index++) {
     if (buttonDataset === SETTINGS_MENUS[index].dataset.setting) {
@@ -76,8 +83,25 @@ PLAY_RANDOM_MODE_BUTTON.addEventListener('click', () => {
 const SHUFFLE_THEMES_BUTTON = document.getElementById('shuffle-themes');
 SHUFFLE_THEMES_BUTTON.addEventListener('click', shuffleRandomThemes);
 
-// Open / Close Menu
+document
+  .querySelector('.random-themes-container .return-icon-container__return-icon')
+  .addEventListener('click', () => {
+    closeMenu();
+    openMenu('play-game');
+  });
 
+document
+  .querySelector('.themes-container .return-icon-container__return-icon')
+  .addEventListener('click', () => {
+    if (!document.querySelector('.themes').classList.contains('hide')) {
+      closeMenu();
+      openMenu('play-game');
+    } else {
+      resetThemesContainerStyles();
+    }
+  });
+
+// Open / Close Menu
 SETTINGS_BUTTONS.forEach(SETTING_BUTTON => {
   SETTING_BUTTON.addEventListener('click', openMenu);
 });

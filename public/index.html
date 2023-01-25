@@ -897,7 +897,7 @@
           Score: <span id="score-points">0</span>
         </h3>
         <h3 id="moves" class="top-bar-container__top-bar-item hide">
-          Moves: <span id="move-count">0</span>
+          Moves: <span class="move-count">0</span>
         </h3>
         <h3
           class="top-bar-container__top-bar-item left-content__hearts-container hide"
@@ -1205,6 +1205,23 @@
             src="../src/assets/images/icons/close-icon.png"
             alt="Close Window Icon"
           />
+        </div>
+
+        <div class="return-icon-container">
+          <svg
+            class="return-icon-container__return-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            fill="currentColor"
+            class="bi bi-arrow-left"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+            />
+          </svg>
         </div>
 
         <h2 id="random-themes-title">Random Themes</h2>
@@ -1583,7 +1600,7 @@
           </section>
 
           <section class="profile-right-column">
-            <section class="general-info-container hide">
+            <section class="general-info-container">
               <ul class="general-info-list">
                 <li class="general-info-list__option">
                   Matches: <span id="matches">0</span>
@@ -1594,10 +1611,12 @@
                 <li class="general-info-list__option">
                   Defeats: <span id="defeats">0</span>
                 </li>
+                <li class="general-info-list__option">
+                  Win Streak: <span id="win-streak">0</span>
+                </li>
               </ul>
             </section>
-            <!-- initially, add hide class to achievements, not to general info -->
-            <section class="achievements-section">
+            <section class="achievements-section hide">
               <h3>Achievements:</h3>
               <p class="achievements-section__total-achievements">
                 <span>Total: </span><span id="total-achievements">?/?</span>
@@ -1849,6 +1868,23 @@
               />
             </div>
           </div>
+        </section>
+      </section>
+
+      <section
+        class="deck-container__end-game menu"
+        data-setting="end-game-menu"
+      >
+        <h2 id="match-result-title">Final Message</h2>
+
+        <section class="end-game__final-info-container">
+          <p class="end-game__final-info">Timing: <span class="timing-count">0</span></p>
+          <p class="end-game__final-info">
+            Moves: <span class="move-count">0</span>
+          </p>
+          <p class="end-game__final-info">
+            XP Earned: <span id="end-game-xp">0</span>XP
+          </p>
         </section>
       </section>
 

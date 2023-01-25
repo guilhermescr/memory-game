@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'https://cdn.skypack.dev/uuid';
 
 import { hideElements, revealElements, timeoutItems } from '../../main.js';
+import { win_streak } from '../gameAlgorithm.mjs';
 import { updateSoundsStatus } from '../m-audio/audio.mjs';
 import { endAuthPage, logout } from './AuthService.mjs';
 
@@ -474,6 +475,7 @@ function renderGeneralInfo() {
   document.getElementById('matches').innerHTML = matches;
   document.getElementById('victories').innerHTML = wonMatches;
   document.getElementById('defeats').innerHTML = lostMatches;
+  document.getElementById('win-streak').innerHTML = win_streak;
 }
 
 function setOnlineUser(account) {
