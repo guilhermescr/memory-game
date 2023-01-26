@@ -11,9 +11,39 @@ const onlineUser = {
   userData: {}
 };
 
+function getCreationDate() {
+  let day = new Date().getDate();
+  let month = new Date().getMonth() + 1;
+  let year = new Date().getFullYear();
+  let hours = new Date().getHours();
+  let minutes = new Date().getMinutes();
+  let am_pm;
+
+  if (month < 10) {
+    month = `0${month}`;
+  }
+
+  if (hours > 12) {
+    hours -= 12;
+    am_pm = 'pm';
+  } else {
+    am_pm = 'am';
+  }
+
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${day}/${month}/${year}, ${hours}:${minutes}${am_pm}`;
+}
+
 function searchUsername($username) {
   const userName = accounts.find($account => $account.username === $username);
-  return userName === undefined; // check if username is available
+  return userName === undefined; // undefined -> username available
 }
 
 function searchAccount($username, $password) {
@@ -34,6 +64,7 @@ function createAccount($username, $password) {
     const userData = {
       username: $username,
       password: $password,
+      creationDate: getCreationDate(),
       profilePicture: '',
       id: uuidv4(),
       lvl: 0,
@@ -470,8 +501,10 @@ document
   .addEventListener('click', updateUsername);
 
 function renderGeneralInfo() {
-  const { matches, wonMatches, lostMatches } = onlineUser.userData;
+  const { creationDate, matches, wonMatches, lostMatches } =
+    onlineUser.userData;
 
+  document.getElementById('creation-date').innerHTML = creationDate;
   document.getElementById('matches').innerHTML = matches;
   document.getElementById('victories').innerHTML = wonMatches;
   document.getElementById('defeats').innerHTML = lostMatches;

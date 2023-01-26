@@ -3,8 +3,13 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  height: 100%;
   justify-content: center;
+}
+
+@media (max-width: 540px) {
+  .modes__mode {
+    margin-bottom: 15px;
+  }
 }
 
 @media (max-height: 450px) {

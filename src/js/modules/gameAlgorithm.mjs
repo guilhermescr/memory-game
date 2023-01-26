@@ -28,14 +28,17 @@ import {
   getAchievement,
   isAchievementObtained,
   resetAchievement,
-  updateAchievement
+  updateAchievement,
+  updateExperienceBar
 } from './m-profile/achievements/Achievements.mjs';
-import { openMenu } from './menuActions.mjs';
+import { levelUp } from './m-profile/LevelUp.mjs';
+import { closeMenu, openMenu } from './menuActions.mjs';
 
 const SCOREBOARD = document.getElementById('score-points');
 const MOVE_COUNT = document.querySelectorAll('.move-count');
 const HEARTS = document.querySelectorAll('.hearts-container__heart');
-let win_streak = 0;
+let [win_streak, mistakes] = [0, 0];
+let [isWin, isHardMatch] = [null, false];
 let cards, interval;
 
 let timing = {
@@ -49,16 +52,54 @@ let timing = {
     clearInterval(interval);
   },
   render: function () {
-    console.log(this.count);
     document.querySelectorAll('.timing-count').forEach(timing_count => {
-      if (this.count < 60) {
-        timing_count.innerHTML = `${this.count}s`;
-      } else if (this.count < 120) {
-        timing_count.innerHTML = `1min ${this.count}s`;
-      } else if (this.count < 180) {
-        timing_count.innerHTML = `2min ${this.count}s`;
-      } else if (this.count < 240) {
-        timing_count.innerHTML = `3min ${this.count}s`;
+      /*
+        # s: seconds,
+        # m: minutes,
+        # h: hours,
+        # d: days
+
+        1 minute: 60s
+        1 hour: 3600s -> (60m * 60s)
+        1 day: 86400s -> (24h * 3600s)
+      */
+
+      // base unit of time in seconds
+      let minute_baseUnit = 60;
+      let hour_baseUnit = 60 * minute_baseUnit;
+      let day_baseUnit = 24 * hour_baseUnit;
+
+      /*
+        Note: count is the amount of seconds the user spent playing a match
+
+        - parseInt because float nums are not necessary here
+        - days will be 1 or more if count is bigger than the day_baseUnit
+
+        - On the other comment, you saw that a day is 86400. So, if I played a match for a day,
+        days will be: 86400 / day_baseUnit (which is 86400). Result: 1
+        
+        - If I played for 2 days, the calculation will be:
+        172800 / day_baseUnit (86400). Result: 2
+
+        - If I played for less than a day, count will be any number below 86400, so:
+        [ any number below 86400 / day_baseUnit -> Result: 0]
+      */
+      let days = parseInt(this.count / day_baseUnit);
+
+      let seconds = this.count - days * day_baseUnit;
+      let hours = parseInt(seconds / hour_baseUnit);
+      seconds = seconds - hours * hour_baseUnit;
+      let minutes = parseInt(seconds / minute_baseUnit);
+      seconds = seconds - minutes * minute_baseUnit;
+
+      if (days) {
+        timing_count.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      } else if (hours) {
+        timing_count.innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+      } else if (minutes) {
+        timing_count.innerHTML = `${minutes}m ${seconds}s`;
+      } else {
+        timing_count.innerHTML = `${seconds}s`;
       }
     });
   }
@@ -76,14 +117,11 @@ function startGame() {
   renderPlayMusicButtons();
 
   let firstCard, secondCard;
-  let [withLives, hasFlippedCard, lockBoard, isHardMatch] = [
-    false,
-    false,
-    false,
-    false
-  ];
-  let [scorePoints, moves, cardSequence, mistakes] = [0, 0, 0, 0];
+  let [withLives, hasFlippedCard, lockBoard] = [false, false, false];
+  let [scorePoints, moves, cardSequence] = [0, 0, 0];
   let lives = 5;
+  mistakes = 0;
+  isHardMatch = false;
   changeHomePageState(false);
 
   if (
@@ -126,7 +164,7 @@ function startGame() {
     HEARTS[lives].classList.add('hearts-container__dead-heart');
     if (lives === 0) {
       setTimeout(() => {
-        console.log('You lost.');
+        isWin = false;
         endGame('lostMatches', false);
       }, 800);
     }
@@ -190,46 +228,6 @@ function startGame() {
     }
   }
 
-  function checkResultsForAchievements() {
-    if (isHardMatch && !isAchievementObtained('Player Harder Than Rock')) {
-      updateAchievement('Player Harder Than Rock', 1, true);
-    }
-
-    if (!mistakes && !isAchievementObtained('Unstoppable')) {
-      updateAchievement('Unstoppable', 1, true);
-    }
-
-    win_streak++;
-    let win_achievements = [
-      '3 wins',
-      '5 wins',
-      '15 wins',
-      '50 wins',
-      '100 wins',
-      'Win Streak - Easy',
-      'Win Streak - Normal',
-      'Win Streak - Hard',
-      'Win Streak - Insane'
-    ];
-    win_achievements.forEach(win_achievement => {
-      if (!isAchievementObtained(win_achievement)) {
-        if (win_achievement === 'Win Streak - Insane' && !isHardMatch) return;
-
-        let achievementIndex = getAchievement(win_achievement)[1];
-        const { current_progress } =
-          onlineUser.userData.achievements_data.achievements[achievementIndex];
-        const { total_progress } = ACHIEVEMENTS_DATA[achievementIndex];
-
-        let progress = current_progress + 1;
-        updateAchievement(
-          win_achievement,
-          progress,
-          progress === total_progress
-        );
-      }
-    });
-  }
-
   function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
@@ -238,8 +236,8 @@ function startGame() {
     SCOREBOARD.innerHTML = scorePoints;
     if (scorePoints === cards.length / 2) {
       timeoutItems(() => {
-        console.log('YOU WON!');
-        endGame('wonMatches', true);
+        isWin = true;
+        endGame('wonMatches', false);
       }, 1000);
     }
 
@@ -279,42 +277,53 @@ function startGame() {
   addCardsListeners();
 }
 
-function endGame(matchResult, isWin) {
-  timing.end();
-
-  const { CurrentTemplate, matches } = onlineUser.userData;
-  const END_GAME_TITLE = document.getElementById('match-result-title');
-  const END_GAME_XP = document.getElementById('end-game-xp');
-
-  updateAccount(['matches'], matches + 1);
-  updateAccount([matchResult], onlineUser.userData[matchResult] + 1);
-  renderGeneralInfo();
-  resetAchievement('Perfect Move');
-
-  let topBarContainerIngameElements = document.querySelectorAll(
-    '.top-bar-container__top-bar-item'
-  );
-  hideElements(topBarContainerIngameElements);
-  TOP_BAR_CONTAINER.classList.remove('top-bar-container--background');
-
-  openMenu('end-game-menu');
-  timing.render();
-  END_GAME_TITLE.innerHTML = isWin ? 'Win!' : 'Game Over!';
-
-  // drop the code below on the other if statement.
-  if (isWin) {
-    END_GAME_XP.innerHTML = Math.round(Math.random() * (30 - 15) + 15);
-  } else {
-    END_GAME_XP.innerHTML = Math.round(Math.random() * (15 - 5) + 5);
+function checkResultsForAchievements() {
+  if (isHardMatch && !isAchievementObtained('Player Harder Than Rock')) {
+    updateAchievement('Player Harder Than Rock', 1, true);
   }
 
-  return;
+  if (!mistakes && !isAchievementObtained('Unstoppable')) {
+    updateAchievement('Unstoppable', 1, true);
+  }
+
+  win_streak++;
+  let win_achievements = [
+    '3 wins',
+    '5 wins',
+    '15 wins',
+    '50 wins',
+    '100 wins',
+    'Win Streak - Easy',
+    'Win Streak - Normal',
+    'Win Streak - Hard',
+    'Win Streak - Insane'
+  ];
+  win_achievements.forEach(win_achievement => {
+    if (!isAchievementObtained(win_achievement)) {
+      if (win_achievement === 'Win Streak - Insane' && !isHardMatch) return;
+
+      let achievementIndex = getAchievement(win_achievement)[1];
+      const { current_progress } =
+        onlineUser.userData.achievements_data.achievements[achievementIndex];
+      const { total_progress } = ACHIEVEMENTS_DATA[achievementIndex];
+
+      let progress = current_progress + 1;
+      updateAchievement(win_achievement, progress, progress === total_progress);
+    }
+  });
+}
+
+function quitGame() {
+  closeMenu();
+
+  const { CurrentTemplate } = onlineUser.userData;
   if (isWin) {
     checkResultsForAchievements();
     renderLoaderContainer('Bringing you to home...');
   } else {
     renderLoaderContainer('Try to do better next time...');
   }
+  isWin = null;
 
   changeHomePageState(true);
   stopSoundTrack();
@@ -331,5 +340,55 @@ function endGame(matchResult, isWin) {
   timeoutItems(BODY_CLASSLIST_TEMPLATE_OPTIONS[CurrentTemplate]);
   revealElements(GAME_MENU);
 }
+
+function endGame(matchResult, isQuitGame) {
+  timing.end();
+
+  const { exp, matches } = onlineUser.userData;
+  const END_GAME_TITLE = document.getElementById('match-result-title');
+  const END_GAME_XP = document.getElementById('end-game-xp');
+  let xp = 0;
+
+  updateAccount(['matches'], matches + 1);
+  updateAccount([matchResult], onlineUser.userData[matchResult] + 1);
+  renderGeneralInfo();
+  resetAchievement('Perfect Move');
+
+  let topBarContainerIngameElements = document.querySelectorAll(
+    '.top-bar-container__top-bar-item'
+  );
+  hideElements(topBarContainerIngameElements);
+  TOP_BAR_CONTAINER.classList.remove('top-bar-container--background');
+
+  openMenu('end-game-menu');
+  timing.render();
+  END_GAME_TITLE.innerHTML = isWin ? 'Win!' : 'Game Over!';
+
+  if (isQuitGame) {
+    END_GAME_XP.innerHTML = 0;
+    return;
+  } else if (isWin) {
+    xp = Math.round(Math.random() * (50 - 20) + 20);
+    END_GAME_XP.innerHTML = xp;
+  } else {
+    xp = Math.round(Math.random() * (15 - 5) + 5);
+    END_GAME_XP.innerHTML = xp;
+  }
+  let newXP = exp + xp;
+  updateAccount(['exp'], newXP);
+  updateExperienceBar(newXP, 0);
+  levelUp();
+}
+
+document
+  .querySelector('.deck-container__ingame-settings .quit-match-icon')
+  .addEventListener('click', () => {
+    isWin = false;
+    endGame('lostMatches', true);
+    quitGame();
+  });
+document
+  .querySelector('.deck-container__end-game .quit-match-icon')
+  .addEventListener('click', quitGame);
 
 export { startGame, win_streak };
