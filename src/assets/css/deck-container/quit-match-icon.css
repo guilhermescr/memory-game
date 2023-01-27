@@ -1,0 +1,23 @@
+.quit-match-icon {
+  border-radius: 5px;
+  cursor: pointer;
+  height: 40px;
+  left: 5%;
+  padding: 5px;
+  position: absolute;
+  top: 5%;
+  transform: rotate(180deg);
+  width: 40px;
+}
+
+.quit-match-icon:hover {
+  background-color: #efefef05;
+}
+
+.quit-match-icon path {
+  fill: #fff;
+}
+
+.quit-match-icon:hover path {
+  fill: #efefef;
+}

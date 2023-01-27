@@ -5,7 +5,8 @@ import {
   renderLoaderContainer,
   revealElements,
   setDefaultSettings,
-  timeoutItems
+  timeoutItems,
+  toggleFullscreenIcon
 } from '../../main.js';
 import { showLoginMenu, showRegisterMenu } from './AuthMenus.mjs';
 import {
@@ -174,6 +175,19 @@ function endAuthPage() {
   window.addEventListener('keydown', function (event) {
     let { key } = event;
     handleKeydownEvent(key);
+  });
+
+  window.addEventListener('resize', () => {
+    if (
+      !(
+        screen.width === window.innerWidth &&
+        screen.height === window.innerHeight
+      )
+    ) {
+      toggleFullscreenIcon(false);
+    } else {
+      toggleFullscreenIcon(true);
+    }
   });
 
   revealElements(

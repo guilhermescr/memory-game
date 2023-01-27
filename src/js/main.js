@@ -11,6 +11,7 @@ import {
   setCurrentTemplateImage
 } from './modules/templates/TemplatesAlgorithm.mjs';
 import * as AuthService from './modules/auth/AuthService.mjs';
+import * as MasterTerminal from './modules/MasterTerminal.mjs';
 import { getAccounts } from './modules/auth/AuthService.mjs';
 import {
   isUserOnline,
@@ -214,30 +215,41 @@ const MINIMIZE_FULLSCREEN_ICON = `
 /* page starts with maximize fullscreen icon */
 FULLSCREEN_BUTTON.innerHTML = MAXIMIZE_FULLSCREEN_ICON;
 
+function toggleFullscreenIcon(isFullscreen) {
+  if (isFullscreen) {
+    // this icon is used in fullscreen
+    FULLSCREEN_BUTTON.innerHTML = MINIMIZE_FULLSCREEN_ICON;
+    FULLSCREEN_BUTTON.classList.add('fullscreen-activated');
+  } else {
+    // this icon isn't used in fullscreen
+    FULLSCREEN_BUTTON.innerHTML = MAXIMIZE_FULLSCREEN_ICON;
+    FULLSCREEN_BUTTON.classList.remove('fullscreen-activated');
+  }
+}
+
 function toggleFullscreenMode() {
   let isMaximizeFullscreen = FULLSCREEN_BUTTON.classList.contains(
     'fullscreen-activated'
   );
 
-  // turn on fullscreen mode
   if (!isMaximizeFullscreen) {
-    FULLSCREEN_BUTTON.innerHTML = MINIMIZE_FULLSCREEN_ICON;
-
+    // turn on fullscreen mode
     ROOT_ELEMENT.requestFullscreen();
+    toggleFullscreenIcon(true);
   } else {
     // turn off fullscreen mode
-    FULLSCREEN_BUTTON.innerHTML = MAXIMIZE_FULLSCREEN_ICON;
-
     document.exitFullscreen();
+    toggleFullscreenIcon(false);
   }
-  FULLSCREEN_BUTTON.classList.toggle('fullscreen-activated');
 }
 
-FULLSCREEN_BUTTON.addEventListener('click', toggleFullscreenMode);
+FULLSCREEN_BUTTON.addEventListener('click', () => {
+  toggleFullscreenMode();
+});
 
 function handleKeydownEvent(keydown) {
-  if (keydown === 'f') {
-    toggleFullscreenMode();
+  if (keydown === 'F11') {
+    toggleFullscreenIcon(true);
   }
 
   if (keydown === 'Escape' && menuIsOpen) {
@@ -291,9 +303,7 @@ document.body.onload = () => {
   } else {
     removeLoaderContainer();
     removeClickOnWindowMessage();
-    hideElements(
-      document.querySelector('.right-content__toggle-fullscreen-icon-container')
-    );
+    hideElements(FULLSCREEN_BUTTON);
   }
 };
 
@@ -305,5 +315,6 @@ export {
   revealElements,
   hideElements,
   handleKeydownEvent,
+  toggleFullscreenIcon,
   setDefaultSettings
 };

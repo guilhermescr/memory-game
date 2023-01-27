@@ -19,42 +19,101 @@ body::-webkit-scrollbar-thumb {
   border-radius: 20px;
 }
 
-.end-game__final-info-container {
-  align-items: center;
+.terminal {
+  background-color: #292929;
+  height: 90%;
+  font-family: 'Roboto', Arial, sans-serif;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.commands {
+  border-bottom: 1px solid #160909;
+  height: 53%;
+  overflow-y: auto;
+}
+
+.commands h3 {
+  font-weight: 500;
+  padding-top: 15px;
+}
+
+.commands::-webkit-scrollbar {
+  width: 12px;
+}
+
+.commands::-webkit-scrollbar-track {
+  background: #3e3f3f;
+}
+
+.commands::-webkit-scrollbar-thumb {
+  background-color: #3e3f3f;
+  border: 2px solid #0e0e0e;
+}
+
+.commands__commands-list {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+}
+
+.commands-list__command {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.command__command-title {
+  color: #e95cd1;
+  font-weight: 500;
+  text-align: start;
+}
+
+.command__command-description {
+  color: #c0baba;
+}
+
+.terminal__command-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 47%;
+  padding: 15px;
+}
+
+.user-info {
+  display: flex;
   gap: 8px;
-  justify-content: center;
-  margin: 0 auto;
-  padding-top: 20px;
-  width: max-content;
 }
 
-.end-game__final-info {
+.user-info > p:nth-child(1) {
+  color: #4bff63;
+}
+
+.user-info > p:nth-child(2) {
+  color: #ff549b;
+}
+
+.user-input {
+  align-items: center;
   color: #fff;
-  font-size: 20px;
-}
-
-.quit-match-icon {
-  border-radius: 5px;
-  cursor: pointer;
-  height: 40px;
-  left: 5%;
+  display: flex;
+  gap: 5px;
   padding: 5px;
-  position: absolute;
-  top: 5%;
-  transform: rotate(180deg);
-  width: 40px;
 }
 
-.quit-match-icon:hover {
-  background-color: #efefef05;
+.terminal-input {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+  padding-left: 5px;
+  width: 100%;
 }
 
-.quit-match-icon path {
-  fill: #fff;
-}
-
-.quit-match-icon:hover path {
-  fill: #efefef;
+.--focused-input {
+  background-color: #2929298a;
+  border: 1px solid #413f3f;
 }
