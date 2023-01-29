@@ -413,15 +413,22 @@ function cancelImagePreview() {
   SAVE_PROFILE_PICTURE_BUTTON.innerHTML = 'Continue';
 }
 
-function deleteAccount() {
-  accounts = accounts.filter(account => account.id !== onlineUser.userData.id);
+function deleteAccount(account) {
+  let isOnlineUser = account === 'online_user';
+  if (isOnlineUser) {
+    accounts = accounts.filter(
+      $account => $account.id !== onlineUser.userData.id
+    );
+  } else {
+    accounts = accounts.filter($account => $account.id !== account.id);
+  }
 
   if (accounts.length) {
     localStorage.setItem('accounts', JSON.stringify(accounts));
   } else {
     localStorage.removeItem('accounts');
   }
-  logout();
+  isOnlineUser && logout();
 }
 
 PROFILE_PICTURE_OPTIONS.forEach(profile_pic_option => {
@@ -442,7 +449,9 @@ document.querySelectorAll('.circle-return-icon').forEach(circle_return_icon => {
 
 document
   .querySelector('.delete-profile-button')
-  .addEventListener('click', deleteAccount);
+  .addEventListener('click', () => {
+    deleteAccount('online_user');
+  });
 
 // kebab code
 const KEBAB_ICON = document.querySelector('.kebab-icon');
@@ -563,8 +572,10 @@ function authError(msg) {
 export {
   createAccount,
   updateAccount,
+  accounts,
   getAccounts,
   getAccount,
+  deleteAccount,
   onlineUser,
   setOnlineUser,
   isUserOnline,

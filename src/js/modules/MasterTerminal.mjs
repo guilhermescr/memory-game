@@ -1,5 +1,8 @@
 import {
+  accounts,
   getAccount,
+  deleteAccount,
+  onlineUser,
   renderUsernames,
   resetProfilePictures
 } from './auth/AccountMethods.mjs';
@@ -12,7 +15,66 @@ let input;
 const COMMANDS_LIST = {
   cra: {
     description: 'This command checks all registered accounts.',
-    command: function (flag) {}
+    command: function () {
+      input.blur();
+      input.setAttribute('disabled', '');
+
+      const CURRENT_INPUT_BLOCK = document.querySelector(
+        '.--current-input-block'
+      );
+      const RESULT_ELEMENT =
+        CURRENT_INPUT_BLOCK.nextElementSibling.firstElementChild;
+
+      RESULT_ELEMENT.innerHTML = '- Gathering all the existing accounts...';
+      CURRENT_INPUT_BLOCK.classList.add('not-selectable');
+      CURRENT_INPUT_BLOCK.classList.remove('--current-input-block');
+
+      const RESULT_ELEMENT_WIDTH = RESULT_ELEMENT.clientWidth;
+
+      RESULT_ELEMENT.classList.add('--result-effect');
+      const interval = setInterval(checkSessionState, 500);
+
+      function checkSessionState() {
+        if (RESULT_ELEMENT.clientWidth === RESULT_ELEMENT_WIDTH) {
+          clearInterval(interval);
+          RESULT_ELEMENT.classList.remove('--result-effect');
+          RESULT_ELEMENT.style.borderRight = 'none';
+          setTimeout(() => {
+            if (accounts) {
+              RESULT_ELEMENT.innerHTML = `<p>Amount: ${accounts.length}</p>`;
+
+              if (accounts === 1) {
+                RESULT_ELEMENT.innerHTML += `
+                ${current_account}
+                <ul>
+                  <li>- Username: ${onlineUser.userData.username}</li>
+                  <li>- Password: ${onlineUser.userData.password}</li>
+                </ul>
+                `;
+              } else {
+                accounts.forEach((account, index) => {
+                  let on = onlineUser.userData.username === account.username;
+                  let account_state = on ? 'Online' : 'Offline';
+
+                  RESULT_ELEMENT.innerHTML += `
+                  <p>Nº ${index + 1}<span class="${
+                    on && 'online'
+                  }"> (${account_state})</span>:</p>
+                  <ul>
+                    <li>- Username: ${account.username}</li>
+                    <li>- Password: ${account.password}</li>
+                  </ul>
+                  `;
+                });
+              }
+            } else {
+              RESULT_ELEMENT.innerHTML = 'Unfortunately, account not found.';
+            }
+            addNewCommandBlock();
+          }, 500);
+        }
+      }
+    }
   },
   ga: {
     description:
@@ -21,7 +83,7 @@ const COMMANDS_LIST = {
       input.blur();
       input.setAttribute('disabled', '');
 
-      let username = command.replace('ga ', '').replaceAll('"', '');
+      let username = command.replace('ga ', '');
 
       const CURRENT_INPUT_BLOCK = document.querySelector(
         '.--current-input-block'
@@ -65,7 +127,33 @@ const COMMANDS_LIST = {
   rpp: {
     description: 'This command resets the profile picture.',
     command: function () {
-      resetProfilePictures();
+      input.blur();
+      input.setAttribute('disabled', '');
+
+      const CURRENT_INPUT_BLOCK = document.querySelector(
+        '.--current-input-block'
+      );
+      const RESULT_ELEMENT =
+        CURRENT_INPUT_BLOCK.nextElementSibling.firstElementChild;
+
+      RESULT_ELEMENT.innerHTML = '- Profile Picture Reset Complete.';
+      CURRENT_INPUT_BLOCK.classList.add('not-selectable');
+      CURRENT_INPUT_BLOCK.classList.remove('--current-input-block');
+
+      const RESULT_ELEMENT_WIDTH = RESULT_ELEMENT.clientWidth;
+
+      RESULT_ELEMENT.classList.add('--result-effect');
+      const interval = setInterval(checkSessionState, 500);
+
+      function checkSessionState() {
+        if (RESULT_ELEMENT.clientWidth === RESULT_ELEMENT_WIDTH) {
+          clearInterval(interval);
+          RESULT_ELEMENT.classList.remove('--result-effect');
+          RESULT_ELEMENT.style.borderRight = 'none';
+          setTimeout(resetProfilePictures, 500);
+          addNewCommandBlock();
+        }
+      }
     }
   },
   logout: {
@@ -101,7 +189,82 @@ const COMMANDS_LIST = {
   },
   da: {
     description: 'This command deletes a specific account.',
-    command: function (flag) {}
+    command: function (command) {
+      input.blur();
+      input.setAttribute('disabled', '');
+
+      let username = command.replace('da ', '');
+
+      const CURRENT_INPUT_BLOCK = document.querySelector(
+        '.--current-input-block'
+      );
+      const RESULT_ELEMENT =
+        CURRENT_INPUT_BLOCK.nextElementSibling.firstElementChild;
+
+      RESULT_ELEMENT.innerHTML = '- Looking for the account...';
+      CURRENT_INPUT_BLOCK.classList.add('not-selectable');
+      CURRENT_INPUT_BLOCK.classList.remove('--current-input-block');
+
+      const RESULT_ELEMENT_WIDTH = RESULT_ELEMENT.clientWidth;
+
+      RESULT_ELEMENT.classList.add('--result-effect');
+      const interval = setInterval(checkSessionState, 500);
+
+      function checkSessionState() {
+        if (RESULT_ELEMENT.clientWidth === RESULT_ELEMENT_WIDTH) {
+          clearInterval(interval);
+          RESULT_ELEMENT.classList.remove('--result-effect');
+          RESULT_ELEMENT.style.borderRight = 'none';
+          setTimeout(() => {
+            const ACCOUNT = getAccount(username);
+            if (ACCOUNT) {
+              function deleteAccountConfirmation(confirmation_response) {
+                if (confirmation_response === 'y') {
+                  paragraph.removeChild(confirmation_input);
+                  RESULT_ELEMENT.removeChild(paragraph);
+
+                  paragraph.classList.add('not-selectable');
+                  confirmation_input.placeholder = confirmation_response;
+
+                  paragraph.appendChild(confirmation_input);
+                  RESULT_ELEMENT.appendChild(paragraph);
+                  RESULT_ELEMENT.innerHTML += '<p>- Account deleted.</p>';
+
+                  deleteAccount(ACCOUNT);
+                  addNewCommandBlock();
+                }
+              }
+
+              let paragraph = document.createElement('p');
+              paragraph.classList.add('confirmation-input');
+              let confirmation_input = document.createElement('input');
+              confirmation_input.type = 'text';
+              confirmation_input.classList.add('terminal-input');
+              confirmation_input.autocomplete = 'off';
+              confirmation_input.spellcheck = 'false';
+              confirmation_input.addEventListener('keydown', () => {
+                deleteAccountConfirmation(confirmation_input.value);
+              });
+              paragraph.innerHTML = '$ ';
+              paragraph.appendChild(confirmation_input);
+
+              RESULT_ELEMENT.innerHTML = `
+              Account:
+              <ul>
+                <li>- Username: ${ACCOUNT.username}</li>
+                <li>- Password: ${ACCOUNT.password}</li>
+              </ul>
+              <p>Delete this account? (y for yes, n for no)</p>
+              `;
+              RESULT_ELEMENT.appendChild(paragraph);
+              confirmation_input.focus();
+            } else {
+              RESULT_ELEMENT.innerHTML = 'Unfortunately, account not found.';
+            }
+          }, 500);
+        }
+      }
+    }
   },
   ra: {
     description: 'This command resets a specific achievement.',
@@ -120,7 +283,7 @@ const COMMANDS_LIST = {
       const RESULT_ELEMENT =
         CURRENT_INPUT_BLOCK.nextElementSibling.firstElementChild;
 
-      RESULT_ELEMENT.innerHTML = '- Temporary Achievements Reset Complete';
+      RESULT_ELEMENT.innerHTML = '- Temporary Achievements Reset Complete.';
       CURRENT_INPUT_BLOCK.classList.add('not-selectable');
       CURRENT_INPUT_BLOCK.classList.remove('--current-input-block');
 
@@ -141,6 +304,8 @@ const COMMANDS_LIST = {
     }
   }
 };
+
+function sendCommandNotFoundError() {}
 
 function addNewCommandBlock() {
   const COMMAND_BLOCKS = document.querySelector('.terminal__command-blocks');
@@ -175,34 +340,35 @@ function addNewCommandBlock() {
 }
 
 function handleSubmit() {
+  if (!document.querySelector('.--current-input-block')) return;
+
   input = document.querySelector('.--current-input-block .terminal-input');
 
-  let command = input.value;
+  let command = input.value.trim();
 
   if (!command.includes('mm')) {
-    // returns an error on the terminal
+    sendCommandNotFoundError();
     return;
   }
-
+  command = command.replace('mm', '').trim();
   const FLAG_INDEX = command.search('-all');
+
   // if flag is not -1, there's a flag
   if (FLAG_INDEX !== -1) {
-    const FLAG = command.slice(FLAG_INDEX);
-    command = command
-      .replace('mm', '')
-      .replace(command.slice(FLAG_INDEX), '')
-      .trim();
-    COMMANDS_LIST[command].command(FLAG);
+    // const FLAG = command.slice(FLAG_INDEX);
+    command = command.replace(command.slice(FLAG_INDEX), '').trim();
+
+    COMMANDS_LIST[command].command();
+  } else if (command.includes('"')) {
+    const PARAMETER_INDEX = command.search('"');
+    command = command.replaceAll('"', '');
+
+    const PARAMETER = command.slice(PARAMETER_INDEX);
+    command = command.replace(command.slice(PARAMETER_INDEX), '').trim();
+
+    COMMANDS_LIST[command].command(PARAMETER);
   } else {
-    command = command.replace('mm ', '');
-
-    if (command.includes('ga')) {
-      COMMANDS_LIST['ga'].command(command);
-    }
-
-    if (command.includes('rta')) {
-      COMMANDS_LIST['rta'].command(command);
-    }
+    COMMANDS_LIST[command].command();
   }
 }
 

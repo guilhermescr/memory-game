@@ -27,6 +27,10 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
 }
 
+.terminal input::placeholder {
+  color: #fff;
+}
+
 .commands {
   border-bottom: 1px solid #160909;
   height: 53%;
@@ -120,7 +124,6 @@ body::-webkit-scrollbar-thumb {
   color: #fff;
   display: flex;
   gap: 5px;
-  padding: 5px;
 }
 
 .terminal-input {
@@ -136,6 +139,7 @@ body::-webkit-scrollbar-thumb {
 .--current-input-block {
   background-color: #2929298a;
   border: 1px solid #413f3f;
+  padding: 5px;
 }
 
 @keyframes typing {
@@ -158,14 +162,26 @@ body::-webkit-scrollbar-thumb {
 }
 
 .--result-effect {
-  animation: typing 7s steps(130, end), blink-caret 0.75s step-end infinite;
+  animation: typing 3.5s steps(130, end), blink-caret 0.75s step-end infinite;
+  white-space: nowrap;
 }
 
 .command-result__result-message {
   border-right: 0.15em solid var(--window_message_text_color);
   color: #fff;
+  display: flex;
+  flex-direction: column;
   font-size: 15px;
+  gap: 4px;
   max-width: max-content;
   overflow: hidden;
-  white-space: nowrap;
+}
+
+.command-result__result-message ul {
+  margin-bottom: 5px;
+}
+
+.confirmation-input {
+  display: flex;
+  gap: 3px;
 }
