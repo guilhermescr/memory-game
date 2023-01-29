@@ -504,7 +504,8 @@ function renderGeneralInfo() {
   const { creationDate, matches, wonMatches, lostMatches } =
     onlineUser.userData;
 
-  document.getElementById('creation-date').innerHTML = creationDate;
+  document.getElementById('creation-date').innerHTML =
+    creationDate ?? 'Unknown';
   document.getElementById('matches').innerHTML = matches;
   document.getElementById('victories').innerHTML = wonMatches;
   document.getElementById('defeats').innerHTML = lostMatches;
@@ -544,6 +545,11 @@ function getAccounts() {
   }
 }
 
+function getAccount(username) {
+  let account = accounts.find(account => account.username === username);
+  return account ?? false;
+}
+
 function authError(msg) {
   const authErrorElement = document.getElementById('auth-error');
   authErrorElement.innerHTML = msg;
@@ -558,6 +564,7 @@ export {
   createAccount,
   updateAccount,
   getAccounts,
+  getAccount,
   onlineUser,
   setOnlineUser,
   isUserOnline,

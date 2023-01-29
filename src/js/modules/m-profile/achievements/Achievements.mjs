@@ -1,5 +1,6 @@
 import { hideElements, revealElements, timeoutItems } from '../../../main.js';
 import { onlineUser, updateAccount } from '../../auth/AccountMethods.mjs';
+import { updateWinStreak } from '../../gameAlgorithm.mjs';
 import { changeExpProgressBarWidth, LEVELS, levelUp } from '../LevelUp.mjs';
 import { renderBadge } from './AchievementsBadges.mjs';
 
@@ -404,6 +405,8 @@ function resetTemporaryAchievements() {
   resetAchievement('Win Streak - Normal');
   resetAchievement('Win Streak - Hard');
   resetAchievement('Win Streak - Insane');
+  updateWinStreak(0);
+  document.getElementById('win-streak').innerHTML = 0;
 }
 
 export {

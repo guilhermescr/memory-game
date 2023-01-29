@@ -105,6 +105,10 @@ let timing = {
   }
 };
 
+function updateWinStreak(wk) {
+  win_streak = wk;
+}
+
 function startGame() {
   timing.start();
   stopHomeMusic();
@@ -286,7 +290,6 @@ function checkResultsForAchievements() {
     updateAchievement('Unstoppable', 1, true);
   }
 
-  win_streak++;
   let win_achievements = [
     '3 wins',
     '5 wins',
@@ -322,6 +325,8 @@ function quitGame() {
     renderLoaderContainer('Bringing you to home...');
   } else {
     renderLoaderContainer('Try to do better next time...');
+    updateWinStreak(0);
+    renderGeneralInfo();
   }
   isWin = null;
 
@@ -351,7 +356,6 @@ function endGame(matchResult, isQuitGame) {
 
   updateAccount(['matches'], matches + 1);
   updateAccount([matchResult], onlineUser.userData[matchResult] + 1);
-  renderGeneralInfo();
   resetAchievement('Perfect Move');
 
   let topBarContainerIngameElements = document.querySelectorAll(
@@ -370,6 +374,7 @@ function endGame(matchResult, isQuitGame) {
   } else if (isWin) {
     xp = Math.round(Math.random() * (50 - 20) + 20);
     END_GAME_XP.innerHTML = xp;
+    updateWinStreak(win_streak + 1);
   } else {
     xp = Math.round(Math.random() * (15 - 5) + 5);
     END_GAME_XP.innerHTML = xp;
@@ -377,6 +382,7 @@ function endGame(matchResult, isQuitGame) {
   let newXP = exp + xp;
   updateAccount(['exp'], newXP);
   updateExperienceBar(newXP, 0);
+  renderGeneralInfo();
   levelUp();
 }
 
@@ -391,4 +397,4 @@ document
   .querySelector('.deck-container__end-game .quit-match-icon')
   .addEventListener('click', quitGame);
 
-export { startGame, win_streak };
+export { startGame, win_streak, updateWinStreak };

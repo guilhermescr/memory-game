@@ -1771,7 +1771,7 @@
               </li>
 
               <li class="commands-list__command">
-                <h4 class="command__command-title">mm ra "name"</h4>
+                <h4 class="command__command-title">mm ra "achievement"</h4>
                 <p class="command__command-description">
                   This command resets a specific achievement.
                 </p>
@@ -1794,23 +1794,27 @@
             </ul>
           </section>
 
-          <section class="terminal__command-block">
-            <div class="user-info">
-              <p>guiga</p>
-              <p>@Memory-Game</p>
-            </div>
+          <section class="terminal__command-blocks">
+            <div class="command-blocks__block">
+              <div class="user-info">
+                <p class="user-name">?</p>
+                <p>@Memory-Game</p>
+              </div>
 
-            <div class="user-input --focused-input">
-              <label for="terminal-input">$</label>
-              <input
-                type="text"
-                class="terminal-input"
-                name="terminal-input"
-                spellcheck="false"
-              />
-            </div>
+              <div class="user-input --current-input-block">
+                <label>$</label>
+                <input
+                  type="text"
+                  class="terminal-input"
+                  spellcheck="false"
+                  autocomplete="off"
+                />
+              </div>
 
-            <div class="command-result"></div>
+              <div class="command-result">
+                <p class="command-result__result-message"></p>
+              </div>
+            </div>
           </section>
         </form>
       </section>
