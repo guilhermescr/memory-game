@@ -414,11 +414,11 @@ function cancelImagePreview() {
 }
 
 function deleteAccount(account) {
-  let isOnlineUser = account === 'online_user';
+  const { id } = onlineUser.userData;
+  let isOnlineUser = account.id === id || account === 'online_user';
+
   if (isOnlineUser) {
-    accounts = accounts.filter(
-      $account => $account.id !== onlineUser.userData.id
-    );
+    accounts = accounts.filter($account => $account.id !== id);
   } else {
     accounts = accounts.filter($account => $account.id !== account.id);
   }

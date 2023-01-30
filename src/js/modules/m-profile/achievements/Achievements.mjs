@@ -1,7 +1,16 @@
 import { hideElements, revealElements, timeoutItems } from '../../../main.js';
-import { onlineUser, updateAccount } from '../../auth/AccountMethods.mjs';
+import {
+  onlineUser,
+  renderGeneralInfo,
+  updateAccount
+} from '../../auth/AccountMethods.mjs';
 import { updateWinStreak } from '../../gameAlgorithm.mjs';
-import { changeExpProgressBarWidth, LEVELS, levelUp } from '../LevelUp.mjs';
+import {
+  changeExpProgressBarWidth,
+  LEVELS,
+  levelUp,
+  renderCurrentLevel
+} from '../LevelUp.mjs';
 import { renderBadge } from './AchievementsBadges.mjs';
 
 const GENERAL_INFO_CONTAINER = document.querySelector(
@@ -383,20 +392,55 @@ function updateAchievement(achievementTitle, currentProgress, isObtained) {
 }
 
 function resetAllAchievements() {
+  achievement_popup_queue = [];
+
   ACHIEVEMENTS_DATA.forEach(achievement => {
     updateAchievement(achievement.title, 0, false);
   });
   updateAccount(['achievements_data', 'amount'], 0);
   updateAccount(['exp'], 0);
   updateAccount(['lvl'], 0);
-  updateExperienceBar(0, LEVELS.lvl1.exp);
+  updateAccount(['matches'], 0);
+  updateAccount(['wonMatches'], 0);
+  updateAccount(['lostMatches'], 0);
+  levelUp();
+  updateWinStreak(0);
+  renderCurrentLevel(0);
+  renderGeneralInfo();
   renderTotalAchievements();
 }
 
 function resetAchievement(achievementTitle) {
+  const { exp } = onlineUser.userData;
+  const { amount } = onlineUser.userData.achievements_data;
+  let achievementIndex;
+
+  if (achievementTitle.includes('-D')) {
+    achievementTitle = achievementTitle.replace('-D', '').trim();
+    achievementIndex = getAchievement(achievementTitle)[1];
+
+    if (isAchievementObtained(achievementTitle)) {
+      let newXP = exp - ACHIEVEMENTS_DATA[achievementIndex].xp;
+      exp > 0 && updateAccount(['exp'], newXP);
+      levelUp();
+    }
+
+    updateAchievement(achievementTitle, 0, false);
+    amount && updateAccount(['achievements_data', 'amount'], amount - 1);
+    renderTotalAchievements();
+  }
+
   if (!isAchievementObtained(achievementTitle)) {
     updateAchievement(achievementTitle, 0, false);
   }
+
+  /*
+  for (let achievement_data of ACHIEVEMENTS_DATA) {
+    if (achievement_data.title === achievementTitle) {
+      achievement_data.xp;
+    }
+  }
+  */
 }
 
 function resetTemporaryAchievements() {

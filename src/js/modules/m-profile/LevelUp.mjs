@@ -113,6 +113,10 @@ function changeExpProgressBarWidth(is_lvl_up) {
       return;
     }
 
+    if (!isExpProgressBarWidthUpdated.width) {
+      middle_container.style.backgroundColor = '#423535';
+    }
+
     PROGRESS_BAR.style.width = `${isExpProgressBarWidthUpdated.width}%`;
   });
 }

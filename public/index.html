@@ -1725,9 +1725,43 @@
         <h2>Master Terminal</h2>
 
         <form class="terminal">
-          <section class="commands">
+          <section class="terminal__help-center">
             <h3>Help Center</h3>
-            <ul class="commands__commands-list">
+
+            <button class="toggle-help-center-button less" type="button">
+              <svg
+                enable-background="new 0 0 50 50"
+                version="1.1"
+                viewBox="0 0 50 50"
+                xml:space="preserve"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <rect height="50" width="50" />
+                <line
+                  fill="none"
+                  stroke="#000000"
+                  stroke-miterlimit="10"
+                  stroke-width="4"
+                  x1="9"
+                  x2="41"
+                  y1="25"
+                  y2="25"
+                />
+                <line
+                  fill="none"
+                  stroke="#000000"
+                  stroke-miterlimit="10"
+                  stroke-width="4"
+                  x1="25"
+                  x2="25"
+                  y1="9"
+                  y2="41"
+                />
+              </svg>
+            </button>
+
+            <ul class="help-center__commands-list">
               <li class="commands-list__command">
                 <h4 class="command__command-title">mm cra -all</h4>
                 <p class="command__command-description">
@@ -1743,9 +1777,9 @@
               </li>
 
               <li class="commands-list__command">
-                <h4 class="command__command-title">mm rpp</h4>
+                <h4 class="command__command-title">mm clear</h4>
                 <p class="command__command-description">
-                  This command resets the profile picture.
+                  This command clears the terminal.
                 </p>
               </li>
 
@@ -1753,6 +1787,13 @@
                 <h4 class="command__command-title">mm logout</h4>
                 <p class="command__command-description">
                   This command logs you out.
+                </p>
+              </li>
+
+              <li class="commands-list__command">
+                <h4 class="command__command-title">mm rpp</h4>
+                <p class="command__command-description">
+                  This command resets the profile picture.
                 </p>
               </li>
 
@@ -1771,6 +1812,14 @@
               </li>
 
               <li class="commands-list__command">
+                <h4 class="command__command-title">mm rta</h4>
+                <p class="command__command-description">
+                  This command resets the temporary achievements. (win streak
+                  etc.)
+                </p>
+              </li>
+
+              <li class="commands-list__command">
                 <h4 class="command__command-title">mm ra "achievement"</h4>
                 <p class="command__command-description">
                   This command resets a specific achievement.
@@ -1781,14 +1830,6 @@
                 <h4 class="command__command-title">mm ra -all</h4>
                 <p class="command__command-description">
                   This command resets all achievements.
-                </p>
-              </li>
-
-              <li class="commands-list__command">
-                <h4 class="command__command-title">mm rta</h4>
-                <p class="command__command-description">
-                  This command resets the temporary achievements. (win streak
-                  etc.)
                 </p>
               </li>
             </ul>

@@ -31,31 +31,58 @@ body::-webkit-scrollbar-thumb {
   color: #fff;
 }
 
-.commands {
+.terminal__help-center {
   border-bottom: 1px solid #160909;
   height: 53%;
   overflow-y: auto;
+  position: relative;
 }
 
-.commands h3 {
-  font-weight: 500;
-  padding-top: 15px;
-}
-
-.commands::-webkit-scrollbar {
+.terminal__help-center::-webkit-scrollbar {
   width: 12px;
 }
 
-.commands::-webkit-scrollbar-track {
+.terminal__help-center::-webkit-scrollbar-track {
   background: #3e3f3f;
 }
 
-.commands::-webkit-scrollbar-thumb {
+.terminal__help-center::-webkit-scrollbar-thumb {
   background-color: #3e3f3f;
   border: 2px solid #0e0e0e;
 }
 
-.commands__commands-list {
+.terminal__help-center h3 {
+  font-weight: 500;
+  padding-top: 15px;
+}
+
+.toggle-help-center-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  height: 30px;
+  left: 10px;
+  position: absolute;
+  top: 10px;
+  width: 30px;
+}
+
+.toggle-help-center-button:hover {
+  border-color: #cfcfcf;
+  color: #e0e0e0;
+}
+
+.toggle-help-center-button:active {
+  opacity: 0.8;
+}
+
+.toggle-help-center-button svg {
+  border-radius: 50%;
+  fill: #fff;
+}
+
+.help-center__commands-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -182,6 +209,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .confirmation-input {
+  align-items: center;
   display: flex;
-  gap: 3px;
+  gap: 6px;
 }

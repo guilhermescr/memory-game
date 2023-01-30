@@ -11,7 +11,7 @@ import {
   setCurrentTemplateImage
 } from './modules/templates/TemplatesAlgorithm.mjs';
 import * as AuthService from './modules/auth/AuthService.mjs';
-import * as MasterTerminal from './modules/MasterTerminal.mjs';
+import * as MasterTerminal from './modules/terminal/MasterTerminal.mjs';
 import { getAccounts } from './modules/auth/AuthService.mjs';
 import {
   isUserOnline,
