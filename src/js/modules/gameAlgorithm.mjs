@@ -41,7 +41,7 @@ let [win_streak, mistakes] = [0, 0];
 let [isWin, isHardMatch] = [null, false];
 let cards, interval;
 
-let timing = {
+const timing = {
   count: 0,
   start: function () {
     interval = setInterval(() => {
@@ -84,12 +84,12 @@ let timing = {
         - If I played for less than a day, count will be any number below 86400, so:
         [ any number below 86400 / day_baseUnit -> Result: 0]
       */
-      let days = parseInt(this.count / day_baseUnit);
+      const days = parseInt(this.count / day_baseUnit);
 
       let seconds = this.count - days * day_baseUnit;
-      let hours = parseInt(seconds / hour_baseUnit);
+      const hours = parseInt(seconds / hour_baseUnit);
       seconds = seconds - hours * hour_baseUnit;
-      let minutes = parseInt(seconds / minute_baseUnit);
+      const minutes = parseInt(seconds / minute_baseUnit);
       seconds = seconds - minutes * minute_baseUnit;
 
       if (days) {
