@@ -13,3 +13,92 @@ h2 {
   font-size: 30px;
   letter-spacing: 0.5px;
 }
+
+/* Avatars */
+.avatars-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 100%;
+  max-height: 300px;
+  /* overflow-x: hidden;
+  overflow-y: auto; */
+}
+
+.avatars-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.avatars-container::-webkit-scrollbar-track {
+  background: #3e3f3f;
+}
+
+.avatars-container::-webkit-scrollbar-thumb {
+  background-color: #a8a8a5;
+  border: 2px solid #3b3737;
+}
+
+/* Avatar - Theme Section */
+.avatars-container__avatar-theme {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+  position: relative;
+  width: 100%;
+}
+
+.avatars-container__avatar-theme::-webkit-scrollbar {
+  height: 10px;
+  width: 12px;
+}
+
+.avatars-container__avatar-theme::-webkit-scrollbar-track {
+  background: #3e3f3f;
+  border-radius: 15px;
+}
+
+.avatars-container__avatar-theme::-webkit-scrollbar-thumb {
+  background-color: #64645c;
+  border: 1px solid #6d6363;
+  border-radius: 15px;
+}
+
+.avatars-container__avatar-theme h4 {
+  color: #fff;
+  font: normal normal 16px Arial, Helvetica, sans-serif;
+  position: sticky;
+  left: 0;
+  text-align: left;
+}
+
+.avatars {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  width: max-content;
+  /* come back */
+}
+
+.avatar {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  height: 78px;
+  justify-content: center;
+  width: 78px;
+}
+
+.avatar:hover {
+  opacity: 0.9;
+}
+
+.avatar__img {
+  border-radius: 3px;
+  height: 100%;
+  width: 100%;
+}

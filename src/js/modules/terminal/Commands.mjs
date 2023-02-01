@@ -240,7 +240,6 @@ const COMMANDS_LIST = {
             if (ACHIEVEMENT) {
               result_element.innerHTML = `Achievement: "${ACHIEVEMENT.name}" Reset Complete.`;
               resetAchievement(ACHIEVEMENT.name + ' -D');
-              addNewCommandBlock();
             } else {
               result_element.innerHTML =
                 'Unfortunately, achievement not found.';
@@ -248,8 +247,8 @@ const COMMANDS_LIST = {
           } else {
             result_element.innerHTML = `All Achievements Reset Complete.`;
             resetAllAchievements();
-            addNewCommandBlock();
           }
+          addNewCommandBlock();
         },
         false
       );

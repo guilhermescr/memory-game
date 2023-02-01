@@ -1,3 +1,7 @@
-.profile-picture-options > div:first-child {
+.profile-picture-options > div {
   margin-bottom: 5px;
+}
+
+.profile-picture-options > div:last-child {
+  margin-bottom: 0;
 }

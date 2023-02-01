@@ -277,7 +277,9 @@ function renderCheckedRadioContainer(imgType) {
         class="profile-picture-input"
       />
     `;
-  } else {
+  }
+
+  if (imgType === 'img-file') {
     CHECKED_RADIO_INPUT_CONTAINER.innerHTML = `
     <label for="img-file">File:</label>
     <input
@@ -286,6 +288,9 @@ function renderCheckedRadioContainer(imgType) {
       class="profile-picture-input"
     />
     `;
+  }
+
+  if (imgType === 'img-avatar') {
   }
 }
 
@@ -304,15 +309,14 @@ function resetProfilePictures() {
 }
 
 function changeInputForImage() {
-  if (!PROFILE_PICTURE_OPTIONS[0].checked) {
-    PROFILE_PICTURE_OPTIONS[0].removeAttribute('checked');
-    PROFILE_PICTURE_OPTIONS[1].setAttribute('checked', '');
-    renderCheckedRadioContainer('img-link');
-  } else {
-    PROFILE_PICTURE_OPTIONS[0].setAttribute('checked', '');
-    PROFILE_PICTURE_OPTIONS[1].removeAttribute('checked');
-    renderCheckedRadioContainer('img-file');
-  }
+  PROFILE_PICTURE_OPTIONS.forEach(profile_pic_option => {
+    if (profile_pic_option === this) {
+      profile_pic_option.setAttribute('checked', '');
+      renderCheckedRadioContainer(this.id);
+    } else {
+      profile_pic_option.removeAttribute('checked');
+    }
+  });
 }
 
 function updateProfilePicture(file) {
@@ -401,14 +405,12 @@ function cancelImagePreview() {
   toggleReturnIconListener(false);
 
   hideElements(IMAGE_PREVIEW_CONTAINER);
-  revealElements([
-    document.querySelector('.profile-picture-options'),
-    CHECKED_RADIO_INPUT_CONTAINER
-  ]);
+  // reveal this document.querySelector('.profile-picture-options'),
+  revealElements([CHECKED_RADIO_INPUT_CONTAINER]);
 
   profile_picture_imgs = [];
   imgPreview_img.src = '';
-  CHECKED_RADIO_INPUT_CONTAINER.children[1].value = '';
+  // CHECKED_RADIO_INPUT_CONTAINER.children[1].value = '';
   EDIT_PROFILE_PICTURE_TITLE.innerHTML = 'Upload an image or Insert a link';
   SAVE_PROFILE_PICTURE_BUTTON.innerHTML = 'Continue';
 }
