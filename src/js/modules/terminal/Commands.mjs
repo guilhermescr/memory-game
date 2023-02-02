@@ -3,8 +3,7 @@ import {
   accounts,
   getAccount,
   deleteAccount,
-  onlineUser,
-  resetProfilePictures
+  onlineUser
 } from '../auth/AccountMethods.mjs';
 import { logout } from '../auth/AuthService.mjs';
 import {
@@ -13,6 +12,7 @@ import {
   resetAllAchievements,
   resetTemporaryAchievements
 } from '../m-profile/achievements/Achievements.mjs';
+import { resetProfilePictures } from '../m-profile/EditProfilePicture.mjs';
 import { addNewCommandBlock, terminal_input } from './MasterTerminal.mjs';
 
 // COME BACK IF ANYTHING GOES WRONG!!!

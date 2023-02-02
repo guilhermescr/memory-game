@@ -16,11 +16,13 @@ import { getAccounts } from './modules/auth/AuthService.mjs';
 import {
   isUserOnline,
   onlineUser,
-  renderGeneralInfo,
-  renderProfilePictures,
-  resetProfilePictures
+  renderGeneralInfo
 } from './modules/auth/AccountMethods.mjs';
 import * as ProfileSections from './modules/m-profile/ProfileSections.mjs';
+import {
+  renderProfilePictures,
+  resetProfilePictures
+} from './modules/m-profile/EditProfilePicture.mjs';
 import {
   renderAchievements,
   resetTemporaryAchievements
