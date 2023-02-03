@@ -1,4 +1,10 @@
-import { hideElements } from '../../../main.js';
+import { hideElements, revealElements } from '../../../main.js';
+import { showMainMenuInEditProfile } from '../../auth/AccountMethods.mjs';
+import {
+  cancelImagePreview,
+  previewImage,
+  renderProfilePicturesOptionsInfo
+} from '../EditProfilePicture.mjs';
 
 const AVATARS_DATA = [
   {
@@ -60,6 +66,16 @@ const AVATARS_DATA = [
         alt="Toucan Avatar"
       />
       `
+    },
+    backgrounds: {
+      0: '--brown-background',
+      1: '--gray-background',
+      2: '--white-background',
+      3: '--yellow-background',
+      4: '--orange-background',
+      5: '--yellow-background',
+      6: '--orange-background',
+      7: '--yellow-background'
     }
   },
   {
@@ -121,6 +137,16 @@ const AVATARS_DATA = [
         alt="Vegeta Avatar"
       />
       `
+    },
+    backgrounds: {
+      0: '--yellow-background',
+      1: '--blue-background',
+      2: '--orange-background',
+      3: '--orange-background',
+      4: '--pink-background',
+      5: '--pink-background',
+      6: '--orange-background',
+      7: '--blue-background'
     }
   },
   {
@@ -182,6 +208,16 @@ const AVATARS_DATA = [
         alt="Unicorn Avatar"
       />
       `
+    },
+    backgrounds: {
+      0: '--blue-background',
+      1: '--green-background',
+      2: '--green-background',
+      3: '--white-background',
+      4: '--gray-background',
+      5: '--white-background',
+      6: '--yellow-background',
+      7: '--pink-background'
     }
   },
   {
@@ -243,18 +279,47 @@ const AVATARS_DATA = [
         alt="Doctor (Woman) Avatar"
       />
       `
+    },
+    backgrounds: {
+      0: '--white-background',
+      1: '--gray-background',
+      2: '--orange-background',
+      3: '--red-background',
+      4: '--white-background',
+      5: '--green-background',
+      6: '--yellow-background',
+      7: '--brown-background'
     }
   }
 ];
 
 function renderAvatars(CHECKED_RADIO_INPUT_CONTAINER) {
-  hideElements(document.querySelector('.profile-picture-options'));
+  const SAVE_PROFILE_PICTURE_BUTTON = document.getElementById(
+    'save-profile-picture-button'
+  );
+  const PROFILE_PICTURE_OPTIONS = document.querySelector(
+    '.profile-picture-options'
+  );
+  let circle_return_icon = document.querySelector(
+    '.edit-profile-picture-container .circle-return-icon'
+  );
+
+  hideElements([PROFILE_PICTURE_OPTIONS, SAVE_PROFILE_PICTURE_BUTTON]);
+  document.querySelector('.edit-profile-picture-container > h3').innerHTML =
+    'Avatars';
+
+  circle_return_icon.removeEventListener('click', showMainMenuInEditProfile);
+
+  circle_return_icon.addEventListener(
+    'click',
+    renderProfilePicturesOptionsInfo
+  );
 
   const AVATARS_CONTAINER = document.createElement('section');
   AVATARS_CONTAINER.classList.add('avatars-container');
 
   for (let index = 0; index < AVATARS_DATA.length; index++) {
-    const { avatar_name, avatars } = AVATARS_DATA[index];
+    const { avatar_name, avatars, backgrounds } = AVATARS_DATA[index];
 
     const AVATAR_THEME = document.createElement('div');
     AVATAR_THEME.classList.add('avatars-container__avatar-theme');
@@ -266,16 +331,26 @@ function renderAvatars(CHECKED_RADIO_INPUT_CONTAINER) {
     AVATARS.classList.add('avatars');
 
     const AVATARS_IMAGES = Object.values(avatars);
-    AVATARS_IMAGES.forEach(avatar_image => {
+    AVATARS_IMAGES.forEach((avatar_image, avatar_image_index) => {
       const AVATAR = document.createElement('div');
+      AVATAR.addEventListener('click', () => {
+        revealElements(SAVE_PROFILE_PICTURE_BUTTON);
+        previewImage(avatar_image);
+        circle_return_icon.removeEventListener(
+          'click',
+          renderProfilePicturesOptionsInfo
+        );
+        circle_return_icon.addEventListener('click', cancelImagePreview);
+      });
       AVATAR.classList.add('avatar');
+      AVATAR.classList.add(backgrounds[avatar_image_index]);
       AVATAR.innerHTML = avatar_image;
-      console.log(AVATAR);
       AVATARS.appendChild(AVATAR);
     });
 
-    AVATARS_CONTAINER.appendChild(AVATAR_THEME_TITLE);
-    AVATARS_CONTAINER.appendChild(AVATARS);
+    AVATAR_THEME.appendChild(AVATAR_THEME_TITLE);
+    AVATAR_THEME.appendChild(AVATARS);
+    AVATARS_CONTAINER.appendChild(AVATAR_THEME);
   }
   CHECKED_RADIO_INPUT_CONTAINER.innerHTML = '';
   CHECKED_RADIO_INPUT_CONTAINER.appendChild(AVATARS_CONTAINER);

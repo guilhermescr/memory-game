@@ -99,3 +99,40 @@ h2 {
   height: 100%;
   width: 100%;
 }
+
+.--blue-background {
+  background-image: linear-gradient(to bottom, #00ccff, #8dffff);
+}
+.--yellow-background {
+  background-image: linear-gradient(to bottom, #fafa00, #ffff68);
+}
+.--gray-background {
+  background-image: linear-gradient(to bottom, #aaa, #f1f1f1);
+}
+.--green-background {
+  background-image: linear-gradient(to bottom, #338024, #81ec6c);
+}
+.--red-background {
+  background-image: linear-gradient(to bottom, #802f24, #f73e25);
+  
+}
+.--pink-background {
+  background-image: linear-gradient(to bottom, #b31470, #ff40ef);
+
+}
+.--purple-background {
+  background-image: linear-gradient(to bottom, #750f94, #d23dff);
+
+}
+.--white-background {
+  background-image: linear-gradient(to bottom, #fff4f4, #f1ecec);
+}
+
+.--orange-background {
+  background-image: linear-gradient(to bottom, #ec5803, #f8653d);
+}
+
+.--brown-background {
+  background-image: linear-gradient(to bottom, #4d1313, #a52a2a);
+
+}
