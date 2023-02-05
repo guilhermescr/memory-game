@@ -36,11 +36,9 @@ function toggleHelpCenterVisibility() {
 }
 
 function sendCommandError(error, command) {
-  // terminal_input.value = '';
-
   if (error === 'none') {
     COMMANDS_LIST.error.command(
-      `mm: "${command}" is not a valid command. Check the Help Center.`
+      `mm: ${command} is not a valid command. Check the Help Center.`
     );
   }
 
@@ -48,9 +46,63 @@ function sendCommandError(error, command) {
     let command_name = command.slice(0, command.search('"')).trim();
     let command_input = command.slice(command.search('"'));
     COMMANDS_LIST.error.command(
-      `mm: the input -&gt; ${command_input} &lt;- is missing a quote. The correct format is: mm ${command_name} "value".`
+      `mm: the input -&gt; ${command_input} &lt;- can only have two quotes. The correct format is: mm ${command_name} "value".`
     );
   }
+
+  if (error === 'no-params') {
+    COMMANDS_LIST.error.command(
+      `Aborting command due to empty value. The correct format is: mm ${command} "value".`
+    );
+  }
+
+  if (error === 'no-flag-and-params') {
+    COMMANDS_LIST.error.command(command);
+  }
+
+  if (error === 'param-with-flag') {
+    COMMANDS_LIST.error.command(
+      `Aborting command due to params with flags. mm ${command} does not accept params with flags.`
+    );
+  }
+}
+
+function isCommandAvailable(command) {
+  if (command === 'error') {
+    return false;
+  } else {
+    return command in COMMANDS_LIST;
+  }
+}
+
+function hasManyParams(command) {
+  let [hasFlags, hasQuotes] = [false, false];
+  let quotes = command.split('"').length - 1;
+  let flag_index = command.search('-');
+  let quote_index = command.search('"');
+
+  if (quotes === 1 || quotes === 2) {
+    hasQuotes = true;
+  }
+
+  if (flag_index !== -1) {
+    hasFlags = true;
+  }
+
+  if (hasQuotes && hasFlags) {
+    if (quote_index < flag_index) {
+      command = command.slice(0, quote_index).trim();
+    } else {
+      command = command.slice(0, flag_index).trim();
+    }
+
+    if (isCommandAvailable(command)) {
+      sendCommandError('param-with-flag', command);
+    } else {
+      sendCommandError('none', command);
+    }
+  }
+  return hasQuotes && hasFlags;
 }
 
 function addNewCommandBlock() {
@@ -93,24 +145,31 @@ function handleSubmit() {
   );
 
   let command = terminal_input.value.trim();
+  let flag_index;
 
   if ((command.length && !command.includes('mm')) || command.length < 5) {
     sendCommandError('none', command);
     return;
   }
   command = command.replace('mm', '').trim();
-  let flag_index = command.search('-all');
+
+  flag_index = command.search('-');
+
+  if (hasManyParams(command)) return;
 
   // if flag is not -1, there's a flag
   if (flag_index !== -1) {
+    const FLAG = command.slice(flag_index);
     command = command.replace(command.slice(flag_index), '').trim();
 
-    COMMANDS_LIST[command].command();
+    isCommandAvailable(command)
+      ? COMMANDS_LIST[command].command(FLAG)
+      : sendCommandError('none', command);
     return;
   }
 
   if (command.includes('"')) {
-    if (command.split('"').length - 1 === 1) {
+    if (command.split('"').length - 1 !== 2) {
       sendCommandError('quote-error', command);
       return;
     }
@@ -121,15 +180,15 @@ function handleSubmit() {
     const PARAMETER = command.slice(PARAMETER_INDEX);
     command = command.replace(command.slice(PARAMETER_INDEX), '').trim();
 
-    COMMANDS_LIST[command].command(PARAMETER);
+    isCommandAvailable(command)
+      ? COMMANDS_LIST[command].command(PARAMETER)
+      : sendCommandError('none', command);
     return;
   }
 
-  if (command in COMMANDS_LIST) {
-    COMMANDS_LIST[command].command();
-  } else {
-    sendCommandError('none', command);
-  }
+  isCommandAvailable(command)
+    ? COMMANDS_LIST[command].command()
+    : sendCommandError('none', command);
 }
 
 TOGGLE_HELP_CENTER_BUTTON.addEventListener('click', toggleHelpCenterVisibility);
@@ -144,4 +203,4 @@ TERMINAL.addEventListener('keydown', event => {
   }
 });
 
-export { addNewCommandBlock, terminal_input };
+export { addNewCommandBlock, terminal_input, sendCommandError };

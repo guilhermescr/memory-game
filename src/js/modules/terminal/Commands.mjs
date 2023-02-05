@@ -13,7 +13,11 @@ import {
   resetTemporaryAchievements
 } from '../m-profile/achievements/Achievements.mjs';
 import { resetProfilePictures } from '../m-profile/EditProfilePicture.mjs';
-import { addNewCommandBlock, terminal_input } from './MasterTerminal.mjs';
+import {
+  addNewCommandBlock,
+  sendCommandError,
+  terminal_input
+} from './MasterTerminal.mjs';
 
 // COME BACK IF ANYTHING GOES WRONG!!!
 let result_element;
@@ -27,7 +31,21 @@ const COMMANDS_LIST = {
   },
   cra: {
     description: 'This command checks all registered accounts.',
-    command: function () {
+    command: function (params) {
+      let hasAllFlag;
+
+      if (params) {
+        hasAllFlag = params.includes('-all');
+      }
+
+      if (!hasAllFlag) {
+        sendCommandError(
+          'no-flag-and-params',
+          `mm: cra just works this way: mm cra -all.`
+        );
+        return;
+      }
+
       commandCall('- Gathering all the existing accounts...', () => {
         const { username, password } = onlineUser.userData;
         if (accounts) {
@@ -68,6 +86,11 @@ const COMMANDS_LIST = {
     description:
       'This command gets an account and returns username + password.',
     command: function (command) {
+      if (!command) {
+        sendCommandError('no-params', 'ga');
+        return;
+      }
+
       commandCall('- Looking for the account...', () => {
         let username = command.replace('ga ', '');
 
@@ -89,20 +112,44 @@ const COMMANDS_LIST = {
   },
   clear: {
     description: 'This command logs you out.',
-    command: function () {
+    command: function (params) {
+      if (params) {
+        sendCommandError(
+          'no-flag-and-params',
+          `mm: clear does not accept params like "${params}". The correct format is: mm clear.`
+        );
+        return;
+      }
+
       document.querySelector('.terminal__command-blocks').innerHTML = '';
       addNewCommandBlock();
     }
   },
   logout: {
     description: 'This command logs you out.',
-    command: function () {
+    command: function (params) {
+      if (params) {
+        sendCommandError(
+          'no-flag-and-params',
+          `mm: logout does not accept params like "${params}". The correct format is: mm logout.`
+        );
+        return;
+      }
+
       commandCall('- Shutting down...', logout);
     }
   },
   rpp: {
     description: 'This command resets the profile picture.',
-    command: function () {
+    command: function (params) {
+      if (params) {
+        sendCommandError(
+          'no-flag-and-params',
+          `mm: rpp does not accept params like "${params}". The correct format is: mm rpp.`
+        );
+        return;
+      }
+
       commandCall(
         '- Profile Picture Reset Complete.',
         resetProfilePictures,
@@ -113,6 +160,11 @@ const COMMANDS_LIST = {
   da: {
     description: 'This command deletes a specific account.',
     command: function (command) {
+      if (!command) {
+        sendCommandError('no-params', 'da');
+        return;
+      }
+
       let username, initial_message;
 
       if (command) {
@@ -231,6 +283,11 @@ const COMMANDS_LIST = {
   ra: {
     description: 'This command resets a specific achievement.',
     command: function (command) {
+      if (!command) {
+        sendCommandError('no-params', 'ra');
+        return;
+      }
+
       commandCall(
         '- Gathering some data...',
         () => {
@@ -263,7 +320,15 @@ const COMMANDS_LIST = {
   rta: {
     description:
       'This command resets the temporary achievements. (win streak etc.)',
-    command: function () {
+    command: function (params) {
+      if (params) {
+        sendCommandError(
+          'no-flag-and-params',
+          `mm: rta does not accept params like "${params}". The correct format is: mm rta.`
+        );
+        return;
+      }
+
       commandCall(
         '- Temporary Achievements Reset Complete.',
         resetTemporaryAchievements,

@@ -214,7 +214,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .--result-effect {
-  animation: typing 3.5s steps(130, end), blink-caret 0.75s step-end infinite;
+  animation: typing 3s steps(130, end), blink-caret 0.75s step-end infinite;
   white-space: nowrap;
 }
 
