@@ -35,7 +35,23 @@ function toggleHelpCenterVisibility() {
   TOGGLE_HELP_CENTER_BUTTON.classList.toggle('more');
 }
 
-function sendCommandNotFoundError() {}
+function sendCommandError(error, command) {
+  // terminal_input.value = '';
+
+  if (error === 'none') {
+    COMMANDS_LIST.error.command(
+      `mm: "${command}" is not a valid command. Check the Help Center.`
+    );
+  }
+
+  if (error === 'quote-error') {
+    let command_name = command.slice(0, command.search('"')).trim();
+    let command_input = command.slice(command.search('"'));
+    COMMANDS_LIST.error.command(
+      `mm: the input -&gt; ${command_input} &lt;- is missing a quote. The correct format is: mm ${command_name} "value".`
+    );
+  }
+}
 
 function addNewCommandBlock() {
   const COMMAND_BLOCKS = document.querySelector('.terminal__command-blocks');
@@ -78,9 +94,8 @@ function handleSubmit() {
 
   let command = terminal_input.value.trim();
 
-  if (command.length && !command.includes('mm')) {
-    sendCommandNotFoundError();
-    terminal_input.value = '';
+  if ((command.length && !command.includes('mm')) || command.length < 5) {
+    sendCommandError('none', command);
     return;
   }
   command = command.replace('mm', '').trim();
@@ -88,7 +103,6 @@ function handleSubmit() {
 
   // if flag is not -1, there's a flag
   if (flag_index !== -1) {
-    // const FLAG = command.slice(flag_index);
     command = command.replace(command.slice(flag_index), '').trim();
 
     COMMANDS_LIST[command].command();
@@ -96,6 +110,11 @@ function handleSubmit() {
   }
 
   if (command.includes('"')) {
+    if (command.split('"').length - 1 === 1) {
+      sendCommandError('quote-error', command);
+      return;
+    }
+
     const PARAMETER_INDEX = command.search('"');
     command = command.replaceAll('"', '');
 
@@ -108,6 +127,8 @@ function handleSubmit() {
 
   if (command in COMMANDS_LIST) {
     COMMANDS_LIST[command].command();
+  } else {
+    sendCommandError('none', command);
   }
 }
 

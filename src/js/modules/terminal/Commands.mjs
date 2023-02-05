@@ -19,6 +19,12 @@ import { addNewCommandBlock, terminal_input } from './MasterTerminal.mjs';
 let result_element;
 
 const COMMANDS_LIST = {
+  error: {
+    description: 'This command sends an error to the terminal.',
+    command: function (error_message) {
+      commandCall(error_message, () => {}, true);
+    }
+  },
   cra: {
     description: 'This command checks all registered accounts.',
     command: function () {
