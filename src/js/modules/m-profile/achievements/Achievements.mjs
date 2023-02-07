@@ -23,6 +23,9 @@ const ACHIEVEMENTS = document.querySelector(
 const OPEN_ACHIEVEMENTS_BUTTON = document.getElementById(
   'open-achievements-button'
 );
+const OPEN_GENERAL_INFO_BUTTON = document.getElementById(
+  'open-general-info-button'
+);
 
 const ACHIEVEMENT_POPUP_CONTAINER =
   document.querySelector('.achievement-popup');
@@ -32,6 +35,9 @@ let achievement_popup_queue = [];
 
 function showAchievementsSection() {
   if (ACHIEVEMENTS_CONTAINER.classList.contains('hide')) {
+    OPEN_ACHIEVEMENTS_BUTTON.classList.add('profile-info-option--active');
+    OPEN_GENERAL_INFO_BUTTON.classList.remove('profile-info-option--active');
+
     hideElements(GENERAL_INFO_CONTAINER);
     revealElements(ACHIEVEMENTS_CONTAINER);
   }

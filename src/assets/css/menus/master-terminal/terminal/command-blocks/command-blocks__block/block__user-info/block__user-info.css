@@ -1,0 +1,13 @@
+.user-info {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.user-info > p:nth-child(1) {
+  color: #4bff63;
+}
+
+.user-info > p:nth-child(2) {
+  color: #ff549b;
+}

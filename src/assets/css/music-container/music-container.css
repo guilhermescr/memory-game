@@ -7,7 +7,7 @@
   width: 100%;
 }
 
-@media (orientation: landscape) and (max-height: 600px) and (max-width: 800px) {
+@media (orientation: landscape) and (max-height: 600px) and (max-width: 920px) {
   .deck-container__ingame-settings .music-container {
     flex-direction: row;
     width: 90%;

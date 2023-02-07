@@ -2,6 +2,7 @@ import {
   allowGameToStart,
   handleKeydownEvent,
   hideElements,
+  openConfirmPopup,
   renderLoaderContainer,
   revealElements,
   setDefaultSettings,
@@ -21,7 +22,8 @@ import {
   searchUsername,
   authError,
   setOnlineUser,
-  renderUsernames
+  renderUsernames,
+  toggleKebabMenu
 } from './AccountMethods.mjs';
 import {
   AUTH_BUTTON,
@@ -239,7 +241,13 @@ PLAY_ANONYMOUSLY_BUTTON.addEventListener('click', endAuthPage);
 AUTH_BUTTON.addEventListener('click', handleAuthButton);
 
 LOGOUT_BUTTONS.forEach(logout_button => {
-  logout_button.addEventListener('click', logout);
+  logout_button.addEventListener('click', () => {
+    toggleKebabMenu(false, false);
+
+    openConfirmPopup('Logout?', 'Logout', () => {
+      logout();
+    });
+  });
 });
 
 export { getAccounts, endAuthPage, updateApprovedValidation, logout };

@@ -1,0 +1,14 @@
+.terminal h2 {
+  padding-bottom: 15px;
+}
+
+.terminal input::placeholder {
+  color: #fff;
+}
+
+@media (max-width: 320px) {
+  .terminal h2 {
+    margin: 0 auto;
+    max-width: 130px;
+  }
+}

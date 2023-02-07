@@ -13,7 +13,7 @@
   }
 }
 
-@media (max-height: 660px) and (max-width: 1000px) {
+@media (max-height: 660px) and (max-width: 600px) {
   .modes {
     height: max-content;
     margin-top: 15px;

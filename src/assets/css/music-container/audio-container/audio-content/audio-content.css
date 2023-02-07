@@ -8,8 +8,6 @@
 
 @media (orientation: landscape) and (max-height: 600px) and (max-width: 800px) {
   .deck-container__ingame-settings .audio-content {
-    justify-content: flex-start;
-    position: relative;
     width: 100%;
   }
 }

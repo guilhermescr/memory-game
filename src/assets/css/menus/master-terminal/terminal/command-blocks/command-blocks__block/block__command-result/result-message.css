@@ -1,0 +1,14 @@
+.command-result__result-message {
+  border-right: 0.15em solid var(--window_message_text_color);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  gap: 4px;
+  max-width: max-content;
+  overflow: hidden;
+}
+
+.command-result__result-message ul {
+  margin-bottom: 5px;
+}

@@ -34,6 +34,11 @@ const CLICK_ON_WINDOW_CONTAINER = document.getElementById(
 );
 const LOADER_CONTAINER = document.getElementById('loader-container');
 const LOADER_TITLE = document.getElementById('loader-container__loader-title');
+const CONFIRM_ACTION_CONTAINER = document.querySelector(
+  '.confirm-action-popup'
+);
+
+let confirm_button_listener;
 
 function timeoutItems(functionItems, timing) {
   if (!timing) {
@@ -279,6 +284,53 @@ function hideElements(elements) {
   elements.classList.add('hide');
 }
 
+function openConfirmPopup(title, action_name, action) {
+  CONFIRM_ACTION_CONTAINER.classList.add('confirm-popup');
+
+  confirm_button_listener = () => {
+    closeConfirmPopup();
+    action();
+  };
+  CONFIRM_ACTION_CONTAINER.innerHTML = `
+  <div class="confirm-action-popup__container">
+    <h2 id="confirm-action-popup__title">${title}</h2>
+
+    <div class="confirm-action-popup__confirm-buttons">
+      <button
+        type="button"
+        class="confirm-buttons__confirm-button"
+        id="confirm-button-action"
+      >
+        ${action_name}
+      </button>
+
+      <button
+        type="button"
+        class="confirm-buttons__confirm-button"
+        id="cancel-confirm-popup-button"
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+  `;
+
+  document.body.appendChild(CONFIRM_ACTION_CONTAINER);
+  document
+    .getElementById('confirm-button-action')
+    .addEventListener('click', confirm_button_listener);
+  document
+    .getElementById('cancel-confirm-popup-button')
+    .addEventListener('click', closeConfirmPopup);
+}
+
+function closeConfirmPopup() {
+  CONFIRM_ACTION_CONTAINER.classList.remove('confirm-popup');
+  document
+    .getElementById('confirm-button-action')
+    .removeEventListener('click', confirm_button_listener);
+}
+
 function setDefaultSettings() {
   changeCurrentTemplate(onlineUser.userData.CurrentTemplate);
   setCurrentTemplateImage();
@@ -318,5 +370,7 @@ export {
   hideElements,
   handleKeydownEvent,
   toggleFullscreenIcon,
+  openConfirmPopup,
+  closeConfirmPopup,
   setDefaultSettings
 };

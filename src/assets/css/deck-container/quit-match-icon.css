@@ -1,13 +1,12 @@
 .quit-match-icon {
   border-radius: 5px;
   cursor: pointer;
-  height: 40px;
-  left: 5%;
-  padding: 5px;
+  height: 30px;
+  left: 20px;
   position: absolute;
-  top: 5%;
+  top: 20px;
   transform: rotate(180deg);
-  width: 40px;
+  width: 30px;
 }
 
 .quit-match-icon:hover {

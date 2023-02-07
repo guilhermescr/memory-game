@@ -19,7 +19,6 @@ import {
   terminal_input
 } from './MasterTerminal.mjs';
 
-// COME BACK IF ANYTHING GOES WRONG!!!
 let result_element;
 
 const COMMANDS_LIST = {

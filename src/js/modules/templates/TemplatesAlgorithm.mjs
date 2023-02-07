@@ -138,7 +138,13 @@ HOME_SETTINGS_RETURN_ICON.onclick = showSettingsMenu;
 
 CHANGE_TEMPLATE_BUTTON.onclick = showTemplatesInMenu;
 
-document.querySelector('.open-profile-menu').onclick = showUserProfileInfo;
+document
+  .querySelector('.open-profile-menu')
+  .addEventListener('click', event => {
+    if (event.target.id !== 'logout-button') {
+      showUserProfileInfo();
+    }
+  });
 
 export {
   currentTemplate,

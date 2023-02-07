@@ -1,0 +1,24 @@
+.avatars-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 10px;
+  max-height: 170px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.avatars-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.avatars-container::-webkit-scrollbar-track {
+  background: #3e3f3f;
+  border-radius: 15px;
+}
+
+.avatars-container::-webkit-scrollbar-thumb {
+  background-color: #a8a8a5;
+  border: 2px solid #3b3737;
+  border-radius: 15px;
+}

@@ -1,4 +1,4 @@
-import { hideElements, revealElements } from '../../main.js';
+import { hideElements, openConfirmPopup, revealElements } from '../../main.js';
 import {
   closeEditAccountMenu,
   showMainMenuInEditProfile,
@@ -246,8 +246,11 @@ function cancelImagePreview() {
 document
   .getElementById('remove-profile-picture-button')
   .addEventListener('click', () => {
-    resetProfilePictures();
-    toggleKebabMenu();
+    toggleKebabMenu(false, false);
+
+    openConfirmPopup('Remove Profile Picture?', 'Remove', () => {
+      resetProfilePictures();
+    });
   });
 
 PROFILE_PICTURE_OPTIONS.forEach(profile_pic_option => {

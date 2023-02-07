@@ -7,6 +7,10 @@
   width: 100%;
 }
 
+.audio-container * {
+  font-weight: normal;
+}
+
 @media (max-width: 580px) {
   .audio-container {
     gap: 20px;

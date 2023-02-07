@@ -1,4 +1,5 @@
 .credits__info .credits__info__creator-image-container {
+  height: max-content;
   position: relative;
   text-align: center;
   width: 50%;

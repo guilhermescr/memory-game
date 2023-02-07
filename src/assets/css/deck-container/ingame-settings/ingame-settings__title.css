@@ -1,6 +1,6 @@
-@media (orientation: landscape) and (max-height: 600px) and (max-width: 800px) {
-  #ingame-settings-title {
-    font-size: 4vw;
-    margin: 0 auto;
+@media (max-height: 600px) and (max-width: 920px) {
+  #ingame-settings__title {
+    position: absolute;
+    top: 5%;
   }
 }

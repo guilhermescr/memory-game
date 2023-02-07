@@ -115,7 +115,7 @@ function addNewCommandBlock() {
     <p>@Memory-Game</p>
   </div>
 
-  <div class="user-input --current-input-block">
+  <div class="user-input-container --current-input-block">
     <label>$</label>
     <input
       type="text"

@@ -2,7 +2,14 @@
   align-items: center;
   display: flex;
   flex-flow: column wrap;
-  gap: 10px;
   justify-content: space-evenly;
   overflow: hidden;
+}
+
+@media (max-height: 300px) {
+  .credits h2 {
+    font-size: 28px;
+    position: absolute;
+    top: 10px;
+  }
 }

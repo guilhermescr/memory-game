@@ -1,6 +1,11 @@
 import { v4 as uuidv4 } from 'https://cdn.skypack.dev/uuid';
 
-import { hideElements, revealElements, timeoutItems } from '../../main.js';
+import {
+  hideElements,
+  openConfirmPopup,
+  revealElements,
+  timeoutItems
+} from '../../main.js';
 import { win_streak } from '../gameAlgorithm.mjs';
 import { updateSoundsStatus } from '../m-audio/audio.mjs';
 import { cancelImagePreview } from '../m-profile/EditProfilePicture.mjs';
@@ -19,6 +24,10 @@ function getCreationDate() {
   let hours = new Date().getHours();
   let minutes = new Date().getMinutes();
   let am_pm;
+
+  if (day < 10) {
+    day = `0${day}`;
+  }
 
   if (month < 10) {
     month = `0${month}`;
@@ -254,7 +263,9 @@ document.querySelectorAll('.circle-return-icon').forEach(circle_return_icon => {
 document
   .querySelector('.delete-profile-button')
   .addEventListener('click', () => {
-    deleteAccount('online_user');
+    openConfirmPopup('Delete Account?', 'Delete', () => {
+      deleteAccount('online_user');
+    });
   });
 
 // kebab code
@@ -262,17 +273,18 @@ const KEBAB_ICON = document.querySelector('.kebab-icon');
 const KEBAB_MENU = document.querySelector('.kebab-menu');
 let isKebabMenuOpen = false;
 
-function toggleKebabMenu() {
-  if (!isKebabMenuOpen) {
-    revealElements(KEBAB_MENU);
+function toggleKebabMenu(kebab_state, toggleKebab) {
+  if (toggleKebab) {
+    isKebabMenuOpen = !kebab_state;
   } else {
-    hideElements(KEBAB_MENU);
+    isKebabMenuOpen = kebab_state;
   }
-
-  isKebabMenuOpen = !isKebabMenuOpen;
+  isKebabMenuOpen ? revealElements(KEBAB_MENU) : hideElements(KEBAB_MENU);
 }
 
-KEBAB_ICON.addEventListener('click', toggleKebabMenu);
+KEBAB_ICON.addEventListener('click', () => {
+  toggleKebabMenu(isKebabMenuOpen, true);
+});
 
 // update username
 function showEditUsernameMenu() {

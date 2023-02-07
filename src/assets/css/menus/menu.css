@@ -10,7 +10,7 @@
   transform: translate(-50%, 20%) scale(0);
   user-select: none;
   width: 100%;
-  z-index: 100;
+  z-index: 10;
 }
 
 .menu::-webkit-scrollbar {
