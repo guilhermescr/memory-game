@@ -4,3 +4,9 @@
   font-size: 50px;
   margin: 0 auto;
 }
+
+@media (min-width: 1367px) {
+  #title-container__title {
+    font-size: 90px;
+  }
+}

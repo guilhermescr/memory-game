@@ -17,7 +17,7 @@
   animation: SpinLoaderAnimation 2s linear infinite;
 }
 
-@media (max-width: 580px) {
+@media (max-height: 640px), (max-width: 580px) {
   #loader-container__loader {
     width: 120px;
     height: 120px;

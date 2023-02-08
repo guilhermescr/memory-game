@@ -21,6 +21,13 @@
   background-image: var(--buttons_active_gradient);
 }
 
+@media (min-width: 1367px) {
+  .mode__play-button {
+    font-size: 40px;
+    max-width: 200px;
+  }
+}
+
 @media (max-height: 325px) {
   .mode__play-button {
     font-size: 14px;

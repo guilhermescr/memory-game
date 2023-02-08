@@ -13,7 +13,7 @@ import {
   stopSoundTrack
 } from './m-audio/audio.mjs';
 import { TOP_BAR_CONTAINER, memoryDeck } from './m-themes/addCards.mjs';
-import { DECK_CONTAINER } from './m-themes/deckStyles.mjs';
+import { DECK_CONTAINER, setDeckStyles } from './m-themes/deckStyles.mjs';
 import { difficulty } from './m-themes/themesDifficulty.mjs';
 import { resetBirdAnimation } from './animations/forest_theme/BirdAnimation.mjs';
 import { fillRandomThemes } from './randomThemes/fillRandomThemes.mjs';
@@ -348,6 +348,7 @@ function quitGame() {
 
 function endGame(matchResult, isQuitGame) {
   timing.end();
+  window.removeEventListener('resize', setDeckStyles);
 
   const { exp, matches } = onlineUser.userData;
   const END_GAME_TITLE = document.getElementById('match-result-title');

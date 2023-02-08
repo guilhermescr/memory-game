@@ -1,5 +1,6 @@
 .top-bar-container__top-bar-item {
   color: #fff;
+  font-weight: normal;
   padding: 5px 10px;
 }
 
@@ -8,6 +9,12 @@
   cursor: default;
   display: flex;
   gap: 5px;
+}
+
+@media (min-width: 1367px) {
+  .top-bar-container__top-bar-item {
+    font-size: 30px;
+  }
 }
 
 @media (max-width: 580px) {

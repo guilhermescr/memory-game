@@ -22,7 +22,7 @@
   transform: rotateY(180deg);
 }
 
-@media (max-width: 1366px) {
+@media (max-width: 1367px) {
   .memory-card {
     height: 120px;
     width: 90px;

@@ -4,6 +4,13 @@
   font-weight: normal;
 }
 
+
+@media (min-width: 1367px) {
+  .modes__mode h3 {
+    font-size: 40px;
+  }
+}
+
 @media (max-width: 540px) {
   .modes__mode h3 {
     font-size: 20px;

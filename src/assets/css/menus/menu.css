@@ -30,3 +30,9 @@
 .menu > h2 {
   font-weight: normal;
 }
+
+@media (min-width: 1367px) {
+  .menu {
+    max-width: 1300px;
+  }
+}

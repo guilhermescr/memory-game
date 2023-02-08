@@ -13,3 +13,10 @@ h2 {
   font-size: 30px;
   letter-spacing: 0.5px;
 }
+
+
+@media (min-width: 1367px) {
+  h2, h3 {
+    font-size: 40px;
+  }
+}

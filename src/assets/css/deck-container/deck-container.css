@@ -1,4 +1,5 @@
 .deck-container {
+  align-items: center;
   background: #daeff5 url('') no-repeat center fixed;
   background-size: cover;
   display: flex;

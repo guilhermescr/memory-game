@@ -15,15 +15,14 @@
 }
 
 #click-on-window-message-container h2 {
-  animation: moveLoadingTitle 0.8s alternate infinite;
+  animation: moveLoadingTitle 1.5s alternate infinite;
   color: var(--window_message_text_color);
   font-size: 50px;
-  max-width: 70%;
   text-shadow: var(--window_message_text_shadow);
 }
 
-@media (max-width: 580px) {
+@media (max-height: 640px), (max-width: 580px) {
   #click-on-window-message-container h2 {
-    font-size: 8vw;
+    font-size: 28px;
   }
 }

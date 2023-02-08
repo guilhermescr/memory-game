@@ -9,3 +9,9 @@
   cursor: pointer;
   height: 100%;
 }
+
+@media (min-width: 1367px) {
+  #hearts {
+    height: 40px;
+  }
+}

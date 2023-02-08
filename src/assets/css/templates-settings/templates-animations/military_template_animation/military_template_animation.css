@@ -84,32 +84,32 @@
   }
 }
 
-.military_template .game-menu__template-animation {
+body.military_template .game-menu__template-animation {
   align-items: center;
   display: flex;
-  height: 300px;
+  height: 50vh;
   justify-content: space-between;
   pointer-events: none;
   top: 9%;
   width: 100vw;
 }
 
-.military_template .game-menu__template-animation .army_soldier {
+.army_soldier {
   position: absolute;
   top: 30%;
   width: 70px;
 }
 
-.game-menu .game-menu__template-animation #left_army_soldier {
+#left_army_soldier {
   left: 0;
 }
 
-.game-menu .game-menu__template-animation #right_army_soldier {
+#right_army_soldier {
   right: 2%;
   transform: rotateY(180deg);
 }
 
-.military_template .game-menu__template-animation #bullet {
+#bullet {
   background-image: linear-gradient(
     to right,
     #c38755 20%,
@@ -155,4 +155,15 @@
 
 .RightSoldierShootToTheTopAnimation {
   animation: RightSoldierShootToTheTopAnimation 1.5s;
+}
+
+@media (min-width: 1367px) {
+  .army_soldier {
+    width: 150px;
+  }
+
+  #bullet {
+    height: 15px;
+    width: 50px;
+  }
 }

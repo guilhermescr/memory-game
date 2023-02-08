@@ -13,9 +13,16 @@
   z-index: 100;
 }
 
-@media (max-width: 580px) {
+@media (min-height: 500px), (max-height: 290px), (max-width: 580px) {
   #loader-container {
+    gap: 30px;
     justify-content: center;
     padding-top: 0;
+  }
+}
+
+@media (min-height: 500px) {
+  #loader-container {
+    gap: 50px;
   }
 }

@@ -14,6 +14,12 @@
   height: 100%;
 }
 
+@media (min-width: 1367px) {
+  .right-content__toggle-fullscreen-icon-container {
+    height: 60px;
+  }
+}
+
 @media (max-width: 300px) {
   .right-content__toggle-fullscreen-icon-container {
     height: 20px;

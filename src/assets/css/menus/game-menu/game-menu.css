@@ -26,3 +26,9 @@
   text-shadow: 1px 1px 1px #000;
   width: 100%;
 }
+
+@media (min-width: 1367px) {
+  .game-info {
+    font-size: 35px;
+  }
+}

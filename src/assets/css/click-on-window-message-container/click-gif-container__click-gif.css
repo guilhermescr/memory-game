@@ -2,8 +2,9 @@
   width: 8%;
 }
 
-@media (max-width: 580px) {
+@media (max-height: 640px), (max-width: 580px) {
   .click-gif-container__click-gif {
-    width: 60%;
+    max-width: 100px;
+    width: 100%;
   }
 }

@@ -1,23 +1,28 @@
 @keyframes moveLoadingTitle {
   0% {
-    transform: translateX(-2%);
+    transform: scale(1);
   }
 
   100% {
-    transform: translateX(3%);
+    transform: scale(0.98);
   }
 }
 
 #loader-container__loader-title {
+  animation: moveLoadingTitle 1.5s alternate infinite;
   color: var(--window_message_text_color);
-  text-shadow: var(--window_message_text_shadow);
   font-size: 50px;
-  animation: moveLoadingTitle 0.8s alternate infinite;
+  text-shadow: var(--window_message_text_shadow);
 }
 
-@media (max-width: 580px) {
+@media (max-height: 640px), (max-width: 580px) {
   #loader-container__loader-title {
-    font-size: 200%;
-    max-width: 240px;
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 300px) {
+  #loader-container__loader-title {
+    max-width: 150px;
   }
 }

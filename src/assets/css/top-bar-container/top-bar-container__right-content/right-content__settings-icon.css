@@ -9,6 +9,12 @@
   opacity: 1;
 }
 
+@media (min-width: 1367px) {
+  .right-content__settings-icon {
+    height: 70px;
+  }
+}
+
 @media (max-width: 580px) {
   .right-content__settings-icon {
     height: 30px;
