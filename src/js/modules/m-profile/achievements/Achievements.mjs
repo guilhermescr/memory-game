@@ -419,34 +419,30 @@ function resetAllAchievements() {
 function resetAchievement(achievementTitle) {
   const { exp } = onlineUser.userData;
   const { amount } = onlineUser.userData.achievements_data;
-  let achievementIndex;
 
   if (achievementTitle.includes('-D')) {
     achievementTitle = achievementTitle.replace('-D', '').trim();
-    achievementIndex = getAchievement(achievementTitle)[1];
+    let achievementIndex = getAchievement(achievementTitle)[1];
+    let achievement_obtained = isAchievementObtained(achievementTitle);
 
-    if (isAchievementObtained(achievementTitle)) {
+    if (achievement_obtained) {
       let newXP = exp - ACHIEVEMENTS_DATA[achievementIndex].xp;
       exp > 0 && updateAccount(['exp'], newXP);
       levelUp();
     }
 
+    if (amount && achievement_obtained) {
+      amount && updateAccount(['achievements_data', 'amount'], amount - 1);
+      renderTotalAchievements();
+    }
+
     updateAchievement(achievementTitle, 0, false);
-    amount && updateAccount(['achievements_data', 'amount'], amount - 1);
-    renderTotalAchievements();
+    return;
   }
 
   if (!isAchievementObtained(achievementTitle)) {
     updateAchievement(achievementTitle, 0, false);
   }
-
-  /*
-  for (let achievement_data of ACHIEVEMENTS_DATA) {
-    if (achievement_data.title === achievementTitle) {
-      achievement_data.xp;
-    }
-  }
-  */
 }
 
 function resetTemporaryAchievements() {

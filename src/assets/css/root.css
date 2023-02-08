@@ -30,6 +30,9 @@ body.forest_template {
   );
   --top_bar_container_svg_color: #2f4246;
 
+  --confirm-popup-container-background-color: #bbe0e0;
+  --confirm-popup-title-background-color: #55d8d8;
+
   --settings_background_image_gradient: linear-gradient(
     to bottom,
     #2f4246,
@@ -104,6 +107,9 @@ body.rainbow_template {
     #db5c9b
   );
   --top_bar_container_svg_color: #ff92e4;
+
+  --confirm-popup-container-background-color: #ddbbe0;
+  --confirm-popup-title-background-color: #d855b1;
 
   --settings_background_image_gradient: linear-gradient(
     70deg,
@@ -182,6 +188,9 @@ body.military_template h2 {
     #7ec90f
   );
   --top_bar_container_svg_color: #fff;
+
+  --confirm-popup-container-background-color: #c5e0bb;
+  --confirm-popup-title-background-color: #55d867;
 
   --settings_background_image_gradient: linear-gradient(
     to bottom,
