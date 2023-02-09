@@ -7,3 +7,9 @@
 .social__link:hover {
   text-decoration: underline;
 }
+
+@media (min-width: 1367px) {
+  .social__link {
+    font-size: 30px;
+  }
+}

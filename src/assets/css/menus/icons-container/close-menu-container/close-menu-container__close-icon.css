@@ -2,3 +2,9 @@
   cursor: pointer;
   width: 20px;
 }
+
+@media (min-width: 1367px) {
+  .close-menu-container__close-icon {
+    width: 40px;
+  }
+}

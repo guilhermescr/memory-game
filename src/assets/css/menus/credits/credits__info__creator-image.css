@@ -9,6 +9,12 @@
   width: 100%;
 }
 
+@media (min-width: 1367px) {
+  .credits__info__creator-image-container img {
+    margin-bottom: 30px;
+  }
+}
+
 @media (max-height: 450px), (max-width: 580px) {
   .credits__info__creator-image-container img {
     max-width: 140px;

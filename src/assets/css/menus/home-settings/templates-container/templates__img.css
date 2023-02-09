@@ -2,3 +2,9 @@
   border: 1px solid var(--home_settings_color);
   width: 200px;
 }
+
+@media (min-width: 1367px) {
+  .templates img {
+    width: 300px;
+  }
+}

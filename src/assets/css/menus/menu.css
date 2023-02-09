@@ -35,4 +35,8 @@
   .menu {
     max-width: 1300px;
   }
+
+  .menu > h2 {
+    font-size: 50px;
+  }
 }

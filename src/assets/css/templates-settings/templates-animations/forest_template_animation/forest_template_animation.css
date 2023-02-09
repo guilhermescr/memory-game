@@ -44,3 +44,10 @@
 .flying-animation {
   animation: FlyingAnimation 20s infinite;
 }
+
+@media (min-width: 1367px) {
+  .forest_template .game-menu__template-animation {
+    width: 90px;
+  }
+  
+}

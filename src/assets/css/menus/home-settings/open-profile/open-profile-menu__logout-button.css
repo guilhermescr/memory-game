@@ -14,3 +14,10 @@
 #logout-button:hover {
   background-color: #5a1a1a;
 }
+
+@media (min-width: 1367px) {
+  #logout-button {
+    bottom: -32px;
+    font-size: 20px;
+  }
+}

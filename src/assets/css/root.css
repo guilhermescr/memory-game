@@ -170,10 +170,6 @@ body.military_template {
   font-family: 'Grind Demolished';
 }
 
-body.military_template h2 {
-  font-size: 23px;
-}
-
 .military_template {
   --window_message_text_color: #03942e;
   --window_message_text_shadow: 0 0 15px #02972f;

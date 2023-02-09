@@ -105,3 +105,9 @@ body::-webkit-scrollbar-thumb {
 .confirm-buttons__confirm-button:active {
   background-image: var(--buttons_active_gradient) !important;
 }
+
+@media (min-width: 1367px) {
+  .confirm-action-popup.confirm-popup {
+    transform: scale(1.9);
+  }
+}

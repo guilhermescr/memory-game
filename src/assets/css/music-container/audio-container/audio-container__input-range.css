@@ -53,3 +53,11 @@
   margin-top: -4px;
   width: 3px;
 }
+
+@media (min-width: 1367px) {
+  .audio-container input[type='range']::before,
+  .audio-container input[type='range']::after {
+    font-size: 25px;
+    top: -40%;
+  }
+}

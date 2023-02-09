@@ -19,4 +19,9 @@
   background-image: var(--buttons_active_gradient);
 }
 
-
+@media (min-width: 1367px) {
+  .change-template-button {
+    font-size: 25px;
+    padding: 12px 18px;
+  }
+}

@@ -3,7 +3,6 @@
   background-image: var(--buttons_background_image_gradient);
   border: 1px solid var(--buttons_border_color);
   border-radius: 15px;
-  /* border-radius: 15px; */
   box-shadow: 0 0 4px var(--buttons_box_shadow_color);
   color: #fff;
   cursor: pointer;
@@ -31,4 +30,13 @@
 .switch-button.active {
   background-image: var(--switch_sounds_button_background_image_gradient);
   right: -5%;
+}
+
+@media (min-width: 1367px) {
+  .switch-button {
+    font-size: 20px;
+    height: 50px;
+    top: 0;
+    width: 50px;
+  }
 }

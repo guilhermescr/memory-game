@@ -2,3 +2,9 @@
   font-weight: normal;
   line-height: 30px;
 }
+
+@media (min-width: 1367px) {
+  .credits__info h3 {
+    line-height: 40px;
+  }
+}

@@ -11,3 +11,13 @@
   fill: #fff;
   width: 15%;
 }
+
+@media (min-width: 1367px) {
+  .social > div {
+    max-width: 600px;
+  }
+
+  .social > div > svg {
+    width: 50px;
+  }
+}
