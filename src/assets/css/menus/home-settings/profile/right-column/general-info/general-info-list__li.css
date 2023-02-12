@@ -11,6 +11,12 @@
   border: none;
 }
 
+@media (min-width: 1367px) {
+  .general-info-list li {
+    font-size: 35px;
+  }
+}
+
 @media (max-width: 580px) {
   .general-info-list li {
     font-size: 18px;

@@ -1,3 +1,9 @@
 .master-terminal.menu {
   padding: 0;
 }
+
+@media (min-width: 1367px) {
+  .master-terminal.menu h2 {
+    font-size: 50px;
+  }
+}

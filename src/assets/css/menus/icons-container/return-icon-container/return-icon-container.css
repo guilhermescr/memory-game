@@ -5,3 +5,10 @@
   width: 40px;
   z-index: 1;
 }
+
+@media (min-width: 1367px) {
+  .return-icon-container {
+    left: 30px;
+    width: 70px;
+  }
+}

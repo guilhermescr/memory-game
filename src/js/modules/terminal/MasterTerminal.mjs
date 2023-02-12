@@ -138,7 +138,8 @@ function addNewCommandBlock() {
 }
 
 function handleSubmit() {
-  if (!document.querySelector('.--current-input-block')) return;
+  if (!document.querySelector('.--current-input-block').lastElementChild.value)
+    return;
 
   terminal_input = document.querySelector(
     '.--current-input-block .terminal-input'

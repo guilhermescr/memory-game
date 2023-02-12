@@ -6,6 +6,16 @@
   color: #fff;
 }
 
+@media (min-width: 1367px) {
+  .terminal h4,
+  .terminal p,
+  .terminal li,
+  .user-input-container,
+  .terminal input[type='text'] {
+    font-size: 30px;
+  }
+}
+
 @media (max-width: 320px) {
   .terminal h2 {
     margin: 0 auto;

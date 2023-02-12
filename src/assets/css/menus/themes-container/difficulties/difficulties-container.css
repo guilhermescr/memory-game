@@ -7,3 +7,9 @@
   margin-top: 80px;
   width: 100%;
 }
+
+@media (min-width: 1367px) {
+  .difficulties-container {
+    margin-block: 250px;
+  }
+}

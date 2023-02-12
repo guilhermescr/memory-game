@@ -35,3 +35,14 @@
   top: 0;
   width: 100%;
 }
+
+@media (min-width: 1367px) {
+  .achievement-popup {
+    font-size: 25px;
+    max-width: 500px;
+  }
+
+  .achievement-popup .achievement__achievement-xp {
+    font-size: 25px;
+  }
+}

@@ -12,3 +12,9 @@
 .win-streak-badge img {
   width: 100%;
 }
+
+@media (min-width: 1367px) {
+  .achievement-popup .win-streak-badge {
+    width: 70px;
+  }
+}

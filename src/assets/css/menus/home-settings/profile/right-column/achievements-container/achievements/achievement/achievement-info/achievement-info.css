@@ -8,6 +8,13 @@
   width: 100%;
 }
 
+@media (min-width: 1367px) {
+  .achievement-popup .achievement__achievement-info {
+    max-width: 230px;
+    padding-block: 10px;
+  }
+}
+
 @media (max-width: 695px) {
   .achievement__achievement-info {
     font-size: 14px;

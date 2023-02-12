@@ -11,3 +11,9 @@
 .font-awesome-icon:active {
   fill: #efefef;
 }
+
+@media (min-width: 1367px) {
+  .font-awesome-icon {
+    height: 40px;
+  }
+}

@@ -15,3 +15,10 @@
   background-color: #575757;
   opacity: 0.9;
 }
+
+@media (min-width: 1367px) {
+  .kebab-option {
+    font-size: 25px;
+    padding-block: 10px;
+  }
+}

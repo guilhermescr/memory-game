@@ -21,3 +21,10 @@
 .terminal__help-center.less .toggle-help-center-button {
   top: 15%;
 }
+
+@media (min-width: 1367px) {
+  .toggle-help-center-button {
+    height: 50px;
+    width: 50px;
+  }
+}

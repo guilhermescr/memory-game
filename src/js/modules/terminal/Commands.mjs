@@ -166,7 +166,7 @@ const COMMANDS_LIST = {
 
       let username, initial_message;
 
-      if (command) {
+      if (!command.includes('-all')) {
         username = command.replace('da ', '');
         initial_message = '- Looking for the account...';
       } else {
@@ -292,7 +292,7 @@ const COMMANDS_LIST = {
         () => {
           let achievement_input;
 
-          if (command) {
+          if (!command.includes('-all')) {
             achievement_input = command.replace('ra ', '').trim();
           }
 
@@ -300,6 +300,7 @@ const COMMANDS_LIST = {
             const ACHIEVEMENT = getAchievement(achievement_input)[0];
 
             if (ACHIEVEMENT) {
+              // resets an specific achievement
               result_element.innerHTML = `Achievement: "${ACHIEVEMENT.name}" Reset Complete.`;
               resetAchievement(ACHIEVEMENT.name + ' -D');
             } else {
@@ -307,6 +308,7 @@ const COMMANDS_LIST = {
                 'Unfortunately, achievement not found.';
             }
           } else {
+            // resets all the achievements
             result_element.innerHTML = `All Achievements Reset Complete.`;
             resetAllAchievements();
           }

@@ -18,3 +18,10 @@
 .play-theme-btn:active {
   background-image: var(--buttons_active_gradient);
 }
+
+@media (min-width: 1367px) {
+  .play-theme-btn {
+    font-size: 30px;
+    padding: 12px 22px;
+  }
+}

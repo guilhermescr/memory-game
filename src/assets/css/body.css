@@ -21,11 +21,11 @@ body::-webkit-scrollbar-thumb {
 
 @keyframes confirmPopupMovement {
   from {
-    transform: scale(1);
+    transform: scale(1.2);
   }
   to {
     box-shadow: 0 0 20px #faf7f7fa;
-    transform: scale(1.02);
+    transform: scale(1.25);
   }
 }
 
@@ -107,7 +107,15 @@ body::-webkit-scrollbar-thumb {
 }
 
 @media (min-width: 1367px) {
-  .confirm-action-popup.confirm-popup {
-    transform: scale(1.9);
+  .confirm-action-popup__container {
+    min-height: 250px;
+  }
+
+  #confirm-action-popup__title {
+    font-size: 50px;
+  }
+
+  .confirm-buttons__confirm-button {
+    font-size: 30px;
   }
 }

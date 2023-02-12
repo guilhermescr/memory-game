@@ -20,3 +20,12 @@
 .quit-match-icon:hover path {
   fill: #efefef;
 }
+
+@media (min-width: 1367px) {
+  .quit-match-icon {
+    height: 60px;
+    left: 30px;
+    top: 30px;
+    width: 60px;
+  }
+}

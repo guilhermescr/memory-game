@@ -10,7 +10,6 @@
   position: relative;
   text-align: center;
   width: 56px;
-  /* width: 20%; */
 }
 
 .badge-container__custom-border {
@@ -47,6 +46,38 @@
 .custom-border__circle:nth-child(4) {
   left: 50px;
   top: 22px;
+}
+
+@media (min-width: 1367px) {
+  .achievement-popup .achievement__badge-container {
+    height: 100px;
+    width: 100px;
+  }
+
+  .achievement-popup .custom-border__circle {
+    height: 20px;
+    width: 20px;
+  }
+
+  .achievement-popup .custom-border__circle:nth-child(1) {
+    left: 39px;
+    top: -8px;
+  }
+
+  .achievement-popup .custom-border__circle:nth-child(2) {
+    left: -10px;
+    top: 37px;
+  }
+
+  .achievement-popup .custom-border__circle:nth-child(3) {
+    left: 40px;
+    top: 85px;
+  }
+
+  .achievement-popup .custom-border__circle:nth-child(4) {
+    left: 88px;
+    top: 40px;
+  }
 }
 
 @media (min-width: 581px) and (max-width: 695px) {

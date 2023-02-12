@@ -31,3 +31,14 @@
   top: -5px;
   width: 10px;
 }
+
+@media (min-width: 1367px) {
+  .profile-info-option {
+    font-size: 30px;
+  }
+
+  .profile-info-option.profile-info-option--active::before {
+    height: 15px;
+    width: 15px;
+  }
+}

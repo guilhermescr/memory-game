@@ -20,3 +20,11 @@
 .difficulty-level:active {
   background-image: var(--difficulty_level_button_active_gradient);
 }
+
+@media (min-width: 1367px) {
+  .difficulty-level {
+    font-size: 40px;
+    max-width: 500px;
+    padding: 15px;
+  }
+}

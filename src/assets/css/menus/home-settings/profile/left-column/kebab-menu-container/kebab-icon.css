@@ -12,3 +12,9 @@
 .kebab-icon:active {
   fill: #efefef;
 }
+
+@media (min-width: 1367px) {
+  .kebab-icon {
+    width: 12px;
+  }
+}
