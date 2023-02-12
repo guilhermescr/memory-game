@@ -2,3 +2,9 @@
   font-size: 16px;
   text-align: left;
 }
+
+@media (min-width: 1367px) {
+  .username-form h3 {
+    font-size: 30px;
+  }
+}

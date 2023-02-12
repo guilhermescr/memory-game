@@ -18,3 +18,11 @@
 #save-username-button:active {
   background-color: #191919;
 }
+
+@media (min-width: 1367px) {
+  #save-username-button {
+    font-size: 25px;
+    max-width: 250px;
+    padding: 15px;
+  }
+}

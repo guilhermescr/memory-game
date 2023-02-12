@@ -8,7 +8,8 @@
 
 @media (min-width: 1367px) {
   .return-icon-container {
-    left: 30px;
+    left: 3%;
+    top: 4%;
     width: 70px;
   }
 }

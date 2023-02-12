@@ -3,3 +3,9 @@
   cursor: pointer;
   font-size: 18px;
 }
+
+@media (min-width: 1367px) {
+  .profile-picture-options label {
+    font-size: 30px;
+  }
+}

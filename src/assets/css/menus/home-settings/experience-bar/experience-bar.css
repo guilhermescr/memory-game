@@ -9,3 +9,11 @@
   position: relative;
   width: 100%;
 }
+
+@media (min-width: 1367px) {
+  .experience-bar {
+    border-width: 3px;
+    max-width: 400px;
+    padding-block: 24px;
+  }
+}

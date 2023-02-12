@@ -18,3 +18,10 @@
 .edit-profile-option:active {
   background-image: var(--buttons_active_gradient);
 }
+
+@media (min-width: 1367px) {
+  .edit-profile-option {
+    font-size: 25px;
+    padding: 14px 18px;
+  }
+}

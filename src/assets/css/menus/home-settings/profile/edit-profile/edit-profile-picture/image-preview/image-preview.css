@@ -12,3 +12,9 @@
   max-width: 100px;
   width: 100%;
 }
+
+@media (min-width: 1367px) {
+  .image-preview__img {
+    max-width: 150px;
+  }
+}

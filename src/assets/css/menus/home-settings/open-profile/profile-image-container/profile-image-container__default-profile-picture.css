@@ -2,6 +2,12 @@
   fill: #fef;
 }
 
+@media (min-width: 1367px) {
+  .default-profile-picture {
+    width: 160px;
+  }
+}
+
 @media (max-width: 580px) {
   .profile-picture-container .default-profile-picture {
     height: 60px;

@@ -21,3 +21,11 @@
   position: relative;
   width: 100%;
 }
+
+@media (min-width: 1367px) {
+  .edit-profile-menu {
+    max-height: 450px;
+    max-width: 500px;
+    transform: translateX(-50%) scale(1.2);
+  }
+}

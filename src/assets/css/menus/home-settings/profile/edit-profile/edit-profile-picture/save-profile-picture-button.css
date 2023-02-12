@@ -6,7 +6,6 @@
   color: #fff;
   cursor: pointer;
   margin-inline: auto;
-  /* margin-top: 10px; */
   max-width: 200px;
   padding: 10px;
   width: 100%;
@@ -20,4 +19,12 @@
 #save-profile-picture-button:active,
 #cancel-image-preview:active {
   background-color: #191919;
+}
+
+@media (min-width: 1367px) {
+  #save-profile-picture-button, #cancel-image-preview {
+    font-size: 25px;
+    max-width: 250px;
+    padding: 15px;
+  }
 }

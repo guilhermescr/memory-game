@@ -12,6 +12,19 @@
   width: 190px;
 }
 
+@media (min-width: 1367px) {
+  .profile-picture-container {
+    padding: 20px;
+    width: 200px;
+  }
+
+  .profile-menu.hasPFP .profile-picture-container,
+  .profile-picture-container.user-image-container img {
+    max-width: max-content;
+    width: 220px;
+  }
+}
+
 @media (max-width: 580px) {
   .profile-picture-container {
     width: 80px;

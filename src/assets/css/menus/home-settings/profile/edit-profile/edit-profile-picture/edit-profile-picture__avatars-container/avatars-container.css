@@ -22,3 +22,9 @@
   border: 2px solid #3b3737;
   border-radius: 15px;
 }
+
+@media (min-width: 1367px) {
+  .avatars-container {
+    max-height: 290px;
+  }
+}

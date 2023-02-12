@@ -3,3 +3,9 @@
   font-size: 16px;
   text-align: left;
 }
+
+@media (min-width: 1367px) {
+  .username-form label {
+    font-size: 30px;
+  }
+}

@@ -1,3 +1,9 @@
 .profile-picture-options input {
   cursor: pointer;
 }
+
+@media (min-width: 1367px) {
+  .profile-picture-options input {
+    transform: scale(1.8);
+  }
+}

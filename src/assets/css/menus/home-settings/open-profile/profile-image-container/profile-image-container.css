@@ -10,3 +10,11 @@
   max-width: 100px;
   width: 100%;
 }
+
+@media (min-width: 1367px) {
+  .open-profile-menu.hasPFP .profile-image-container,
+  .open-profile-menu.hasPFP .profile-image-container img {
+    max-width: max-content;
+    width: 180px;
+  }
+}

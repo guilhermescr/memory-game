@@ -3,3 +3,9 @@
   font: normal normal 16px Arial, Helvetica, sans-serif;
   text-align: left;
 }
+
+@media (min-width: 1367px) {
+  .avatars-container__avatar-theme h4 {
+    font-size: 25px;
+  }
+}

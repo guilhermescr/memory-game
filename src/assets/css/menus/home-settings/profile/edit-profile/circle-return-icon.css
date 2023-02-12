@@ -12,3 +12,11 @@
   width: 20px;
   z-index: 1;
 }
+
+@media (min-width: 1367px) {
+  .circle-return-icon {
+    border-width: 4px;
+    height: 40px;
+    width: 40px;
+  }
+}

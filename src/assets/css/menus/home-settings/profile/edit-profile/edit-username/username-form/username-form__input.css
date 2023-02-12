@@ -11,3 +11,9 @@
   box-shadow: 0 0 15px #444;
   padding: 8px;
 }
+
+@media (min-width: 1367px) {
+  .username-form input {
+    font-size: 30px;
+  }
+}

@@ -13,3 +13,10 @@
 .avatar:hover {
   opacity: 0.9;
 }
+
+@media (min-width: 1367px) {
+  .avatar {
+    height: 110px;
+    width: 110px;
+  }
+}
