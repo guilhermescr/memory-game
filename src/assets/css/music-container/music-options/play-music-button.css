@@ -20,6 +20,12 @@
   background-image: var(--buttons_active_gradient) !important;
 }
 
+@media (min-width: 1367px) {
+  .deck-container__ingame-settings .play-music-button {
+    font-size: 35px;
+  }
+}
+
 @media (orientation: landscape) and (max-height: 600px) and (max-width: 920px) {
   .deck-container__ingame-settings .play-music-button {
     padding-block: 4px;

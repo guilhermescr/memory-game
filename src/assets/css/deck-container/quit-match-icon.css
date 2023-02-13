@@ -24,8 +24,8 @@
 @media (min-width: 1367px) {
   .quit-match-icon {
     height: 60px;
-    left: 30px;
-    top: 30px;
+    left: 5%;
+    top: 5%;
     width: 60px;
   }
 }

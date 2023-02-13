@@ -7,6 +7,11 @@ import {
   resetArmySoldiersAnimation,
   startArmySoldiersAnimation
 } from '../animations/military_template/ArmySoldiersAnimation.js';
+import {
+  getViewportWidthForRainbowTemplateAnimation,
+  resetUnicornAnimation,
+  startUnicornAnimation
+} from '../animations/rainbow_template/UnicornAnimation.mjs';
 
 const TEMPLATES_DATA = {
   ForestTemplate: {
@@ -43,6 +48,7 @@ const TEMPLATES_KEYS = Object.keys(TEMPLATES_DATA);
 function addForestTemplateChanges() {
   resetBirdAnimation();
   resetArmySoldiersAnimation();
+  resetUnicornAnimation();
 
   startBirdAnimation();
   window.addEventListener('resize', setBirdPosition);
@@ -51,11 +57,15 @@ function addForestTemplateChanges() {
 function addRainbowTemplateChanges() {
   resetBirdAnimation();
   resetArmySoldiersAnimation();
+  resetUnicornAnimation();
+
+  startUnicornAnimation();
 }
 
 function addMilitaryTemplateChanges() {
   resetBirdAnimation();
   resetArmySoldiersAnimation();
+  resetUnicornAnimation();
 
   startArmySoldiersAnimation();
 }
