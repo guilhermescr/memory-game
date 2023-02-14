@@ -11,7 +11,7 @@
   top: 50%;
   transform: translateY(-50%);
 }
-/* come back */
+
 .memory-deck::-webkit-scrollbar {
   width: 12px;
 }

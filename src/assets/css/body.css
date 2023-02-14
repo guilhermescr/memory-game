@@ -221,6 +221,35 @@ body.rainbow_template .game-menu__template-animation {
   z-index: 1;
 }
 
+.disabled-button-message-box {
+  background-color: #151515;
+  border-radius: 4px;
+  left: 0;
+  max-width: 250px;
+  padding: 10px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  transform: scale(0);
+  transition: transform 0.1s ease-in-out;
+}
+
+.message-box--popup {
+  transform: scale(1);
+}
+
+.disabled-button-message-box h2 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.disabled-button-message-box p {
+  color: #efefef;
+  font-size: 16px;
+  font-weight: normal;
+}
+
 @media (min-width: 1367px) {
   .confirm-action-popup__container {
     min-height: 250px;

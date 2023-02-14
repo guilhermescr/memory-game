@@ -182,7 +182,10 @@ function switchSoundButtonCSS(soundButtons) {
 function switchMusic() {
   MusicIsActive = !MusicIsActive;
   onlineUser.userData.sounds.music = MusicIsActive;
-  localStorage.setItem('onlineUser', JSON.stringify(onlineUser));
+
+  if (!onlineUser.temporaryAccount) {
+    localStorage.setItem('onlineUser', JSON.stringify(onlineUser));
+  }
 
   if (Is_Home_Page) {
     MusicIsActive ? playHomeMusic() : stopHomeMusic();

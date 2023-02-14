@@ -2,6 +2,9 @@ import { renderUsernames } from '../auth/AccountMethods.mjs';
 import { COMMANDS_LIST } from './Commands.mjs';
 
 const TERMINAL = document.querySelector('.terminal');
+const OPEN_MASTER_TERMINAL_BUTTON = document.querySelector(
+  '.setting-button[data-setting="master-terminal"'
+);
 const TOGGLE_HELP_CENTER_BUTTON = document.querySelector(
   '.toggle-help-center-button'
 );
@@ -204,4 +207,9 @@ TERMINAL.addEventListener('keydown', event => {
   }
 });
 
-export { addNewCommandBlock, terminal_input, sendCommandError };
+export {
+  addNewCommandBlock,
+  terminal_input,
+  sendCommandError,
+  OPEN_MASTER_TERMINAL_BUTTON
+};

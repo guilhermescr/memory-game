@@ -19,6 +19,10 @@
   background-image: var(--setting_option_active_gradient);
 }
 
+.setting-button {
+  position: relative;
+}
+
 @media (min-width: 1367px) {
   .setting-option {
     font-size: 40px;

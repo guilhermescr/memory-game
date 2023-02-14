@@ -1,8 +1,10 @@
 import {
   allowGameToStart,
+  closeMessageBox,
   handleKeydownEvent,
   hideElements,
   openConfirmPopup,
+  openMessageBox,
   renderLoaderContainer,
   revealElements,
   setDefaultSettings,
@@ -23,7 +25,8 @@ import {
   authError,
   setOnlineUser,
   renderUsernames,
-  toggleKebabMenu
+  toggleKebabMenu,
+  onlineUser
 } from './AccountMethods.mjs';
 import {
   AUTH_BUTTON,
@@ -39,6 +42,8 @@ import {
   TOGGLE_PASSWORD_ICON,
   USERNAME_INPUT
 } from './FormElements.mjs';
+import { openMenu } from '../menuActions.mjs';
+import { OPEN_MASTER_TERMINAL_BUTTON } from '../terminal/MasterTerminal.mjs';
 
 const REGEX = new RegExp(
   '^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$'
@@ -169,6 +174,16 @@ function login($username, $password) {
 }
 
 function endAuthPage() {
+  if (onlineUser.temporaryAccount) {
+    OPEN_MASTER_TERMINAL_BUTTON.addEventListener('mouseenter', () => {
+      openMessageBox(
+        'The function <strong class="error">Master Terminal</strong> is only for registered accounts.'
+      );
+    });
+
+    OPEN_MASTER_TERMINAL_BUTTON.addEventListener('mouseleave', closeMessageBox);
+  }
+
   document.body.style.overflowY = 'hidden';
   document.body.removeChild(SIGN_UP_IN_CONTAINER);
 
@@ -236,7 +251,24 @@ SUBMIT_BUTTON.addEventListener('click', event => {
   handleSubmit();
 });
 
-PLAY_ANONYMOUSLY_BUTTON.addEventListener('click', endAuthPage);
+PLAY_ANONYMOUSLY_BUTTON.addEventListener('click', () => {
+  OPEN_MASTER_TERMINAL_BUTTON.classList.add('button--disabled');
+  OPEN_MASTER_TERMINAL_BUTTON.removeEventListener('click', openMenu);
+
+  onlineUser.temporaryAccount = true;
+
+  let username = 'userr';
+  let password = '@userr123';
+
+  createAccount(username, password);
+  const account = searchAccount(username, password);
+
+  setOnlineUser(account);
+  setDefaultSettings();
+  renderLoaderContainer('Welcome!');
+  allowGameToStart();
+  endAuthPage();
+});
 
 AUTH_BUTTON.addEventListener('click', handleAuthButton);
 

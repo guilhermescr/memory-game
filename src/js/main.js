@@ -38,7 +38,7 @@ const CONFIRM_ACTION_CONTAINER = document.querySelector(
   '.confirm-action-popup'
 );
 
-let confirm_button_listener;
+let confirm_button_listener, message_box;
 
 function timeoutItems(functionItems, timing) {
   if (!timing) {
@@ -331,6 +331,26 @@ function closeConfirmPopup() {
     .removeEventListener('click', confirm_button_listener);
 }
 
+function openMessageBox(msg) {
+  message_box = document.createElement('div');
+  message_box.classList.add('disabled-button-message-box');
+
+  message_box.innerHTML = `
+  <h2>Alert:</h2>
+  <p>${msg}</p>
+  `;
+  document.body.appendChild(message_box);
+  setTimeout(() => {
+    document
+      .querySelector('.disabled-button-message-box')
+      .classList.add('message-box--popup');
+  }, 100);
+}
+
+function closeMessageBox() {
+  document.body.removeChild(message_box);
+}
+
 function setDefaultSettings() {
   changeCurrentTemplate(onlineUser.userData.CurrentTemplate);
   setCurrentTemplateImage();
@@ -372,5 +392,7 @@ export {
   toggleFullscreenIcon,
   openConfirmPopup,
   closeConfirmPopup,
+  openMessageBox,
+  closeMessageBox,
   setDefaultSettings
 };

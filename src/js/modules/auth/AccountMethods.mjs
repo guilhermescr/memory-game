@@ -9,12 +9,14 @@ import {
 import { win_streak } from '../gameAlgorithm.mjs';
 import { updateSoundsStatus } from '../m-audio/audio.mjs';
 import { cancelImagePreview } from '../m-profile/EditProfilePicture.mjs';
+
 import { endAuthPage, logout } from './AuthService.mjs';
 
 let accounts = [];
 const onlineUser = {
   online: false,
-  userData: {}
+  userData: {},
+  temporaryAccount: false
 };
 
 function getCreationDate() {
@@ -161,7 +163,9 @@ function createAccount($username, $password) {
     };
     accounts.push(userData);
 
-    localStorage.setItem('accounts', JSON.stringify(accounts));
+    if (!onlineUser.temporaryAccount) {
+      localStorage.setItem('accounts', JSON.stringify(accounts));
+    }
   }
 }
 
@@ -202,8 +206,10 @@ function updateAccount(properties, newData) {
       return account;
     }
   });
-  localStorage.setItem('accounts', JSON.stringify(accounts));
-  localStorage.setItem('onlineUser', JSON.stringify(onlineUser));
+  if (!onlineUser.temporaryAccount) {
+    localStorage.setItem('accounts', JSON.stringify(accounts));
+    localStorage.setItem('onlineUser', JSON.stringify(onlineUser));
+  }
 }
 
 function showEditAccountMenu() {
@@ -248,7 +254,7 @@ function deleteAccount(account) {
     accounts = accounts.filter($account => $account.id !== account.id);
   }
 
-  if (accounts.length) {
+  if (accounts.length && !onlineUser.temporaryAccount) {
     localStorage.setItem('accounts', JSON.stringify(accounts));
   } else {
     localStorage.removeItem('accounts');
@@ -341,7 +347,9 @@ function setOnlineUser(account) {
   onlineUser.online = true;
   onlineUser.userData = account;
 
-  localStorage.setItem('onlineUser', JSON.stringify(onlineUser));
+  if (!onlineUser.temporaryAccount) {
+    localStorage.setItem('onlineUser', JSON.stringify(onlineUser));
+  }
 }
 
 function isUserOnline() {
