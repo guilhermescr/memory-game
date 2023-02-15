@@ -1,27 +1,11 @@
 .terminal__help-center {
   border-bottom: 2px solid #252525;
+  max-height: 220px;
   position: relative;
 }
 
-.terminal__help-center::-webkit-scrollbar {
-  width: 12px;
-}
-
-.terminal__help-center::-webkit-scrollbar-track {
-  background: #3e3f3f;
-}
-
-.terminal__help-center::-webkit-scrollbar-thumb {
-  background-color: #3e3f3f;
-  border: 2px solid #0e0e0e;
-}
-
-.terminal__help-center.more {
-  height: 37%;
-  overflow-y: auto;
-}
-
-.terminal__help-center.less {
-  height: 45px;
-  overflow-y: hidden;
+@media (min-width: 1367px) {
+  .terminal__help-center {
+    max-height: 250px;
+  }
 }

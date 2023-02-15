@@ -1,8 +1,8 @@
 .close-menu-container {
-  margin-left: 95%;
+  margin-left: 94%;
   max-width: fit-content;
-  position: fixed;
-  right: 5%;
-  top: 5%;
+  position: absolute;
+  right: 20px;
+  top: 4%;
   z-index: 1;
 }

@@ -2,13 +2,9 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  height: 47%;
+  height: calc(90vh - 50vh);
   overflow-y: auto;
   padding: 15px;
-}
-
-.terminal__help-center.less ~ .terminal__command-blocks {
-  height: 80%;
 }
 
 .terminal__command-blocks::-webkit-scrollbar {
@@ -22,4 +18,16 @@
 .terminal__command-blocks::-webkit-scrollbar-thumb {
   background-color: #3e3f3f;
   border: 2px solid #0e0e0e;
+}
+
+@media (min-width: 1367px) {
+  .terminal__command-blocks {
+    height: calc(90vh - 45vh);
+  }
+}
+
+@media (max-height: 300px) {
+  .terminal__command-blocks {
+    height: calc(90vh - 48vh);
+  }
 }

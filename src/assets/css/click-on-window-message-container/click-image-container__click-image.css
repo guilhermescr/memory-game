@@ -11,13 +11,13 @@
   animation: clickAnimation 1.5s alternate infinite;
   fill: var(--window_message_text_color);
   filter: drop-shadow(var(--window_message_text_shadow));
+  max-width: 150px;
   transform: rotate(-15deg);
-  width: 8%;
+  width: 100%;
 }
 
 @media (max-height: 640px), (max-width: 580px) {
   .click-image {
     max-width: 100px;
-    width: 100%;
   }
 }

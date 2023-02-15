@@ -39,3 +39,18 @@
     font-size: 50px;
   }
 }
+
+@media (max-height: 420px) {
+  .master-terminal.show {
+    transform: translate(-50.1%, 0) scale(1) !important;
+  }
+
+  .master-terminal.menu {
+    border-radius: 0;
+    height: 100vh;
+  }
+
+  .master-terminal.menu h2 {
+    font-size: 20px;
+  }
+}

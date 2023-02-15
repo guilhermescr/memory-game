@@ -17,8 +17,10 @@ function toggleHelpCenterVisibility() {
     <svg enable-background="new 0 0 50 50" version="1.1" viewBox="0 0 50 50" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><rect height="50" width="50"/><line fill="none" stroke="#000000" stroke-miterlimit="10" stroke-width="6" x1="9" x2="41" y1="25" y2="25"/><line fill="none" stroke="#000000" stroke-miterlimit="10" stroke-width="6" x1="25" x2="25" y1="9" y2="41"/></svg>
     `;
 
-    document.querySelector('.terminal__help-center').classList.add('less');
-    document.querySelector('.terminal__help-center').classList.remove('more');
+    document.querySelector('.help-center__commands-list').classList.add('less');
+    document
+      .querySelector('.help-center__commands-list')
+      .classList.remove('more');
   } else {
     // add minus icon
     TOGGLE_HELP_CENTER_BUTTON.innerHTML = `
@@ -30,8 +32,10 @@ function toggleHelpCenterVisibility() {
     </svg>
     `;
 
-    document.querySelector('.terminal__help-center').classList.remove('less');
-    document.querySelector('.terminal__help-center').classList.add('more');
+    document
+      .querySelector('.help-center__commands-list')
+      .classList.remove('less');
+    document.querySelector('.help-center__commands-list').classList.add('more');
   }
 
   TOGGLE_HELP_CENTER_BUTTON.classList.toggle('less');

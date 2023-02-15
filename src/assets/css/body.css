@@ -122,11 +122,11 @@ body.rainbow_template .game-menu__template-animation {
   position: relative;
   top: 60px;
   width: 100px;
+  z-index: 1;
 }
 
 #left-corner-unicorn.left-unicorn-comes {
   left: 0;
-
   transform: rotate(0deg);
 }
 
