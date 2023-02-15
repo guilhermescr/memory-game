@@ -16,6 +16,7 @@
 }
 
 .game-info {
+  align-items: flex-end;
   bottom: 0;
   color: #fff;
   display: flex;
@@ -30,5 +31,12 @@
 @media (min-width: 1367px) {
   .game-info {
     font-size: 35px;
+  }
+}
+
+@media (max-height: 375px) {
+  .game-menu {
+    justify-content: center;
+    padding-block: 10px;
   }
 }

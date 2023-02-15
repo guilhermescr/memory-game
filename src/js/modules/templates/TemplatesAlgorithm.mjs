@@ -136,6 +136,7 @@ function showUserProfileInfo() {
 
 HOME_SETTINGS_RETURN_ICON.onclick = showSettingsMenu;
 
+CURRENT_TEMPLATE_IMAGE.onclick = showTemplatesInMenu;
 CHANGE_TEMPLATE_BUTTON.onclick = showTemplatesInMenu;
 
 document

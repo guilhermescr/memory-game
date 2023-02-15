@@ -2,3 +2,10 @@
   height: 100%;
   max-height: 250px;
 }
+
+@media (max-height: 375px) {
+  .home-settings-container .audio-container {
+    height: max-content;
+    margin-top: 50px;
+  }
+}

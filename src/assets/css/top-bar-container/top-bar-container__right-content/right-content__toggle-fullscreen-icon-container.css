@@ -25,3 +25,9 @@
     height: 20px;
   }
 }
+
+@media (max-height: 375px) {
+  .right-content__toggle-fullscreen-icon-container svg {
+    height: 25px;
+  }
+}

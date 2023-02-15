@@ -5,7 +5,7 @@
   justify-content: center;
   margin-inline: auto;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
   perspective: 1000px;
   position: absolute;
   top: 50%;
@@ -36,6 +36,12 @@
 
 .memory-deck.max-width-hard-mode {
   max-width: 700px;
+}
+
+@media (max-width: 580px), (max-height: 600px) {
+  .memory-deck {
+    overflow-y: auto;
+  }
 }
 
 @media (max-width: 540px) {

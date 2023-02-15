@@ -8,9 +8,8 @@ import {
   startArmySoldiersAnimation
 } from '../animations/military_template/ArmySoldiersAnimation.js';
 import {
-  getViewportWidthForRainbowTemplateAnimation,
-  resetUnicornAnimation,
-  startUnicornAnimation
+  getViewportWidthToAdjustRainbowPosition,
+  resetUnicornAnimation
 } from '../animations/rainbow_template/UnicornAnimation.mjs';
 
 const TEMPLATES_DATA = {
@@ -46,28 +45,29 @@ const TEMPLATES_DATA = {
 const TEMPLATES_KEYS = Object.keys(TEMPLATES_DATA);
 
 function addForestTemplateChanges() {
-  resetBirdAnimation();
-  resetArmySoldiersAnimation();
-  resetUnicornAnimation();
+  stopAllTemplateAnimations();
 
   startBirdAnimation();
   window.addEventListener('resize', setBirdPosition);
 }
 
 function addRainbowTemplateChanges() {
-  resetBirdAnimation();
-  resetArmySoldiersAnimation();
-  resetUnicornAnimation();
+  stopAllTemplateAnimations();
 
-  startUnicornAnimation();
+  // it starts the animation too
+  getViewportWidthToAdjustRainbowPosition();
 }
 
 function addMilitaryTemplateChanges() {
+  stopAllTemplateAnimations();
+
+  startArmySoldiersAnimation();
+}
+
+function stopAllTemplateAnimations() {
   resetBirdAnimation();
   resetArmySoldiersAnimation();
   resetUnicornAnimation();
-
-  startArmySoldiersAnimation();
 }
 
 const BODY_CLASSLIST_TEMPLATE_OPTIONS = {
@@ -76,4 +76,9 @@ const BODY_CLASSLIST_TEMPLATE_OPTIONS = {
   military_template: addMilitaryTemplateChanges
 };
 
-export { TEMPLATES_DATA, TEMPLATES_KEYS, BODY_CLASSLIST_TEMPLATE_OPTIONS };
+export {
+  TEMPLATES_DATA,
+  TEMPLATES_KEYS,
+  BODY_CLASSLIST_TEMPLATE_OPTIONS,
+  stopAllTemplateAnimations
+};

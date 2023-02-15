@@ -269,3 +269,13 @@ body.rainbow_template .game-menu__template-animation {
     width: 70px;
   }
 }
+
+@media (max-height: 375px) {
+  .rainbow-template__unicorn {
+    top: -69px;
+  }
+
+  .rainbow {
+    top: -20px;
+  }
+}

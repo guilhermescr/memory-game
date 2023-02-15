@@ -15,14 +15,16 @@ import {
 import { TOP_BAR_CONTAINER, memoryDeck } from './m-themes/addCards.mjs';
 import { DECK_CONTAINER, setDeckStyles } from './m-themes/deckStyles.mjs';
 import { difficulty } from './m-themes/themesDifficulty.mjs';
-import { resetBirdAnimation } from './animations/forest_theme/BirdAnimation.mjs';
 import { fillRandomThemes } from './randomThemes/fillRandomThemes.mjs';
 import {
   onlineUser,
   renderGeneralInfo,
   updateAccount
 } from './auth/AccountMethods.mjs';
-import { BODY_CLASSLIST_TEMPLATE_OPTIONS } from './templates/TemplatesData.mjs';
+import {
+  BODY_CLASSLIST_TEMPLATE_OPTIONS,
+  stopAllTemplateAnimations
+} from './templates/TemplatesData.mjs';
 import {
   ACHIEVEMENTS_DATA,
   getAchievement,
@@ -113,7 +115,7 @@ function startGame() {
   timing.start();
   stopHomeMusic();
   setDefaultSoundTrack();
-  resetBirdAnimation();
+  stopAllTemplateAnimations();
 
   if (MusicIsActive) {
     playDefaultSoundTrack();
@@ -342,7 +344,7 @@ function quitGame() {
 
   hideElements(DECK_CONTAINER);
   fillRandomThemes();
-  timeoutItems(BODY_CLASSLIST_TEMPLATE_OPTIONS[CurrentTemplate]);
+  timeoutItems(BODY_CLASSLIST_TEMPLATE_OPTIONS[CurrentTemplate], 500);
   revealElements(GAME_MENU);
 }
 

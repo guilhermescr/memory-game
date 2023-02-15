@@ -10,3 +10,11 @@
     font-size: 90px;
   }
 }
+
+@media (max-height: 375px) {
+  #title-container__title {
+    flex-direction: row;
+    font-size: 8vw;
+    gap: 10px;
+  }
+}

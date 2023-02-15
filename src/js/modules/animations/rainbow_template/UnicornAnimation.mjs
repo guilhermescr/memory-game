@@ -3,6 +3,10 @@ const TEMPLATE_ANIMATION_CONTAINER = document.querySelector(
 );
 let rainbow_template_timeouts = [];
 let rainbow_template_viewport_width = document.body.clientWidth;
+let isMobileScreen = rainbow_template_viewport_width <= 580;
+let isLargerScreen = !isMobileScreen;
+let isBreakpointUpdated = false;
+
 let rainbow,
   left_unicorn,
   right_unicorn,
@@ -10,28 +14,40 @@ let rainbow,
   start_rainbow_animation_class,
   end_rainbow_animation_class;
 
-function getViewportWidthForRainbowTemplateAnimation() {
+function getViewportWidthToAdjustRainbowPosition() {
   rainbow_template_viewport_width = document.body.clientWidth;
-  resetUnicornAnimation();
-  startUnicornAnimation();
-}
+  isMobileScreen = document.body.clientWidth <= 580;
 
-function startUnicornAnimation() {
-  window.addEventListener(
-    'resize',
-    getViewportWidthForRainbowTemplateAnimation
-  );
-
-  if (rainbow_template_interval) {
-    clearInterval(rainbow_template_interval);
-  }
-
-  if (rainbow_template_viewport_width <= 580) {
+  if (isMobileScreen) {
     start_rainbow_animation_class = 'mobile-rainbow--start-animation';
     end_rainbow_animation_class = 'mobile-rainbow--end-animation';
+
+    if (isLargerScreen) {
+      isLargerScreen = false;
+      isBreakpointUpdated = false;
+    }
   } else {
     start_rainbow_animation_class = 'larger-screen-rainbow--start-animation';
     end_rainbow_animation_class = 'larger-screen-rainbow--end-animation';
+
+    if (!isLargerScreen) {
+      isLargerScreen = true;
+      isBreakpointUpdated = false;
+    }
+  }
+
+  if (!isBreakpointUpdated) {
+    isBreakpointUpdated = true;
+    resetUnicornAnimation();
+    startUnicornAnimation();
+  }
+}
+
+function startUnicornAnimation() {
+  window.addEventListener('resize', getViewportWidthToAdjustRainbowPosition);
+
+  if (rainbow_template_interval) {
+    clearInterval(rainbow_template_interval);
   }
 
   let renderRainbowTemplateAnimationTimeout = setTimeout(() => {
@@ -89,10 +105,7 @@ function resetUnicornAnimation() {
     clearInterval(rainbow_template_interval);
   }
 
-  window.removeEventListener(
-    'resize',
-    getViewportWidthForRainbowTemplateAnimation
-  );
+  window.removeEventListener('resize', getViewportWidthToAdjustRainbowPosition);
 
   TEMPLATE_ANIMATION_CONTAINER.innerHTML = '';
   [rainbow, left_unicorn, right_unicorn, rainbow_template_interval] = [
@@ -101,7 +114,13 @@ function resetUnicornAnimation() {
     null,
     null
   ];
+
   rainbow_template_timeouts = [];
+  rainbow_template_viewport_width = document.body.clientWidth;
+
+  isMobileScreen = rainbow_template_viewport_width <= 580;
+  isLargerScreen = !isMobileScreen;
+  isBreakpointUpdated = false;
 }
 
 function leftUnicornComes() {
@@ -142,7 +161,7 @@ function leftAndRightUnicornLeave() {
 }
 
 export {
-  getViewportWidthForRainbowTemplateAnimation,
+  getViewportWidthToAdjustRainbowPosition,
   startUnicornAnimation,
   resetUnicornAnimation
 };

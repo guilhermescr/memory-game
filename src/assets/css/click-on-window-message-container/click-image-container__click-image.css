@@ -1,0 +1,23 @@
+@keyframes clickAnimation {
+  from {
+    transform: rotate(-15deg) scale(0.9);
+  }
+  to {
+    transform: rotate(-17deg) scale(0.8);
+  }
+}
+
+.click-image {
+  animation: clickAnimation 1.5s alternate infinite;
+  fill: var(--window_message_text_color);
+  filter: drop-shadow(var(--window_message_text_shadow));
+  transform: rotate(-15deg);
+  width: 8%;
+}
+
+@media (max-height: 640px), (max-width: 580px) {
+  .click-image {
+    max-width: 100px;
+    width: 100%;
+  }
+}

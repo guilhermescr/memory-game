@@ -29,3 +29,10 @@
     padding-block: 15px;
   }
 }
+
+@media (max-height: 375px) {
+  .setting-option {
+    font-size: 13px;
+    padding-block: 7px;
+  }
+}
