@@ -12,6 +12,7 @@ import {
 } from './modules/templates/TemplatesAlgorithm.mjs';
 import * as AuthService from './modules/auth/AuthService.mjs';
 import * as MasterTerminal from './modules/terminal/MasterTerminal.mjs';
+import * as Languages from './modules/Languages.mjs';
 import { getAccounts } from './modules/auth/AuthService.mjs';
 import {
   isUserOnline,

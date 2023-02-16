@@ -1,0 +1,161 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'Dragon Ball';
+  src: url('../fonts/Saiyan-Sans_Right_Oblique.ttf') format('truetype');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body {
+  background: #efcb00ad url('../images/tournament_of_power_arena.webp') center
+    no-repeat fixed;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+strong {
+  color: #000;
+}
+
+.start-game {
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 50px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 10px;
+
+  position: absolute;
+  left: 50%;
+  top: 40vh;
+  transform: translate(-50%, -50%);
+  user-select: none;
+}
+
+.start-game h1 {
+  font-family: 'Dragon Ball';
+  font-size: 60px;
+  text-shadow: -4px 1px 0px #000;
+  text-align: center;
+
+  max-width: 300px;
+  padding-block: 20px;
+  margin-inline: auto;
+}
+
+.start-game h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(61, 61, 61);
+}
+
+.start-game #startBtn {
+  border: 1px solid black;
+  border-radius: 50px;
+  background-color: #ff9922;
+  font-size: 20px;
+  padding: 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.start-game #startBtn:hover {
+  transform: scale(0.9);
+  transition: transform 0.5s ease;
+  background-color: rgb(214, 0, 0);
+}
+
+.start-game #startBtn:active {
+  background-color: rgb(255, 208, 0);
+}
+
+.start-game #dragon,
+#memory {
+  color: rgb(255, 208, 0);
+}
+
+.start-game #ball,
+#game {
+  color: rgb(214, 0, 0);
+}
+
+.memory-deck {
+  /* turn it to flex */
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
+
+  max-width: 640px;
+  width: 100%;
+  height: 640px;
+  margin: 0 auto;
+  padding-block: 10px;
+  perspective: 1000px;
+}
+
+.memory-card {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background-color: #efcc00;
+
+  width: 150px;
+  height: calc(33.333% - 10px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  user-select: none;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
+
+/* Flip Transition */
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+/* Images Settings */
+.front-face,
+.back-face {
+  backface-visibility: hidden;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+
+  position: absolute;
+}
+
+.front-face {
+  height: 80%;
+}
+
+.back-face {
+  transform: rotateY(180deg);
+}
+
+.back-face[alt='Bulma'] {
+  height: calc(100% + 50px);
+  width: calc(100% - 20px);
+}
