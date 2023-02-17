@@ -4,274 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
     <title>Memory Game | Home</title>
-    <style>
-      * {
-        box-sizing: border-box;
-        font-family: Arial, Helvetica, sans-serif;
-        margin: 0;
-        padding: 0;
-        text-decoration: none;
-      }
-
-      .en_us {
-        --v2_note: 'Note: Option 2 is preferred if Option 1 does not work.';
-      }
-
-      .pt_br {
-        --v2_note: 'OBS.: A Opção 2 é preferível se a Opção 1 não funcionar.';
-      }
-
-      html,
-      body {
-        height: 100%;
-        width: 100%;
-      }
-
-      body {
-        background-color: #242424;
-        position: relative;
-      }
-
-      ol,
-      ul {
-        list-style: none;
-      }
-
-      header {
-        background-color: #fafafa;
-        color: #242424;
-        height: 50px;
-        padding: 5px;
-        text-align: center;
-      }
-
-      main {
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        height: calc(100vh - 100px);
-        padding: 20px;
-        position: relative;
-        user-select: none;
-      }
-
-      #globe-icon {
-        cursor: pointer;
-        fill: #fff;
-        height: 24px;
-        position: absolute;
-        right: calc(0% + 20px);
-        width: 24px;
-      }
-
-      .languages-menu {
-        align-items: center;
-        background-color: #202020;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        height: 100%;
-        justify-content: center;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-        z-index: 1;
-      }
-
-      .language-options {
-        width: 100%;
-      }
-
-      .language-option {
-        background-color: #464343;
-        border: none;
-        color: #fff;
-        cursor: pointer;
-        display: block;
-        font-size: 18px;
-        max-width: 300px;
-        margin: 0 auto;
-        outline: none;
-        padding: 20px;
-        text-align: center;
-        transition: 0.2s ease;
-        width: 100%;
-      }
-
-      .language-option:hover {
-        background-color: #fafafa;
-        color: #353535;
-        font-weight: bold;
-      }
-
-      .language-option:active {
-        background-color: #ffffff;
-        color: #585858;
-        font-weight: bold;
-        opacity: 0.8;
-      }
-
-      .language-option:nth-child(1) {
-        margin-bottom: 10px;
-      }
-
-      .versions {
-        align-items: center;
-        align-self: center;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        margin-block: auto;
-        width: 100%;
-      }
-
-      .versions__title {
-        text-align: center;
-      }
-
-      .versions-options {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 100%;
-      }
-
-      .versions-options li {
-        padding: 10px;
-      }
-
-      .version-list {
-        border: 1px solid #404040;
-        border-top-right-radius: 5px;
-        max-width: 400px;
-        position: relative;
-        width: 100%;
-      }
-
-      .v1 .version-option {
-        height: calc(114px - 37px);
-        padding: 0;
-      }
-
-      .v1 .version-option a {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-      }
-
-      .v2::after {
-        content: var(--v2_note);
-        padding-top: 10px;
-        position: absolute;
-        font-style: italic;
-      }
-
-      .v2 li:nth-child(2) {
-        border-bottom: 1px solid #2e2d2d;
-      }
-
-      .version-title {
-        background-color: #353535;
-        border-top-right-radius: 5px;
-        padding: 10px;
-      }
-
-      .version-option {
-        background-color: #464343;
-        cursor: pointer;
-        text-align: center;
-        transition: 0.2s ease;
-      }
-
-      .version-option:hover {
-        background-color: #fafafa;
-        color: #353535;
-        font-weight: bold;
-      }
-
-      .version-option:active {
-        background-color: #ffffff;
-        color: #585858;
-        font-weight: bold;
-        opacity: 0.8;
-      }
-
-      .version-option a {
-        color: inherit;
-        height: 100%;
-        width: 100%;
-      }
-
-      footer {
-        align-items: center;
-        background-color: #fafafa;
-        color: #242424;
-        display: flex;
-        gap: 10px;
-        height: 50px;
-        justify-content: center;
-        width: 100%;
-      }
-
-      .footer__link {
-        align-items: center;
-        color: inherit;
-        display: flex;
-        gap: 5px;
-        justify-content: center;
-      }
-
-      .footer__link:hover {
-        text-decoration: underline;
-        transform: scale(0.98);
-        transition: transform 0.2s ease;
-      }
-
-      #github-icon {
-        fill: #242424;
-        height: 24px;
-        width: 24px;
-      }
-
-      .hide {
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.1s ease-in-out, visibility 0.1s ease-in-out;
-      }
-
-      @media (max-width: 510px) {
-        main > h2 {
-          max-width: 320px;
-        }
-
-        .language-option {
-          font-size: 16px;
-        }
-      }
-
-      @media (max-width: 350px) {
-        main > h2 {
-          max-width: 220px;
-        }
-
-        .language-option {
-          max-width: 200px;
-        }
-      }
-
-      @media (max-height: 450px) {
-        main {
-          gap: 40px;
-          height: max-content;
-          padding-bottom: 50px;
-        }
-      }
-    </style>
   </head>
-  <body class="en_us">
+  <body class="en_us dark_mode">
     <header>
       <h1>Memory Game</h1>
     </header>
@@ -290,6 +28,23 @@
           d="M12.02 0c6.614.011 11.98 5.383 11.98 12 0 6.623-5.376 12-12 12-6.623 0-12-5.377-12-12 0-6.617 5.367-11.989 11.981-12h.039zm3.694 16h-7.427c.639 4.266 2.242 7 3.713 7 1.472 0 3.075-2.734 3.714-7m6.535 0h-5.523c-.426 2.985-1.321 5.402-2.485 6.771 3.669-.76 6.671-3.35 8.008-6.771m-14.974 0h-5.524c1.338 3.421 4.34 6.011 8.009 6.771-1.164-1.369-2.059-3.786-2.485-6.771m-.123-7h-5.736c-.331 1.166-.741 3.389 0 6h5.736c-.188-1.814-.215-3.925 0-6m8.691 0h-7.685c-.195 1.8-.225 3.927 0 6h7.685c.196-1.811.224-3.93 0-6m6.742 0h-5.736c.062.592.308 3.019 0 6h5.736c.741-2.612.331-4.835 0-6m-12.825-7.771c-3.669.76-6.671 3.35-8.009 6.771h5.524c.426-2.985 1.321-5.403 2.485-6.771m5.954 6.771c-.639-4.266-2.242-7-3.714-7-1.471 0-3.074 2.734-3.713 7h7.427zm-1.473-6.771c1.164 1.368 2.059 3.786 2.485 6.771h5.523c-1.337-3.421-4.339-6.011-8.008-6.771"
         />
       </svg>
+
+      <div class="color-mode">
+        <button class="color-mode__button color-mode__moon" type="button">
+          <svg
+            class="color-mode__icon"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 11.5066C3 16.7497 7.25034 21 12.4934 21C16.2209 21 19.4466 18.8518 21 15.7259C12.4934 15.7259 8.27411 11.5066 8.27411 3C5.14821 4.55344 3 7.77915 3 11.5066Z"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
 
       <section class="languages-menu">
         <h2>Languages (Idiomas):</h2>
@@ -364,94 +119,6 @@
       </a>
     </footer>
 
-    <script>
-      const PAGE_CONTENT = {
-        pt_br: {
-          html_lang: 'pt-BR',
-          title: 'Jogo da Memória | Início',
-          body: 'pt_br',
-          h1: 'Jogo da Memória',
-          main_h2: 'Bem-vindos ao Jogo da Memória - 2023!',
-          versions_title: 'Versões',
-          v1_title: 'Versão 1.0',
-          v2_title: 'Versão 2.0',
-          simple_version: 'Versão Simples',
-          v_option1: 'Versão Completa - Opção 1',
-          v_option2: 'Versão Completa - Opção 2',
-          repository_text: 'Repositório'
-        },
-        en_us: {
-          html_lang: 'en',
-          title: 'Memory Game | Home',
-          body: 'en_us',
-          h1: 'Memory Game',
-          main_h2: 'Welcome to the Memory Game - 2023!',
-          versions_title: 'Versions',
-          v1_title: 'Version 1.0',
-          v2_title: 'Version 2.0',
-          simple_version: 'Simple Version',
-          v_option1: 'Complete Version - Option 1',
-          v_option2: 'Complete Version - Option 2',
-          repository_text: 'Repository'
-        }
-      };
-
-      const PAGE_ELEMENTS = {
-        html_lang: document.querySelector('html'),
-        title: document.querySelector('title'),
-        body: document.body,
-        h1: document.querySelector('h1'),
-        main_h2: document.querySelector('main > h2'),
-        versions_title: document.querySelector('.versions__title'),
-        v1_title: document.querySelector('.v1-title'),
-        v2_title: document.querySelector('.v2-title'),
-        simple_version: document.querySelector('#simple-version'),
-        v_option1: document.querySelector('#v-option1'),
-        v_option2: document.querySelector('#v-option2'),
-        repository_text: document.querySelector('#repository-txt')
-      };
-
-      const LANGUAGES_MENU = document.querySelector('.languages-menu');
-      const GLOBE_BUTTON = document.querySelector('#globe-icon');
-      const LANGUAGE_OPTION_BUTTONS =
-        document.querySelectorAll('.language-option');
-
-      function openLanguagesMenu() {
-        LANGUAGES_MENU.classList.remove('hide');
-      }
-
-      function closeLanguagesMenu() {
-        LANGUAGES_MENU.classList.add('hide');
-      }
-
-      function togglePageLanguage() {
-        closeLanguagesMenu();
-
-        const ELEMENTS_NAME = Object.keys(PAGE_ELEMENTS);
-        let language = this.innerHTML.includes('BR') ? 'pt_br' : 'en_us';
-
-        ELEMENTS_NAME.forEach(element_name => {
-          if (element_name.includes('html')) {
-            PAGE_ELEMENTS[element_name].setAttribute(
-              'lang',
-              PAGE_CONTENT[language][element_name]
-            );
-            console.log(PAGE_ELEMENTS[element_name].lang);
-          } else if (element_name.includes('body')) {
-            PAGE_ELEMENTS[element_name].classList =
-              PAGE_CONTENT[language][element_name];
-          } else {
-            PAGE_ELEMENTS[element_name].innerHTML =
-              PAGE_CONTENT[language][element_name];
-          }
-        });
-      }
-
-      LANGUAGE_OPTION_BUTTONS.forEach(language_option_button => {
-        language_option_button.addEventListener('click', togglePageLanguage);
-      });
-
-      GLOBE_BUTTON.addEventListener('click', openLanguagesMenu);
-    </script>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>
