@@ -1,0 +1,43 @@
+.dark_mode {
+  --body-background-color: #242424;
+
+  --header-background-color: #fafafa;
+  --header-text-color: #242424;
+  --headings-text-color: #fff;
+
+  --main-text-color: #fff;
+
+  --globe-icon-color: #fff;
+
+  --languages-menu-background-color: #202020;
+
+  --shortcuts-text-color: #fff;
+  --shortcuts-h3-border-color: #0000008a;
+  --shortcut-h4-color: #efefef;
+
+  --language-option-background-color: #464343;
+  --language-option-text-color: #fff;
+
+  --language-option-hover-background-color: #fafafa;
+  --language-option-hover-text-color: #353535;
+
+  --language-option-active-background-color: #ffffff;
+  --language-option-active-text-color: #585858;
+
+  --version-list-border-color: #404040;
+  --v2-li-border-bottom-color: #2e2d2d;
+
+  --version-title-background-color: #353535;
+  --version-option-background-color: #464343;
+
+  --version-option-hover-background-color: #fafafa;
+  --version-option-hover-text-color: #353535;
+
+  --version-option-active-background-color: #ffffff;
+  --version-option-active-text-color: #585858;
+
+  --footer-background-color: #fafafa;
+  --footer-text-color: #242424;
+
+  --github-icon-color: #242424;
+}

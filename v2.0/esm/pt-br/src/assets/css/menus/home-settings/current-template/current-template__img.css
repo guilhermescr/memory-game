@@ -1,0 +1,11 @@
+.current-template img {
+  border: 1px solid var(--home_settings_color);
+  cursor: pointer;
+  width: 200px;
+}
+
+@media (min-width: 1367px) {
+  .current-template img {
+    width: 300px;
+  }
+}

@@ -1,0 +1,13 @@
+.registering-container__form {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 15px #fde6ed;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  max-width: 400px;
+  padding: 20px 40px;
+  width: 100%;
+}

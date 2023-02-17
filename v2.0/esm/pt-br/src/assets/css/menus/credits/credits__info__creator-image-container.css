@@ -1,0 +1,12 @@
+.credits__info .credits__info__creator-image-container {
+  height: max-content;
+  position: relative;
+  text-align: center;
+  width: 50%;
+}
+
+@media (max-width: 580px) {
+  .credits__info .credits__info__creator-image-container {
+    width: 100%;
+  }
+}

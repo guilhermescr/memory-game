@@ -5,16 +5,86 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <link rel="stylesheet" href="assets/css/icons.css" />
+    <link rel="stylesheet" href="assets/css/header.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+
+    <!-- Color Mode -->
+    <link rel="stylesheet" href="assets/css/color-mode/color-mode.css" />
+    <link rel="stylesheet" href="assets/css/color-mode/light-mode.css" />
+    <link rel="stylesheet" href="assets/css/color-mode/dark-mode.css" />
+
+    <!-- Languages Menu -->
+    <link
+      rel="stylesheet"
+      href="assets/css/languages-menu/languages-menu.css"
+    />
+
+    <!-- Languages Menu - Language Options -->
+    <link
+      rel="stylesheet"
+      href="assets/css/languages-menu/languages-options/language-options.css"
+    />
+
+    <!-- Languages Menu - Language Options - Language Option -->
+    <link
+      rel="stylesheet"
+      href="assets/css/languages-menu/languages-options/languages-option/language-option.css"
+    />
+
+    <!-- Shortcuts -->
+    <link rel="stylesheet" href="assets/css/shortcuts/shortcuts.css" />
+    <link rel="stylesheet" href="assets/css/shortcuts/shortcuts__h3.css" />
+
+    <!-- Shortcuts - Shortcut -->
+    <link rel="stylesheet" href="assets/css/shortcuts/shortcut/shortcut.css" />
+    <link
+      rel="stylesheet"
+      href="assets/css/shortcuts/shortcut/shortcut__h4.css"
+    />
+
+    <!-- Versions -->
+    <link rel="stylesheet" href="assets/css/versions/versions.css" />
+    <link rel="stylesheet" href="assets/css/versions/versions__title.css" />
+
+    <!-- Versions - Versions Options -->
+    <link
+      rel="stylesheet"
+      href="assets/css/versions/versions-options/versions-options.css"
+    />
+
+    <!-- Versions - Versions Options - Version List -->
+    <link
+      rel="stylesheet"
+      href="assets/css/versions/versions-options/version-list/version-list.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/css/versions/versions-options/version-list/v1.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/css/versions/versions-options/version-list/v2.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/css/versions/versions-options/version-list/version-title.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/css/versions/versions-options/version-list/version-option.css"
+    />
 
     <title>Memory Game | Home</title>
   </head>
   <body class="en_us dark_mode">
-    <header>
+    <header class="header">
       <h1>Memory Game</h1>
     </header>
 
-    <main>
+    <main class="main">
       <h2>Welcome to the Memory Game - 2023!</h2>
 
       <svg
@@ -47,6 +117,24 @@
       </div>
 
       <section class="languages-menu">
+        <aside class="shortcuts">
+          <h3>Shortcuts</h3>
+          <div class="shortcut" id="color-mode-shortcut">
+            <h4>Switch Dark/Light Mode:</h4>
+            <p>Key: C</p>
+          </div>
+
+          <div class="shortcut" id="languages-shortcut">
+            <h4>Switch Language:</h4>
+            <p>Key: L</p>
+          </div>
+
+          <div class="shortcut" id="toggle-menu-shortcut">
+            <h4>Open/Close Menu:</h4>
+            <p>Key: M</p>
+          </div>
+        </aside>
+
         <h2>Languages (Idiomas):</h2>
         <div class="language-options">
           <button class="language-option">English - US</button>
@@ -56,7 +144,7 @@
 
       <section class="versions">
         <h3 class="versions__title">Versions</h3>
-        <div class="versions-options">
+        <section class="versions-options">
           <ul class="version-list v1">
             <li class="version-title v1-title">Version 1.0</li>
             <li class="version-option" role="button">
@@ -73,7 +161,11 @@
           <ul class="version-list v2">
             <li class="version-title v2-title">Version 2.0</li>
             <li class="version-option" role="button">
-              <a id="v-option1" href="" target="_self" rel="next"
+              <a
+                id="v-option1"
+                href="v2.0/esm/en-us/public/"
+                target="_self"
+                rel="next"
                 >Complete Version - Option 1</a
               >
             </li>
@@ -83,11 +175,11 @@
               >
             </li>
           </ul>
-        </div>
+        </section>
       </section>
     </main>
 
-    <footer>
+    <footer class="footer">
       <a
         class="footer__link"
         href="https://github.com/guilhermescr/memory-game"

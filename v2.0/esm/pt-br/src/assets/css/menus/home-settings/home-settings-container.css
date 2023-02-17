@@ -1,0 +1,14 @@
+.home-settings-container {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  height: 90vh;
+  justify-content: space-around;
+  overflow-y: auto;
+}
+
+@media (max-width: 580px) {
+  .home-settings-container {
+    gap: 20px;
+  }
+}

@@ -1,0 +1,10 @@
+.templates h3 {
+  color: var(--home_settings_color);
+  font-size: 20px;
+}
+
+@media (min-width: 1367px) {
+  .templates h3 {
+    font-size: 40px;
+  }
+}

@@ -1,0 +1,17 @@
+#hearts {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+  height: 20px;
+}
+
+.hearts-container__heart {
+  cursor: pointer;
+  height: 100%;
+}
+
+@media (min-width: 1367px) {
+  #hearts {
+    height: 40px;
+  }
+}

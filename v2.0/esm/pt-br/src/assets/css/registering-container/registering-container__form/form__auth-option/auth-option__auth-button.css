@@ -1,0 +1,9 @@
+#auth-button {
+  cursor: pointer;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+#auth-button:hover {
+  color: #222;
+}

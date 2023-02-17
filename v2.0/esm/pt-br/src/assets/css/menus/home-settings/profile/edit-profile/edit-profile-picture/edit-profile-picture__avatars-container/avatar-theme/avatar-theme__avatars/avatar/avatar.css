@@ -1,0 +1,22 @@
+.avatar {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-block;
+  height: 78px;
+  justify-content: center;
+  margin-right: 5px;
+  width: 78px;
+}
+
+.avatar:hover {
+  opacity: 0.9;
+}
+
+@media (min-width: 1367px) {
+  .avatar {
+    height: 110px;
+    width: 110px;
+  }
+}

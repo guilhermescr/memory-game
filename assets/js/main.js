@@ -5,6 +5,13 @@ const PAGE_CONTENT = {
     body: 'pt_br',
     h1: 'Jogo da Memória',
     main_h2: 'Bem-vindos ao Jogo da Memória - 2023!',
+    shortcuts_title: 'Atalhos',
+    shortcut1_title: 'Trocar Modo Escuro/Claro:',
+    shortcut2_title: 'Trocar Idioma:',
+    shortcut3_title: 'Abrir/Fechar Menu:',
+    shortcut1_key: 'Tecla: C',
+    shortcut2_key: 'Tecla: L',
+    shortcut3_key: 'Tecla: M',
     versions_title: 'Versões',
     v1_title: 'Versão 1.0',
     v2_title: 'Versão 2.0',
@@ -19,6 +26,13 @@ const PAGE_CONTENT = {
     body: 'en_us',
     h1: 'Memory Game',
     main_h2: 'Welcome to the Memory Game - 2023!',
+    shortcuts_title: 'Shortcuts',
+    shortcut1_title: 'Switch Dark/Light Mode:',
+    shortcut2_title: 'Switch Language:',
+    shortcut3_title: 'Open/Close Menu:',
+    shortcut1_key: 'Key: C',
+    shortcut2_key: 'Key: L',
+    shortcut3_key: 'Key: M',
     versions_title: 'Versions',
     v1_title: 'Version 1.0',
     v2_title: 'Version 2.0',
@@ -34,7 +48,14 @@ const PAGE_ELEMENTS = {
   title: document.querySelector('title'),
   body: document.body,
   h1: document.querySelector('h1'),
-  main_h2: document.querySelector('main > h2'),
+  main_h2: document.querySelector('.main > h2'),
+  shortcuts_title: document.querySelector('.shortcuts > h3'),
+  shortcut1_title: document.querySelector('#color-mode-shortcut > h4'),
+  shortcut2_title: document.querySelector('#languages-shortcut > h4'),
+  shortcut3_title: document.querySelector('#toggle-menu-shortcut > h4'),
+  shortcut1_key: document.querySelector('#color-mode-shortcut > p'),
+  shortcut2_key: document.querySelector('#languages-shortcut > p'),
+  shortcut3_key: document.querySelector('#toggle-menu-shortcut > p'),
   versions_title: document.querySelector('.versions__title'),
   v1_title: document.querySelector('.v1-title'),
   v2_title: document.querySelector('.v2-title'),
@@ -114,6 +135,7 @@ const DARK_MODE_ICON = `
 </svg>
 `;
 const TOGGLE_COLOR_MODE_BUTTON = document.querySelector('.color-mode__button');
+let current_language = document.body.classList[0];
 
 function toggleBodyClasses($type, $element) {
   if ($type === 'lang') {
@@ -135,27 +157,17 @@ function toggleBodyClasses($type, $element) {
   }
 }
 
-TOGGLE_COLOR_MODE_BUTTON.addEventListener('click', () => {
-  toggleBodyClasses('color-mode', document.body);
-});
-
-function openLanguagesMenu() {
-  LANGUAGES_MENU.classList.remove('hide');
+function toggleLanguagesMenu() {
+  LANGUAGES_MENU.classList.toggle('hide');
 }
 
-function closeLanguagesMenu() {
-  LANGUAGES_MENU.classList.add('hide');
-}
-
-function togglePageLanguage() {
-  closeLanguagesMenu();
-
+function togglePageLanguage(lang) {
   const ELEMENTS_NAME = Object.keys(PAGE_ELEMENTS);
-  let language = this.innerHTML.includes('BR') ? 'pt_br' : 'en_us';
+  current_language = /br/i.test(lang) ? 'pt_br' : 'en_us';
 
   ELEMENTS_NAME.forEach(element_name => {
     const PAGE_ELEMENT = PAGE_ELEMENTS[element_name];
-    const CONTENT = PAGE_CONTENT[language][element_name];
+    const CONTENT = PAGE_CONTENT[current_language][element_name];
 
     if (element_name.includes('html')) {
       PAGE_ELEMENT.setAttribute('lang', CONTENT);
@@ -167,8 +179,31 @@ function togglePageLanguage() {
   });
 }
 
+function handleShortcut({ key }) {
+  if (key === 'c') {
+    toggleBodyClasses('color-mode', document.body);
+  }
+
+  if (key === 'l') {
+    togglePageLanguage(current_language === 'pt_br' ? 'en_us' : 'pt_br');
+  }
+
+  if (key === 'm') {
+    toggleLanguagesMenu();
+  }
+}
+
+window.addEventListener('keydown', handleShortcut);
+
 LANGUAGE_OPTION_BUTTONS.forEach(language_option_button => {
-  language_option_button.addEventListener('click', togglePageLanguage);
+  language_option_button.addEventListener('click', function () {
+    togglePageLanguage(this.innerHTML);
+    toggleLanguagesMenu();
+  });
 });
 
-GLOBE_BUTTON.addEventListener('click', openLanguagesMenu);
+GLOBE_BUTTON.addEventListener('click', toggleLanguagesMenu);
+
+TOGGLE_COLOR_MODE_BUTTON.addEventListener('click', () => {
+  toggleBodyClasses('color-mode', document.body);
+});

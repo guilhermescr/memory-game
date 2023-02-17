@@ -1,0 +1,7 @@
+.version-list {
+  border: 1px solid var(--version-list-border-color);
+  border-top-right-radius: 5px;
+  max-width: 400px;
+  position: relative;
+  width: 100%;
+}

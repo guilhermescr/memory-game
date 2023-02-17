@@ -1,0 +1,5 @@
+.version-title {
+  background-color: var(--version-title-background-color);
+  border-top-right-radius: 5px;
+  padding: 10px;
+}

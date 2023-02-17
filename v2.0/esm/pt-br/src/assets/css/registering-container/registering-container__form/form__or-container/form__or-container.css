@@ -1,0 +1,13 @@
+.form__or-container {
+  align-items: center;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.form__or-container * {
+  border: 1px solid #bbb;
+  color: #777;
+}

@@ -1,0 +1,28 @@
+.right-content__settings-icon {
+  cursor: pointer;
+  height: 40px;
+  opacity: 0.8;
+  pointer-events: all !important;
+}
+
+.right-content__settings-icon:hover {
+  opacity: 1;
+}
+
+@media (min-width: 1367px) {
+  .right-content__settings-icon {
+    height: 70px;
+  }
+}
+
+@media (max-width: 580px) {
+  .right-content__settings-icon {
+    height: 30px;
+  }
+}
+
+@media (max-width: 300px) {
+  .right-content__settings-icon {
+    height: 20px;
+  }
+}

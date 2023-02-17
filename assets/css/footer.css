@@ -1,0 +1,24 @@
+.footer {
+  align-items: center;
+  background-color: var(--footer-background-color);
+  color: var(--footer-text-color);
+  display: flex;
+  gap: 10px;
+  height: 50px;
+  justify-content: center;
+  width: 100%;
+}
+
+.footer__link {
+  align-items: center;
+  color: inherit;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.footer__link:hover {
+  text-decoration: underline;
+  transform: scale(0.98);
+  transition: transform 0.2s ease;
+}

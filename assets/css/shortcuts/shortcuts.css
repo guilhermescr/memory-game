@@ -1,0 +1,17 @@
+.shortcuts {
+  align-items: center;
+  color: var(--shortcuts-text-color);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  left: 0;
+  padding: 15px;
+  position: absolute;
+  top: 0;
+}
+
+@media (max-width: 510px) {
+  .shortcuts {
+    align-items: flex-start;
+  }
+}

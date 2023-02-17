@@ -1,0 +1,6 @@
+.random-themes-container {
+  align-items: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+}

@@ -1,0 +1,44 @@
+.profile-info-option {
+  background-color: #343434;
+  border: 1px solid #354443;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.profile-info-option:hover {
+  background-color: #444;
+  transform: scale(1.02);
+}
+
+.profile-info-option:active {
+  background-color: #393939;
+  opacity: 0.8;
+}
+
+.profile-info-option.profile-info-option--active::before {
+  background-color: #14d314;
+  border: 1px solid #cbcfcf;
+  border-radius: 50%;
+  content: '';
+  height: 10px;
+  left: -5px;
+  position: absolute;
+  top: -5px;
+  width: 10px;
+}
+
+@media (min-width: 1367px) {
+  .profile-info-option {
+    font-size: 30px;
+  }
+
+  .profile-info-option.profile-info-option--active::before {
+    height: 15px;
+    width: 15px;
+  }
+}

@@ -1,0 +1,8 @@
+.music-options {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}

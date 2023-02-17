@@ -1,0 +1,15 @@
+#globe-icon {
+  cursor: pointer;
+  fill: var(--globe-icon-color);
+  height: 24px;
+  position: absolute;
+  right: calc(0% + 20px);
+  width: 24px;
+  z-index: 2;
+}
+
+#github-icon {
+  fill: var(--github-icon-color);
+  height: 24px;
+  width: 24px;
+}

@@ -1,0 +1,10 @@
+.v1 .version-option {
+  height: calc(114px - 37px);
+  padding: 0;
+}
+
+.v1 .version-option a {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}

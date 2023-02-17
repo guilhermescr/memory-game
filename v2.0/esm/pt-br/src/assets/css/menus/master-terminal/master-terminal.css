@@ -1,0 +1,56 @@
+.master-terminal.menu {
+  padding: 0;
+}
+
+.setting-button[data-setting='master-terminal'].button--disabled {
+  box-shadow: none;
+  color: #888888;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.setting-button[data-setting='master-terminal'].button--disabled:hover {
+  background-image: linear-gradient(#413c3c, #706b6b);
+  color: #fff;
+  opacity: 0.7;
+}
+
+.setting-button[data-setting='master-terminal'].button--disabled:active {
+  background-image: linear-gradient(#413c3c, #706b6b);
+  color: #fff;
+  opacity: 0.8;
+}
+
+.setting-button[data-setting='master-terminal'].button--disabled::before {
+  background: url('http://store-images.s-microsoft.com/image/apps.58108.13958473186185708.ef638938-e120-4a27-8426-756706524368.3248475d-4281-4317-918f-0bb5a01ffedd')
+    center no-repeat fixed;
+  background-size: cover;
+  border-radius: 12px;
+  content: '';
+  height: 25px;
+  left: calc(0% - 8px);
+  position: absolute;
+  top: calc(0% - 12px);
+  width: 25px;
+}
+
+@media (min-width: 1367px) {
+  .master-terminal.menu h2 {
+    font-size: 50px;
+  }
+}
+
+@media (max-height: 420px) {
+  .master-terminal.show {
+    transform: translate(-50.1%, 0) scale(1) !important;
+  }
+
+  .master-terminal.menu {
+    border-radius: 0;
+    height: 100vh;
+  }
+
+  .master-terminal.menu h2 {
+    font-size: 20px;
+  }
+}

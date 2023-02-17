@@ -1,0 +1,37 @@
+.mode__play-button {
+  background-image: var(--buttons_background_image_gradient);
+  border: 1px solid var(--buttons_border_color);
+  border-radius: 10px;
+  box-shadow: 0 0 4px var(--buttons_box_shadow_color);
+  color: #fff;
+  cursor: pointer;
+  font-size: 15px;
+  max-width: 150px;
+  padding-block: 8px;
+  transition: 0.3s ease;
+  width: 100%;
+}
+
+.mode__play-button:hover {
+  background-image: var(--buttons_hover_gradient);
+  transform: scale(1.1);
+}
+
+.mode__play-button:active {
+  background-image: var(--buttons_active_gradient);
+}
+
+@media (min-width: 1367px) {
+  .mode__play-button {
+    font-size: 40px;
+    max-width: 200px;
+  }
+}
+
+@media (max-height: 325px) {
+  .mode__play-button {
+    font-size: 14px;
+    padding-block: 4px;
+    max-width: 80px;
+  }
+}

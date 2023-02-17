@@ -1,0 +1,6 @@
+.user-input-container {
+  align-items: center;
+  color: #fff;
+  display: flex;
+  gap: 5px;
+}

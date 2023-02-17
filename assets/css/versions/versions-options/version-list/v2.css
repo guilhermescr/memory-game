@@ -1,0 +1,12 @@
+.v2::after {
+  color: var(--headings-text-color);
+  content: var(--v2_note);
+  font-weight: bold;
+  padding-top: 10px;
+  position: absolute;
+  font-style: italic;
+}
+
+.v2 li:nth-child(2) {
+  border-bottom: 1px solid var(--v2-li-border-bottom-color);
+}

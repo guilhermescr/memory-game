@@ -1,0 +1,11 @@
+.disabled-button-message-box h2 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.disabled-button-message-box p {
+  color: #efefef;
+  font-size: 16px;
+  font-weight: normal;
+}

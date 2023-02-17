@@ -1,0 +1,7 @@
+.header {
+  background-color: var(--header-background-color);
+  color: var(--header-text-color);
+  height: 50px;
+  padding: 5px;
+  text-align: center;
+}

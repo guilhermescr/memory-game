@@ -1,0 +1,15 @@
+.languages-menu {
+  align-items: center;
+  background-color: var(--languages-menu-background-color);
+  color: var(--main-text-color);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}

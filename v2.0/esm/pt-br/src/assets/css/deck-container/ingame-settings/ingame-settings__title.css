@@ -1,0 +1,6 @@
+@media (max-height: 600px) and (max-width: 920px) {
+  #ingame-settings__title {
+    position: absolute;
+    top: 5%;
+  }
+}

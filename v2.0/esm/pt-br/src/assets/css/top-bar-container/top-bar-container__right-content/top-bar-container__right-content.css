@@ -1,0 +1,7 @@
+.top-bar-container__right-content {
+  align-items: center;
+  display: flex;
+  gap: 5px;
+  height: max-content;
+  justify-content: space-between;
+}

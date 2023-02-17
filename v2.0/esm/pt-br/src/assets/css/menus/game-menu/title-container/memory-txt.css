@@ -1,0 +1,6 @@
+#title-container__title #memory-txt {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-image: var(--main_title_gradient);
+}

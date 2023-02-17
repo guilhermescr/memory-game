@@ -1,0 +1,28 @@
+.audio-content {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  width: max-content;
+}
+
+@media (orientation: landscape) and (max-height: 600px) and (max-width: 800px) {
+  .deck-container__ingame-settings .audio-content {
+    width: 100%;
+  }
+}
+
+@media (max-width: 580px) {
+  .audio-content {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 270px) {
+  .audio-content:nth-child(3) {
+    flex-direction: column;
+  }
+}

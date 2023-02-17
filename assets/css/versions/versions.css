@@ -1,0 +1,10 @@
+.versions {
+  align-items: center;
+  align-self: center;
+  display: flex;
+  color: var(--main-text-color);
+  flex-direction: column;
+  gap: 20px;
+  margin-block: auto;
+  width: 100%;
+}

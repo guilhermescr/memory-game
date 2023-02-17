@@ -1,0 +1,40 @@
+.play-music-button {
+  background-image: var(--buttons_background_image_gradient);
+  border: 1px solid var(--buttons_border_color);
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px var(--buttons_box_shadow_color);
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 8px 10px;
+  transition: 0.3s ease;
+  width: 35%;
+}
+
+.play-music-button:hover {
+  background-image: var(--buttons_hover_gradient);
+  transform: scale(1.1);
+}
+
+.play-music-button:active {
+  background-image: var(--buttons_active_gradient) !important;
+}
+
+@media (min-width: 1367px) {
+  .deck-container__ingame-settings .play-music-button {
+    font-size: 35px;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 600px) and (max-width: 920px) {
+  .deck-container__ingame-settings .play-music-button {
+    padding-block: 4px;
+    width: 70%;
+  }
+}
+
+@media (max-width: 580px) {
+  .play-music-button {
+    width: 75%;
+  }
+}

@@ -1,0 +1,7 @@
+.front-face {
+  backface-visibility: hidden;
+  height: 80%;
+  padding: 20px;
+  position: absolute;
+  width: 100%;
+}

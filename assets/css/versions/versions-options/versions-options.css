@@ -1,0 +1,11 @@
+.versions-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.versions-options li {
+  padding: 10px;
+}

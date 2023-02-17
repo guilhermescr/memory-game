@@ -1,0 +1,35 @@
+.confirm-action-popup {
+  align-items: center;
+  background-color: #000000d2;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  pointer-events: all;
+  position: absolute;
+  top: 0;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+  width: 100vw;
+  z-index: 100;
+}
+
+.confirm-action-popup.confirm-popup {
+  transform: scale(1);
+}
+
+#confirm-action-popup__title {
+  background-color: var(--confirm-popup-title-background-color);
+  border-block: 1px solid #000;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 500;
+  padding: 5px 10px;
+  width: 100%;
+}
+
+@media (min-width: 1367px) {
+  #confirm-action-popup__title {
+    font-size: 50px;
+  }
+}

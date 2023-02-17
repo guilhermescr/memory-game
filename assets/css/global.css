@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  transition: background-color 0.3s ease, opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: var(--body-background-color);
+  position: relative;
+}
+
+h2 {
+  color: var(--headings-text-color);
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+.en_us {
+  --v2_note: 'Note: Option 2 is preferred if Option 1 does not work.';
+}
+
+.pt_br {
+  --v2_note: 'OBS.: A Opção 2 é preferível se a Opção 1 não funcionar.';
+}
+
+.hide {
+  opacity: 0;
+  visibility: hidden;
+}

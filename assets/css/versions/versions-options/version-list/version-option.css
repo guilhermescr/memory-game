@@ -1,0 +1,25 @@
+.version-option {
+  background-color: var(--version-option-background-color);
+  cursor: pointer;
+  text-align: center;
+  transition: 0.2s ease;
+}
+
+.version-option:hover {
+  background-color: var(--version-option-hover-background-color);
+  color: var(--version-option-hover-text-color);
+  font-weight: bold;
+}
+
+.version-option:active {
+  background-color: var(--version-option-active-background-color);
+  color: var(--version-option-active-text-color);
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.version-option a {
+  color: inherit;
+  height: 100%;
+  width: 100%;
+}

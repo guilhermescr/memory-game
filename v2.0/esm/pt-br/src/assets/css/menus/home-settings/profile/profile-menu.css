@@ -1,0 +1,14 @@
+.profile-menu {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+@media (max-width: 580px) {
+  .profile-menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

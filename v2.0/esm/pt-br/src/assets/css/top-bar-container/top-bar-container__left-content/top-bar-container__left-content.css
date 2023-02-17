@@ -1,0 +1,23 @@
+.top-bar-container__left-content {
+  align-items: center;
+  display: flex;
+  gap: 5px;
+  position: relative;
+}
+
+@media (max-width: 580px) {
+  .top-bar-container__left-content {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 300px) {
+  .top-bar-container__left-content {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .top-bar-container__left-content * {
+    font-size: 15px;
+  }
+}

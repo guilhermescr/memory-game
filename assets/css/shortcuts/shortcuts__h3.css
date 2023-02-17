@@ -1,0 +1,3 @@
+.shortcuts h3 {
+  text-shadow: -1px 0 2px var(--shortcuts-h3-border-color);
+}

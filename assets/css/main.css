@@ -1,0 +1,28 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 100px);
+  padding: 20px;
+  position: relative;
+  user-select: none;
+}
+
+@media (max-width: 510px) {
+  .main > h2 {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 350px) {
+  .main > h2 {
+    max-width: 220px;
+  }
+}
+
+@media (max-height: 450px) {
+  .main {
+    gap: 40px;
+    height: max-content;
+    padding-bottom: 50px;
+  }
+}

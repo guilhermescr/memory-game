@@ -1,0 +1,42 @@
+.modes {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  height: 90%;
+  justify-content: center;
+  margin-inline: auto;
+}
+
+
+@media (min-width: 1367px) {
+  .modes {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 540px) {
+  .modes {
+    flex-direction: column;
+  }
+}
+
+@media (max-height: 660px) and (max-width: 600px) {
+  .modes {
+    height: max-content;
+    margin-top: 15px;
+  }
+}
+
+@media (max-height: 450px) {
+  .modes {
+    gap: 0;
+    max-width: 500px;
+    width: 100%;
+  }
+}
+
+@media (max-height: 290px) {
+  .modes {
+    margin-top: 0;
+  }
+}

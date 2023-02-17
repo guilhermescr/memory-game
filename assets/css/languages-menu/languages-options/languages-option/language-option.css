@@ -1,0 +1,44 @@
+.language-option {
+  background-color: var(--language-option-background-color);
+  border: none;
+  color: var(--language-option-text-color);
+  cursor: pointer;
+  display: block;
+  font-size: 18px;
+  max-width: 300px;
+  margin: 0 auto;
+  outline: none;
+  padding: 20px;
+  text-align: center;
+  transition: 0.2s ease;
+  width: 100%;
+}
+
+.language-option:hover {
+  background-color: var(--language-option-hover-background-color);
+  color: var(--language-option-hover-text-color);
+  font-weight: bold;
+}
+
+.language-option:active {
+  background-color: var(--language-option-active-background-color);
+  color: var(--language-option-active-text-color);
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.language-option:nth-child(1) {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 510px) {
+  .language-option {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 350px) {
+  .language-option {
+    max-width: 200px;
+  }
+}
