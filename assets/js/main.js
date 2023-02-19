@@ -16,8 +16,14 @@ const PAGE_CONTENT = {
     v1_title: 'Versão 1.0',
     v2_title: 'Versão 2.0',
     simple_version: 'Versão Simples',
-    v_option1: 'Versão Completa - Opção 1',
-    v_option2: 'Versão Completa - Opção 2',
+    v_option1: {
+      title: 'Versão Completa - Opção 1',
+      href: 'v2.0/esm/pt-br/public/'
+    },
+    v_option2: {
+      title: 'Versão Completa - Opção 2',
+      href: ''
+    },
     repository_text: 'Repositório'
   },
   en_us: {
@@ -37,8 +43,14 @@ const PAGE_CONTENT = {
     v1_title: 'Version 1.0',
     v2_title: 'Version 2.0',
     simple_version: 'Simple Version',
-    v_option1: 'Complete Version - Option 1',
-    v_option2: 'Complete Version - Option 2',
+    v_option1: {
+      title: 'Complete Version - Option 1',
+      href: 'v2.0/esm/en-us/public/'
+    },
+    v_option2: {
+      title: 'Complete Version - Option 2',
+      href: ''
+    },
     repository_text: 'Repository'
   }
 };
@@ -173,6 +185,9 @@ function togglePageLanguage(lang) {
       PAGE_ELEMENT.setAttribute('lang', CONTENT);
     } else if (element_name.includes('body')) {
       toggleBodyClasses('lang', PAGE_ELEMENT);
+    } else if (element_name.includes('v_option')) {
+      PAGE_ELEMENT.innerHTML = CONTENT.title;
+      PAGE_ELEMENT.href = CONTENT.href;
     } else {
       PAGE_ELEMENT.innerHTML = CONTENT;
     }

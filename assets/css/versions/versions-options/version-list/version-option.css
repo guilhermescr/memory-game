@@ -1,6 +1,7 @@
 .version-option {
   background-color: var(--version-option-background-color);
   cursor: pointer;
+  height: 38.7px;
   text-align: center;
   transition: 0.2s ease;
 }
@@ -19,7 +20,10 @@
 }
 
 .version-option a {
+  align-items: center;
   color: inherit;
+  display: flex;
   height: 100%;
+  justify-content: center;
   width: 100%;
 }
