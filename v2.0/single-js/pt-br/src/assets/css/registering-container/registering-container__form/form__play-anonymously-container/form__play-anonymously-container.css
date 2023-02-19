@@ -1,0 +1,11 @@
+.form__play-anonymously-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.form__play-anonymously-container * {
+  color: #555;
+}

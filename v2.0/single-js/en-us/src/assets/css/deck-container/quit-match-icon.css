@@ -1,0 +1,31 @@
+.quit-match-icon {
+  border-radius: 5px;
+  cursor: pointer;
+  height: 30px;
+  left: 20px;
+  position: absolute;
+  top: 20px;
+  transform: rotate(180deg);
+  width: 30px;
+}
+
+.quit-match-icon:hover {
+  background-color: #efefef05;
+}
+
+.quit-match-icon path {
+  fill: #fff;
+}
+
+.quit-match-icon:hover path {
+  fill: #efefef;
+}
+
+@media (min-width: 1367px) {
+  .quit-match-icon {
+    height: 60px;
+    left: 5%;
+    top: 5%;
+    width: 60px;
+  }
+}

@@ -22,7 +22,7 @@ const PAGE_CONTENT = {
     },
     v_option2: {
       title: 'Versão Completa - Opção 2',
-      href: ''
+      href: 'v2.0/single-js/pt-br/public/'
     },
     repository_text: 'Repositório'
   },
@@ -49,7 +49,7 @@ const PAGE_CONTENT = {
     },
     v_option2: {
       title: 'Complete Version - Option 2',
-      href: ''
+      href: 'v2.0/single-js/en-us/public/'
     },
     repository_text: 'Repository'
   }

@@ -1,0 +1,41 @@
+.open-profile-menu {
+  align-items: center;
+  background-color: #353535;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 5px;
+  justify-content: center;
+  padding: 5px 10px;
+  position: relative;
+  max-width: 190px;
+  width: 100%;
+}
+
+.open-profile-menu:hover {
+  background-color: #323232;
+}
+
+.open-profile-menu:active {
+  background-color: #383838;
+  opacity: 0.9;
+}
+
+@media (max-height: 350px) {
+  .open-profile-menu {
+    margin-top: 35px;
+  }
+}
+
+@media (min-width: 1367px) {
+  .open-profile-menu {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 580px) {
+  .open-profile-menu {
+    margin-bottom: 20px;
+  }
+}

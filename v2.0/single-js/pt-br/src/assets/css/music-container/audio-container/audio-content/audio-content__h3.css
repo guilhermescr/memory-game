@@ -1,0 +1,13 @@
+.audio-content h3 {
+  align-items: center;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  width: 100px;
+}
+
+@media (orientation: landscape) and (max-height: 600px) and (max-width: 800px) {
+  .audio-container h3 {
+    gap: 10px;
+  }
+}

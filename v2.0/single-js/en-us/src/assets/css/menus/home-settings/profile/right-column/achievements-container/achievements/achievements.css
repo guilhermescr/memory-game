@@ -1,0 +1,30 @@
+.achievements-section__achievements {
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 5px;
+  width: 100%;
+}
+
+.achievements-section__achievements::-webkit-scrollbar {
+  width: 12px;
+}
+
+.achievements-section__achievements::-webkit-scrollbar-track {
+  background: #292929;
+}
+
+.achievements-section__achievements::-webkit-scrollbar-thumb {
+  background-color: #555555;
+  border: 2px solid #222222;
+  border-radius: 20px;
+}
+
+@media (max-width: 580px) {
+  .achievements-section__achievements::-webkit-scrollbar {
+    display: none;
+  }
+
+  .achievements-section__achievements {
+    padding: 0;
+  }
+}

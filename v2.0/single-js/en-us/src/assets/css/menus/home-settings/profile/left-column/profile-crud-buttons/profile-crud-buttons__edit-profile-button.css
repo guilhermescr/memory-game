@@ -1,0 +1,14 @@
+.edit-profile-button {
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-size: 20px;
+}
+
+.edit-profile-button:hover {
+  color: #f4fff4e0;
+}
+
+.edit-profile-button:active {
+  color: #efefef;
+}

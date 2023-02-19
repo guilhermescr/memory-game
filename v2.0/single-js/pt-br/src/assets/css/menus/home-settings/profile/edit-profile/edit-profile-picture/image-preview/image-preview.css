@@ -1,0 +1,20 @@
+.image-preview {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.image-preview__img {
+  max-width: 100px;
+  width: 100%;
+}
+
+@media (min-width: 1367px) {
+  .image-preview__img {
+    max-width: 150px;
+  }
+}

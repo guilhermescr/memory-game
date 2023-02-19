@@ -1,0 +1,43 @@
+.help-center__commands-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+  max-height: 170px;
+  overflow-y: auto;
+}
+
+.help-center__commands-list::-webkit-scrollbar {
+  width: 12px;
+}
+
+.help-center__commands-list::-webkit-scrollbar-track {
+  background: #3e3f3f;
+}
+
+.help-center__commands-list::-webkit-scrollbar-thumb {
+  background-color: #3e3f3f;
+  border: 2px solid #0e0e0e;
+}
+
+.help-center__commands-list.less {
+  display: none;
+}
+
+@media (min-width: 1367px) {
+  .help-center__commands-list {
+    max-height: 180px;
+  }
+}
+
+@media (max-height: 580px) {
+  .help-center__commands-list {
+    max-height: 120px;
+  }
+}
+
+@media (max-height: 360px) {
+  .help-center__commands-list {
+    max-height: 65px;
+  }
+}

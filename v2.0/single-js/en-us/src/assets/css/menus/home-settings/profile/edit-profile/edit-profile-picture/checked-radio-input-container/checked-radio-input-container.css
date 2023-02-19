@@ -1,0 +1,21 @@
+.checked-radio-input-container {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 20px;
+}
+
+@media (min-width: 1367px) {
+  .checked-radio-input-container {
+    gap: 10px;
+  }
+
+  .checked-radio-input-container label {
+    font-size: 30px;
+  }
+
+  .checked-radio-input-container input {
+    font-size: 25px;
+  }
+}

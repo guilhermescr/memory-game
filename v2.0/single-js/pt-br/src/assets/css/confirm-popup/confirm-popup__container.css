@@ -1,0 +1,36 @@
+@keyframes confirmPopupMovement {
+  from {
+    margin-inline: 5px;
+    padding-block: 15px;
+  }
+  to {
+    box-shadow: 0 0 20px #faf7f7fa;
+    margin-inline: 10px;
+    padding-block: 20px;
+  }
+}
+
+.confirm-action-popup__container {
+  align-items: center;
+  background-color: var(--confirm-popup-container-background-color);
+  border: 1px solid #000;
+  border-radius: 10px;
+  box-shadow: 0 0 6px #ccccccc0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+  min-height: 200px;
+  padding-block: 20px;
+  width: max-content;
+}
+
+.confirm-action-popup.confirm-popup .confirm-action-popup__container {
+  animation: confirmPopupMovement 2s infinite alternate;
+}
+
+@media (min-width: 1367px) {
+  .confirm-action-popup__container {
+    min-height: 250px;
+  }
+}

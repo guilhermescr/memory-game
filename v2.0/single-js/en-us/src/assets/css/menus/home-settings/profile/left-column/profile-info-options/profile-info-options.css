@@ -1,0 +1,13 @@
+.profile-info-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 250px;
+  width: 100%;
+}
+
+@media (min-width: 1367px) {
+  .profile-info-options {
+    max-width: 400px;
+  }
+}

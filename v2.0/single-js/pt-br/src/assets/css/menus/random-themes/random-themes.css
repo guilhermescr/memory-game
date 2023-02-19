@@ -1,0 +1,8 @@
+.random-themes {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}

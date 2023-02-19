@@ -1,0 +1,22 @@
+.avatars {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.avatars::-webkit-scrollbar {
+  height: 10px;
+  width: 12px;
+}
+
+.avatars::-webkit-scrollbar-track {
+  background: #3e3f3f;
+  border-radius: 15px;
+}
+
+.avatars::-webkit-scrollbar-thumb {
+  background-color: #a8a8a5;
+  border: 1px solid #6d6363;
+  border-radius: 15px;
+}

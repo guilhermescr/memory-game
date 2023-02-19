@@ -1,0 +1,11 @@
+.open-profile-menu h3 {
+  font-weight: 500;
+  width: 60%;
+  word-break: break-word;
+}
+
+@media (min-width: 1367px) {
+  .open-profile-menu h3 {
+    font-size: 30px;
+  }
+}

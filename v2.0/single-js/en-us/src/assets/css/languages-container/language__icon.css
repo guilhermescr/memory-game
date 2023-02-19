@@ -1,0 +1,23 @@
+.language-link:nth-child(1) svg circle:nth-child(1) {
+  fill: #00c85f;
+}
+
+.language-link:nth-child(1) svg path {
+  fill: #fff046;
+}
+
+.language-link:nth-child(1) svg circle:nth-child(3) {
+  fill: #4b82e1;
+}
+
+.language-link:nth-child(1) svg.language--disabled circle:nth-child(1) {
+  fill: #352121;
+}
+
+.language-link:nth-child(1) svg.language--disabled path {
+  fill: #afafaf;
+}
+
+.language-link:nth-child(1) svg.language--disabled circle:nth-child(3) {
+  fill: #352121;
+}

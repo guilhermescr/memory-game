@@ -1,0 +1,13 @@
+.templates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding-top: 20px;
+  width: 100%;
+}
+
+@media (max-width: 580px) {
+  .templates {
+    gap: 25px;
+  }
+}

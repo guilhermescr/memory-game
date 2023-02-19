@@ -1,0 +1,21 @@
+.achievements-section {
+  align-items: center;
+  background-color: #343434;
+  border-radius: 5px;
+  box-shadow: 0 0 20px #424242;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  padding: 8px 15px;
+  width: 100%;
+}
+
+@media (max-width: 580px) {
+  .achievements-section {
+    border-radius: 4px;
+    box-shadow: none;
+    margin: 0 auto;
+    max-width: 250px;
+  }
+}

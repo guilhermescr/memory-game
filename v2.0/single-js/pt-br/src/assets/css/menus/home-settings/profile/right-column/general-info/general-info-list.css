@@ -1,0 +1,12 @@
+.general-info-list {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 580px) {
+  .general-info-list {
+    flex-flow: row wrap;
+  }
+}

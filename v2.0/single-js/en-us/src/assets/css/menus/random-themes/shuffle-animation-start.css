@@ -1,0 +1,13 @@
+@keyframes shuffleThemeStart {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shuffle-animation-start {
+  animation: shuffleThemeStart 0.5s linear infinite alternate;
+}

@@ -1,0 +1,39 @@
+.language-link:nth-child(1) svg circle:nth-child(1) {
+  fill: #00c85f;
+}
+
+.language-link:nth-child(1) svg path {
+  fill: #fff046;
+}
+
+.language-link:nth-child(1) svg circle:nth-child(3) {
+  fill: #4b82e1;
+}
+
+.language-link:nth-child(1) svg.language--disabled circle:nth-child(1) {
+  fill: #352121;
+}
+
+.language-link:nth-child(1) svg.language--disabled path {
+  fill: #afafaf;
+}
+
+.language-link:nth-child(1) svg.language--disabled circle:nth-child(3) {
+  fill: #352121;
+}
+
+#us-red-bars {
+  fill: #d80027;
+}
+
+#us-stars-background {
+  fill: #0052b4;
+}
+
+.language--disabled #us-red-bars {
+  fill: #352121;
+}
+
+.language--disabled #us-stars-background {
+  fill: #352121;
+}

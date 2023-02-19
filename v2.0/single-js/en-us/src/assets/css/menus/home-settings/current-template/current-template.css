@@ -1,0 +1,23 @@
+.current-template {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  justify-content: center;
+  margin: 0;
+  max-height: 250px;
+}
+
+@media (max-height: 350px) {
+  .current-template {
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 580px) {
+  .current-template {
+    max-width: 100%;
+    width: 100%;
+  }
+}

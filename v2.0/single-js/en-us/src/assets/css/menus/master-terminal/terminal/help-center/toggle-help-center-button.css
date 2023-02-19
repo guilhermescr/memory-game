@@ -1,0 +1,30 @@
+.toggle-help-center-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  left: 2%;
+  position: absolute;
+  top: 7px;
+  width: 30px;
+}
+
+.toggle-help-center-button:hover {
+  border-color: #cfcfcf;
+  color: #e0e0e0;
+}
+
+.toggle-help-center-button:active {
+  opacity: 0.8;
+}
+
+.terminal__help-center.less .toggle-help-center-button {
+  top: 15%;
+}
+
+@media (min-width: 1367px) {
+  .toggle-help-center-button {
+    height: 50px;
+    width: 50px;
+  }
+}

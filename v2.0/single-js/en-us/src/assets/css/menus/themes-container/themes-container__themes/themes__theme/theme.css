@@ -1,0 +1,27 @@
+.theme {
+  align-items: center;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 20px;
+  justify-content: space-between;
+  min-height: 250px;
+  padding-block: 10px;
+  position: relative;
+  width: 50%;
+}
+
+.theme #ben-10 {
+  width: 50%;
+}
+
+@media (max-width: 580px) {
+  .theme {
+    height: 270px;
+  }
+}
+
+@media (max-width: 480px) {
+  .theme {
+    height: 240px;
+  }
+}

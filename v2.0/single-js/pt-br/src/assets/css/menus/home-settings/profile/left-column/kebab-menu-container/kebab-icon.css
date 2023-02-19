@@ -1,0 +1,20 @@
+.kebab-icon {
+  cursor: pointer;
+  display: flex;
+  fill: #fff;
+  width: 7px;
+}
+
+.kebab-icon:hover {
+  fill: #f4fff4e0;
+}
+
+.kebab-icon:active {
+  fill: #efefef;
+}
+
+@media (min-width: 1367px) {
+  .kebab-icon {
+    width: 12px;
+  }
+}

@@ -1,0 +1,93 @@
+.achievement__badge-container {
+  align-items: center;
+  background-color: #353535;
+  border: 1px solid #5f636d;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  margin-left: 10px;
+  padding: 12px 5px;
+  position: relative;
+  text-align: center;
+  width: 56px;
+}
+
+.badge-container__custom-border {
+  border-radius: 50%;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.custom-border__circle {
+  background-image: linear-gradient(#808080, #4b4b4b);
+  border: 1px solid #2f384e;
+  border-radius: 50%;
+  height: 10px;
+  position: absolute;
+  width: 10px;
+}
+
+.custom-border__circle:nth-child(1) {
+  left: 23px;
+  top: -6px;
+}
+
+.custom-border__circle:nth-child(2) {
+  left: -6px;
+  top: 22px;
+}
+
+.custom-border__circle:nth-child(3) {
+  left: 23px;
+  top: 49px;
+}
+
+.custom-border__circle:nth-child(4) {
+  left: 50px;
+  top: 22px;
+}
+
+@media (min-width: 1367px) {
+  .achievement-popup .achievement__badge-container {
+    height: 100px;
+    width: 100px;
+  }
+
+  .achievement-popup .custom-border__circle {
+    height: 20px;
+    width: 20px;
+  }
+
+  .achievement-popup .custom-border__circle:nth-child(1) {
+    left: 39px;
+    top: -8px;
+  }
+
+  .achievement-popup .custom-border__circle:nth-child(2) {
+    left: -10px;
+    top: 37px;
+  }
+
+  .achievement-popup .custom-border__circle:nth-child(3) {
+    left: 40px;
+    top: 85px;
+  }
+
+  .achievement-popup .custom-border__circle:nth-child(4) {
+    left: 88px;
+    top: 40px;
+  }
+}
+
+@media (min-width: 581px) and (max-width: 695px) {
+  .achievement__badge-container {
+    margin-left: 5px;
+  }
+}
+
+@media (max-width: 580px) {
+  .achievement__badge-container {
+    margin-left: 0;
+  }
+}

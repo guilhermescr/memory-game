@@ -1,0 +1,28 @@
+#click-on-window-message-container {
+  align-items: center;
+  background-color: #181d20fb;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  height: 100vh;
+  left: 0;
+  padding-top: 10%;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 100;
+}
+
+#click-on-window-message-container h2 {
+  animation: moveLoadingTitle 1.5s alternate infinite;
+  color: var(--window_message_text_color);
+  font-size: 50px;
+  text-shadow: var(--window_message_text_shadow);
+}
+
+@media (max-height: 640px), (max-width: 580px) {
+  #click-on-window-message-container h2 {
+    font-size: 28px;
+  }
+}

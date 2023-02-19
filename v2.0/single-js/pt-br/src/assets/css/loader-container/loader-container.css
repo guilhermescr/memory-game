@@ -1,0 +1,28 @@
+#loader-container {
+  align-items: center;
+  background-color: #181d20fb;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  height: 100vh;
+  left: 0;
+  padding-top: 10%;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 100;
+}
+
+@media (min-height: 500px), (max-height: 290px), (max-width: 580px) {
+  #loader-container {
+    gap: 30px;
+    justify-content: center;
+    padding-top: 0;
+  }
+}
+
+@media (min-height: 500px) {
+  #loader-container {
+    gap: 50px;
+  }
+}

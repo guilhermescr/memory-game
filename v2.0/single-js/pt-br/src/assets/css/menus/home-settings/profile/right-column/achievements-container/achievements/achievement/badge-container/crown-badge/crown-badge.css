@@ -1,0 +1,33 @@
+.crown-badge {
+  align-items: center;
+  display: flex;
+  height: 27px;
+  justify-content: center;
+  margin-left: 2px;
+  margin-top: 4px;
+  position: relative;
+  width: 100%;
+}
+
+.crown-badge__crown {
+  clip-path: polygon(
+    50% 15%,
+    71% 35%,
+    95% 15%,
+    100% 55%,
+    0 55%,
+    5% 15%,
+    30% 35%
+  );
+  height: 40px;
+  position: absolute;
+  width: 28px;
+}
+
+.crown-badge__bottom-piece {
+  border-radius: 2px 2px 5px 5px;
+  bottom: 6px;
+  height: 5px;
+  position: absolute;
+  width: 28px;
+}

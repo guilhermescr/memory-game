@@ -5,3 +5,9 @@
   position: absolute;
   right: 10%;
 }
+
+@media (max-width: 800px) {
+  .profile-crud-buttons {
+    right: 4%;
+  }
+}

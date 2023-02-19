@@ -1,0 +1,17 @@
+.theme h3 {
+  font-size: 22px;
+  font-weight: 500;
+  width: 50%;
+}
+
+@media (min-width: 1367px) {
+  .theme h3 {
+    font-size: 35px;
+  }
+}
+
+@media (max-width: 580px) {
+  .theme h3 {
+    width: 100%;
+  }
+}

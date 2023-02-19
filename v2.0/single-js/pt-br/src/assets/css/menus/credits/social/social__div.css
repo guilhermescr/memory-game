@@ -1,0 +1,23 @@
+.social > div {
+  align-items: center;
+  display: flex;
+  gap: 5px;
+  max-width: 200px;
+  padding-inline: 5px;
+  width: 100%;
+}
+
+.social > div > svg {
+  fill: #fff;
+  width: 15%;
+}
+
+@media (min-width: 1367px) {
+  .social > div {
+    max-width: 600px;
+  }
+
+  .social > div > svg {
+    width: 50px;
+  }
+}

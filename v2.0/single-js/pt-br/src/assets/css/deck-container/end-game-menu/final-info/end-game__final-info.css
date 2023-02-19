@@ -1,0 +1,10 @@
+.end-game__final-info {
+  color: #fff;
+  font-size: 20px;
+}
+
+@media (min-width: 1367px) {
+  .end-game__final-info {
+    font-size: 40px;
+  }
+}

@@ -1,0 +1,16 @@
+.home-settings-container h2 {
+  width: 100%;
+}
+
+@media (max-width: 440px) {
+  .home-settings-container > h2 {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 300px) {
+  .home-settings-container > h2 {
+    font-size: 24px;
+    max-width: 160px;
+  }
+}

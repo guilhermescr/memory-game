@@ -1,0 +1,17 @@
+@media (max-width: 540px) {
+  .play-game.menu {
+    overflow-y: scroll;
+  }
+}
+
+@media (max-width: 280px) {
+  .play-game.menu > h2 {
+    font-size: 22px;
+  }
+}
+
+@media (max-height: 400px) {
+  .play-game.menu > h2 {
+    font-size: 20px;
+  }
+}

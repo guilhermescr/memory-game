@@ -1,0 +1,28 @@
+.switch-audio-container {
+  background-color: var(--switch_sounds_container--inactive_background_color);
+  border-radius: 15px;
+  box-shadow: 0 0 2px 3px #000000b3;
+  height: 35px;
+  position: relative;
+  transition: 0.3s;
+  width: 70px;
+}
+
+.switch-audio-container--active {
+  background-color: var(
+    --switch_sounds_container--active_background_color
+  ) !important;
+}
+
+@media (min-width: 1367px) {
+  .switch-audio-container {
+    height: 50px;
+    width: 85px;
+  }
+}
+
+@media (min-width: 550px) and (max-width: 1000px) and (max-height: 500px) {
+  .switch-audio-container {
+    width: 60px;
+  }
+}

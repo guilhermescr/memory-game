@@ -1,0 +1,53 @@
+.forest_template .game-menu__template-animation {
+  perspective: 1000px;
+  top: 0;
+  width: 50px;
+}
+
+.forest_template .game-menu__template-animation img {
+  width: 100%;
+}
+
+@keyframes FlyingAnimation {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  35% {
+    top: 0;
+  }
+  44% {
+    top: var(--bird_top_position_animation);
+  }
+  49% {
+    left: var(--bird_left_position_animation);
+  }
+  70% {
+    top: var(--bird_top_position_animation);
+    left: var(--bird_left_position_animation);
+    transform: rotateY(0deg);
+  }
+  75% {
+    top: 0;
+    left: var(--bird_left_position_animation);
+    transform: rotateY(180deg);
+  }
+  98% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+    left: 0;
+  }
+}
+
+.flying-animation {
+  animation: FlyingAnimation 20s infinite;
+}
+
+@media (min-width: 1367px) {
+  .forest_template .game-menu__template-animation {
+    width: 90px;
+  }
+  
+}

@@ -1,0 +1,14 @@
+.profile-picture-options > div {
+  margin-bottom: 5px;
+}
+
+.profile-picture-options > div:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 1367px) {
+  .profile-picture-options > div {
+    display: flex;
+    gap: 20px;
+  }
+}

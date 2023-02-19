@@ -366,9 +366,9 @@ function quitGame() {
   const { CurrentTemplate } = onlineUser.userData;
   if (isWin) {
     checkResultsForAchievements();
-    renderLoaderContainer('Indo para o início...');
+    renderLoaderContainer('Voltando ao Inicio...');
   } else {
-    renderLoaderContainer('Se empenhe mais na próxima...');
+    renderLoaderContainer('Se empenhe mais na proxima...');
     updateWinStreak(0);
     renderGeneralInfo();
   }
@@ -412,7 +412,7 @@ function endGame(matchResult, isQuitGame) {
 
   openMenu('end-game-menu');
   timing.render();
-  END_GAME_TITLE.innerHTML = isWin ? 'Vitória!' : 'Game Over!';
+  END_GAME_TITLE.innerHTML = isWin ? 'Vitoria!' : 'Game Over!';
   END_GAME_MAX_COMBO.innerHTML = max_combo;
 
   if (isQuitGame) {

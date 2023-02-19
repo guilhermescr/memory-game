@@ -306,7 +306,7 @@ function renderAvatars(CHECKED_RADIO_INPUT_CONTAINER) {
 
   hideElements([PROFILE_PICTURE_OPTIONS, SAVE_PROFILE_PICTURE_BUTTON]);
   document.querySelector('.edit-profile-picture-container > h3').innerHTML =
-    'Avatars';
+    'Avatares';
 
   circle_return_icon.removeEventListener('click', showMainMenuInEditProfile);
 

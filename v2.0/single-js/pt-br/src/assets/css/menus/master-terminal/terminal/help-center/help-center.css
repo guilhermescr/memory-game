@@ -1,0 +1,11 @@
+.terminal__help-center {
+  border-bottom: 2px solid #252525;
+  max-height: 220px;
+  position: relative;
+}
+
+@media (min-width: 1367px) {
+  .terminal__help-center {
+    max-height: 250px;
+  }
+}

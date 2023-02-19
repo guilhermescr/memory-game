@@ -1,0 +1,19 @@
+.experience-bar {
+  background-color: #555;
+  border: 2px solid var(--switch_sounds_container--active_background_color);
+  border-radius: 20px;
+  display: flex;
+  margin: 0 auto;
+  max-width: 250px;
+  padding: 14px 5px;
+  position: relative;
+  width: 100%;
+}
+
+@media (min-width: 1367px) {
+  .experience-bar {
+    border-width: 3px;
+    max-width: 400px;
+    padding-block: 24px;
+  }
+}

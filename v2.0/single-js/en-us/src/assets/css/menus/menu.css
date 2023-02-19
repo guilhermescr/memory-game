@@ -1,0 +1,42 @@
+.menu {
+  background-color: #111111e6;
+  border-radius: 10px;
+  display: block;
+  height: 90vh;
+  left: 50%;
+  max-width: 800px;
+  padding: 20px 20px;
+  position: absolute;
+  transform: translate(-50%, 20%) scale(0);
+  user-select: none;
+  width: 100%;
+  z-index: 100;
+}
+
+.menu::-webkit-scrollbar {
+  width: 12px;
+}
+
+.menu::-webkit-scrollbar-track {
+  background: #292929;
+}
+
+.menu::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar_thumb_background_color);
+  border: 2px solid #0e0e0e;
+  border-radius: 20px;
+}
+
+.menu > h2 {
+  font-weight: normal;
+}
+
+@media (min-width: 1367px) {
+  .menu {
+    max-width: 1300px;
+  }
+
+  .menu > h2 {
+    font-size: 50px;
+  }
+}

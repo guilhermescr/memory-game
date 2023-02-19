@@ -1,0 +1,8 @@
+.kebab-menu {
+  background-color: #282828;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transform: translate(15%, -90%);
+  width: max-content;
+}

@@ -1,0 +1,14 @@
+.close-menu-container {
+  margin-left: 94%;
+  max-width: fit-content;
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  z-index: 1;
+}
+
+@media (max-width: 400px) {
+  .close-menu-container {
+    right: 20px;
+  }
+}

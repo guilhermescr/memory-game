@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+* {
+  list-style: none;
+  list-style-position: inside;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

@@ -207,8 +207,8 @@ function previewImage(avatar_img) {
     }
   }
 
-  EDIT_PROFILE_PICTURE_TITLE.innerHTML = 'Image Preview';
-  SAVE_PROFILE_PICTURE_BUTTON.innerHTML = 'Save Changes';
+  EDIT_PROFILE_PICTURE_TITLE.innerHTML = 'Pré-View da Imagem';
+  SAVE_PROFILE_PICTURE_BUTTON.innerHTML = 'Salvar Mudanças';
   SAVE_PROFILE_PICTURE_BUTTON.removeEventListener('click', previewImage);
   SAVE_PROFILE_PICTURE_BUTTON.addEventListener(
     'click',

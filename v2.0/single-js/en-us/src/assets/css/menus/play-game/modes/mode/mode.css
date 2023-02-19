@@ -1,0 +1,25 @@
+.modes__mode {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+}
+
+@media (max-width: 540px) {
+  .modes__mode {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-height: 450px) {
+  .modes__mode {
+    width: 50%;
+  }
+}
+
+@media (max-height: 290px) {
+  .modes__mode {
+    justify-content: flex-start;
+  }
+}

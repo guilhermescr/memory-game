@@ -1,0 +1,20 @@
+.profile-info {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.profile-info h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+}
+
+@media (min-width: 1367px) {
+  .profile-info {
+    margin-bottom: 40px;
+  }
+}

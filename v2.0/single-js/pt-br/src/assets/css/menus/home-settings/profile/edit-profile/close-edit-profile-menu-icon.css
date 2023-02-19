@@ -1,0 +1,16 @@
+.close-edit-profile-menu-icon {
+  cursor: pointer;
+  fill: #fff;
+  height: 20px;
+  position: absolute;
+  right: 20px;
+  width: 20px;
+  z-index: 1;
+}
+
+@media (min-width: 1367px) {
+  .close-edit-profile-menu-icon {
+    height: 40px;
+    width: 40px;
+  }
+}

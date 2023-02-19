@@ -1,0 +1,13 @@
+.edit-profile-options {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-block: auto;
+  width: 100%;
+}
+
+@media (max-width: 580px) {
+  .edit-profile-options {
+    flex-direction: column;
+  }
+}

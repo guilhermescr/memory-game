@@ -1,0 +1,238 @@
+:root {
+  --bird_top_position_animation: 2.5%;
+  --bird_left_position_animation: 55%;
+}
+
+/* Forest Template */
+@font-face {
+  font-family: 'Trebuchet';
+  font-display: swap;
+  src: url(../fonts/forest_template/trebuc.ttf);
+}
+
+body.forest_template {
+  font-family: 'Trebuchet';
+}
+
+.forest_template {
+  --window_message_text_color: #01e4e4;
+  --window_message_text_shadow: 0 0 15px #16a4a8;
+  --loader_box_shadow: 0px 5px 5px #01d9ff;
+
+  /* DEFAULT BACKGROUND IMAGE */
+  --body_background_image: url('../images/templates/forest_template/forest_background.jpg');
+
+  --main_title_gradient: linear-gradient(to bottom, #106370, #10bb9f);
+
+  --top_bar_container_background_image_gradient: linear-gradient(
+    #10bb9f,
+    #16a4a8
+  );
+  --top_bar_container_svg_color: #2f4246;
+
+  --confirm-popup-container-background-color: #bbe0e0;
+  --confirm-popup-title-background-color: #55d8d8;
+
+  --settings_background_image_gradient: linear-gradient(
+    to bottom,
+    #2f4246,
+    #181d20
+  );
+  --settings_box_shadow_color: #59e6ffb3;
+  --setting_option_background_image_gradient: linear-gradient(
+    #091114e8,
+    #060c0e
+  );
+
+  --setting_option_border_color: #59e6ff99;
+  --setting_option_box_shadow_color: #59e6ffb3;
+  --setting_option_text_color: #cdfffe;
+  --setting_option_hover_gradient: linear-gradient(#14899b, #16a4a8);
+  --setting_option_active_gradient: linear-gradient(#2dcadf, #04a0c7);
+
+  --scrollbar_thumb_background_color: #10bb9f;
+
+  /* BUTTONS */
+  --buttons_background_image_gradient: linear-gradient(#016f97e8, #10bb9f);
+  --buttons_border_color: #59e6ff99;
+  --buttons_box_shadow_color: #59e6ffb3;
+  --buttons_hover_gradient: linear-gradient(#243469e8, #1093bb);
+  --buttons_active_gradient: linear-gradient(#1a7fd1e8, #048cb6);
+
+  --home_settings_color: #10bb9f;
+
+  --switch_sounds_container--inactive_background_color: #444;
+  --switch_sounds_container--active_background_color: #10bb9f;
+  --switch_sounds_button_background_image_gradient: linear-gradient(
+    #01baef 5%,
+    #10bb9f
+  );
+  --switch_sounds_button_active_gradient: linear-gradient(#048cb6 5%, #10bb9f);
+
+  --difficulty_level_button_background_image_gradient: linear-gradient(
+    #20bf55,
+    #01baef
+  );
+  --difficulty_level_button_box_shadow_color: #048cb6;
+  --difficulty_level_button_hover_gradient: linear-gradient(#1aa548, #048db3);
+  --difficulty_level_button_active_gradient: linear-gradient(
+    #20bf55c5,
+    #00a1ce
+  );
+}
+
+/* Rainbow Template */
+@font-face {
+  font-family: 'Morning Rainbow';
+  font-display: swap;
+  src: url(../fonts/rainbow_template/MorningRainbow.ttf);
+}
+
+body.rainbow_template {
+  font-family: 'Morning Rainbow';
+}
+
+.rainbow_template {
+  --window_message_text_color: #ff299e;
+  --window_message_text_shadow: 0 0 15px #970556;
+  --loader_box_shadow: 0px 5px 5px #ff299e;
+
+  /* DEFAULT BACKGROUND IMAGE */
+  --body_background_image: url('../images/templates/rainbow_template/rainbow_background.jpg');
+
+  --main_title_gradient: linear-gradient(to bottom, #ffbfe2, #ff299e);
+
+  --top_bar_container_background_image_gradient: linear-gradient(
+    #f838f8,
+    #db5c9b
+  );
+  --top_bar_container_svg_color: #ff92e4;
+
+  --confirm-popup-container-background-color: #ddbbe0;
+  --confirm-popup-title-background-color: #d855b1;
+
+  --settings_background_image_gradient: linear-gradient(
+    70deg,
+    #fddcee,
+    #f5619e
+  );
+  --settings_box_shadow_color: #ff008cb3;
+  --setting_option_background_image_gradient: linear-gradient(
+    #ff73e1 20%,
+    #ffb3cc
+  );
+
+  --setting_option_border_color: #ff299e99;
+  --setting_option_box_shadow_color: #a1308fb3;
+  /* --setting_option_text_color: #ffaad9; */
+  --setting_option_text_color: #fff;
+  --setting_option_hover_gradient: linear-gradient(#eb3663, #ff74a2);
+  --setting_option_active_gradient: linear-gradient(#df2f63, #fd4573);
+  --scrollbar_thumb_background_color: #d40c98e8;
+
+  /* BUTTONS */
+  --buttons_background_image_gradient: linear-gradient(#d40c98e8, #861269);
+  --buttons_border_color: #d40c98e8;
+  --buttons_box_shadow_color: #d40c98e8;
+  --buttons_hover_gradient: linear-gradient(#861269, #d40c98e8);
+  --buttons_active_gradient: linear-gradient(#ac0249, #861269);
+
+  --home_settings_color: #ff50d3;
+
+  --switch_sounds_container--inactive_background_color: #a32765;
+  --switch_sounds_container--active_background_color: #ff60aa;
+  --switch_sounds_button_background_image_gradient: linear-gradient(
+    #fc3f97 5%,
+    #c005b7e8
+  );
+  /* when sound is off:
+  linear-gradient(#ac0249 5%, #861269);
+  */
+  --switch_sounds_button_active_gradient: linear-gradient(#fa0075, #861269);
+
+  --difficulty_level_button_background_image_gradient: linear-gradient(
+    #ff6eab,
+    #b80357
+  );
+  --difficulty_level_button_box_shadow_color: #fa0075;
+  --difficulty_level_button_hover_gradient: linear-gradient(#f7438e, #b4507f);
+  --difficulty_level_button_active_gradient: linear-gradient(#ff6ec3, #e72abe);
+}
+
+/* Military Template */
+@font-face {
+  font-family: 'Grind Demolished';
+  font-display: swap;
+  src: url(../fonts/military_template/Grind_Demolished.ttf);
+}
+
+body.military_template {
+  font-family: 'Grind Demolished';
+}
+
+.military_template {
+  --window_message_text_color: #03942e;
+  --window_message_text_shadow: 0 0 15px #02972f;
+  --loader_box_shadow: 0px 5px 5px #03942e;
+
+  --body_background_image: url('../images/templates/military_template/military_background.jpg');
+
+  --main_title_gradient: linear-gradient(to bottom, #bff76d, #a09c5f);
+
+  --top_bar_container_background_image_gradient: linear-gradient(
+    #22990a,
+    #7ec90f
+  );
+  --top_bar_container_svg_color: #fff;
+
+  --confirm-popup-container-background-color: #c5e0bb;
+  --confirm-popup-title-background-color: #55d867;
+
+  --settings_background_image_gradient: linear-gradient(
+    to bottom,
+    #8ead46ee,
+    #7c7735
+  );
+  --settings_box_shadow_color: #009933b3;
+
+  --setting_option_background_image_gradient: linear-gradient(
+    to right,
+    #aec257 30%,
+    #375e13
+  );
+  --setting_option_border_color: #009933;
+  --setting_option_box_shadow_color: #009933b3;
+  --setting_option_text_color: #ddffe9;
+  --setting_option_hover_gradient: linear-gradient(#5f7403, #aec257);
+  --setting_option_active_gradient: linear-gradient(#99b908, #8a9c39);
+
+  --scrollbar_thumb_background_color: #009933;
+
+  /* BUTTONS */
+  --buttons_background_image_gradient: linear-gradient(#01972ee8, #46bb10);
+  --buttons_border_color: #01972ee8;
+  --buttons_box_shadow_color: #01972ee8;
+  --buttons_hover_gradient: linear-gradient(#32662be8, #32c45e);
+  --buttons_active_gradient: linear-gradient(#01631fe8, #0d9135);
+
+  --home_settings_color: #009933;
+
+  --switch_sounds_container--inactive_background_color: #444;
+  --switch_sounds_container--active_background_color: #7ec90f;
+  --switch_sounds_button_background_image_gradient: linear-gradient(
+    #30eb01 5%,
+    #629e08
+  );
+  --switch_sounds_button_active_gradient: linear-gradient(#629e08 5%, #1c7a04);
+
+  --difficulty_level_button_background_image_gradient: linear-gradient(
+    #03bb0c,
+    #446628
+  );
+  --difficulty_level_button_box_shadow_color: #048cb6;
+  --difficulty_level_button_hover_gradient: linear-gradient(#446628, #018107);
+  --difficulty_level_button_active_gradient: linear-gradient(
+    #64d806c5,
+    #61ca4c
+  );
+}

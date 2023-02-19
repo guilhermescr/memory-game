@@ -1,0 +1,15 @@
+.languages__language {
+  display: inline-block;
+  pointer-events: all;
+  width: 100%;
+}
+
+.languages__language:hover {
+  background-color: #fafafa;
+  border-radius: 50%;
+  padding: 1px;
+}
+
+.languages__language * {
+  transition: fill 0.2s ease, border 0.2s ease;
+}

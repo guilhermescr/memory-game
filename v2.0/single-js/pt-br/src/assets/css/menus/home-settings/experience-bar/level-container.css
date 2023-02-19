@@ -1,0 +1,122 @@
+.level-container {
+  background-color: #323232;
+  border: 2px solid var(--switch_sounds_container--active_background_color);
+  border-radius: 50%;
+  left: -1%;
+  padding: 10px;
+  position: absolute;
+  top: -55%;
+}
+
+.level-container__decorative-ball {
+  background-color: var(--switch_sounds_container--active_background_color);
+  border-radius: 50%;
+  height: 5px;
+  position: absolute;
+  width: 5px;
+}
+
+.level-container__decorative-ball:nth-child(1) {
+  left: 15%;
+  top: 17%;
+}
+
+.level-container__decorative-ball:nth-child(2) {
+  right: 45%;
+  top: 4%;
+}
+
+.level-container__decorative-ball:nth-child(3) {
+  right: 15%;
+  top: 17%;
+}
+
+.level-container__decorative-ball:nth-child(4) {
+  left: 4%;
+  top: 46%;
+}
+
+.level-container__decorative-ball:nth-child(5) {
+  bottom: 4%;
+  right: 45%;
+}
+
+.level-container__decorative-ball:nth-child(6) {
+  right: 4%;
+  top: 46%;
+}
+
+.level-container__decorative-ball:nth-child(7) {
+  bottom: 15%;
+  left: 17%;
+}
+
+.level-container__decorative-ball:nth-child(8) {
+  bottom: 15%;
+  right: 17%;
+}
+
+.level-container__middle-container {
+  background-color: #423535;
+  border: 2px solid var(--switch_sounds_container--active_background_color);
+  border-radius: 50%;
+  padding: 5px 10px;
+}
+
+@keyframes LvlUp {
+  0% {
+    background-color: #423535;
+  }
+  50% {
+    background-image: linear-gradient(
+      to right,
+      var(--window_message_text_color) 40%,
+      #423535
+    );
+  }
+  70% {
+    background-image: linear-gradient(
+      to right,
+      var(--window_message_text_color) 70%,
+      #423535
+    );
+  }
+  85% {
+    background-image: linear-gradient(
+      to right,
+      var(--window_message_text_color) 85%,
+      #423535
+    );
+  }
+  95% {
+    background-image: linear-gradient(
+      to right,
+      var(--window_message_text_color),
+      var(--window_message_text_color)
+    );
+  }
+  100% {
+    background-color: var(--window_message_text_color);
+  }
+}
+
+.lvlup {
+  animation: LvlUp 0.8s linear;
+}
+
+.middle-container__current-level {
+  color: #fff;
+  text-shadow: 1px 1px 2px #000;
+}
+
+@media (min-width: 1367px) {
+  .level-container {
+    padding: 15px;
+    top: -40%;
+  }
+
+  .middle-container__current-level {
+    font-size: 25px;
+    padding: 5px;
+  }
+}

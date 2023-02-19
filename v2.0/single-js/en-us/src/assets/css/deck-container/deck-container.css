@@ -1,0 +1,31 @@
+.deck-container {
+  align-items: center;
+  background: #daeff5 url('') no-repeat center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.deck-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.deck-container::-webkit-scrollbar-track {
+  background-color: #292929;
+}
+
+.deck-container::-webkit-scrollbar-thumb {
+  background-color: var(--home_settings_color);
+  border: 2px solid #0e0e0e;
+  border-radius: 20px;
+}
+
+@media (max-width: 580px) {
+  .deck-container {
+    overflow-y: hidden;
+  }
+}

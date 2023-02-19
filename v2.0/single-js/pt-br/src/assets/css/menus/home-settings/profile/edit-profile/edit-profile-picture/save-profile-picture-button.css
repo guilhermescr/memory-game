@@ -1,0 +1,30 @@
+#save-profile-picture-button,
+#cancel-image-preview {
+  background-color: #2e2e2e;
+  border: 1px solid #353535;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  margin-inline: auto;
+  max-width: 200px;
+  padding: 10px;
+  width: 100%;
+}
+
+#save-profile-picture-button:hover,
+#cancel-image-preview:hover {
+  background-color: #454545;
+}
+
+#save-profile-picture-button:active,
+#cancel-image-preview:active {
+  background-color: #191919;
+}
+
+@media (min-width: 1367px) {
+  #save-profile-picture-button, #cancel-image-preview {
+    font-size: 25px;
+    max-width: 250px;
+    padding: 15px;
+  }
+}

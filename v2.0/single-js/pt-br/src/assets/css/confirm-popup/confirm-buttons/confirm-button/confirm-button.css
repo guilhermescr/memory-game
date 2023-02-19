@@ -1,0 +1,26 @@
+.confirm-buttons__confirm-button {
+  background-image: var(--buttons_background_image_gradient);
+  border: 1px solid var(--buttons_border_color);
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px var(--buttons_box_shadow_color);
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 10px 20px;
+  transition: 0.3s ease;
+}
+
+.confirm-buttons__confirm-button:hover {
+  background-image: var(--buttons_hover_gradient);
+  transform: scale(1.1);
+}
+
+.confirm-buttons__confirm-button:active {
+  background-image: var(--buttons_active_gradient) !important;
+}
+
+@media (min-width: 1367px) {
+  .confirm-buttons__confirm-button {
+    font-size: 30px;
+  }
+}

@@ -1,0 +1,15 @@
+.difficulties-container {
+  align-items: center;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 80px;
+  width: 100%;
+}
+
+@media (min-width: 1367px) {
+  .difficulties-container {
+    margin-block: 250px;
+  }
+}

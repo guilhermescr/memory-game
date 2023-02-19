@@ -1,0 +1,15 @@
+.deck-container__ingame-settings .music-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (orientation: landscape) and (max-height: 600px) and (max-width: 920px) {
+  .deck-container__ingame-settings .music-container {
+    flex-direction: row;
+    width: 90%;
+  }
+}

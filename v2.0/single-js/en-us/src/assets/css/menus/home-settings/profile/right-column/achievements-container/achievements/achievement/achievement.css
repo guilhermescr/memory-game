@@ -1,0 +1,26 @@
+.achievements__achievement {
+  align-items: center;
+  background-color: #282828;
+  border: 1px solid #757575;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  padding: 10px 5px;
+  position: relative;
+  width: 100%;
+}
+
+.achievements__achievement:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 800px) {
+  .achievements__achievement {
+    gap: 4px;
+    justify-content: space-evenly;
+  }
+}

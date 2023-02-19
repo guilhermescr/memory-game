@@ -1,0 +1,20 @@
+.profile-image-container {
+  background-color: #292929;
+  border-radius: 50%;
+  padding: 8px;
+  width: max-content;
+}
+
+.open-profile-menu.hasPFP .profile-image-container {
+  background-color: transparent;
+  max-width: 100px;
+  width: 100%;
+}
+
+@media (min-width: 1367px) {
+  .open-profile-menu.hasPFP .profile-image-container,
+  .open-profile-menu.hasPFP .profile-image-container img {
+    max-width: max-content;
+    width: 180px;
+  }
+}

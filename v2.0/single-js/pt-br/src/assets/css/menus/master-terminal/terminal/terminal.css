@@ -1,0 +1,9 @@
+.terminal {
+  background-color: #292929;
+  border-radius: 10px;
+  height: 100%;
+  font-family: 'Roboto', Arial, sans-serif;
+  padding-top: 10px;
+  width: 100%;
+}
+

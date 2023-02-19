@@ -1,0 +1,21 @@
+.template {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 280px;
+  justify-content: space-between;
+  width: 45%;
+}
+
+@media (min-width: 1367px) {
+  .template {
+    height: max-content;
+  }
+}
+
+@media (max-width: 580px) {
+  .template {
+    width: 100%;
+  }
+}
