@@ -6,6 +6,12 @@
   width: 100%;
 }
 
+@media (max-height: 350px) {
+  .profile-menu {
+    margin-top: 25px;
+  }
+}
+
 @media (max-width: 580px) {
   .profile-menu {
     flex-direction: column;

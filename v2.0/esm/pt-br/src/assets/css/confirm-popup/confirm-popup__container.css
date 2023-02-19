@@ -1,10 +1,12 @@
 @keyframes confirmPopupMovement {
   from {
-    transform: scale(1.2);
+    margin-inline: 5px;
+    padding-block: 15px;
   }
   to {
     box-shadow: 0 0 20px #faf7f7fa;
-    transform: scale(1.25);
+    margin-inline: 10px;
+    padding-block: 20px;
   }
 }
 

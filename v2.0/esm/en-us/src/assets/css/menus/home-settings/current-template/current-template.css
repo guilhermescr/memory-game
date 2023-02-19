@@ -9,6 +9,12 @@
   max-height: 250px;
 }
 
+@media (max-height: 350px) {
+  .current-template {
+    margin-top: 25px;
+  }
+}
+
 @media (max-width: 580px) {
   .current-template {
     max-width: 100%;

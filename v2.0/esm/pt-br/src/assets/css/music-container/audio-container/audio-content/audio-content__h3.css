@@ -3,6 +3,7 @@
   display: flex;
   gap: 5px;
   justify-content: center;
+  width: 100px;
 }
 
 @media (orientation: landscape) and (max-height: 600px) and (max-width: 800px) {

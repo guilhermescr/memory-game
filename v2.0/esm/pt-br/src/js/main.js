@@ -35,8 +35,18 @@ const LOADER_TITLE = document.getElementById('loader-container__loader-title');
 const CONFIRM_ACTION_CONTAINER = document.querySelector(
   '.confirm-action-popup'
 );
-
-let confirm_button_listener, message_box;
+const INITIAL_PAGE_ELEMENTS = [
+  'language-link',
+  'registering-container',
+  'username-input',
+  'password-input',
+  'form__submit-button',
+  'play-anonymously',
+  'register',
+  'right-content__toggle-fullscreen-icon-container',
+  'close-menu-container__close-icon'
+];
+let BODY_CHILDREN, confirm_button_listener, message_box;
 
 function timeoutItems(functionItems, timing) {
   if (!timing) {
@@ -349,6 +359,23 @@ function closeMessageBox() {
   document.body.removeChild(message_box);
 }
 
+function toggleElementsTabIndexWhileUserIsOffline(turnOnTabIndex) {
+  BODY_CHILDREN = document.body.getElementsByTagName('*');
+
+  for (let child = 0; child < BODY_CHILDREN.length; child++) {
+    if (
+      !INITIAL_PAGE_ELEMENTS.includes(BODY_CHILDREN[child].classList[0]) &&
+      !INITIAL_PAGE_ELEMENTS.includes(BODY_CHILDREN[child].id)
+    ) {
+      if (turnOnTabIndex) {
+        BODY_CHILDREN[child].removeAttribute('tabIndex');
+      } else {
+        BODY_CHILDREN[child].tabIndex = -1;
+      }
+    }
+  }
+}
+
 function setDefaultSettings() {
   changeCurrentTemplate(onlineUser.userData.CurrentTemplate);
   setCurrentTemplateImage();
@@ -358,6 +385,7 @@ function setDefaultSettings() {
   levelUp();
   renderGeneralInfo();
   renderCurrentLevel(onlineUser.userData.lvl);
+  toggleElementsTabIndexWhileUserIsOffline(true);
 
   if (onlineUser.userData.profilePicture.length) {
     renderProfilePictures(onlineUser.userData.profilePicture);
@@ -373,6 +401,7 @@ document.body.onload = () => {
     setDefaultSettings();
     renderClickOnWindowMessage();
   } else {
+    toggleElementsTabIndexWhileUserIsOffline(false);
     removeLoaderContainer();
     removeClickOnWindowMessage();
     hideElements(FULLSCREEN_BUTTON);
@@ -392,5 +421,6 @@ export {
   closeConfirmPopup,
   openMessageBox,
   closeMessageBox,
-  setDefaultSettings
+  setDefaultSettings,
+  toggleElementsTabIndexWhileUserIsOffline
 };

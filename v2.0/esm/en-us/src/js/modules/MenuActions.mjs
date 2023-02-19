@@ -108,6 +108,11 @@ SETTINGS_BUTTONS.forEach(SETTING_BUTTON => {
 
 CLOSE_MENU_BUTTONS.forEach(CLOSE_MENU_BUTTON => {
   CLOSE_MENU_BUTTON.addEventListener('click', closeMenu);
+  CLOSE_MENU_BUTTON.addEventListener('keydown', ({ key }) => {
+    if (key === 'Enter') {
+      closeMenu();
+    }
+  });
 });
 
 // Hover Sound Effects

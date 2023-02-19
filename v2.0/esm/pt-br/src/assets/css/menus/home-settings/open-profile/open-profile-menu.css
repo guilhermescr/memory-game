@@ -22,6 +22,12 @@
   opacity: 0.9;
 }
 
+@media (max-height: 350px) {
+  .open-profile-menu {
+    margin-top: 35px;
+  }
+}
+
 @media (min-width: 1367px) {
   .open-profile-menu {
     max-width: 400px;
