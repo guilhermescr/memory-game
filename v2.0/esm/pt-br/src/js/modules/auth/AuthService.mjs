@@ -69,20 +69,20 @@ function handleUsernameChange() {
 
   hideElements(document.querySelector('.error-message'));
 
-  if (SUBMIT_BUTTON.innerHTML === 'Sign Up') {
+  if (SUBMIT_BUTTON.innerHTML === 'Cadastre-se') {
     revealElements(SUCCESS_MESSAGE_PARAGRAPH);
-    SUCCESS_MESSAGE_PARAGRAPH.innerHTML = 'Checking username...';
+    SUCCESS_MESSAGE_PARAGRAPH.innerHTML = 'Verificando disponibilidade...';
 
     timeoutItems(() => {
       let usernameAvailable = searchUsername(USERNAME_INPUT.value);
 
       if (usernameAvailable) {
         addAlertMessage(SUCCESS_MESSAGE_PARAGRAPH, 'success');
-        SUCCESS_MESSAGE_PARAGRAPH.innerHTML = 'This username is available.';
+        SUCCESS_MESSAGE_PARAGRAPH.innerHTML = 'Este nome está disponível.';
       } else {
         approvedValidation = false;
         addAlertMessage(SUCCESS_MESSAGE_PARAGRAPH, 'error');
-        SUCCESS_MESSAGE_PARAGRAPH.innerHTML = 'This username is not available.';
+        SUCCESS_MESSAGE_PARAGRAPH.innerHTML = 'Este nome não está disponível.';
       }
     });
   }
@@ -132,7 +132,7 @@ function handleSubmit() {
     addAlertMessage(PASSWORD_INFO, 'error');
   }
   if (approvedValidation) {
-    if (SUBMIT_BUTTON.innerHTML === 'Sign Up') {
+    if (SUBMIT_BUTTON.innerHTML === 'Cadastre-se') {
       let usernameAvailable = searchUsername(USERNAME_INPUT.value);
 
       if (usernameAvailable) {
@@ -165,7 +165,7 @@ function login($username, $password) {
   if (account !== undefined) {
     setOnlineUser(account);
     setDefaultSettings();
-    renderLoaderContainer('Welcome!');
+    renderLoaderContainer('Bem-vindo(a)!');
     allowGameToStart();
     endAuthPage();
   } else {
@@ -177,7 +177,7 @@ function endAuthPage() {
   if (onlineUser.temporaryAccount) {
     OPEN_MASTER_TERMINAL_BUTTON.addEventListener('mouseenter', () => {
       openMessageBox(
-        'The function <strong class="error">Master Terminal</strong> is only for registered accounts.'
+        'A função <strong class="error">Terminal</strong> está disponível apenas para usuários cadastrados.'
       );
     });
 
@@ -222,11 +222,11 @@ USERNAME_INPUT.addEventListener('input', handleUsernameChange);
 USERNAME_INPUT.addEventListener('focus', () => {
   if (USERNAME_INPUT.value.length !== 0) {
     revealElements(SUCCESS_MESSAGE_PARAGRAPH);
-    SUCCESS_MESSAGE_PARAGRAPH.innerHTML = 'Checking username...';
+    SUCCESS_MESSAGE_PARAGRAPH.innerHTML = 'Verificando disponibilidade...';
 
     timeoutItems(() => {
       SUCCESS_MESSAGE_PARAGRAPH.classList.add('success');
-      SUCCESS_MESSAGE_PARAGRAPH.innerHTML = 'This username is available.';
+      SUCCESS_MESSAGE_PARAGRAPH.innerHTML = 'Este nome está disponível.';
     });
   }
 });
@@ -265,7 +265,7 @@ PLAY_ANONYMOUSLY_BUTTON.addEventListener('click', () => {
 
   setOnlineUser(account);
   setDefaultSettings();
-  renderLoaderContainer('Welcome!');
+  renderLoaderContainer('Bem-vindo(a)!');
   allowGameToStart();
   endAuthPage();
 });
@@ -276,7 +276,7 @@ LOGOUT_BUTTONS.forEach(logout_button => {
   logout_button.addEventListener('click', () => {
     toggleKebabMenu(false, false);
 
-    openConfirmPopup('Logout?', 'Logout', () => {
+    openConfirmPopup('Deseja desconectar-se?', 'Sim', () => {
       logout();
     });
   });

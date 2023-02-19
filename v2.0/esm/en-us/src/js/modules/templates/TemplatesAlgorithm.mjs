@@ -110,15 +110,18 @@ function showTemplatesInMenu() {
     document.querySelector('.audio-container'),
     document.querySelector('.open-profile-menu')
   ]);
-  HOME_SETTINGS_RETURN_ICON.style.display = 'block';
   createTemplates();
-  revealElements(TEMPLATES_CONTAINER);
+  revealElements([HOME_SETTINGS_RETURN_ICON, TEMPLATES_CONTAINER]);
 }
 
 function showSettingsMenu() {
   closeEditAccountMenu();
 
-  hideElements([TEMPLATES_CONTAINER, document.querySelector('.profile-menu')]);
+  hideElements([
+    TEMPLATES_CONTAINER,
+    HOME_SETTINGS_RETURN_ICON,
+    document.querySelector('.profile-menu')
+  ]);
   revealElements([
     document.querySelector('.current-template'),
     document.querySelector('.audio-container'),
@@ -126,7 +129,6 @@ function showSettingsMenu() {
   ]);
   TEMPLATES_CONTAINER.innerHTML = '';
   HOME_SETTINGS_TITLE.innerHTML = 'Settings';
-  HOME_SETTINGS_RETURN_ICON.style.display = 'none';
 }
 
 function showUserProfileInfo() {
@@ -135,10 +137,12 @@ function showUserProfileInfo() {
     document.querySelector('.audio-container'),
     document.querySelector('.open-profile-menu')
   ]);
-  revealElements(document.querySelector('.profile-menu'));
+  revealElements([
+    HOME_SETTINGS_RETURN_ICON,
+    document.querySelector('.profile-menu')
+  ]);
 
   HOME_SETTINGS_TITLE.innerHTML = 'Profile Info';
-  HOME_SETTINGS_RETURN_ICON.style.display = 'block';
 
   if (!isExpProgressBarWidthUpdated.state) {
     changeExpProgressBarWidth(isExpProgressBarWidthUpdated.width === 100);

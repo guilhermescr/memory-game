@@ -6,6 +6,7 @@
   color: #fff;
   cursor: pointer;
   font-size: 15px;
+  min-width: 80px;
   padding: 8px 10px;
   transition: 0.3s ease;
 }

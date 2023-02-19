@@ -18,7 +18,7 @@ function fillThemes() {
       ${THEMES_LOGOS[index]}
     </div>
     <h3>${THEMES_NAMES[index]}</h3>
-    <button class="play-theme-btn choosable-theme" data-themeid="${THEMES_LIST[index]}">Play Theme</button>
+    <button class="play-theme-btn choosable-theme" data-themeid="${THEMES_LIST[index]}">Jogar</button>
     `;
     themesContainer.appendChild(theme);
   }

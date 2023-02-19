@@ -23,13 +23,13 @@ let result_element;
 
 const COMMANDS_LIST = {
   error: {
-    description: 'This command sends an error to the terminal.',
+    description: 'Esse comando envia um erro ao terminal.',
     command: function (error_message) {
       commandCall(error_message, () => {}, true);
     }
   },
   cra: {
-    description: 'This command checks all registered accounts.',
+    description: 'Esse comando mostra todas as contas cadastradas.',
     command: function (params) {
       let hasAllFlag;
 
@@ -40,82 +40,81 @@ const COMMANDS_LIST = {
       if (!hasAllFlag) {
         sendCommandError(
           'no-flag-and-params',
-          `mm: cra just works this way: mm cra -all.`
+          `mm: cra só funciona assim: mm cra -all.`
         );
         return;
       }
 
-      commandCall('- Gathering all the existing accounts...', () => {
+      commandCall('- Juntando todas as contas existentes...', () => {
         const { username, password } = onlineUser.userData;
         if (accounts) {
-          result_element.innerHTML = `<p>Amount: ${accounts.length}</p>`;
+          result_element.innerHTML = `<p>Contas: ${accounts.length}</p>`;
 
           if (accounts === 1) {
             result_element.innerHTML += `
             ${current_account}
             <ul>
-              <li>- Username: ${username}</li>
-              <li>- Password: ${password}</li>
+              <li>- Usuário: ${username}</li>
+              <li>- Senha: ${password}</li>
             </ul>
             `;
           } else {
             accounts.forEach((account, index) => {
               let on = username === account.username;
-              let account_state = on ? 'Online' : 'Offline';
+              let account_state = on ? 'Conectado' : 'Desconectado';
 
               result_element.innerHTML += `
               <p>Nº ${index + 1}<span class="${
                 on && 'online'
               }"> (${account_state})</span>:</p>
               <ul>
-                <li>- Username: ${account.username}</li>
-                <li>- Password: ${account.password}</li>
+                <li>- Usuário: ${account.username}</li>
+                <li>- Senha: ${account.password}</li>
               </ul>
               `;
             });
           }
         } else {
-          result_element.innerHTML = 'Unfortunately, account not found.';
+          result_element.innerHTML = 'Infelizmente, conta não encontrada.';
         }
         addNewCommandBlock();
       });
     }
   },
   ga: {
-    description:
-      'This command gets an account and returns username + password.',
+    description: 'Esse comando mostra o nome + senha de uma conta especifíca.',
     command: function (command) {
       if (!command) {
         sendCommandError('no-params', 'ga');
         return;
       }
 
-      commandCall('- Looking for the account...', () => {
+      commandCall('- Procurando a conta...', () => {
         let username = command.replace('ga ', '');
 
         const ACCOUNT = getAccount(username);
         if (ACCOUNT) {
           result_element.innerHTML = `
-        Account:
+        Conta:
         <ul>
-          <li>- Username: ${ACCOUNT.username}</li>
-          <li>- Password: ${ACCOUNT.password}</li>
+          <li>- Usuário: ${ACCOUNT.username}</li>
+          <li>- Senha: ${ACCOUNT.password}</li>
         </ul>
         `;
         } else {
-          result_element.innerHTML = 'Unfortunately, account not found.';
+          result_element.innerHTML = 'Infelizmente, conta não encontrada.';
         }
         addNewCommandBlock();
       });
     }
   },
   clear: {
-    description: 'This command logs you out.',
+    description: 'Esse comando limpa o terminal.',
     command: function (params) {
       if (params) {
         sendCommandError(
           'no-flag-and-params',
-          `mm: clear does not accept params like "${params}". The correct format is: mm clear.`
+          `mm: clear não aceita parâmetros como "${params}". O formato correto é: mm clear.`
         );
         return;
       }
@@ -125,12 +124,12 @@ const COMMANDS_LIST = {
     }
   },
   logout: {
-    description: 'This command logs you out.',
+    description: 'Esse comando desconecta a sua conta.',
     command: function (params) {
       if (params) {
         sendCommandError(
           'no-flag-and-params',
-          `mm: logout does not accept params like "${params}". The correct format is: mm logout.`
+          `mm: logout não aceita parâmetros como "${params}". O formato correto é: mm logout.`
         );
         return;
       }
@@ -139,25 +138,26 @@ const COMMANDS_LIST = {
     }
   },
   rpp: {
-    description: 'This command resets the profile picture.',
+    description: 'Esse comando remove a sua foto de perfil.',
     command: function (params) {
       if (params) {
         sendCommandError(
           'no-flag-and-params',
-          `mm: rpp does not accept params like "${params}". The correct format is: mm rpp.`
+          `mm: rpp não aceita parâmetros como "${params}". O formato correto é: mm rpp.`
         );
         return;
       }
 
       commandCall(
-        '- Profile Picture Reset Complete.',
+        '- Foto de perfil deletada com sucesso.',
         resetProfilePictures,
         true
       );
     }
   },
   da: {
-    description: 'This command deletes a specific account.',
+    description:
+      'Esse comando deleta uma conta especifíca ou todas as contas cadastradas.',
     command: function (command) {
       if (!command) {
         sendCommandError('no-params', 'da');
@@ -168,9 +168,9 @@ const COMMANDS_LIST = {
 
       if (!command.includes('-all')) {
         username = command.replace('da ', '');
-        initial_message = '- Looking for the account...';
+        initial_message = '- Procurando a conta...';
       } else {
-        initial_message = '- Gathering some data...';
+        initial_message = '- Coletando alguns dados...';
       }
 
       commandCall(
@@ -193,11 +193,12 @@ const COMMANDS_LIST = {
               result_element.appendChild(paragraph);
 
               if (!username) {
-                result_element.innerHTML += '<p>- All accounts deleted.</p>';
+                result_element.innerHTML +=
+                  '<p>- Todas as contas foram deletadas.</p>';
                 localStorage.removeItem('accounts');
                 logout();
               } else {
-                result_element.innerHTML += '<p>- Account deleted.</p>';
+                result_element.innerHTML += '<p>- Conta deletada.</p>';
                 deleteAccount(ACCOUNT);
               }
               addNewCommandBlock();
@@ -252,7 +253,7 @@ const COMMANDS_LIST = {
           if (!username) {
             // -all: it deletes all accounts
             result_element.innerHTML = `
-            <p>Delete all the registered accounts? (y for yes, n for no)</p>
+            <p>Deletar todas as contas? (y para sim, n para não)</p>
             `;
             result_element.appendChild(paragraph);
             confirmation_input.focus();
@@ -260,17 +261,17 @@ const COMMANDS_LIST = {
             // it deletes a specific account
             if (ACCOUNT) {
               result_element.innerHTML = `
-            Account:
+            Conta:
             <ul>
-              <li>- Username: ${ACCOUNT.username}</li>
-              <li>- Password: ${ACCOUNT.password}</li>
+              <li>- Usuário: ${ACCOUNT.username}</li>
+              <li>- Senha: ${ACCOUNT.password}</li>
             </ul>
-            <p>Delete this account? (y for yes, n for no)</p>
+            <p>Deletar esta conta? (y para sim, n para não)</p>
             `;
               result_element.appendChild(paragraph);
               confirmation_input.focus();
             } else {
-              result_element.innerHTML = 'Unfortunately, account not found.';
+              result_element.innerHTML = 'Infelizmente, conta não encontrada.';
               addNewCommandBlock();
             }
           }
@@ -280,7 +281,8 @@ const COMMANDS_LIST = {
     }
   },
   ra: {
-    description: 'This command resets a specific achievement.',
+    description:
+      'Esse comando reinicia uma conquista especifíca ou todas as conquistas.',
     command: function (command) {
       if (!command) {
         sendCommandError('no-params', 'ra');
@@ -288,7 +290,7 @@ const COMMANDS_LIST = {
       }
 
       commandCall(
-        '- Gathering some data...',
+        '- Coletando alguns dados...',
         () => {
           let achievement_input;
 
@@ -301,15 +303,15 @@ const COMMANDS_LIST = {
 
             if (ACHIEVEMENT) {
               // resets an specific achievement
-              result_element.innerHTML = `Achievement: "${ACHIEVEMENT.name}" Reset Complete.`;
+              result_element.innerHTML = `Conquista: "${ACHIEVEMENT.name}" reiniciada com sucesso.`;
               resetAchievement(ACHIEVEMENT.name + ' -D');
             } else {
               result_element.innerHTML =
-                'Unfortunately, achievement not found.';
+                'Infelizmente, conquista não encontrada.';
             }
           } else {
             // resets all the achievements
-            result_element.innerHTML = `All Achievements Reset Complete.`;
+            result_element.innerHTML = `Todas as conquistas foram reiniciadas com sucesso.`;
             resetAllAchievements();
           }
           addNewCommandBlock();
@@ -320,18 +322,18 @@ const COMMANDS_LIST = {
   },
   rta: {
     description:
-      'This command resets the temporary achievements. (win streak etc.)',
+      'Esse comando reinicia as conquistas temporárias. (Vitórias seguidas etc.)',
     command: function (params) {
       if (params) {
         sendCommandError(
           'no-flag-and-params',
-          `mm: rta does not accept params like "${params}". The correct format is: mm rta.`
+          `mm: rta não aceita parâmetros como "${params}". O formato correto é: mm rta.`
         );
         return;
       }
 
       commandCall(
-        '- Temporary Achievements Reset Complete.',
+        '- Todas as conquistas temporárias foram reiniciadas com sucesso.',
         resetTemporaryAchievements,
         true
       );

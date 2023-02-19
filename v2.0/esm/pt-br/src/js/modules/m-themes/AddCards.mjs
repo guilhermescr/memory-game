@@ -69,7 +69,7 @@ function addEasyModeCards() {
 
   createCards(themesDifficultiesList[0]);
 
-  renderLoaderContainer('Downloading cards...');
+  renderLoaderContainer('Renderizando cartas...');
   renderDeck();
 
   revealElements(topBarContainerIngameElements);

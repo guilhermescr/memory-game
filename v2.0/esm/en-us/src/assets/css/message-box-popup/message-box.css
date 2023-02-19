@@ -9,6 +9,7 @@
   top: 0;
   transform: scale(0);
   transition: transform 0.1s ease-in-out;
+  z-index: 101;
 }
 
 .message-box--popup {

@@ -5,7 +5,7 @@ const RANDOM_THEMES_CONTAINER = document.getElementById('random-themes-images');
 
 function fillRandomThemes() {
   RANDOM_THEMES_CONTAINER.innerHTML = '';
-  RANDOM_THEMES_TITLE.innerHTML = 'Random Themes';
+  RANDOM_THEMES_TITLE.innerHTML = 'Temas Aleatórios';
 
   for (let index = 0; index < THEMES_LIST.length; index++) {
     let randomTheme = document.createElement('div');

@@ -8,7 +8,7 @@ import {
 
 const AVATARS_DATA = [
   {
-    avatar_name: 'Animals',
+    avatar_name: 'Animais',
     avatars: {
       Avatar1: `
       <img
@@ -150,7 +150,7 @@ const AVATARS_DATA = [
     }
   },
   {
-    avatar_name: 'General',
+    avatar_name: 'Geral',
     avatars: {
       Avatar1: `
       <img
@@ -221,7 +221,7 @@ const AVATARS_DATA = [
     }
   },
   {
-    avatar_name: 'Professions',
+    avatar_name: 'Profissões',
     avatars: {
       Avatar1: `
       <img

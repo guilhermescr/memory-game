@@ -1,7 +1,7 @@
 const ACHIEVEMENTS_DATA = [
   {
     title: 'Flip It!',
-    description: 'Flip your first card',
+    description: 'Vire a sua primeira carta',
     xp: 20,
     badge: 'card_badge',
     hierarchy: 'none',
@@ -10,7 +10,7 @@ const ACHIEVEMENTS_DATA = [
   },
   {
     title: 'Perfect Move',
-    description: 'Flip three sets of cards sequentially at a game',
+    description: 'Faça três combinações em uma partida',
     xp: 80,
     badge: 'card_badge',
     hierarchy: 'none',
@@ -19,7 +19,7 @@ const ACHIEVEMENTS_DATA = [
   },
   {
     title: 'Player Harder Than Rock',
-    description: 'Win your first Hard match',
+    description: 'Vença sua primeira partida difícil',
     xp: 100,
     badge: 'crown_badge',
     hierarchy: 'bronze',
@@ -28,7 +28,7 @@ const ACHIEVEMENTS_DATA = [
   },
   {
     title: 'Unstoppable',
-    description: 'Win a match without losing a combination',
+    description: 'Vença uma partida sem perder uma combinação',
     xp: 180,
     badge: 'crown_badge',
     hierarchy: 'gold',
@@ -37,7 +37,7 @@ const ACHIEVEMENTS_DATA = [
   },
   {
     title: '3 wins',
-    description: 'Win 3 games',
+    description: 'Vença 3 partidas',
     xp: 300,
     badge: 'crown_badge',
     hierarchy: 'bronze',
@@ -46,7 +46,7 @@ const ACHIEVEMENTS_DATA = [
   },
   {
     title: '5 wins',
-    description: 'Win 5 games',
+    description: 'Vença 5 partidas',
     xp: 500,
     badge: 'crown_badge',
     hierarchy: 'silver',
@@ -55,7 +55,7 @@ const ACHIEVEMENTS_DATA = [
   },
   {
     title: '15 wins',
-    description: 'Win 15 games',
+    description: 'Vença 15 partidas',
     xp: 1000,
     badge: 'crown_badge',
     hierarchy: 'silver',
@@ -64,7 +64,7 @@ const ACHIEVEMENTS_DATA = [
   },
   {
     title: '50 wins',
-    description: 'Win 50 games',
+    description: 'Vença 50 partidas',
     xp: 2000,
     badge: 'crown_badge',
     hierarchy: 'gold',
@@ -73,7 +73,7 @@ const ACHIEVEMENTS_DATA = [
   },
   {
     title: '100 wins',
-    description: 'Win 100 games',
+    description: 'Vença 100 partidas',
     xp: 4000,
     badge: 'crown_badge',
     hierarchy: 'gold',
@@ -82,7 +82,7 @@ const ACHIEVEMENTS_DATA = [
   },
   {
     title: 'Win Streak - Easy',
-    description: 'Get 3 win streak in Any Difficulty',
+    description: 'Consiga 3 vitórias seguidas em qualquer dificuldade',
     xp: 500,
     badge: 'win_streak_badge',
     hierarchy: 'bronze',
@@ -91,7 +91,7 @@ const ACHIEVEMENTS_DATA = [
   },
   {
     title: 'Win Streak - Normal',
-    description: 'Get 5 win streak in Any Difficulty',
+    description: 'Consiga 5 vitórias seguidas em qualquer dificuldade',
     xp: 600,
     badge: 'win_streak_badge',
     hierarchy: 'silver',
@@ -100,7 +100,7 @@ const ACHIEVEMENTS_DATA = [
   },
   {
     title: 'Win Streak - Hard',
-    description: 'Get 10 win streak in Any Difficulty',
+    description: 'Consiga 10 vitórias seguidas em qualquer dificuldade',
     xp: 1000,
     badge: 'win_streak_badge',
     hierarchy: 'silver',
@@ -109,7 +109,7 @@ const ACHIEVEMENTS_DATA = [
   },
   {
     title: 'Win Streak - Insane',
-    description: 'Get 20 win streak in Hard Difficulty',
+    description: 'Consiga 20 vitórias seguidas em qualquer dificuldade',
     xp: 5000,
     badge: 'win_streak_badge',
     hierarchy: 'gold',

@@ -2,7 +2,7 @@ const TEMPLATES_DATA = {
   ForestTemplate: {
     MenuTemplate: {
       src: '../src/assets/images/templates/forest_template/forest_template_menu.png',
-      alt: 'Image shows menu in Forest Template'
+      alt: 'Imagem mostra o menu do Estilo Floresta'
     },
     TemplateStyles: 'forest_template',
     SoundTrack:
@@ -11,7 +11,7 @@ const TEMPLATES_DATA = {
   RainbowTemplate: {
     MenuTemplate: {
       src: '../src/assets/images/templates/rainbow_template/rainbow_template_menu.png',
-      alt: 'Image shows menu in Rainbow Template'
+      alt: 'Imagem mostra o menu do Estilo Arco-Íris'
     },
     TemplateStyles: 'rainbow_template',
     SoundTrack:
@@ -20,7 +20,7 @@ const TEMPLATES_DATA = {
   MilitaryTemplate: {
     MenuTemplate: {
       src: '../src/assets/images/templates/military_template/military_template_menu.png',
-      alt: 'Image shows menu in Military Template'
+      alt: 'Imagem mostra o menu do Estilo Militar'
     },
     TemplateStyles: 'military_template',
     SoundTrack:

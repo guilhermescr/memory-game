@@ -45,7 +45,7 @@ function toggleHelpCenterVisibility() {
 function sendCommandError(error, command) {
   if (error === 'none') {
     COMMANDS_LIST.error.command(
-      `mm: ${command} is not a valid command. Check the Help Center.`
+      `mm: ${command} não é um comando válido. Cheque a Central de Ajuda.`
     );
   }
 
@@ -53,13 +53,13 @@ function sendCommandError(error, command) {
     let command_name = command.slice(0, command.search('"')).trim();
     let command_input = command.slice(command.search('"'));
     COMMANDS_LIST.error.command(
-      `mm: the input -&gt; ${command_input} &lt;- can only have two quotes. The correct format is: mm ${command_name} "value".`
+      `mm: A entrada -&gt; ${command_input} &lt;- só pode conter duas aspas. O formato correto é: mm ${command_name} "valor".`
     );
   }
 
   if (error === 'no-params') {
     COMMANDS_LIST.error.command(
-      `Aborting command due to empty value. The correct format is: mm ${command} "value".`
+      `Abortando comando devido ao valor estar vazio. O formato correto é: mm ${command} "valor".`
     );
   }
 
@@ -69,7 +69,7 @@ function sendCommandError(error, command) {
 
   if (error === 'param-with-flag') {
     COMMANDS_LIST.error.command(
-      `Aborting command due to params with flags. mm ${command} does not accept params with flags.`
+      `Abortando comando devido ao parâmetro com bandeira. mm ${command} não aceita parâmetros com bandeiras.`
     );
   }
 }
@@ -119,7 +119,7 @@ function addNewCommandBlock() {
   NEW_COMMAND_BLOCK.innerHTML = `
   <div class="user-info">
     <p class="user-name">?</p>
-    <p>@Memory-Game</p>
+    <p>@Jogo-da-Memória</p>
   </div>
 
   <div class="user-input-container --current-input-block">

@@ -110,7 +110,7 @@ const COMMANDS_LIST = {
     }
   },
   clear: {
-    description: 'This command logs you out.',
+    description: 'This command clears the terminal.',
     command: function (params) {
       if (params) {
         sendCommandError(

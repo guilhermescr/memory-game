@@ -77,7 +77,7 @@ function renderProfilePicturesOptionsInfo() {
   ]);
 
   document.querySelector('.edit-profile-picture-container > h3').innerHTML =
-    'Upload an image or Insert a link';
+    'Importe uma Imagem ou Insira um Link';
 }
 
 function renderCheckedRadioContainer(imgType) {
@@ -94,7 +94,7 @@ function renderCheckedRadioContainer(imgType) {
 
   if (imgType === 'img-file') {
     CHECKED_RADIO_INPUT_CONTAINER.innerHTML = `
-    <label for="img-file">File:</label>
+    <label for="img-file">Arquivo:</label>
     <input
       type="file"
       name="img-file"
@@ -235,7 +235,7 @@ function cancelImagePreview() {
 
   renderProfilePicturesOptionsInfo();
   profile_picture_imgs = [];
-  SAVE_PROFILE_PICTURE_BUTTON.innerHTML = 'Continue';
+  SAVE_PROFILE_PICTURE_BUTTON.innerHTML = 'Continuar';
 
   if (IMAGE_PREVIEW_ELEMENT.src.includes('avatars')) {
     document.querySelector('.profile-picture-option#img-avatar').click();
@@ -248,7 +248,7 @@ document
   .addEventListener('click', () => {
     toggleKebabMenu(false, false);
 
-    openConfirmPopup('Remove Profile Picture?', 'Remove', () => {
+    openConfirmPopup('Remover Foto de Perfil?', 'Remover', () => {
       resetProfilePictures();
     });
   });

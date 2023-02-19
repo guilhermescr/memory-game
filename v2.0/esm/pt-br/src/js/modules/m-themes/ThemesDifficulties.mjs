@@ -14,9 +14,9 @@ const DIFFICULTIES_CONTAINER = document.querySelector(
 );
 const DIFFICULTY_BUTTONS = document.querySelectorAll('.difficulty-level');
 const DIFFICULTY_OPTIONS = {
-  Easy: addEasyModeCards,
+  Fácil: addEasyModeCards,
   Normal: addNormalModeCards,
-  Hard: addHardModeCards
+  Difícil: addHardModeCards
 };
 
 let difficulty;
@@ -24,7 +24,7 @@ let difficulty;
 function resetThemesContainerStyles() {
   hideElements(DIFFICULTIES_CONTAINER);
   revealElements(THEMES_CONTAINER);
-  THEMES_TITLE.innerHTML = 'Themes';
+  THEMES_TITLE.innerHTML = 'Temas';
 }
 
 function showDifficulties() {
@@ -32,7 +32,7 @@ function showDifficulties() {
   let btnThemeId = this.dataset.themeid;
   saveClickedBtnThemeId(btnThemeId);
 
-  THEMES_TITLE.innerHTML = 'Select Your Difficulty';
+  THEMES_TITLE.innerHTML = 'Selecione Uma Dificuldade';
   hideElements(THEMES_CONTAINER);
   revealElements(DIFFICULTIES_CONTAINER);
 }

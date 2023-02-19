@@ -404,7 +404,7 @@ const themes = {
 
 const THEMES_LIST = Object.keys(themes);
 const THEMES_NAMES = [
-  'Adventure Time',
+  'Hora de Aventura',
   'Ben 10',
   'Boku No Hero',
   'Boruto',

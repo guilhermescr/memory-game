@@ -6,7 +6,7 @@
   justify-content: center;
   min-height: 100vh;
   overflow-y: overlay;
-  padding-block: 20px;
+  padding: 50px 0 20px 0;
   position: absolute;
   width: 100vw;
   z-index: 1;

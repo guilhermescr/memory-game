@@ -10,22 +10,22 @@ function showRegisterMenu() {
   updateApprovedValidation(false);
   clearInputs();
 
-  document.querySelector('#sign_up_in_title').innerHTML = 'Sign Up';
-  SUBMIT_BUTTON.innerHTML = 'Sign Up';
+  document.querySelector('#sign_up_in_title').innerHTML = 'Cadastre-se';
+  SUBMIT_BUTTON.innerHTML = 'Cadastre-se';
 
-  document.querySelector('#auth-message').innerHTML = 'Already a user?';
-  AUTH_BUTTON.innerHTML = 'Login';
+  document.querySelector('#auth-message').innerHTML = 'Já é de casa?';
+  AUTH_BUTTON.innerHTML = 'Entre';
 }
 
 function showLoginMenu() {
   updateApprovedValidation(false);
   clearInputs();
 
-  document.querySelector('#sign_up_in_title').innerHTML = 'Sign In';
-  SUBMIT_BUTTON.innerHTML = 'Sign In';
+  document.querySelector('#sign_up_in_title').innerHTML = 'Login';
+  SUBMIT_BUTTON.innerHTML = 'Login';
 
-  document.querySelector('#auth-message').innerHTML = "Don't have an account?";
-  AUTH_BUTTON.innerHTML = 'Register';
+  document.querySelector('#auth-message').innerHTML = "Não tem uma conta?";
+  AUTH_BUTTON.innerHTML = 'Cadastre-se';
 }
 
 function clearInputs() {

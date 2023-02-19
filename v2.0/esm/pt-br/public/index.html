@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="On Memory Game, your mission is to turn over pairs of matching cards! Can you do it fast?"
+      content="No Jogo da Memória, a sua missão é fazer combinações de cartas! Você consegue fazer isso rapidinho?"
     />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
@@ -125,6 +125,24 @@
     <link
       rel="stylesheet"
       href="../src/assets/css/languages-container/language__icon.css"
+    />
+
+    <!-- Confirm Popup -->
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/confirm-popup/confirm-action-popup.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/confirm-popup/confirm-popup__container.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/confirm-popup/confirm-buttons/confirm-buttons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../src/assets/css/confirm-popup/confirm-buttons/confirm-button/confirm-button.css"
     />
 
     <!-- Message Box Popup -->
@@ -1054,11 +1072,11 @@
       rel="stylesheet"
     />
 
-    <title>Memory Game</title>
+    <title>Jogo da Memória</title>
   </head>
   <body class="forest_template">
     <section id="click-on-window-message-container">
-      <h2>Click on the page to start!</h2>
+      <h2>Clique na pagina para comecar!</h2>
       <div class="click-on-window-message-container__click-image-container">
         <svg
           class="click-image"
@@ -1085,22 +1103,22 @@
     </section>
 
     <section id="loader-container">
-      <h2 id="loader-container__loader-title">Loading...</h2>
+      <h2 id="loader-container__loader-title">Carregando...</h2>
       <div id="loader-container__loader"></div>
     </section>
 
     <section class="top-bar-container">
       <div class="top-bar-container__left-content">
         <h3 id="score" class="top-bar-container__top-bar-item hide">
-          Score: <span id="score-points">0</span>
+          Pontos: <span id="score-points">0</span>
         </h3>
         <h3 id="moves" class="top-bar-container__top-bar-item hide">
-          Moves: <span class="move-count">0</span>
+          Movimentos: <span class="move-count">0</span>
         </h3>
         <h3
           class="top-bar-container__top-bar-item left-content__hearts-container hide"
         >
-          Lives:
+          Vidas:
           <span id="hearts">
             <svg
               class="hearts-container__heart hearts-container__alive-heart"
@@ -1265,35 +1283,35 @@
     </section>
 
     <section class="registering-container">
-      <h2 id="welcome-message">Welcome to the Memory Game!</h2>
+      <h2 id="welcome-message">Bem-vindo(a) ao Jogo da Memória!</h2>
 
       <form class="registering-container__form">
-        <h2 id="sign_up_in_title">Sign Up</h2>
+        <h2 id="sign_up_in_title">Cadastre-se</h2>
         <p id="auth-error" class="error hide"></p>
 
         <div class="form__username-container">
-          <label for="username">Username</label>
+          <label for="username">Usuário</label>
           <input
             type="text"
             id="username"
             class="username-input"
             name="username"
-            placeholder="I.e.: julian"
+            placeholder="Ex.: julian"
             autocomplete="off"
             spellcheck="false"
           />
           <p class="success-message hide"></p>
-          <p class="error-message error hide">Please, insert a username.</p>
+          <p class="error-message error hide">Por favor, insira um nome.</p>
         </div>
         <div class="form__password-container">
-          <label for="password">Password</label>
+          <label for="password">Senha</label>
           <input
             type="password"
             id="password"
             class="password-input"
             name="password"
             autocomplete="off"
-            placeholder="I.e.: @julian2022"
+            placeholder="Ex.: @julian2022"
             pattern="^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$"
           />
           <i class="password-container__toggle-password hide">
@@ -1303,30 +1321,30 @@
             />
           </i>
           <p id="password-info">
-            Must be 8 to 16 characters and contain at least 1 number and 1
-            special character.
+            Deve conter 8 a 16 caracteres, sendo pelo menos 1 número e 1 dos
+            caracteres ao lado. (!@#$%^&*)
           </p>
         </div>
-        <button class="form__submit-button" type="submit">Sign Up</button>
+        <button class="form__submit-button" type="submit">Cadastre-se</button>
 
         <div class="form__or-container">
           <span id="left-bar"></span>
-          <p>Or</p>
+          <p>Ou</p>
           <span id="right-bar"></span>
         </div>
 
         <div class="form__play-anonymously-container">
-          <h3 id="play-anonymously" role="button">Play without an account</h3>
+          <h3 id="play-anonymously" role="button">Jogar sem cadastro</h3>
           <p>
-            OBS: Your progress will be deleted when you reload the page, if
-            you're playing without an account.
+            OBS.: Seu progresso será deletado quando você recarregar a página,
+            caso você esteja jogando sem cadastro.
           </p>
         </div>
 
         <div class="form__auth-option">
           <h3>
-            <span id="auth-message">Already a user?</span>
-            <span class="register" id="auth-button" role="button">Login</span>
+            <span id="auth-message">Já é de casa?</span>
+            <span class="register" id="auth-button" role="button">Entre</span>
           </h3>
         </div>
       </form>
@@ -1390,11 +1408,11 @@
           />
         </div>
 
-        <h2>Choose a Mode</h2>
+        <h2>Escolha um Modo</h2>
 
         <section class="modes">
           <div class="modes__mode">
-            <h3>Classic Mode</h3>
+            <h3>Modo Clássico</h3>
             <img
               class="mode__img"
               src="../src/assets/images/modes/classic-mode.png"
@@ -1406,12 +1424,12 @@
               id="play-classic-mode-button"
               type="button"
             >
-              Play
+              Jogar
             </button>
           </div>
 
           <div class="modes__mode">
-            <h3>Random Mode</h3>
+            <h3>Modo Aleatório</h3>
             <img
               class="mode__img"
               src="../src/assets/images/modes/random-mode.png"
@@ -1423,7 +1441,7 @@
               id="play-random-mode-button"
               type="button"
             >
-              Play
+              Jogar
             </button>
           </div>
         </section>
@@ -1453,12 +1471,12 @@
           />
         </div>
 
-        <h2 id="themes-title">Themes</h2>
+        <h2 id="themes-title">Temas</h2>
         <div class="themes" id="themes-container"></div>
         <div class="difficulties-container">
-          <button class="difficulty-level">Easy</button>
+          <button class="difficulty-level">Fácil</button>
           <button class="difficulty-level">Normal</button>
-          <button class="difficulty-level">Hard</button>
+          <button class="difficulty-level">Difícil</button>
         </div>
       </section>
 
@@ -1486,9 +1504,9 @@
           </svg>
         </div>
 
-        <h2 id="random-themes-title">Random Themes</h2>
+        <h2 id="random-themes-title">Temas Aleatórios</h2>
         <div class="random-themes" id="random-themes-images"></div>
-        <button class="play-theme-btn" id="shuffle-themes">Play Theme</button>
+        <button class="play-theme-btn" id="shuffle-themes">Sortear</button>
       </section>
 
       <section
@@ -1518,10 +1536,10 @@
           />
         </div>
 
-        <h2 id="home-settings-title">Settings</h2>
+        <h2 id="home-settings-title">Configurações</h2>
 
         <section class="current-template">
-          <h3>Current Template</h3>
+          <h3>Estilo Atual</h3>
           <img
             id="current-template-image"
             src="../src/assets/images/templates/forest_template/forest_template_menu.png"
@@ -1532,7 +1550,7 @@
             class="change-template-button"
             type="button"
           >
-            Change
+            Trocar
           </button>
         </section>
 
@@ -1580,10 +1598,10 @@
             <img class="user-profile-image hide" src="" alt="Profile Image" />
           </div>
 
-          <h3 class="user-name">username</h3>
+          <h3 class="user-name">usuário</h3>
 
           <button class="logout-btn" id="logout-button" type="button">
-            Logout
+            Desconectar-se
           </button>
         </section>
 
@@ -1600,7 +1618,7 @@
             </svg>
 
             <div class="which-info-container edit-profile-menu-option">
-              <h3>Which info do you want to update?</h3>
+              <h3>Qual informação você deseja atualizar?</h3>
 
               <div class="edit-profile-options">
                 <button
@@ -1608,14 +1626,14 @@
                   class="edit-profile-option"
                   type="button"
                 >
-                  Profile Picture
+                  Foto de Perfil
                 </button>
                 <button
                   id="edit-username-button"
                   class="edit-profile-option"
                   type="button"
                 >
-                  Username
+                  Nome do Usuário
                 </button>
               </div>
             </div>
@@ -1631,14 +1649,14 @@
                 />
               </svg>
 
-              <h3>What is your new username?</h3>
+              <h3>Qual será seu novo nome de usuário?</h3>
 
               <form class="username-form">
                 <h3>
-                  Old username:
-                  <span class="user-name">username</span>
+                  Nome antigo:
+                  <span class="user-name">usuário</span>
                 </h3>
-                <label for="username-input">New username:</label>
+                <label for="username-input">Novo nome:</label>
                 <input
                   type="text"
                   name="username-input"
@@ -1647,7 +1665,7 @@
                   autocomplete="off"
                 />
                 <button id="save-username-button" type="button">
-                  Save Changes
+                  Salvar mudanças
                 </button>
               </form>
             </div>
@@ -1665,7 +1683,7 @@
                 />
               </svg>
 
-              <h3>Upload an image or Insert a link</h3>
+              <h3>Importe uma Imagem ou Insira um Link</h3>
 
               <div class="profile-picture-options">
                 <div>
@@ -1676,7 +1694,7 @@
                     class="profile-picture-option"
                     checked
                   />
-                  <label for="img-file">Image File</label>
+                  <label for="img-file">Importar Imagem</label>
                 </div>
                 <div>
                   <input
@@ -1685,7 +1703,7 @@
                     id="img-link"
                     class="profile-picture-option"
                   />
-                  <label for="img-link">Image Link</label>
+                  <label for="img-link">Inserir Link</label>
                 </div>
                 <div>
                   <input
@@ -1694,12 +1712,12 @@
                     id="img-avatar"
                     class="profile-picture-option"
                   />
-                  <label for="img-avatar">Avatars</label>
+                  <label for="img-avatar">Avatares</label>
                 </div>
               </div>
 
               <div class="checked-radio-input-container">
-                <label for="img-file">File:</label>
+                <label for="img-file">Arquivo:</label>
                 <input
                   type="file"
                   name="img-file"
@@ -1709,7 +1727,9 @@
 
               <div class="image-preview hide">
                 <img class="image-preview__img" src="" alt="Image Preview" />
-                <button id="cancel-image-preview" type="button">Cancel</button>
+                <button id="cancel-image-preview" type="button">
+                  Cancelar
+                </button>
               </div>
 
               <button id="save-profile-picture-button" type="button">
@@ -1722,7 +1742,7 @@
             <div class="kebab-menu-container" role="button">
               <svg
                 class="kebab-icon"
-                title="More Options"
+                title="Mais Opções"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 128 512"
               >
@@ -1736,12 +1756,16 @@
                   class="kebab-option"
                   role="button"
                   id="remove-profile-picture-button"
-                  title="Remove Profile Picture"
+                  title="Remover Foto de Perfil"
                 >
-                  Remove Photo
+                  Remover Foto de Perfil
                 </p>
-                <p class="kebab-option logout-btn" role="button" title="Logout">
-                  Logout
+                <p
+                  class="kebab-option logout-btn"
+                  role="button"
+                  title="Desconectar-se"
+                >
+                  Desconectar-se
                 </p>
               </div>
             </div>
@@ -1750,7 +1774,7 @@
               <div
                 class="edit-profile-button"
                 role="button"
-                title="Edit Profile"
+                title="Editar Perfil"
               >
                 <svg
                   class="font-awesome-icon"
@@ -1766,7 +1790,7 @@
               <div
                 class="delete-profile-button"
                 role="button"
-                title="Delete Profile"
+                title="Deletar Perfil"
               >
                 <svg
                   class="font-awesome-icon"
@@ -1822,7 +1846,7 @@
             </div>
 
             <div class="profile-info">
-              <h3 class="user-name">user</h3>
+              <h3 class="user-name">usuário</h3>
 
               <div class="experience-bar">
                 <div class="level-container">
@@ -1843,9 +1867,10 @@
                   <div class="exp-progress__current-progress"></div>
                 </div>
                 <p>
-                  <span class="xp-amount">0</span>xp/<span class="next-level-xp"
+                  <span class="xp-amount">0</span>exp/<span
+                    class="next-level-xp"
                     >0</span
-                  >xp
+                  >exp
                 </p>
               </div>
             </div>
@@ -1856,14 +1881,14 @@
                 id="open-general-info-button"
                 role="button"
               >
-                General Info
+                Informações Gerais
               </li>
               <li
                 class="profile-info-option"
                 id="open-achievements-button"
                 role="button"
               >
-                Achievements
+                Conquistas
               </li>
             </ul>
           </section>
@@ -1872,24 +1897,24 @@
             <section class="general-info-container">
               <ul class="general-info-list">
                 <li class="general-info-list__option">
-                  Creation Date: <span id="creation-date">?</span>
+                  Conta criada em: <span id="creation-date">?</span>
                 </li>
                 <li class="general-info-list__option">
-                  Matches: <span id="matches">0</span>
+                  Partidas: <span id="matches">0</span>
                 </li>
                 <li class="general-info-list__option">
-                  Victories: <span id="victories">0</span>
+                  Vitórias: <span id="victories">0</span>
                 </li>
                 <li class="general-info-list__option">
-                  Defeats: <span id="defeats">0</span>
+                  Derrotas: <span id="defeats">0</span>
                 </li>
                 <li class="general-info-list__option">
-                  Win Streak: <span id="win-streak">0</span>
+                  Sequência de Vitórias: <span id="win-streak">0</span>
                 </li>
               </ul>
             </section>
             <section class="achievements-section hide">
-              <h3>Achievements:</h3>
+              <h3>Conquistas:</h3>
               <p class="achievements-section__total-achievements">
                 <span>Total: </span><span id="total-achievements">?/?</span>
               </p>
@@ -1912,7 +1937,7 @@
                   d="M 23.068359 5.0058594 C 22.890359 5.0058594 21.625813 5.2552656 11.257812 7.1972656 C 11.176812 7.1972656 10.789172 7.2985625 10.576172 7.4765625 C 10.367172 7.6445625 10.255844 7.8688125 10.214844 8.1328125 C 10.041844 8.8238125 10.593078 21.281234 10.080078 21.865234 C 9.8560781 22.114234 9.46125 22.186187 9.15625 22.242188 C 7.33225 22.562188 6.1179062 22.729734 5.2539062 23.552734 C 3.7649063 25.005734 4.5364219 27.541125 6.7324219 27.953125 C 7.5554219 28.105125 9.1010781 27.898781 9.9550781 27.425781 C 10.707078 27.038781 11.277234 26.342969 11.490234 25.417969 C 11.673234 24.624969 11.617188 25.173141 11.617188 13.244141 C 11.617188 12.659141 11.780828 12.506531 12.298828 12.394531 C 12.298828 12.394531 21.319328 10.707719 21.736328 10.636719 C 22.320328 10.534719 22.599609 10.692719 22.599609 11.261719 C 22.599609 19.348719 22.701953 19.190641 22.376953 19.556641 C 22.152953 19.805641 21.887031 19.875641 21.582031 19.931641 C 19.757031 20.251641 18.655016 20.307859 17.791016 21.130859 C 16.698016 22.197859 16.712734 23.890109 17.927734 24.912109 C 18.832734 25.602109 19.84875 25.771969 21.09375 25.542969 C 22.51175 25.277969 23.569531 24.494563 23.894531 23.101562 C 24.041531 22.466562 23.994281 23.406391 23.988281 5.9003906 C 23.988281 5.3103906 23.652359 4.9648594 23.068359 5.0058594 z"
                 />
               </svg>
-              Music:
+              Música:
             </h3>
             <div class="switch-audio-container switch-audio-container--active">
               <button
@@ -1936,7 +1961,7 @@
                   d="M11,22.84H36.47L58.17,1A3.44,3.44,0,0,1,63,1a3.39,3.39,0,0,1,1,2.44h0V93.2a3.46,3.46,0,0,1-5.93,2.41L36.65,77.49H11a11,11,0,0,1-11-11V33.83a11,11,0,0,1,11-11Zm65.12,15a3.22,3.22,0,1,1,6.1-2,43.3,43.3,0,0,1,1.56,13.27c-.09,4.76-.78,9.44-2.13,12.21a3.23,3.23,0,1,1-5.8-2.83c.93-1.92,1.43-5.59,1.5-9.48a37.13,37.13,0,0,0-1.23-11.12Zm16.64-12a3.23,3.23,0,0,1,6-2.48c3,7.18,4.61,16.23,4.75,25.22s-1.17,17.72-4,24.77a3.22,3.22,0,1,1-6-2.4C96,64.64,97.15,56.66,97,48.6s-1.58-16.36-4.28-22.81Zm16.09-10.23a3.22,3.22,0,1,1,5.8-2.8,86.65,86.65,0,0,1,8.24,36.44c.09,12.22-2.37,24.39-7.73,34.77a3.22,3.22,0,0,1-5.73-3c4.88-9.43,7.11-20.56,7-31.77a80,80,0,0,0-7.6-33.69ZM37.89,29.74H11A4.11,4.11,0,0,0,6.9,33.83V66.51A4.11,4.11,0,0,0,11,70.6h26.9s2,.69,2.21.83L57.16,85.8v-74L40.52,28.53a3.46,3.46,0,0,1-2.63,1.21Z"
                 />
               </svg>
-              Sound:
+              Som:
             </h3>
             <div class="switch-audio-container switch-audio-container--active">
               <button
@@ -1972,10 +1997,10 @@
         </div>
 
         <form class="terminal">
-          <h2>Master Terminal</h2>
+          <h2>Terminal de Controle</h2>
 
           <section class="terminal__help-center">
-            <h3>Help Center</h3>
+            <h3>Central de Ajuda</h3>
 
             <button class="toggle-help-center-button less" type="button">
               <svg
@@ -1997,71 +2022,71 @@
               <li class="commands-list__command">
                 <h4 class="command__command-title">mm cra -all</h4>
                 <p class="command__command-description">
-                  This command checks all registered accounts.
+                  Esse comando mostra todas as contas cadastradas.
                 </p>
               </li>
 
               <li class="commands-list__command">
-                <h4 class="command__command-title">mm ga "username"</h4>
+                <h4 class="command__command-title">mm ga "usuário"</h4>
                 <p class="command__command-description">
-                  This command gets an account and returns username + password.
+                  Esse comando mostra o nome + senha de uma conta especifíca.
                 </p>
               </li>
 
               <li class="commands-list__command">
                 <h4 class="command__command-title">mm clear</h4>
                 <p class="command__command-description">
-                  This command clears the terminal.
+                  Esse comando limpa o terminal.
                 </p>
               </li>
 
               <li class="commands-list__command">
                 <h4 class="command__command-title">mm logout</h4>
                 <p class="command__command-description">
-                  This command logs you out.
+                  Esse comando desconecta a sua conta.
                 </p>
               </li>
 
               <li class="commands-list__command">
                 <h4 class="command__command-title">mm rpp</h4>
                 <p class="command__command-description">
-                  This command resets the profile picture.
+                  Esse comando remove a sua foto de perfil.
                 </p>
               </li>
 
               <li class="commands-list__command">
-                <h4 class="command__command-title">mm da "username"</h4>
+                <h4 class="command__command-title">mm da "usuário"</h4>
                 <p class="command__command-description">
-                  This command deletes a specific account.
+                  Esse comando deleta uma conta especifíca.
                 </p>
               </li>
 
               <li class="commands-list__command">
                 <h4 class="command__command-title">mm da -all</h4>
                 <p class="command__command-description">
-                  This command deletes all the registered accounts.
+                  Esse comando deleta todas as contas cadastradas.
                 </p>
               </li>
 
               <li class="commands-list__command">
                 <h4 class="command__command-title">mm rta</h4>
                 <p class="command__command-description">
-                  This command resets the temporary achievements. (win streak
-                  etc.)
+                  Esse comando reinicia as conquistas temporárias. (Vitórias
+                  seguidas etc.)
                 </p>
               </li>
 
               <li class="commands-list__command">
-                <h4 class="command__command-title">mm ra "achievement"</h4>
+                <h4 class="command__command-title">mm ra "conquista"</h4>
                 <p class="command__command-description">
-                  This command resets a specific achievement.
+                  Esse comando reinicia uma conquista especifíca.
                 </p>
               </li>
 
               <li class="commands-list__command">
                 <h4 class="command__command-title">mm ra -all</h4>
                 <p class="command__command-description">
-                  This command resets all achievements.
+                  Esse comando reinicia todas as conquistas.
                 </p>
               </li>
             </ul>
@@ -2071,7 +2096,7 @@
             <div class="command-blocks__block">
               <div class="user-info">
                 <p class="user-name">?</p>
-                <p>@Memory-Game</p>
+                <p>@Jogo-da-Memória</p>
               </div>
 
               <div class="user-input-container --current-input-block">
@@ -2101,14 +2126,14 @@
           />
         </div>
 
-        <h2>Credits</h2>
+        <h2>Créditos</h2>
         <div class="credits__info">
           <div class="credits__info__creator-image-container">
             <img
               src="../src/assets/images/guilherme-with-nobg.png"
               alt="A picture of the game's creator"
             />
-            <h3>Creator: Guilherme Rocha</h3>
+            <h3>Criador: Guilherme Rocha</h3>
           </div>
 
           <div class="social">
@@ -2245,7 +2270,7 @@
           />
         </div>
 
-        <h2 id="ingame-settings__title">Settings</h2>
+        <h2 id="ingame-settings__title">Configurações</h2>
 
         <section class="music-container">
           <div class="music-options"></div>
@@ -2264,7 +2289,7 @@
                     d="M 23.068359 5.0058594 C 22.890359 5.0058594 21.625813 5.2552656 11.257812 7.1972656 C 11.176812 7.1972656 10.789172 7.2985625 10.576172 7.4765625 C 10.367172 7.6445625 10.255844 7.8688125 10.214844 8.1328125 C 10.041844 8.8238125 10.593078 21.281234 10.080078 21.865234 C 9.8560781 22.114234 9.46125 22.186187 9.15625 22.242188 C 7.33225 22.562188 6.1179062 22.729734 5.2539062 23.552734 C 3.7649063 25.005734 4.5364219 27.541125 6.7324219 27.953125 C 7.5554219 28.105125 9.1010781 27.898781 9.9550781 27.425781 C 10.707078 27.038781 11.277234 26.342969 11.490234 25.417969 C 11.673234 24.624969 11.617188 25.173141 11.617188 13.244141 C 11.617188 12.659141 11.780828 12.506531 12.298828 12.394531 C 12.298828 12.394531 21.319328 10.707719 21.736328 10.636719 C 22.320328 10.534719 22.599609 10.692719 22.599609 11.261719 C 22.599609 19.348719 22.701953 19.190641 22.376953 19.556641 C 22.152953 19.805641 21.887031 19.875641 21.582031 19.931641 C 19.757031 20.251641 18.655016 20.307859 17.791016 21.130859 C 16.698016 22.197859 16.712734 23.890109 17.927734 24.912109 C 18.832734 25.602109 19.84875 25.771969 21.09375 25.542969 C 22.51175 25.277969 23.569531 24.494563 23.894531 23.101562 C 24.041531 22.466562 23.994281 23.406391 23.988281 5.9003906 C 23.988281 5.3103906 23.652359 4.9648594 23.068359 5.0058594 z"
                   />
                 </svg>
-                Music:
+                Música:
               </h3>
               <div
                 class="switch-audio-container switch-audio-container--active"
@@ -2291,7 +2316,7 @@
                     d="M11,22.84H36.47L58.17,1A3.44,3.44,0,0,1,63,1a3.39,3.39,0,0,1,1,2.44h0V93.2a3.46,3.46,0,0,1-5.93,2.41L36.65,77.49H11a11,11,0,0,1-11-11V33.83a11,11,0,0,1,11-11Zm65.12,15a3.22,3.22,0,1,1,6.1-2,43.3,43.3,0,0,1,1.56,13.27c-.09,4.76-.78,9.44-2.13,12.21a3.23,3.23,0,1,1-5.8-2.83c.93-1.92,1.43-5.59,1.5-9.48a37.13,37.13,0,0,0-1.23-11.12Zm16.64-12a3.23,3.23,0,0,1,6-2.48c3,7.18,4.61,16.23,4.75,25.22s-1.17,17.72-4,24.77a3.22,3.22,0,1,1-6-2.4C96,64.64,97.15,56.66,97,48.6s-1.58-16.36-4.28-22.81Zm16.09-10.23a3.22,3.22,0,1,1,5.8-2.8,86.65,86.65,0,0,1,8.24,36.44c.09,12.22-2.37,24.39-7.73,34.77a3.22,3.22,0,0,1-5.73-3c4.88-9.43,7.11-20.56,7-31.77a80,80,0,0,0-7.6-33.69ZM37.89,29.74H11A4.11,4.11,0,0,0,6.9,33.83V66.51A4.11,4.11,0,0,0,11,70.6h26.9s2,.69,2.21.83L57.16,85.8v-74L40.52,28.53a3.46,3.46,0,0,1-2.63,1.21Z"
                   />
                 </svg>
-                Sound:
+                Som:
               </h3>
               <div
                 class="switch-audio-container switch-audio-container--active"
@@ -2397,21 +2422,21 @@
 
     <audio class="music-audio-tag" id="home-music" loop>
       <source id="home-music-file" src="" type="audio/mpeg" />
-      Your browser doesn't support the audio element.
+      Seu navegador não suporta a tag de aúdio.
     </audio>
     <audio class="music-audio-tag" id="theme-music" loop>
       <source id="theme-sound-track" src="" type="audio/mpeg" />
-      Your browser doesn't support the audio element.
+      Seu navegador não suporta a tag de aúdio.
     </audio>
     <audio id="hover-sound-effect">
       <source src="../src/effects/switch-effect.wav" type="audio/wav" />
       <source src="../src/effects/switch-effect.mp3" type="audio/mpeg" />
-      Your browser doesn't support the audio element.
+      Seu navegador não suporta a tag de aúdio.
     </audio>
     <audio id="click-setting-effect">
       <source src="../src/effects/mouse-click-effect.mp3" type="audio/mpeg" />
       <source src="../src/effects/mouse-click-effect.ogg" type="audio/ogg" />
-      Your browser doesn't support the audio element.
+      Seu navegador não suporta a tag de aúdio.
     </audio>
 
     <script type="module" src="../src/js/main.js" defer></script>

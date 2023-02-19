@@ -8,7 +8,7 @@ function resetStyles(RANDOM_THEME, drawnTheme) {
   RANDOM_THEME.classList.remove('middle-theme');
   RANDOM_THEME.style.display = 'block';
   RANDOM_THEME.style.order = '';
-  RANDOM_THEMES_TITLE.innerHTML = 'Random Themes';
+  RANDOM_THEMES_TITLE.innerHTML = 'Temas Aleatórios';
   drawnTheme.style.order = '';
 }
 

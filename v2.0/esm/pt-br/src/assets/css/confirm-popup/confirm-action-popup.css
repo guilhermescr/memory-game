@@ -33,3 +33,9 @@
     font-size: 50px;
   }
 }
+
+@media (max-width: 450px), (max-height: 350px) {
+  .confirm-action-popup.confirm-popup {
+    transform: scale(0.7);
+  }
+}

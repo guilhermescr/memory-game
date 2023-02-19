@@ -39,6 +39,11 @@ const CHANGE_TEMPLATE_BUTTON = document.querySelector(
   '#change-current-template-button'
 );
 const TEMPLATES_CONTAINER = document.querySelector('.templates');
+const TEMPLATES_NAMES = [
+  'Estilo Floresta',
+  'Estilo Arco-Íris',
+  'Estilo Militar'
+];
 let currentTemplate;
 
 // add current template image in home settings menu
@@ -76,15 +81,13 @@ function createTemplates() {
     template.classList.add('template');
 
     template.innerHTML = `
-    <h3>${TEMPLATES_KEYS[templateIndex].replace('Template', ' Template')}</h3>
+    <h3>${TEMPLATES_NAMES[templateIndex]}</h3>
     <img
       class="template-image"
       src=${src}
       alt=${alt}
     />
-    <button id="${
-      TEMPLATES_KEYS[templateIndex]
-    }" class="change-template-button" type="button">Change</button>
+    <button id="${TEMPLATES_KEYS[templateIndex]}" class="change-template-button" type="button">Trocar</button>
     `;
     TEMPLATES_CONTAINER.appendChild(template);
 
@@ -104,29 +107,31 @@ function createTemplates() {
 }
 
 function showTemplatesInMenu() {
-  HOME_SETTINGS_TITLE.innerHTML = 'Templates';
+  HOME_SETTINGS_TITLE.innerHTML = 'Estilos';
   hideElements([
     document.querySelector('.current-template'),
     document.querySelector('.audio-container'),
     document.querySelector('.open-profile-menu')
   ]);
-  HOME_SETTINGS_RETURN_ICON.style.display = 'block';
   createTemplates();
-  revealElements(TEMPLATES_CONTAINER);
+  revealElements([HOME_SETTINGS_RETURN_ICON, TEMPLATES_CONTAINER]);
 }
 
 function showSettingsMenu() {
   closeEditAccountMenu();
 
-  hideElements([TEMPLATES_CONTAINER, document.querySelector('.profile-menu')]);
+  hideElements([
+    TEMPLATES_CONTAINER,
+    HOME_SETTINGS_RETURN_ICON,
+    document.querySelector('.profile-menu')
+  ]);
   revealElements([
     document.querySelector('.current-template'),
     document.querySelector('.audio-container'),
     document.querySelector('.open-profile-menu')
   ]);
   TEMPLATES_CONTAINER.innerHTML = '';
-  HOME_SETTINGS_TITLE.innerHTML = 'Settings';
-  HOME_SETTINGS_RETURN_ICON.style.display = 'none';
+  HOME_SETTINGS_TITLE.innerHTML = 'Configurações';
 }
 
 function showUserProfileInfo() {
@@ -135,10 +140,12 @@ function showUserProfileInfo() {
     document.querySelector('.audio-container'),
     document.querySelector('.open-profile-menu')
   ]);
-  revealElements(document.querySelector('.profile-menu'));
+  revealElements([
+    HOME_SETTINGS_RETURN_ICON,
+    document.querySelector('.profile-menu')
+  ]);
 
-  HOME_SETTINGS_TITLE.innerHTML = 'Profile Info';
-  HOME_SETTINGS_RETURN_ICON.style.display = 'block';
+  HOME_SETTINGS_TITLE.innerHTML = 'Informações de Perfil';
 
   if (!isExpProgressBarWidthUpdated.state) {
     changeExpProgressBarWidth(isExpProgressBarWidthUpdated.width === 100);

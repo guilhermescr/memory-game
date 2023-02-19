@@ -79,7 +79,7 @@ function renderLoaderContainer(loaderMessage) {
   if (loaderMessage) {
     LOADER_TITLE.innerHTML = loaderMessage;
   } else {
-    LOADER_TITLE.innerHTML = 'Loading...';
+    LOADER_TITLE.innerHTML = 'Carregando...';
   }
   timeoutItems(removeLoaderContainer);
 }
@@ -307,7 +307,7 @@ function openConfirmPopup(title, action_name, action) {
         class="confirm-buttons__confirm-button"
         id="cancel-confirm-popup-button"
       >
-        Cancel
+        Cancelar
       </button>
     </div>
   </div>
@@ -334,7 +334,7 @@ function openMessageBox(msg) {
   message_box.classList.add('disabled-button-message-box');
 
   message_box.innerHTML = `
-  <h2>Alert:</h2>
+  <h2>Alerta:</h2>
   <p>${msg}</p>
   `;
   document.body.appendChild(message_box);

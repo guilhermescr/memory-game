@@ -324,9 +324,9 @@ function quitGame() {
   const { CurrentTemplate } = onlineUser.userData;
   if (isWin) {
     checkResultsForAchievements();
-    renderLoaderContainer('Bringing you to home...');
+    renderLoaderContainer('Indo para o início...');
   } else {
-    renderLoaderContainer('Try to do better next time...');
+    renderLoaderContainer('Se empenhe mais na próxima...');
     updateWinStreak(0);
     renderGeneralInfo();
   }
@@ -369,7 +369,7 @@ function endGame(matchResult, isQuitGame) {
 
   openMenu('end-game-menu');
   timing.render();
-  END_GAME_TITLE.innerHTML = isWin ? 'Win!' : 'Game Over!';
+  END_GAME_TITLE.innerHTML = isWin ? 'Vitória!' : 'Game Over!';
 
   if (isQuitGame) {
     END_GAME_XP.innerHTML = 0;

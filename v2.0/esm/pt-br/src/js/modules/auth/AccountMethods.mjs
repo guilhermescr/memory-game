@@ -268,7 +268,7 @@ document.querySelectorAll('.circle-return-icon').forEach(circle_return_icon => {
 document
   .querySelector('.delete-profile-button')
   .addEventListener('click', () => {
-    openConfirmPopup('Delete Account?', 'Delete', () => {
+    openConfirmPopup('Deletar essa conta?', 'Deletar', () => {
       deleteAccount('online_user');
     });
   });
