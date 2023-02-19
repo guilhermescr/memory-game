@@ -39,7 +39,9 @@ import { ACHIEVEMENTS_DATA } from './m-profile/achievements/AchievementsList.mjs
 const SCOREBOARD = document.getElementById('score-points');
 const MOVE_COUNT = document.querySelectorAll('.move-count');
 const HEARTS = document.querySelectorAll('.hearts-container__heart');
-let [win_streak, mistakes] = [0, 0];
+const COMBO_ELEMENT = document.getElementById('combo');
+const COMBO_AMOUNT_ELEMENT = document.getElementById('combo-amount');
+let [win_streak, mistakes, max_combo] = [0, 0, 0];
 let [isWin, isHardMatch] = [null, false];
 let cards, interval;
 
@@ -123,11 +125,18 @@ function startGame() {
   renderPlayMusicButtons();
 
   let firstCard, secondCard;
-  let [withLives, hasFlippedCard, lockBoard] = [false, false, false];
-  let [scorePoints, moves, cardSequence] = [0, 0, 0];
+  let [withLives, hasFlippedCard, lockBoard, isCombo] = [
+    false,
+    false,
+    false,
+    false
+  ];
+  let [scorePoints, moves, cardSequence, combo_count] = [0, 0, 0, 0];
   let lives = 5;
-  mistakes = 0;
+  [mistakes, max_combo] = [0, 0];
   isHardMatch = false;
+  COMBO_ELEMENT.style.top = '';
+  COMBO_ELEMENT.style.left = '';
   changeHomePageState(false);
 
   if (
@@ -188,6 +197,38 @@ function startGame() {
     });
   }
 
+  function comboCards() {
+    revealElements(COMBO_ELEMENT);
+
+    COMBO_ELEMENT.classList.add('combo-animation');
+
+    let right = secondCard.getBoundingClientRect().right;
+    let top = secondCard.getBoundingClientRect().top;
+    combo_count++;
+    isCombo = true;
+
+    COMBO_ELEMENT.style.top = `${top + 50}px`;
+    COMBO_ELEMENT.style.left = `${right - 50}px`;
+
+    COMBO_AMOUNT_ELEMENT.innerHTML = combo_count;
+
+    if (combo_count > max_combo) {
+      max_combo = combo_count;
+    }
+
+    timeoutItems(() => {
+      hideElements(COMBO_ELEMENT);
+      COMBO_ELEMENT.classList.remove('combo-animation');
+      isCombo = false;
+    }, 1000);
+
+    timeoutItems(() => {
+      if (!isCombo) {
+        combo_count = 0;
+      }
+    }, 2000);
+  }
+
   function flipCard() {
     if (lockBoard) return;
 
@@ -220,6 +261,7 @@ function startGame() {
     let isObtained = isAchievementObtained('Perfect Move');
 
     if (isMatch) {
+      comboCards();
       disableCards();
       cardSequence++;
       if (!isObtained && cardSequence <= 3) {
@@ -355,6 +397,7 @@ function endGame(matchResult, isQuitGame) {
   const { exp, matches } = onlineUser.userData;
   const END_GAME_TITLE = document.getElementById('match-result-title');
   const END_GAME_XP = document.getElementById('end-game-xp');
+  const END_GAME_MAX_COMBO = document.getElementById('max-combo');
   let xp = 0;
 
   updateAccount(['matches'], matches + 1);
@@ -370,6 +413,7 @@ function endGame(matchResult, isQuitGame) {
   openMenu('end-game-menu');
   timing.render();
   END_GAME_TITLE.innerHTML = isWin ? 'Win!' : 'Game Over!';
+  END_GAME_MAX_COMBO.innerHTML = max_combo;
 
   if (isQuitGame) {
     END_GAME_XP.innerHTML = 0;

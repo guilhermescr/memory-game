@@ -5,6 +5,13 @@
   position: relative;
 }
 
+.left-content__hearts-container {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
 @media (max-width: 580px) {
   .top-bar-container__left-content {
     flex-wrap: wrap;

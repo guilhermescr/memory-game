@@ -38,6 +38,30 @@
   max-width: 700px;
 }
 
+@keyframes ComboAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#combo {
+  color: #fff;
+  cursor: default;
+  font-size: 24px;
+  position: absolute;
+  text-shadow: 1px 0 3px #000000b4;
+  transform: rotate(-25deg);
+  user-select: none;
+  width: max-content;
+}
+
+.combo-animation {
+  animation: ComboAnimation 0.1s linear;
+}
+
 @media (max-width: 580px), (max-height: 600px) {
   .memory-deck {
     overflow-y: auto;

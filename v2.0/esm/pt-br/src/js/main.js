@@ -386,6 +386,7 @@ function setDefaultSettings() {
   renderGeneralInfo();
   renderCurrentLevel(onlineUser.userData.lvl);
   toggleElementsTabIndexWhileUserIsOffline(true);
+  hideElements(document.getElementById('combo'));
 
   if (onlineUser.userData.profilePicture.length) {
     renderProfilePictures(onlineUser.userData.profilePicture);
