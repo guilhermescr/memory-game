@@ -387,7 +387,6 @@ function getAccounts() {
 
   if (data) {
     accounts.push(...JSON.parse(data));
-    console.log(accounts);
   } else {
     console.log('Crie uma conta e comece a jogar!');
   }
@@ -503,7 +502,7 @@ function handleSubmit() {
         createAccount(USERNAME_INPUT.value, PASSWORD_INPUT.value);
         showLoginMenu();
       } else {
-        authError('Please, create an account with another name.');
+        authError('Por favor, escolha outro nome.');
       }
     } else {
       login(USERNAME_INPUT.value, PASSWORD_INPUT.value);

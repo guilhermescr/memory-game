@@ -139,7 +139,7 @@ function handleSubmit() {
         createAccount(USERNAME_INPUT.value, PASSWORD_INPUT.value);
         showLoginMenu();
       } else {
-        authError('Please, create an account with another name.');
+        authError('Por favor, escolha outro nome.');
       }
     } else {
       login(USERNAME_INPUT.value, PASSWORD_INPUT.value);

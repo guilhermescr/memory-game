@@ -371,7 +371,6 @@ function getAccounts() {
 
   if (data) {
     accounts.push(...JSON.parse(data));
-    console.log(accounts);
   } else {
     console.log('Crie uma conta e comece a jogar!');
   }

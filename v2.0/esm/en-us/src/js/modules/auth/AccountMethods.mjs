@@ -371,7 +371,6 @@ function getAccounts() {
 
   if (data) {
     accounts.push(...JSON.parse(data));
-    console.log(accounts);
   } else {
     console.log('Create an account and start playing!');
   }
