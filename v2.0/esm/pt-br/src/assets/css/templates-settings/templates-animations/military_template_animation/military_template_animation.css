@@ -124,6 +124,7 @@ body.military_template .game-menu__template-animation {
   position: absolute;
   top: 36%;
   width: 18px;
+  z-index: 1;
 }
 
 .HorizontalBulletAnimation {
