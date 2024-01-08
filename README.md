@@ -121,6 +121,7 @@ Neste jogo, você pode:
 Para jogar o Memory Game, [clique aqui](https://mmgame.vercel.app/).
 
 **OBS. 1: A Versão 1 que se encontra na "Home" do projeto é uma versão bem básica, nem arrumei a responsividade, justamente para me lembrar de quando eu era um genin nos códigos 👨‍💻**
+
 **OBS. 2: O JavaScript da Versão 2 - Opção 1 está dividido em módulos, de acordo com a quantidade de features do projeto, já o JavaScript da Versão 2 - Opção 2 está um único arquivo.**
 
 ## 🤝🏻 Como contribuir
