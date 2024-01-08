@@ -17,7 +17,7 @@ Decidi desenvolver este jogo para aprender mais sobre JavaScript. Muitas das fun
 
 <hr style="border: 2px solid black; height: 0;">
 
-## CRUD:
+## 🛠️ CRUD:
 Neste jogo, você pode:
 - Criar uma conta.
 - Ler os dados da conta pelo terminal ou pelo menu do perfil.
@@ -26,7 +26,7 @@ Neste jogo, você pode:
   - Nome de usuário.
 - Deletar contas.
 
-## Features:
+## 💻 Features:
 - Design responsivo.
 
 - Seleção de idiomas: Português e Inglês.
@@ -116,19 +116,30 @@ Neste jogo, você pode:
 
 - As versões em português e inglês possuem duas variações: uma com ECMAScript Modules e a outra com todo o JavaScript em apenas um único arquivo.
 
-## Acesse o projeto:
+## 🔗 Acesse o projeto:
 
 Para jogar o Memory Game, [clique aqui](https://mmgame.vercel.app/).
 
+## 🤝🏻 Como contribuir
+Para contribuir com esse projeto, basta seguir os passos abaixo:
+
+1. Faça um fork desse repositório em sua conta pessoal no Github;
+2. Crie uma branch de feature/nome-da-feature em seu repositório;
+3. Faça commits e encha essa branch criada com bastante conteúdo;
+4. Faça um pull request da sua branch para este repositório;
+5. Acompanhe a avaliação do pull-request e responda se necessário.
+
+Caso tenha alguma dúvida durante esse processo, crie uma issue nesse repositório.
+
 ## Créditos
 
-Eu pude começar este projeto graças a [Marina Ferreira](https://github.com/marina-ferreira)! A base do HTML, CSS e JS, eu peguei dela, então deixo os créditos aqui. Acesse o código fonte dela [clicando aqui](https://marina-ferreira.github.io/tutorials/js/memory-game/).
+Eu pude começar este projeto graças a [Marina Ferreira](https://github.com/marina-ferreira)! A base mínima dos cards com HTML, CSS e JS, eu peguei dela, então deixo os créditos aqui. Acesse o código fonte dela [clicando aqui](https://marina-ferreira.github.io/tutorials/js/memory-game/).
 
 **OBS: Apenas a base do código veio dela, que peguei quando eu estava no começo do desenvolvimento. As features foram desenvolvidas por mim mesmo.**
 
 <hr style="border: 2px solid black; height: 0;">
 
-## Não pare por aqui!
+## 👋🏻 Não pare por aqui!
 <p>Gostou do meu projeto? Então me acompanhe nas redes sociais, principalmente no LinkedIn, para ficar por dentro das minhas últimas aplicações!</p>
 
 - [Instagram](https://www.instagram.com/guiidev_/)
