@@ -124,6 +124,8 @@ Para jogar o Memory Game, [clique aqui](https://mmgame.vercel.app/).
 
 **OBS. 2: O JavaScript da Versão 2 - Opção 1 está dividido em módulos, de acordo com a quantidade de features do projeto, já o JavaScript da Versão 2 - Opção 2 está um único arquivo.**
 
+**OBS. 3: Ambas versões 1 e 2 podem ser encontradas dentro da pasta v2.0. A Versão 2 - Opção 1 é a pasta esm (ECMAScript Modules), e a Versão 2 - Opção 2 é a pasta single-js.**
+
 ## 🤝🏻 Como contribuir
 Para contribuir com esse projeto, basta seguir os passos abaixo:
 
