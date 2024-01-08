@@ -148,7 +148,7 @@ Eu pude começar este projeto graças a [Marina Ferreira](https://github.com/mar
 ## 👋🏻 Não pare por aqui!
 <p>Gostou do meu projeto? Então me acompanhe nas redes sociais, principalmente no LinkedIn, para ficar por dentro das minhas últimas aplicações!</p>
 
-- [Instagram](https://www.instagram.com/guiidev_/)
+- [Instagram](https://www.instagram.com/devguiga/)
 - [Linkedin](https://www.linkedin.com/in/guilhermescr/)
 - [Youtube](https://www.youtube.com/@devguiga)
 
